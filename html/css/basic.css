@@ -1,0 +1,44 @@
+.hide{
+  opacity: 0;
+}
+.display{
+  opacity: 1;
+}
+.close{
+  display: none;
+}
+.open{
+  display: block;
+}
+.center{
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin: auto auto;
+}
+.origin{
+  -webkit-transform: translate3d(0, 0, 0);
+}
+.rot-10{
+  -webkit-transform: rotate(-10deg);
+}
+.z-top{
+  z-index:999;
+}
+.y30{
+  -webkit-transform: translate3d(0,30px,0);
+}
+.wait,
+.active{
+  display: block;
+}
+.anime{
+  -webkit-transition: all 0.5s linear;
+}
+.scale-3{
+  -webkit-transform: scale(0.33,0.33);
+}
+.full{
+  top:0px;
+  bottom: 0px;
+}

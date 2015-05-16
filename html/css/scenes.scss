@@ -1,0 +1,282 @@
+$scene_w:800px;
+$scene_h:450px;
+
+.container{
+  width:$scene_w;
+  height:$scene_h;
+  border:1px solid #000;
+  margin:10px;
+  position: relative;
+}
+
+.scene{
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: $scene_w;
+  height: $scene_h;
+  border: 1px solid #F00;
+  overflow: hidden;
+}
+
+/* part1 */
+.color1{
+  background: #4db6ac;
+}
+.color2{
+  background: #795548;
+}
+.places{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $scene_w;
+  height: 2*$scene_h;
+}
+.block-building{
+  position: relative;
+  height: $scene_h;
+}
+.up{
+  position: absolute;
+  top:0;
+  height: 0.4*$scene_h;
+  width: $scene_w;
+}
+.down{
+  position: absolute;
+  bottom: 0;
+  height: 0.6*$scene_h;  
+  width: $scene_w;
+}
+.building{
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 250px;
+  -webkit-transform: translate3d(-50%,0,0);
+}
+.building img{
+  max-width: 100%;
+}
+$man_h:90px;
+$man_w:60px;
+.marco{
+  width: $man_w;
+  height: $man_h;
+
+  background: url("../resource/marco1.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.marco-tourist{
+  background: url("../resource/marco2.png");
+  background-size: 100% 100%;
+}
+$boat_h:75px;
+.boat{
+  position: absolute;
+  top: $man_h - $boat_h;
+  width: 200px;
+  height: $boat_h;
+  background: url("../resource/boat.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+
+/* part2 */
+.shade-part2{
+  width: 100%;
+  height: 100%;
+}
+.papermans{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+
+  bottom: 0px;
+  overflow: hidden;
+}
+.papermans:after{
+  clear: both;
+}
+.paperman{
+  width: 60px;
+  height: 90px;
+  margin: 0px 0px;
+  float:left;
+
+  -webikit-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
+}
+
+.greyman{
+  background: url("../resource/paperman.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.paperman-line{
+  position: relative;
+  left:-45px;
+
+  height: 90px;
+  width: 120%;
+  margin-top: -45px;
+  overflow: hidden;
+}
+.l1{
+  position: relative;
+  left: -15px;
+}
+
+.half{
+  position: absolute;
+  top: 0px;
+  width: 50%;
+  height: 100%;
+}
+.subway{
+  position: absolute;
+  left: -$scene_w * 0.5;
+  top: -$scene_h * 0.6;
+}
+.subway-up{
+  position: relative;
+  height: $scene_h * 0.6;
+  width: 100%;
+  background: white;
+}
+.subway-head{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: $scene_h * 0.2;
+  background: #eee;
+  border-top: solid 10px #aaa;
+  border-bottom: solid 10px #aaa;
+}
+.subway-down{
+  position: relative;
+  height: $scene_h;
+  width: 2*$scene_w;
+  overflow: hidden;
+}
+.subway-paperman{
+  position: absolute;
+  left: $scene_w*0.5;
+  width: $scene_w;
+  height: $scene_h;
+}
+.subway-left{
+  position: absolute;
+  left: 0;
+  width: $scene_w*0.5;
+  height: $scene_h;
+  background: url("../resource/subwayl.png");
+  background-size: 100% 100%;
+}
+.subway-right{
+  position: absolute;
+  right: 0;
+  width: $scene_w*0.5;
+  height: $scene_h;
+  background: url("../resource/subwayr.png");
+  background-size: 100% 100%;
+}
+.subway-block{
+  position: absolute;
+  width: $scene_w*0.5;
+  height: $scene_h;
+  background: url("../resource/subway.png");
+  background-size: 100% 100%;
+}
+.subway-block.left{
+  left: 0;
+}
+.subway-block.right{
+  right: 0;
+}
+
+/* part3 */
+.shade-youtube img{
+  position: absolute;
+  left:0px;
+  right: 0px;
+  top:0px;
+  bottom:0px;
+  margin: auto;
+}
+.shade-youtube{
+  position: absolute;
+  top:0px;
+  width: 100%;
+  height: 100%;
+  background: black;
+}
+
+.browser-block{
+  position: absolute;
+  top: -$scene_h;
+  left: -$scene_w;
+
+  width: 4*$scene_w;
+  height: 4*$scene_h;
+  border: solid 1px #aaa;
+  -webkit-transition: -webkit-transform 0.5s linear;
+}
+$br_border:15px;
+$br_border_top:30px;
+$br_padding_left:10px;
+$br_padding_top:20px;
+.browser{
+  position: absolute;
+  width: 2*$scene_w;
+  height: 2*$scene_h;
+  margin: ($scene_h - $br_border_top -$br_padding_top) ($scene_w - $br_border - $br_padding_left);
+  border: solid $br_border #aaa;
+  border-top : solid $br_border_top #aaa;
+  padding: $br_padding_top $br_padding_left;
+  overflow: hidden;
+}
+.browser-left{
+  position: absolute;
+  left: $br_padding_left;
+  top: $br_padding_top;
+}
+.browser-right{
+  position: absolute;
+  right: $br_padding_left;
+}
+.browser-half{
+  width: $scene_w - $br_padding_left;
+  height: 3*$scene_h;
+}
+.youtube{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: $scene_w;
+  height: $scene_h;
+  margin: auto auto;
+  overflow: hidden;
+}
+.comments{
+  position: absolute;
+  top: $scene_h+30px;
+  width: $scene_w;
+}
+.comment{
+  height: 100px;
+  width: 90%;
+  margin: 10px auto;
+  border: solid 3px red;
+}
+.video{
+  height: 100px;
+  width: 90%;
+  margin: 10px auto;
+  border: solid 3px blue;
+}
