@@ -1,6 +1,89 @@
+/* mixins */
+/* Common settings */
+.hide {
+  opacity: 0; }
+
+.display {
+  opacity: 1; }
+
+.close {
+  display: none; }
+
+.open {
+  display: block; }
+
+.center {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin: auto auto; }
+
+.origin {
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+.rot-10 {
+  -moz-transform: rotate(-10deg);
+  -o-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  -webkit-transform: rotate(-10deg);
+  transform: rotate(-10deg); }
+
+.z-top {
+  z-index: 999; }
+
+.y30 {
+  -moz-transform: translate3d(0, 30px, 0);
+  -o-transform: translate3d(0, 30px, 0);
+  -ms-transform: translate3d(0, 30px, 0);
+  -webkit-transform: translate3d(0, 30px, 0);
+  transform: translate3d(0, 30px, 0); }
+
+.wait,
+.active {
+  display: block; }
+
+.anime-short {
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear; }
+
+.scale-3 {
+  -moz-transform: scale(0.33, 0.33);
+  -o-transform: scale(0.33, 0.33);
+  -ms-transform: scale(0.33, 0.33);
+  -webkit-transform: scale(0.33, 0.33);
+  transform: scale(0.33, 0.33); }
+
+.full-y {
+  top: 0px;
+  bottom: 0px; }
+
+/*
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+// translate
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+ // translate3d
+@mixin translate3d ($x, $y, $z) {
+	 @include transform(translate3d($x, $y, $z));
+}
+*/
 .container {
-  width: 800px;
-  height: 450px;
+  width: 1024px;
+  height: 576px;
   border: 1px solid #000;
   margin: 10px;
   position: relative; }
@@ -9,47 +92,51 @@
   position: absolute;
   left: 0;
   right: 0;
-  width: 800px;
-  height: 450px;
+  width: 1024px;
+  height: 576px;
   border: 1px solid #F00;
   overflow: hidden; }
 
-/* part1 */
-.color1 {
-  background: #4db6ac; }
-
-.color2 {
-  background: #795548; }
-
+/* scene1 */
 .places {
   position: absolute;
   top: 0;
   left: 0;
-  width: 800px;
-  height: 900px; }
+  width: 1024px;
+  height: 1152px; }
 
-.block-building {
+.building-ctn {
   position: relative;
-  height: 450px; }
+  height: 576px; }
+
+.bridge-ctn .down, .gete-ctn .up {
+  background: #4db6ac; }
+
+.gate-ctn .down {
+  background: #795548; }
 
 .up {
   position: absolute;
   top: 0;
-  height: 180px;
-  width: 800px; }
+  height: 230.4px;
+  width: 1024px; }
 
 .down {
   position: absolute;
   bottom: 0;
-  height: 270px;
-  width: 800px; }
+  height: 345.6px;
+  width: 1024px; }
 
 .building {
   position: absolute;
   bottom: 0px;
   left: 50%;
   width: 250px;
-  -webkit-transform: translate3d(-50%, 0, 0); }
+  -moz-transform: translate3d(-50%, 0, 0);
+  -o-transform: translate3d(-50%, 0, 0);
+  -ms-transform: translate3d(-50%, 0, 0);
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0); }
 
 .building img {
   max-width: 100%; }
@@ -59,7 +146,8 @@
   height: 90px;
   background: url("../resource/marco1.png");
   background-size: 100% 100%;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  z-index: 999; }
 
 .marco-tourist {
   background: url("../resource/marco2.png");
@@ -72,9 +160,12 @@
   height: 75px;
   background: url("../resource/boat.png");
   background-size: 100% 100%;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  z-index: 500; }
 
-/* part2 */
+/**
+ * scene2 
+ */
 .shade-part2 {
   width: 100%;
   height: 100%; }
@@ -123,12 +214,12 @@
 
 .subway {
   position: absolute;
-  left: -400px;
-  top: -270px; }
+  left: -512px;
+  top: -345.6px; }
 
 .subway-up {
   position: relative;
-  height: 270px;
+  height: 345.6px;
   width: 100%;
   background: white; }
 
@@ -136,43 +227,43 @@
   position: absolute;
   bottom: 0px;
   width: 100%;
-  height: 90px;
+  height: 115.2px;
   background: #eee;
   border-top: solid 10px #aaa;
   border-bottom: solid 10px #aaa; }
 
 .subway-down {
   position: relative;
-  height: 450px;
-  width: 1600px;
+  height: 576px;
+  width: 2048px;
   overflow: hidden; }
 
 .subway-paperman {
   position: absolute;
-  left: 400px;
-  width: 800px;
-  height: 450px; }
+  left: 512px;
+  width: 1024px;
+  height: 576px; }
 
 .subway-left {
   position: absolute;
   left: 0;
-  width: 400px;
-  height: 450px;
+  width: 512px;
+  height: 576px;
   background: url("../resource/subwayl.png");
   background-size: 100% 100%; }
 
 .subway-right {
   position: absolute;
   right: 0;
-  width: 400px;
-  height: 450px;
+  width: 512px;
+  height: 576px;
   background: url("../resource/subwayr.png");
   background-size: 100% 100%; }
 
 .subway-block {
   position: absolute;
-  width: 400px;
-  height: 450px;
+  width: 512px;
+  height: 576px;
   background: url("../resource/subway.png");
   background-size: 100% 100%; }
 
@@ -200,18 +291,18 @@
 
 .browser-block {
   position: absolute;
-  top: -450px;
-  left: -800px;
-  width: 3200px;
-  height: 1800px;
+  top: -576px;
+  left: -1024px;
+  width: 4096px;
+  height: 2304px;
   border: solid 1px #aaa;
   -webkit-transition: -webkit-transform 0.5s linear; }
 
 .browser {
   position: absolute;
-  width: 1600px;
-  height: 900px;
-  margin: 400px 775px;
+  width: 2048px;
+  height: 1152px;
+  margin: 526px 999px;
   border: solid 15px #aaa;
   border-top: solid 30px #aaa;
   padding: 20px 10px;
@@ -227,22 +318,22 @@
   right: 10px; }
 
 .browser-half {
-  width: 790px;
-  height: 1350px; }
+  width: 1014px;
+  height: 1728px; }
 
 .youtube {
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 800px;
-  height: 450px;
+  width: 1024px;
+  height: 576px;
   margin: auto auto;
   overflow: hidden; }
 
 .comments {
   position: absolute;
-  top: 480px;
-  width: 800px; }
+  top: 606px;
+  width: 1024px; }
 
 .comment {
   height: 100px;

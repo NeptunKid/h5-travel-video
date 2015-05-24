@@ -1,91 +1,113 @@
-$scene_w:800px;
-$scene_h:450px;
+@import 'basic';
+
+$scene_w:1024px;
+$scene_h:576px;
+
+/*
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+// translate
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+ // translate3d
+@mixin translate3d ($x, $y, $z) {
+	 @include transform(translate3d($x, $y, $z));
+}
+*/
 
 .container{
-  width:$scene_w;
-  height:$scene_h;
-  border:1px solid #000;
-  margin:10px;
-  position: relative;
+	width:$scene_w;
+	height:$scene_h;
+	border:1px solid #000;
+	margin:10px;
+	position: relative;
 }
-
 .scene{
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: $scene_w;
-  height: $scene_h;
-  border: 1px solid #F00;
-  overflow: hidden;
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: $scene_w;
+	height: $scene_h;
+	border: 1px solid #F00;
+	overflow: hidden;
 }
 
-/* part1 */
-.color1{
-  background: #4db6ac;
-}
-.color2{
-  background: #795548;
-}
+/* scene1 */
 .places{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: $scene_w;
-  height: 2*$scene_h;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: $scene_w;
+	height: 2*$scene_h;
 }
-.block-building{
-  position: relative;
-  height: $scene_h;
+.building-ctn{
+	position: relative;
+	height: $scene_h;
+}
+.bridge-ctn .down, .gete-ctn .up{
+	background: #4db6ac;
+}
+.gate-ctn .down{
+	background: #795548;
 }
 .up{
-  position: absolute;
-  top:0;
-  height: 0.4*$scene_h;
-  width: $scene_w;
+	position: absolute;
+	top:0;
+	height: 0.4*$scene_h;
+	width: $scene_w;
 }
 .down{
-  position: absolute;
-  bottom: 0;
-  height: 0.6*$scene_h;  
-  width: $scene_w;
+	position: absolute;
+	bottom: 0;
+	height: 0.6*$scene_h;  
+	width: $scene_w;
 }
 .building{
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  width: 250px;
-  -webkit-transform: translate3d(-50%,0,0);
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	width: 250px;
+	@include translate3d(-50%,0,0);
 }
 .building img{
-  max-width: 100%;
+	max-width: 100%;
 }
 $man_h:90px;
 $man_w:60px;
 .marco{
-  width: $man_w;
-  height: $man_h;
-
-  background: url("../resource/marco1.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+	width: $man_w;
+	height: $man_h;
+	background: url("../resource/marco1.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	z-index: 999;
 }
 .marco-tourist{
-  background: url("../resource/marco2.png");
-  background-size: 100% 100%;
+	background: url("../resource/marco2.png");
+	background-size: 100% 100%;
 }
 $boat_h:75px;
 .boat{
-  position: absolute;
-  top: $man_h - $boat_h;
-  width: 200px;
-  height: $boat_h;
-  background: url("../resource/boat.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+	position: absolute;
+	top: $man_h - $boat_h;
+	width: 200px;
+	height: $boat_h;
+	background: url("../resource/boat.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	z-index: 500;
 }
 
 
-/* part2 */
+/**
+ * scene2 
+ */
 .shade-part2{
   width: 100%;
   height: 100%;
@@ -95,7 +117,6 @@ $boat_h:75px;
   top: 0px;
   left: 0px;
   right: 0px;
-
   bottom: 0px;
   overflow: hidden;
 }
@@ -107,7 +128,6 @@ $boat_h:75px;
   height: 90px;
   margin: 0px 0px;
   float:left;
-
   -webikit-transition: opacity 0.5s linear;
   transition: opacity 0.5s linear;
 }
