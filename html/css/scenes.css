@@ -1,16 +1,17 @@
 .container {
-  width: 800px;
-  height: 450px;
-  border: 1px solid #000;
-  margin: 10px;
-  position: relative; }
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  width: 1920px;
+  height: 1080px;
+  margin: 0px; }
 
 .scene {
   position: absolute;
   left: 0;
   right: 0;
-  width: 800px;
-  height: 450px;
+  width: 1920px;
+  height: 1080px;
   border: 1px solid #F00;
   overflow: hidden; }
 
@@ -25,54 +26,60 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 800px;
-  height: 900px; }
+  width: 1920px;
+  height: 2160px; }
 
 .block-building {
   position: relative;
-  height: 450px; }
+  height: 1080px; }
 
 .up {
   position: absolute;
   top: 0;
-  height: 180px;
-  width: 800px; }
+  height: 432px;
+  width: 1920px; }
 
 .down {
   position: absolute;
   bottom: 0;
-  height: 270px;
-  width: 800px; }
+  height: 648px;
+  width: 1920px; }
 
 .building {
   position: absolute;
   bottom: 0px;
   left: 50%;
-  width: 250px;
+  width: 40%;
   -webkit-transform: translate3d(-50%, 0, 0); }
 
 .building img {
   max-width: 100%; }
 
 .marco {
-  width: 60px;
-  height: 90px;
+  width: 172.8px;
+  height: 259.2px;
   background: url("../resource/marco1.png");
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
-.marco-tourist {
+.marco.tourist {
   background: url("../resource/marco2.png");
   background-size: 100% 100%; }
 
 .boat {
   position: absolute;
-  top: 15px;
-  width: 200px;
-  height: 75px;
+  width: 518.4px;
+  height: 259.2px;
   background: url("../resource/boat.png");
   background-size: 100% 100%;
   background-repeat: no-repeat; }
+
+.marco.scene-top {
+  position: absolute;
+  top: -18%; }
+
+.boat.scene-top {
+  top: -15%; }
 
 /* part2 */
 .shade-part2 {
@@ -91,8 +98,8 @@
   clear: both; }
 
 .paperman {
-  width: 60px;
-  height: 90px;
+  width: 172.8px;
+  height: 259.2px;
   margin: 0px 0px;
   float: left;
   -webikit-transition: opacity 0.5s linear;
@@ -105,15 +112,15 @@
 
 .paperman-line {
   position: relative;
-  left: -45px;
-  height: 90px;
+  left: -129.6px;
+  height: 259.2px;
   width: 120%;
-  margin-top: -45px;
+  margin-top: -129.6px;
   overflow: hidden; }
 
 .l1 {
   position: relative;
-  left: -15px; }
+  left: -43.2px; }
 
 .half {
   position: absolute;
@@ -123,12 +130,12 @@
 
 .subway {
   position: absolute;
-  left: -400px;
-  top: -270px; }
+  left: -960px;
+  top: -648px; }
 
 .subway-up {
   position: relative;
-  height: 270px;
+  height: 648px;
   width: 100%;
   background: white; }
 
@@ -136,43 +143,43 @@
   position: absolute;
   bottom: 0px;
   width: 100%;
-  height: 90px;
+  height: 216px;
   background: #eee;
   border-top: solid 10px #aaa;
   border-bottom: solid 10px #aaa; }
 
 .subway-down {
   position: relative;
-  height: 450px;
-  width: 1600px;
+  height: 1080px;
+  width: 3840px;
   overflow: hidden; }
 
 .subway-paperman {
   position: absolute;
-  left: 400px;
-  width: 800px;
-  height: 450px; }
+  left: 960px;
+  width: 1920px;
+  height: 1080px; }
 
 .subway-left {
   position: absolute;
   left: 0;
-  width: 400px;
-  height: 450px;
+  width: 960px;
+  height: 1080px;
   background: url("../resource/subwayl.png");
   background-size: 100% 100%; }
 
 .subway-right {
   position: absolute;
   right: 0;
-  width: 400px;
-  height: 450px;
+  width: 960px;
+  height: 1080px;
   background: url("../resource/subwayr.png");
   background-size: 100% 100%; }
 
 .subway-block {
   position: absolute;
-  width: 400px;
-  height: 450px;
+  width: 960px;
+  height: 1080px;
   background: url("../resource/subway.png");
   background-size: 100% 100%; }
 
@@ -189,7 +196,8 @@
   right: 0px;
   top: 0px;
   bottom: 0px;
-  margin: auto; }
+  margin: auto;
+  height: 20%; }
 
 .shade-youtube {
   position: absolute;
@@ -198,51 +206,53 @@
   height: 100%;
   background: black; }
 
-.browser-block {
+.ctn-browser {
   position: absolute;
-  top: -450px;
-  left: -800px;
-  width: 3200px;
-  height: 1800px;
+  top: -108px;
+  left: -768px;
+  width: 4800px;
+  height: 2700px;
   border: solid 1px #aaa;
+  background: #8d6e63;
   -webkit-transition: -webkit-transform 0.5s linear; }
 
 .browser {
   position: absolute;
-  width: 1600px;
-  height: 900px;
-  margin: 400px 775px;
-  border: solid 15px #aaa;
-  border-top: solid 30px #aaa;
-  padding: 20px 10px;
-  overflow: hidden; }
+  width: 3264px;
+  height: 100%;
+  margin: 0 738px;
+  padding: 108px 30px;
+  overflow: hidden;
+  background: #e0e0e0; }
 
 .browser-left {
   position: absolute;
-  left: 10px;
-  top: 20px; }
+  left: 30px;
+  top: 108px;
+  width: 1980px;
+  height: 100%;
+  margin: auto auto; }
 
 .browser-right {
   position: absolute;
-  right: 10px; }
-
-.browser-half {
-  width: 790px;
-  height: 1350px; }
+  left: 1980px;
+  right: 30px;
+  height: 100%;
+  margin: auto auto; }
 
 .youtube {
   position: absolute;
   left: 0px;
   top: 0px;
-  width: 800px;
-  height: 450px;
+  width: 1920px;
+  height: 1080px;
   margin: auto auto;
   overflow: hidden; }
 
 .comments {
   position: absolute;
-  top: 480px;
-  width: 800px; }
+  top: 1110px;
+  width: 1920px; }
 
 .comment {
   height: 100px;
@@ -250,10 +260,44 @@
   margin: 10px auto;
   border: solid 3px red; }
 
-.video {
-  height: 100px;
+.ctn-video {
+  position: relative;
+  height: 432px;
   width: 90%;
-  margin: 10px auto;
+  margin: 0px auto; }
+
+.video {
+  position: relative;
+  width: 648px;
+  height: 432px;
+  background: url("../resource/board_video.png");
+  background-size: 100% 100%; }
+
+.video .img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 432px;
+  height: 216px;
+  margin: auto; }
+
+.video .v0 {
+  background: url("../resource/v0.png");
+  background-size: 100% 100%; }
+
+.video .v1 {
+  background: url("../resource/v1.png");
+  background-size: 100% 100%; }
+
+.video .v2 {
+  background: url("../resource/v2.png");
+  background-size: 100% 100%; }
+
+.dashes {
+  position: absolute;
+  left: 540px;
   border: solid 3px blue; }
 
 /*# sourceMappingURL=scenes.css.map */

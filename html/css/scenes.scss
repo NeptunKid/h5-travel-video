@@ -1,12 +1,13 @@
-$scene_w:800px;
-$scene_h:450px;
+$scene_w:1920px;
+$scene_h: 9*$scene_w/16;
 
 .container{
+  position: absolute;
+  left: 50%;
+  top: 100px;
   width:$scene_w;
   height:$scene_h;
-  border:1px solid #000;
-  margin:10px;
-  position: relative;
+  margin: 0px;
 }
 
 .scene{
@@ -53,14 +54,14 @@ $scene_h:450px;
   position: absolute;
   bottom: 0px;
   left: 50%;
-  width: 250px;
+  width: 40%;
   -webkit-transform: translate3d(-50%,0,0);
 }
 .building img{
   max-width: 100%;
 }
-$man_h:90px;
-$man_w:60px;
+$man_h: 0.24*$scene_h;
+$man_w: 0.16*$scene_h;
 .marco{
   width: $man_w;
   height: $man_h;
@@ -69,19 +70,24 @@ $man_w:60px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.marco-tourist{
+.marco.tourist{
   background: url("../resource/marco2.png");
   background-size: 100% 100%;
 }
-$boat_h:75px;
 .boat{
   position: absolute;
-  top: $man_h - $boat_h;
-  width: 200px;
-  height: $boat_h;
+  width: 2*$man_h;
+  height: $man_h;
   background: url("../resource/boat.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+}
+.marco.scene-top{
+  position: absolute;
+  top: -18%;
+}
+.boat.scene-top{
+  top: -15%;
 }
 
 
@@ -103,8 +109,8 @@ $boat_h:75px;
   clear: both;
 }
 .paperman{
-  width: 60px;
-  height: 90px;
+  width: $man_w;
+  height: $man_h;
   margin: 0px 0px;
   float:left;
 
@@ -120,16 +126,16 @@ $boat_h:75px;
 
 .paperman-line{
   position: relative;
-  left:-45px;
+  left: -$man_h/2;
 
-  height: 90px;
+  height: $man_h;
   width: 120%;
-  margin-top: -45px;
+  margin-top: -$man_h/2;
   overflow: hidden;
 }
 .l1{
   position: relative;
-  left: -15px;
+  left: -$man_h/6;
 }
 
 .half{
@@ -208,6 +214,7 @@ $boat_h:75px;
   top:0px;
   bottom:0px;
   margin: auto;
+  height: 20%;
 }
 .shade-youtube{
   position: absolute;
@@ -216,44 +223,44 @@ $boat_h:75px;
   height: 100%;
   background: black;
 }
-
-.browser-block{
+$br_padding_left:30px;
+$br_padding_top :$scene_h*0.1;
+.ctn-browser{
   position: absolute;
-  top: -$scene_h;
-  left: -$scene_w;
+  top: -$br_padding_top;
+  left: -0.4*$scene_w;
 
-  width: 4*$scene_w;
-  height: 4*$scene_h;
+  width: 2.5*$scene_w;
+  height: 2.5*$scene_h;
   border: solid 1px #aaa;
+  background: #8d6e63;
   -webkit-transition: -webkit-transform 0.5s linear;
 }
-$br_border:15px;
-$br_border_top:30px;
-$br_padding_left:10px;
-$br_padding_top:20px;
 .browser{
   position: absolute;
-  width: 2*$scene_w;
-  height: 2*$scene_h;
-  margin: ($scene_h - $br_border_top -$br_padding_top) ($scene_w - $br_border - $br_padding_left);
-  border: solid $br_border #aaa;
-  border-top : solid $br_border_top #aaa;
+  width: 1.7*$scene_w;
+  height: 100%;
+  margin: 0 0.4*$scene_w - $br_padding_left;
   padding: $br_padding_top $br_padding_left;
   overflow: hidden;
+  background: #e0e0e0;
 }
 .browser-left{
   position: absolute;
   left: $br_padding_left;
   top: $br_padding_top;
+  width: $scene_w + 2*$br_padding_left;
+  height: 100%;
+  margin: auto auto;
 }
 .browser-right{
   position: absolute;
+  left: $scene_w + 2*$br_padding_left;
   right: $br_padding_left;
+  height: 100%;
+  margin: auto auto;
 }
-.browser-half{
-  width: $scene_w - $br_padding_left;
-  height: 3*$scene_h;
-}
+
 .youtube{
   position: absolute;
   left: 0px;
@@ -274,9 +281,47 @@ $br_padding_top:20px;
   margin: 10px auto;
   border: solid 3px red;
 }
-.video{
-  height: 100px;
+.ctn-video{
+  position: relative;
+  height: 0.4*$scene_h;
   width: 90%;
-  margin: 10px auto;
+  margin: 0px auto;
+}
+
+.video{
+  position: relative;
+  width: 0.6*$scene_h;
+  height: 0.4*$scene_h;
+  background: url("../resource/board_video.png");
+  background-size: 100% 100%;
+}
+.board{
+}
+.video .img{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0.4*$scene_h;
+  height: 0.2*$scene_h;
+  margin: auto;
+}
+.video .v0{
+  background: url('../resource/v0.png');
+  background-size: 100% 100%;
+}
+.video .v1{
+  background: url('../resource/v1.png');
+  background-size: 100% 100%; 
+}
+.video .v2{
+  background: url('../resource/v2.png');
+  background-size: 100% 100%;
+}
+
+.dashes{
+  position: absolute;
+  left: 0.5*$scene_h;
   border: solid 3px blue;
 }

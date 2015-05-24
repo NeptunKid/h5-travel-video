@@ -32,6 +32,18 @@
                 this.playNext();
               }
           }.bind(this));
+        }else if(this._config.flipType == 'wheel'){
+          $(document).bind('mousewheel DOMMouseScroll', function(event) {
+            event.preventDefault();
+            var delta;
+            var type = event.type;
+            delta = (event.wheelDelta) ? event.wheelDelta / 120 : -(event.detail || 0) / 3;
+            if(delta < 0){
+              this.playNext();
+            }else{
+              this.playPrev();
+            }
+          }.bind(this))
         }
         
         this._loadScene();
@@ -65,7 +77,7 @@
           a[k]=v;
         })
       },
-      getOrCreate: function (query, tag, style, parent){
+      getOrCreate: function (query, tag, parent, style){
         var target = $(query);
         if(!target[0]){
           target = $(tag);
@@ -73,8 +85,9 @@
             $(parent).append(target);
           }
         }
-       // target.attr("style","");
-        target.css(style);
+        if (style) {
+          target.css(style);
+        }
         return target;
       },
       start: function (){

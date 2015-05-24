@@ -15,18 +15,19 @@
       return;
     var h = ppdiv.height();
     var w = ppdiv.width();
-    console.log(h);
-    var ph = 45;
-    var pw = 60;
+    var ph = 0.12*h;
+    var pw = 0.16*h;
     var n = h/ph;
     var m = w/pw;
+    console.log(n);
+    console.log(m);
     for (var i=0;i<=n;i++){
         var line = $("<div class = 'paperman-line l"+ (i%2)+ "'></div>");
         for (var j=0;j<=m;j++)
         {
             var elm = $("<div class = 'paperman greyman hide'></div>");
             if (i == parseInt(n/2)+1 && j==parseInt(m/2)+1)
-              line.append("<div class = 'paperman marco'></div>");
+              line.append("<div class = 'paperman marco tourist'></div>");
             line.append(elm);
         }
         ppdiv.append(line[0]);
@@ -40,22 +41,33 @@
   }
   anole.addScene({
     onInit: function (){
-      this.scene = anole.getOrCreate("#part2",'<div id = "part2" class = "scene"></div>',{},anole.canvas);
-      this.shade = anole.getOrCreate("#shade-part2",'<div id = "shade-part2" class = "shade-part2 color2"></div>',{opacity:0},this.scene);
+      this.scene = anole.getOrCreate("#part2",'<div id = "part2" class = "scene"></div>',anole.canvas);
+      this.scene[0].className = "scene";
+      this.shade = anole.getOrCreate("#shade-part2",'<div id = "shade-part2" class = "shade-part2 color2"></div>',this.scene,{opacity:0});
       //this.marco = anole.getOrCreate("#marco-scene3","<div id = 'marco-scene3' class = 'marco center'></div>",{top:"55%"},this.scene);
-      this.places = anole.getOrCreate('.places','<div class="places"></div>',{},this.scene);
+      this.places = anole.getOrCreate('.places','<div class="places"></div>',this.scene);
     },
     onStart: function (finish){
       this.tl1 = new TimelineLite();
       this.tl1.add(TweenLite.to(this.shade, 0.5, {opacity:1, ease:Linear.easeNone, onComplete:function(){
         $("#part1")[0].className = "hidden";
-        //this.marco.css("display","none");
-        anole.getOrCreate("#papermans","<div id='papermans' class='papermans'></div>",{},this.scene);
+        anole.getOrCreate("#part2 #papermans","<div id='papermans' class='papermans'></div>",this.scene);
         paperman_init();
         setTimeout(display_ppm,500);
       }.bind(this)}));
     },
+    onBack: function(finish){
+      $("#part1")[0].className = "scene";
+      $("#part2").remove();
+      $("#part2 #papermans").remove();
+      finish();
+    },
     onEnd: function (){
+      var hides = $("#part2 .paperman.hide");
+      hides.each(function(idx,elm){
+        elm.classList.toggle("hide");
+        elm.classList.toggle("open");
+      });
     }
   })
 });

@@ -1,8 +1,8 @@
 ;require(['anole', 'zepto', 'TweenLite', 'CSSPlugin', 'TimelineLite'], function (anole){
   anole.addScene({
     onInit: function (){
-      this.scene = anole.getOrCreate("#part1",'<div id = "part1" class = "scene"></div>',{},anole.canvas);
-      this.places = anole.getOrCreate('.places','<div class="places"></div>',{},this.scene);
+      this.scene = anole.getOrCreate("#part1",'<div id = "part1" class = "scene"></div>',anole.canvas);
+      this.places = anole.getOrCreate('.places','<div class="places"></div>',this.scene);
       if (this.places.find(".block-building").length <1){
         this.places.append($('<div class = "block-building"><div class = "up"><div class = "building"><img src="./resource/bridge.png"></div></div><div class = "down color1"></div></div>'));
         this.places.append($('<div class = "block-building"><div class = "up color1"><div class = "building"><img src="./resource/gate.png"></div></div><div class = "down color2"></div></div>'));
