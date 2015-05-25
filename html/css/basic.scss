@@ -1,0 +1,78 @@
+/* mixins */
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+// scale
+@mixin scale($scaleX, $scaleY) {
+	 @include transform(scale($scaleX, $scaleY));
+ } 
+// translate
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+ // translate3d
+@mixin translate3d ($x, $y, $z) {
+	 @include transform(translate3d($x, $y, $z));
+}
+// transition
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+/* Common settings */
+.hide {
+  opacity: 0;
+}
+.display {
+  opacity: 1;
+}
+.close {
+  display: none;
+}
+.open {
+  display: block;
+}
+.center {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin: auto auto;
+}
+.origin {
+  @include translate3d(0, 0, 0);
+}
+.rot-10 {
+  @include rotate(-10);
+}
+.z-top {
+  z-index:999;
+}
+.y30 {
+  @include translate3d(0, 30px, 0);
+}
+.wait,
+.active {
+  display: block;
+}
+.anime-short {
+  @include transition(all, 0.5s, linear);
+}
+.scale-3 {
+  @include scale(0.33, 0.33);
+}
+.full-y {
+  top:0px;
+  bottom: 0px;
+}

@@ -85,6 +85,7 @@
             $(parent).append(target);
           }
         }
+        //target.removeAttr("style");
         if (style) {
           target.css(style);
         }

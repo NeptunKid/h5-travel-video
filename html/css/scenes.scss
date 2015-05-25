@@ -1,327 +1,351 @@
-$scene_w:1920px;
-$scene_h: 9*$scene_w/16;
+@import 'basic';
+
+$scene_w:1024px;
+$scene_h:576px;
+
+/*
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+// translate
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+ // translate3d
+@mixin translate3d ($x, $y, $z) {
+	 @include transform(translate3d($x, $y, $z));
+}
+*/
 
 .container{
-  position: absolute;
-  left: 50%;
-  top: 100px;
-  width:$scene_w;
-  height:$scene_h;
-  margin: 0px;
+	position: absolute;
+	left: 50%;
+	top: 100px;
+	width:$scene_w;
+	height:$scene_h;
+	margin: 0px;
+	border:1px solid #000;
 }
 
 .scene{
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: $scene_w;
-  height: $scene_h;
-  border: 1px solid #F00;
-  overflow: hidden;
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: $scene_w;
+	height: $scene_h;
+	border: 1px solid #F00;
+	overflow: hidden;
 }
 
-/* part1 */
-.color1{
-  background: #4db6ac;
-}
-.color2{
-  background: #795548;
-}
+/* scene1 */
 .places{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: $scene_w;
-  height: 2*$scene_h;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: $scene_w;
+	height: 2*$scene_h;
 }
-.block-building{
-  position: relative;
-  height: $scene_h;
+.building-ctn{
+	position: relative;
+	height: $scene_h;
+}
+.bridge-ctn .down, .gate-ctn .up{
+	background: #4db6ac;
+}
+.gate-ctn .down{
+	background: #795548;
 }
 .up{
-  position: absolute;
-  top:0;
-  height: 0.4*$scene_h;
-  width: $scene_w;
+	position: absolute;
+	top:0;
+	height: 0.4*$scene_h;
+	width: $scene_w;
 }
 .down{
-  position: absolute;
-  bottom: 0;
-  height: 0.6*$scene_h;  
-  width: $scene_w;
+	position: absolute;
+	bottom: 0;
+	height: 0.6*$scene_h;	
+	width: $scene_w;
 }
 .building{
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  width: 40%;
-  -webkit-transform: translate3d(-50%,0,0);
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	width: 40%;
+	@include translate3d(-50%,0,0);
 }
 .building img{
-  max-width: 100%;
+	max-width: 100%;
 }
 $man_h: 0.24*$scene_h;
 $man_w: 0.16*$scene_h;
 .marco{
-  width: $man_w;
-  height: $man_h;
-
-  background: url("../resource/marco1.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+	width: $man_w;
+	height: $man_h;
+	background: url("../resource/marco1.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	z-index: 999;
 }
 .marco.tourist{
-  background: url("../resource/marco2.png");
-  background-size: 100% 100%;
+	background: url("../resource/marco2.png");
+	background-size: 100% 100%;
 }
 .boat{
-  position: absolute;
-  width: 2*$man_h;
-  height: $man_h;
-  background: url("../resource/boat.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+	position: absolute;
+	width: 2*$man_h;
+	height: $man_h;
+	background: url("../resource/boat.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	z-index: 500;
 }
 .marco.scene-top{
-  position: absolute;
-  top: -18%;
+	position: absolute;
+	top: -18%;
 }
 .boat.scene-top{
-  top: -15%;
+	top: -15%;
 }
 
 
-/* part2 */
+/**
+ * scene2 
+ */
 .shade-part2{
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
+	background: #795548;
 }
 .papermans{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-
-  bottom: 0px;
-  overflow: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow: hidden;
 }
 .papermans:after{
-  clear: both;
+	clear: both;
 }
 .paperman{
-  width: $man_w;
-  height: $man_h;
-  margin: 0px 0px;
-  float:left;
+	width: $man_w;
+	height: $man_h;
+	margin: 0px 0px;
+	float:left;
 
-  -webikit-transition: opacity 0.5s linear;
-  transition: opacity 0.5s linear;
+	-webikit-transition: opacity 0.5s linear;
+	transition: opacity 0.5s linear;
 }
 
 .greyman{
-  background: url("../resource/paperman.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+	background: url("../resource/paperman.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 }
 
 .paperman-line{
-  position: relative;
-  left: -$man_h/2;
+	position: relative;
+	left: -$man_h/2;
 
-  height: $man_h;
-  width: 120%;
-  margin-top: -$man_h/2;
-  overflow: hidden;
+	height: $man_h;
+	width: 120%;
+	margin-top: -$man_h/2;
+	overflow: hidden;
 }
 .l1{
-  position: relative;
-  left: -$man_h/6;
+	position: relative;
+	left: -$man_h/6;
 }
 
 .half{
-  position: absolute;
-  top: 0px;
-  width: 50%;
-  height: 100%;
+	position: absolute;
+	top: 0px;
+	width: 50%;
+	height: 100%;
 }
 .subway{
-  position: absolute;
-  left: -$scene_w * 0.5;
-  top: -$scene_h * 0.6;
+	position: absolute;
+	left: -$scene_w * 0.5;
+	top: -$scene_h * 0.6;
 }
 .subway-up{
-  position: relative;
-  height: $scene_h * 0.6;
-  width: 100%;
-  background: white;
+	position: relative;
+	height: $scene_h * 0.6;
+	width: 100%;
+	background: white;
 }
 .subway-head{
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  height: $scene_h * 0.2;
-  background: #eee;
-  border-top: solid 10px #aaa;
-  border-bottom: solid 10px #aaa;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: $scene_h * 0.2;
+	background: #eee;
+	border-top: solid 10px #aaa;
+	border-bottom: solid 10px #aaa;
 }
 .subway-down{
-  position: relative;
-  height: $scene_h;
-  width: 2*$scene_w;
-  overflow: hidden;
+	position: relative;
+	height: $scene_h;
+	width: 2*$scene_w;
+	overflow: hidden;
 }
 .subway-paperman{
-  position: absolute;
-  left: $scene_w*0.5;
-  width: $scene_w;
-  height: $scene_h;
+	position: absolute;
+	left: $scene_w*0.5;
+	width: $scene_w;
+	height: $scene_h;
 }
 .subway-left{
-  position: absolute;
-  left: 0;
-  width: $scene_w*0.5;
-  height: $scene_h;
-  background: url("../resource/subwayl.png");
-  background-size: 100% 100%;
+	position: absolute;
+	left: 0;
+	width: $scene_w*0.5;
+	height: $scene_h;
+	background: url("../resource/subwayl.png");
+	background-size: 100% 100%;
 }
 .subway-right{
-  position: absolute;
-  right: 0;
-  width: $scene_w*0.5;
-  height: $scene_h;
-  background: url("../resource/subwayr.png");
-  background-size: 100% 100%;
+	position: absolute;
+	right: 0;
+	width: $scene_w*0.5;
+	height: $scene_h;
+	background: url("../resource/subwayr.png");
+	background-size: 100% 100%;
 }
 .subway-block{
-  position: absolute;
-  width: $scene_w*0.5;
-  height: $scene_h;
-  background: url("../resource/subway.png");
-  background-size: 100% 100%;
+	position: absolute;
+	width: $scene_w*0.5;
+	height: $scene_h;
+	background: url("../resource/subway.png");
+	background-size: 100% 100%;
 }
 .subway-block.left{
-  left: 0;
+	left: 0;
 }
 .subway-block.right{
-  right: 0;
+	right: 0;
 }
 
 /* part3 */
 .shade-youtube img{
-  position: absolute;
-  left:0px;
-  right: 0px;
-  top:0px;
-  bottom:0px;
-  margin: auto;
-  height: 20%;
+	position: absolute;
+	left:0px;
+	right: 0px;
+	top:0px;
+	bottom:0px;
+	margin: auto;
+	height: 20%;
 }
 .shade-youtube{
-  position: absolute;
-  top:0px;
-  width: 100%;
-  height: 100%;
-  background: black;
+	position: absolute;
+	top:0px;
+	width: 100%;
+	height: 100%;
+	background: black;
 }
 $br_padding_left:30px;
 $br_padding_top :$scene_h*0.1;
 .ctn-browser{
-  position: absolute;
-  top: -$br_padding_top;
-  left: -0.4*$scene_w;
+	position: absolute;
+	top: -$br_padding_top;
+	left: -0.4*$scene_w;
 
-  width: 2.5*$scene_w;
-  height: 2.5*$scene_h;
-  border: solid 1px #aaa;
-  background: #8d6e63;
-  -webkit-transition: -webkit-transform 0.5s linear;
+	width: 2.5*$scene_w;
+	height: 2.5*$scene_h;
+	border: solid 1px #aaa;
+	background: #8d6e63;
+	-webkit-transition: -webkit-transform 0.5s linear;
 }
 .browser{
-  position: absolute;
-  width: 1.7*$scene_w;
-  height: 100%;
-  margin: 0 0.4*$scene_w - $br_padding_left;
-  padding: $br_padding_top $br_padding_left;
-  overflow: hidden;
-  background: #e0e0e0;
+	position: absolute;
+	width: 1.7*$scene_w;
+	height: 100%;
+	margin: 0 0.4*$scene_w - $br_padding_left;
+	padding: $br_padding_top $br_padding_left;
+	overflow: hidden;
+	background: #e0e0e0;
 }
 .browser-left{
-  position: absolute;
-  left: $br_padding_left;
-  top: $br_padding_top;
-  width: $scene_w + 2*$br_padding_left;
-  height: 100%;
-  margin: auto auto;
+	position: absolute;
+	left: $br_padding_left;
+	top: $br_padding_top;
+	width: $scene_w + 2*$br_padding_left;
+	height: 100%;
+	margin: auto auto;
 }
 .browser-right{
-  position: absolute;
-  left: $scene_w + 2*$br_padding_left;
-  right: $br_padding_left;
-  height: 100%;
-  margin: auto auto;
+	position: absolute;
+	left: $scene_w + 2*$br_padding_left;
+	right: $br_padding_left;
+	height: 100%;
+	margin: auto auto;
 }
 
 .youtube{
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: $scene_w;
-  height: $scene_h;
-  margin: auto auto;
-  overflow: hidden;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: $scene_w;
+	height: $scene_h;
+	margin: auto auto;
+	overflow: hidden;
 }
 .comments{
-  position: absolute;
-  top: $scene_h+30px;
-  width: $scene_w;
+	position: absolute;
+	top: $scene_h+30px;
+	width: $scene_w;
 }
 .comment{
-  height: 100px;
-  width: 90%;
-  margin: 10px auto;
-  border: solid 3px red;
+	height: 100px;
+	width: 90%;
+	margin: 10px auto;
+	border: solid 3px red;
 }
 .ctn-video{
-  position: relative;
-  height: 0.4*$scene_h;
-  width: 90%;
-  margin: 0px auto;
+	position: relative;
+	height: 0.4*$scene_h;
+	width: 90%;
+	margin: 0px auto;
 }
 
 .video{
-  position: relative;
-  width: 0.6*$scene_h;
-  height: 0.4*$scene_h;
-  background: url("../resource/board_video.png");
-  background-size: 100% 100%;
+	position: relative;
+	width: 0.6*$scene_h;
+	height: 0.4*$scene_h;
+	background: url("../resource/board_video.png");
+	background-size: 100% 100%;
 }
 .board{
 }
 .video .img{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 0.4*$scene_h;
-  height: 0.2*$scene_h;
-  margin: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 0.4*$scene_h;
+	height: 0.2*$scene_h;
+	margin: auto;
 }
 .video .v0{
-  background: url('../resource/v0.png');
-  background-size: 100% 100%;
+	background: url('../resource/v0.png');
+	background-size: 100% 100%;
 }
 .video .v1{
-  background: url('../resource/v1.png');
-  background-size: 100% 100%; 
+	background: url('../resource/v1.png');
+	background-size: 100% 100%; 
 }
 .video .v2{
-  background: url('../resource/v2.png');
-  background-size: 100% 100%;
+	background: url('../resource/v2.png');
+	background-size: 100% 100%;
 }
 
 .dashes{
-  position: absolute;
-  left: 0.5*$scene_h;
-  border: solid 3px blue;
+	position: absolute;
+	left: 0.5*$scene_h;
+	border: solid 3px blue;
 }

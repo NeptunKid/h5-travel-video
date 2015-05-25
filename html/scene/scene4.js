@@ -1,35 +1,45 @@
 ;require(['anole', 'zepto'], function (anole){
-  anole.addScene({
-    onInit: function (){
-      this.scene = anole.getOrCreate("#part2",'<div id = "part2" class = "scene"></div>',anole.canvas);
-      this.subway = anole.getOrCreate("#subway",'<div id = "subway" class = "subway"></div>',this.scene);
-      this.subup = anole.getOrCreate("#subway-up","<div id='subway-up' class='subway-up'>",this.subway);
-      this.subhead = anole.getOrCreate("#subway-head","<div id='subway-head' class='subway-head'>",this.subup);
-      this.subdown = anole.getOrCreate("#subway-down","<div id='subway-down' class='subway-down'>",this.subway);
-      this.subway_paperman = anole.getOrCreate("#subway-paperman","<div id = 'subway-paperman' class='subway-paperman'></div>",this.subdown);
-      this.subway_paperman.html($("#papermans").html());
-      this.marco = anole.getOrCreate("#marco-scene4","<div id='marco-scene4' class='marco tourist center'></div>",this.subdown,{top:"55%",display:"none"});
-      this.sublblock = anole.getOrCreate("#subway-left-block","<div id = 'subway-left-block' class='left subway-block'></div>",this.subdown);
-      this.subrblock = anole.getOrCreate("#subway-right-block","<div id = 'subway-right-block' class='right subway-block'></div>",this.subdown);
-      this.sublgate = anole.getOrCreate("#subway-left","<div id = 'subway-left' class='subway-left'></div>",this.subdown);
-      this.subrgate = anole.getOrCreate("#subway-right","<div id = 'subway-right' class='subway-right'></div>",this.subdown);
-    },
-    onStart: function (finish){
-      this.tl1 = new TimelineLite();
-      this.tl2 = new TimelineLite();
-      this.tl1.add(TweenLite.to($("#subway-left"), 0.5, {x:"100%", ease:Linear.easeNone, onComplete:function(){
-        $("#papermans").css("display","none");
-      }}));
-      this.tl2.add(TweenLite.to($("#subway-right"), 0.5, {x:"-100%", ease:Linear.easeNone}));
-      this.tl1.add(TweenLite.to(this.subway,0.5,{delay:0.2,scaleX:"0.625",scaleY:"0.625",y:"18.75%"}));
-    },
-    onBack: function(finish){
-      this.subway.remove();
-      $("#part2 #papermans").remove();
-      $("#part1")[0].className = "scene";
-      finish();
-    },
-    onEnd: function (){
-    },
-  })
+	var mcount = 10;
+	var move_delta = 200;
+	var marco_run = function(){
+		console.log($("#marco-scene4"));
+		$("#marco-scene4")[0].classList.toggle("rot-10");
+		mcount--;
+		if (mcount)
+			setTimeout(marco_run,move_delta);
+	}
+	anole.addScene({
+		onInit: function (){
+			this.scene = anole.getOrCreate("#part2",'<div id = "part2" class = "scene"></div>',anole.canvas);
+			this.marco = anole.getOrCreate("#marco-scene4","<div id='marco-scene4' class='marco center'></div>",this.scene,{top:"55%"});
+			this.marco.css({top:"50%",left:"",width:"",height:""});
+			this.sublgate = $("#subway-left");
+			this.subrgate = $("#subway-right");
+			TweenLite.to(this.sublgate,0,{x:"100%"});
+			TweenLite.to(this.subrgate,0,{x:"-100%"});
+			$(".paperman.marco").css("display","none");
+			this.marco.css("display","block");
+		},
+		onStart: function (finish){
+			var new_w = 1080 * 0.24;
+			var new_h = 1.5*new_w;
+			this.tl1 = new TimelineLite();
+			this.tl1.to($("#subway-left"), 0.5, {x:"50%", ease:Linear.easeNone, onComplete:this.marco_go_out.bind(this)})
+							.to($("#subway-right"), 0.5, {x:"-50%", ease:Linear.easeNone},"-=0.5")
+							.to(this.marco,1,{delay:0.2,left:"18%",top:"58%",width:new_w,height:new_h,ease:Linear.easeNone,});
+		},
+		onBack: function(finish){
+			this.marco.remove();
+			TweenLite.to($("#subway"),0,{scaleX:1,scaleY:1,y:"0%"});
+			finish();
+		},
+		onEnd: function (){
+		},
+		marco_go_out:function(){
+			var duration = 1;
+			var delay = 0.2;
+			mcount = duration*1000/move_delta;
+			setTimeout(marco_run,delay*1000);
+		},
+	})
 });
