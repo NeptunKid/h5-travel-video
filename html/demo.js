@@ -1,4 +1,4 @@
-;require(['anole'], function (anole){
+;require(['anole','js/TweenLite.min'], function (anole){
   var sceneQueue;
   var baseUrl;
   var resoureUrl;
@@ -25,11 +25,11 @@
       },
       {
         fileName:'scene2.js',
-        res: ["gate","boat","oar","marco1"] //depend resources.
+        res: ["gate","boat","oar","marco1","paperman"]
       },
       {
         fileName:'scene3.js',
-        res: ["gate","boat","oar","marco1","paperman"]
+        res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate"]
       },
       {
         fileName:'scene4.js',
@@ -37,14 +37,10 @@
       },
       {
         fileName:'scene5.js',
-        res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate"]
-      },
-      {
-        fileName:'scene6.js',
         res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate","replay"]
       },
       {
-        fileName:'scene7.js',
+        fileName:'scene6.js',
         res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate","replay"]
       },
     ]
@@ -76,5 +72,20 @@
     })
     
     anole.start();
+    var window_w = document.body.clientWidth;
+    var scene_w = $(".container").width();
+    var scene_h = $(".container").height();
+    var scale = window_w / scene_w + "";
+    function getSupportedPropertyName() {
+      var properties = ["transform", "msTransform", "webkitTransform", "mozTransform", "oTransform"];
+      for (var i = 0; i < properties.length; i++) {
+        if (typeof document.body.style[properties[i]] != "undefined") {
+          return properties[i];
+        }
+      }
+      return null;
+    }
+    var transformProperty = getSupportedPropertyName();
+    $(".container").css(transformProperty,"translate3d(-50%,"+((scale-1)*scene_h/2)+"px,0) scale("+scale+","+scale+")");
   })
 });
