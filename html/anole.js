@@ -65,6 +65,7 @@
           a[k]=v;
         })
       },
+	  // Returns a jQuery object instead of a dom node.
       getOrCreate: function (query, tag, parent, style){
         var target = $(query);
         if(!target[0]){
@@ -73,7 +74,6 @@
             $(parent).append(target);
           }
         }
-       // target.attr("style","");
 		if (style) {
 			target.css(style);
 		}

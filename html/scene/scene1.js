@@ -1,21 +1,13 @@
 ;require(['anole', 'zepto', 'TweenLite', 'CSSPlugin', 'TimelineLite'], function (anole){
 	var pada_count = 5;
 	var padapada = function(){
-		// $("#boat-scene2")[0].classList.toggle("rot-10");
 		this.boat.toggleClass("rot-10"); 
-		// $("#marco-scene2")[0].classList.toggle("rot-10");
 		this.marco.toggleClass("rot-10");
 		pada_count--;
 		if (pada_count>0) {
 			setTimeout(padapada.bind(this), 100);
-			// console.log("run once." + this.marco[0].className);
 		} else {
 			setTimeout((function(){
-				/*
-				   $("#marco-scene2")[0].classList.toggle("anime-short");
-				   $("#marco-scene2")[0].classList.toggle("rot-10");
-				   $("#marco-scene2")[0].classList.toggle("z-top");
-				   */
 				this.marco.toggleClass("rot-10", false); // Removes rot-10 if it's present.
 				this.marco.addClass("anime-short z-top");
 			}).bind(this), 400);
@@ -24,15 +16,14 @@
 	anole.addScene({
 		onInit: function (){
 			this.scene = anole.getOrCreate("#scene1",'<div id="scene1" class="scene"></div>', anole.canvas);
-			this.places = anole.getOrCreate('.places','<div class="places"></div>', this.scene);
-			// if (this.places.find(".building-ctn").length < 1){ // Dear thy, what's this for?
+			if (!this.places){
+				this.places = anole.getOrCreate('.places','<div class="places"></div>', this.scene);
 				var bridgeCtn = $('<div></div>').addClass('building-ctn bridge-ctn');
 				var up = $('<div></div>').addClass('up');
 				var bridge = $('<div class ="building"><img src="./resource/bridge.png"></div>').appendTo(up);
 				var down = $('<div></div>').addClass('down');
 				this.marco = $('<div class="marco center"></div>').appendTo(down);
 				this.boat = $('<div class="boat center"></div>').appendTo(down);
-
 				up.appendTo(bridgeCtn);
 				down.appendTo(bridgeCtn);
 				bridgeCtn.appendTo(this.places);
@@ -44,7 +35,7 @@
 				up2.appendTo(gateCtn);  
 				down2.appendTo(gateCtn);
 				gateCtn.appendTo(this.places);
-			// }
+			}
 		},
 		onStart: function (finish){
 			this.tl1 = new TimelineLite();
