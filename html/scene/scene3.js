@@ -14,18 +14,18 @@
 	}
 	anole.addScene({
 		onInit: function (){
-			this.scene = anole.getOrCreate("#scene3",'<div id = "scene3" class = "scene"></div>',anole.canvas);
-			this.subway = anole.getOrCreate("#subway",'<div id = "subway" class = "subway"></div>',this.scene);
-			this.subup = anole.getOrCreate("#subway-up","<div id='subway-up' class='subway-up'>",this.subway);
-			this.subtext = anole.getOrCreate(".subway-text",subway_text_create,this.subup);
-			this.subhead = anole.getOrCreate("#subway-head","<div id='subway-head' class='subway-head'>",this.subup);
-			this.subdown = anole.getOrCreate("#subway-down","<div id='subway-down' class='subway-down'>",this.subway);
-			this.subway_paperman = anole.getOrCreate("#subway-paperman","<div id = 'subway-paperman' class='subway-paperman'></div>",this.subdown);
+			this.scene = anole.$$("#scene3",'<div id = "scene3" class = "scene"></div>',anole.canvas);
+			this.subway = anole.$$("#subway",'<div id = "subway" class = "subway"></div>',this.scene);
+			this.subup = anole.$$("#subway-up","<div id='subway-up' class='subway-up'>",this.subway);
+			this.subtext = anole.$$(".subway-text",subway_text_create,this.subup);
+			this.subhead = anole.$$("#subway-head","<div id='subway-head' class='subway-head'>",this.subup);
+			this.subdown = anole.$$("#subway-down","<div id='subway-down' class='subway-down'>",this.subway);
+			this.subway_paperman = anole.$$("#subway-paperman","<div id = 'subway-paperman' class='subway-paperman'></div>",this.subdown);
 			this.subway_paperman.html($("#papermans").html());
-			this.sublblock = anole.getOrCreate("#subway-left-block","<div id = 'subway-left-block' class='left subway-block'></div>",this.subdown);
-			this.subrblock = anole.getOrCreate("#subway-right-block","<div id = 'subway-right-block' class='right subway-block'></div>",this.subdown);
-			this.sublgate = anole.getOrCreate("#subway-left","<div id = 'subway-left' class='subway-left'></div>",this.subdown);
-			this.subrgate = anole.getOrCreate("#subway-right","<div id = 'subway-right' class='subway-right'></div>",this.subdown);
+			this.sublblock = anole.$$("#subway-left-block","<div id = 'subway-left-block' class='left subway-block'></div>",this.subdown);
+			this.subrblock = anole.$$("#subway-right-block","<div id = 'subway-right-block' class='right subway-block'></div>",this.subdown);
+			this.sublgate = anole.$$("#subway-left","<div id = 'subway-left' class='subway-left'></div>",this.subdown);
+			this.subrgate = anole.$$("#subway-right","<div id = 'subway-right' class='subway-right'></div>",this.subdown);
 			data = {year:1271,popu:123456789};
 			update_text();
 		},

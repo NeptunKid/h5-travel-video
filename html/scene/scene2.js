@@ -39,16 +39,16 @@
 	}
 	anole.addScene({
 		onInit: function (){
-			this.scene = anole.getOrCreate("#scene2",'<div id = "scene2" class = "scene"></div>',anole.canvas);
+			this.scene = anole.$$("#scene2",'<div id = "scene2" class = "scene"></div>',anole.canvas);
 			this.scene[0].className = "scene";
-			this.shade = anole.getOrCreate("#shade-scene2",'<div id = "shade-scene2" class = "shade-scene2"></div>',this.scene,{opacity:0});
-			this.places = anole.getOrCreate('.places','<div class="places"></div>',this.scene);
+			this.shade = anole.$$("#shade-scene2",'<div id = "shade-scene2" class = "shade-scene2"></div>',this.scene,{opacity:0});
+			this.places = anole.$$('.places','<div class="places"></div>',this.scene);
 		},
 		onStart: function (finish){
 			this.tl1 = new TimelineLite();
 			this.tl1.add(TweenLite.to(this.shade, 0.5, {opacity:1, ease:Linear.easeNone, onComplete:function(){
 				$("#scene1").hide();
-				anole.getOrCreate("#scene2 #papermans","<div id='papermans' class='papermans'></div>",this.scene);
+				anole.$$("#scene2 #papermans","<div id='papermans' class='papermans'></div>",this.scene);
 				paperman_init();
 				setTimeout(display_ppm,500);
 			}.bind(this)}));

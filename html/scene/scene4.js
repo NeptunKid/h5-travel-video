@@ -10,10 +10,10 @@
 	}
 	anole.addScene({
 		onInit: function (){
-			this.scene = anole.getOrCreate("#scene4",'<div id = "scene4" class = "scene"></div>',anole.canvas);
+			this.scene = anole.$$("#scene4",'<div id = "scene4" class = "scene"></div>',anole.canvas);
 			this.scene.html($("#scene3").html());
 			$("#scene3").hide();
-			this.marco = anole.getOrCreate("#marco-scene4","<div id='marco-scene4' class='marco center tourist'></div>",this.scene,{top:"55%"});
+			this.marco = anole.$$("#marco-scene4","<div id='marco-scene4' class='marco center tourist'></div>",this.scene,{top:"55%"});
 			this.sublgate = $("#scene4 #subway-left");
 			this.subrgate = $("#scene4 #subway-right");
 			$("#scene4 .paperman.marco").hide();

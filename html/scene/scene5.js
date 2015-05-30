@@ -2,16 +2,16 @@
 	var v_count = 7;
 	anole.addScene({
 		onInit: function (){
-			this.scene = anole.getOrCreate("#scene5",'<div id = "scene5" class = "scene"></div>',anole.canvas);
-			this.ctn_browser = anole.getOrCreate("#ctn-browser",'<div id = "ctn-browser" class = "ctn-browser"></div>',this.scene);
-			this.topbar = anole.getOrCreate("#topbar",'<div id = "topbar" class = "topbar"></div>',this.ctn_browser);
-			this.browser = anole.getOrCreate("#browser",'<div id = "browser" class = "browser"></div>',this.ctn_browser);
-			this.br_left = anole.getOrCreate("#browser-left",'<div id = "browser-left" class = "browser-left"></div>',this.browser);
-			this.br_right = anole.getOrCreate("#browser-right",'<div id = "browser-right" class = "browser-right"></div>',this.browser);
-			this.youtube = anole.getOrCreate("#youtube",'<div id = "youtube" class = "youtube anime"></div>',this.br_left);
+			this.scene = anole.$$("#scene5",'<div id = "scene5" class = "scene"></div>',anole.canvas);
+			this.ctn_browser = anole.$$("#ctn-browser",'<div id = "ctn-browser" class = "ctn-browser"></div>',this.scene);
+			this.topbar = anole.$$("#topbar",'<div id = "topbar" class = "topbar"></div>',this.ctn_browser);
+			this.browser = anole.$$("#browser",'<div id = "browser" class = "browser"></div>',this.ctn_browser);
+			this.br_left = anole.$$("#browser-left",'<div id = "browser-left" class = "browser-left"></div>',this.browser);
+			this.br_right = anole.$$("#browser-right",'<div id = "browser-right" class = "browser-right"></div>',this.browser);
+			this.youtube = anole.$$("#youtube",'<div id = "youtube" class = "youtube anime"></div>',this.br_left);
 			var items = $("#scene4").clone();
 			this.youtube.html(items[0].innerHTML);
-			this.shade = anole.getOrCreate("#shade-youtube",'<div id = "shade-youtube" class = "shade-youtube"><img src="./resource/replay.png"></div>',this.youtube,{opacity:0});
+			this.shade = anole.$$("#shade-youtube",'<div id = "shade-youtube" class = "shade-youtube"><img src="./resource/replay.png"></div>',this.youtube,{opacity:0});
 			if (this.topbar.find("youtube_l").length == 0)
 			{
 				var y_l = $("<div></div>").addClass("youtubebar_l").appendTo(this.topbar);
@@ -21,7 +21,7 @@
 			if ($(".like-bar").length == 0)
 			{
 				var dot_count = 3;
-				this.like_bar = anole.getOrCreate(".like-bar","<div class = 'like-bar'></div>",this.br_left);
+				this.like_bar = anole.$$(".like-bar","<div class = 'like-bar'></div>",this.br_left);
 				for (var i=0;i<dot_count;i++)
 					$("<div></div>").addClass("dot").appendTo(this.like_bar);
 			}
