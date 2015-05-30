@@ -29,6 +29,7 @@ $scene_h:576px;
 	height:$scene_h;
 	margin: 0px;
 	border:1px solid #000;
+	overflow: hidden;
 }
 
 .scene{
@@ -71,25 +72,30 @@ $scene_h:576px;
 	height: 0.6*$scene_h;	
 	width: $scene_w;
 }
+.year{
+	position: absolute;
+	left: 0.06*$scene_h;
+	top: 0.06*$scene_h;
+	height: 0.12*$scene_h;
+}
 .building{
 	position: absolute;
 	bottom: 0px;
 	left: 50%;
-	width: 40%;
+	width: 45%;
 	@include translate3d(-50%,0,0);
 }
 .building img{
 	max-width: 100%;
 }
-$man_h: 0.24*$scene_h;
-$man_w: 0.16*$scene_h;
+$man_h: 0.27*$scene_h;
+$man_w: 0.18*$scene_h;
 .marco{
 	width: $man_w;
 	height: $man_h;
 	background: url("../resource/marco1.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	z-index: 999;
 }
 .marco.tourist{
 	background: url("../resource/marco2.png");
@@ -104,6 +110,13 @@ $man_w: 0.16*$scene_h;
 	background-repeat: no-repeat;
 	z-index: 500;
 }
+.oar{
+	width:60%;
+	height:90%;
+	margin:auto;
+	background: url("../resource/oar.png");
+	background-size: 100% 100%;
+}
 .marco.scene-top{
 	position: absolute;
 	top: -18%;
@@ -116,7 +129,7 @@ $man_w: 0.16*$scene_h;
 /**
  * scene2 
  */
-.shade-part2{
+.shade-scene2{
 	width: 100%;
 	height: 100%;
 	background: #795548;
@@ -150,7 +163,8 @@ $man_w: 0.16*$scene_h;
 
 .paperman-line{
 	position: relative;
-	left: -$man_h/2;
+	left: -$man_h/6;
+	top: $man_h*2/3;
 
 	height: $man_h;
 	width: 120%;
@@ -159,7 +173,7 @@ $man_w: 0.16*$scene_h;
 }
 .l1{
 	position: relative;
-	left: -$man_h/6;
+	left: $man_h/6;
 }
 
 .half{
@@ -178,6 +192,32 @@ $man_w: 0.16*$scene_h;
 	height: $scene_h * 0.6;
 	width: 100%;
 	background: white;
+}
+.subway-text-ctn{
+	position: relative;
+	width: 1.5*$scene_w;
+	height: 0.4*$scene_h;
+	margin: auto;
+	color: #795548;
+	font-size: 70;
+	text-align: center;
+}
+.subway-year{
+	position: absolute;
+	bottom: 0.1*$scene_h;
+	font-size: 140;
+}
+.subway-popu{
+	position: absolute;
+	left:0;
+	right: 0;
+	bottom: 0.05*$scene_h;
+}
+.subway-title{
+	position: absolute;
+	left:0;
+	right: 0;
+	top: 0.05*$scene_h;
 }
 .subway-head{
 	position: absolute;
@@ -199,6 +239,7 @@ $man_w: 0.16*$scene_h;
 	left: $scene_w*0.5;
 	width: $scene_w;
 	height: $scene_h;
+	background: #795548;
 }
 .subway-left{
 	position: absolute;
@@ -230,7 +271,7 @@ $man_w: 0.16*$scene_h;
 	right: 0;
 }
 
-/* part3 */
+/* scene5 */
 .shade-youtube img{
 	position: absolute;
 	left:0px;
@@ -251,20 +292,48 @@ $br_padding_left:30px;
 $br_padding_top :$scene_h*0.1;
 .ctn-browser{
 	position: absolute;
-	top: -$br_padding_top;
+	top: -3*$br_padding_top;
 	left: -0.4*$scene_w;
 
 	width: 2.5*$scene_w;
 	height: 2.5*$scene_h;
 	border: solid 1px #aaa;
 	background: #8d6e63;
-	-webkit-transition: -webkit-transform 0.5s linear;
+}
+.topbar{
+	position: absolute;
+	top:0;
+	margin: auto auto;
+	width: 100%;
+	height: 2*$br_padding_top;
+}
+.youtubebar_l{
+	position: absolute;
+	left: 0;
+	width: 20*$br_padding_top/7;
+	height: 2*$br_padding_top;
+	background: url("../resource/youtubebar_l.png");
+	background-size: 100% 100%;
+}
+.youtubebar_m{
+	margin: 0 20*$br_padding_top/7;
+	height: 2*$br_padding_top;
+	background: url("../resource/youtubebar_m.png");
+	background-size: 100% 100%;
+}
+.youtubebar_r{
+	position: absolute;
+	right: 0;
+	width: 20*$br_padding_top/7;
+	height: 2*$br_padding_top;
+	background: url("../resource/youtubebar_r.png");
+	background-size: 100% 100%;
 }
 .browser{
 	position: absolute;
 	width: 1.7*$scene_w;
 	height: 100%;
-	margin: 0 0.4*$scene_w - $br_padding_left;
+	margin: 2*$br_padding_top 0.4*$scene_w - $br_padding_left;
 	padding: $br_padding_top $br_padding_left;
 	overflow: hidden;
 	background: #e0e0e0;
@@ -273,9 +342,10 @@ $br_padding_top :$scene_h*0.1;
 	position: absolute;
 	left: $br_padding_left;
 	top: $br_padding_top;
-	width: $scene_w + 2*$br_padding_left;
+	width: $scene_w;
 	height: 100%;
 	margin: auto auto;
+	padding: $scene_h+$br_padding_top 0 0 0;
 }
 .browser-right{
 	position: absolute;
@@ -294,26 +364,70 @@ $br_padding_top :$scene_h*0.1;
 	margin: auto auto;
 	overflow: hidden;
 }
+
+.like-bar{
+	width: 100%;
+	height: 0.3*$scene_h;
+
+	background: url("../resource/board_like.png");
+	background-size: 100% 100%;
+}
+
+.dot{
+	position: relative;
+	left: 0.1*$scene_h;
+	float: left;
+	width: 0.03*$scene_h;
+	height: 0.03*$scene_h;
+	margin: 0.135*$scene_h 0.035*$scene_h;
+	border-radius: 50%;
+	background: black;
+}
+
 .comments{
-	position: absolute;
-	top: $scene_h+30px;
 	width: $scene_w;
+	padding: 0.2*$scene_h 0;
+	background: url("../resource/comment_list.png");
+	background-size: 100% 100%;
 }
 .comment{
-	height: 100px;
+	position: relative;
+	height: 0.4*$scene_h;
 	width: 90%;
 	margin: 10px auto;
-	border: solid 3px red;
+}
+.comment-head{
+	position: absolute;
+	width: 0.3*$scene_h;
+	height: 0.3*$scene_h;
+	margin: 0.05*$scene_h;
+	background: url("../resource/comment_head.png");
+	background-size: 100% 100%;
+}
+.comment-content{
+	position: relative;
+	top: 0.05*$scene_h;
+	width: 0.6*$scene_w;
+	height: 0.2*$scene_h;
+	margin: 0.05*$scene_h 0.05*$scene_h 0.05*$scene_h 0.4*$scene_h;
+	padding: 0.05*$scene_h;
+	border-radius: 0.03*$scene_h;
+	background: #ccc;
+}
+.comment .dash{
+	height: 0.03*$scene_h;
+	width: 0.55*$scene_w;
+	margin: 0.03*$scene_h 0;
 }
 .ctn-video{
-	position: relative;
+	position: absolute;
 	height: 0.4*$scene_h;
 	width: 90%;
 	margin: 0px auto;
 }
 
 .video{
-	position: relative;
+	position: absolute;
 	width: 0.6*$scene_h;
 	height: 0.4*$scene_h;
 	background: url("../resource/board_video.png");
@@ -345,7 +459,14 @@ $br_padding_top :$scene_h*0.1;
 }
 
 .dashes{
-	position: absolute;
-	left: 0.5*$scene_h;
-	border: solid 3px blue;
+	height: 0.4*$scene_h;
+	margin: 0 0 0 0.58*$scene_h;
+	padding: 0.05*$scene_h 0;
+}
+
+.dash{
+	height: 0.02*$scene_h;
+	background: #111;
+	width: 0;
+	margin: 0.05*$scene_h 0;
 }

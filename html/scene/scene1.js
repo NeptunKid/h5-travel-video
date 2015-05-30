@@ -24,10 +24,12 @@
 				this.places = anole.getOrCreate('.places','<div class="places"></div>', this.scene);
 				var bridgeCtn = $('<div></div>').addClass('building-ctn bridge-ctn');
 				var up = $('<div></div>').addClass('up');
+				var year_1 = $('<img src="./resource/s1_1271.png"></img>').addClass('year').appendTo(up);
 				var bridge = $('<div class ="building"><img src="./resource/bridge.png"></div>').appendTo(up);
 				var down = $('<div></div>').addClass('down');
 				this.marco = $('<div class="marco center"></div>').appendTo(down);
 				this.boat = $('<div class="boat center"></div>').appendTo(down);
+				this.oar = $('<div class="oar"></div>').appendTo(this.boat);
 
 				up.appendTo(bridgeCtn);
 				down.appendTo(bridgeCtn);
@@ -35,6 +37,7 @@
 
 				var gateCtn = $('<div></div>').addClass('building-ctn gate-ctn');
 				var up2 = $('<div></div>').addClass('up');
+				var year_2 = $('<img src="./resource/s2_1271.png"></img>').addClass('year').appendTo(up2);
 				var down2 = $('<div></div>').addClass('down');
 				var jiayu = $('<div class="building"><img src="./resource/gate.png"></div>').appendTo(up2);
 				up2.appendTo(gateCtn);	
@@ -48,9 +51,9 @@
 		onStart: function (finish){
 			this.tl1 = new TimelineLite();
 			this.tl1 = this.tl1.to(this.places, 0.5, {top:"-100%", ease:Linear.easeNone})
-							.to(this.boat, 0.5, {top:"198%", ease:Linear.easeNone}, "+=2")
-						.to(this.marco, 0.5, {top:"192%", ease:Linear.easeNone}, "-=0.5") // This happens at the same time with the previous tween.
-					//.call(padapada.bind(this))
+						.to(this.marco, 0, {"z-index":501})
+						.to(this.boat, 0.5, {top:"198%", ease:Linear.easeNone}, "+=2")
+						.to(this.marco, 0.5, {top:"195%", ease:Linear.easeNone}, "-=0.5");
 			var deg = -10;
 			for (var i=0;i<5;i++){
 				this.tl1 = this.tl1.to(this.boat,0.1,{rotation:deg,ease:Linear.easeNone})
@@ -58,10 +61,9 @@
 				deg = -deg;	
 			}
 			this.tl1 = this.tl1.to(this.marco,0.3,{rotation:0,ease:Linear.easeNone,delay:0.2})
-												.to(this.marco, 1, {top:"212%", ease:Linear.easeNone, delay:0.8});
+								.to(this.marco, 1, {top:"212%", ease:Linear.easeNone, delay:0.8});
 		},
 		onEnd: function (){
-			console.log(this.tl1.progress());
 			this.tl1.progress(1);
 		}
 	})

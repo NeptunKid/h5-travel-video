@@ -2,23 +2,25 @@
 	
 	anole.addScene({
 		onInit: function (){
-			this.scene = anole.getOrCreate("#part3",'<div id = "part3" class = "scene"></div>',anole.canvas);
-			this.ctn_browser = anole.getOrCreate("#ctn-browser",'<div id = "ctn-browser" class = "ctn-browser"></div>',this.scene);
-			this.browser = anole.getOrCreate("#browser",'<div id = "browser" class = "browser"></div>',this.browser_block);
-			this.br_left = anole.getOrCreate("#browser-left",'<div id = "browser-left" class = "browser-left half"></div>',this.browser);
-			this.br_right = anole.getOrCreate("#browser-right",'<div id = "browser-right" class = "browser-right half"></div>',this.browser);
-			this.youtube = anole.getOrCreate("#youtube",'<div id = "youtube" class = "youtube anime"></div>',this.br_left);
-			if (this.br_left.find(".comment").length == 0)
+			this.scene = anole.getOrCreate("#scene6",'<div id = "scene6" class = "scene"></div>',anole.canvas);
+			this.scene.html($("#scene5").html());
+			$("#scene5").hide();
+			this.ctn_browser = anole.getOrCreate("#scene6 #ctn-browser",'<div id = "ctn-browser" class = "ctn-browser"></div>',this.scene);
+			this.browser = anole.getOrCreate("#scene6 #browser",'<div id = "browser" class = "browser"></div>',this.browser_block);
+			this.br_left = anole.getOrCreate("#scene6 #browser-left",'<div id = "browser-left" class = "browser-left half"></div>',this.browser);
+			this.br_right = anole.getOrCreate("#scene6 #browser-right",'<div id = "browser-right" class = "browser-right half"></div>',this.browser);
+			this.youtube = anole.getOrCreate("#scene6 #youtube",'<div id = "youtube" class = "youtube anime"></div>',this.br_left);
+			var comment_count = 5;
+			if (this.br_left.find(".comments").length == 0)
 			{
-				var comments = $('<div class = "comments"></div>');
-				this.br_left.append(comments);
-				for (var i=0;i<5;i++){
-					comments.append($('<div class = "comment"></div>'));
+				var comments = $('<div></div>').addClass("comments").appendTo(this.br_left);
+				for (var i=0;i<comment_count;i++){
+					var comment = $('<div></div>').addClass("comment").appendTo(comments);
+					var head = $("<div></div>").addClass("comment-head").appendTo(comment);
+					var content = $("<div></div>").addClass("comment-content").appendTo(comment);
+					for (var j=0;j<3;j++)
+						$("<div></div>").addClass("dash").appendTo(content);
 				}
-			}
-			if (this.br_right.find(".video").length == 0)
-			for (var i=0;i<5;i++){
-				this.br_right.append($('<div class = "video"></div>'));
 			}
 			this.scene.css("display","block");
 		},
@@ -27,12 +29,12 @@
 			this.tl1.to([this.br_left,this.br_right],1,{y:"-30%",ease:Linear.easeNone,delay: 0.5});
 		},
 		onBack: function (finish){
-			$("#part3").remove();
+			$("#scene6").remove();
+			$("#scene5").remove();
 			finish();
 		},
 		onEnd: function (){
-			console.log("scene3 onEnd");
-			this.scene.css("display","none");
+			this.tl1.progress(1);
 		}
 	})
 });
