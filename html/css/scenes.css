@@ -81,6 +81,9 @@
 	 @include transform(translate3d($x, $y, $z));
 }
 */
+@font-face {
+  font-family: Hiragino;
+  src: url("../resource/HiraginoSansGBW3.otf") format("opentype"); }
 .container {
   position: absolute;
   left: 50%;
@@ -89,7 +92,8 @@
   height: 576px;
   margin: 0px;
   border: 1px solid #000;
-  overflow: hidden; }
+  overflow: hidden;
+  font-family: Georgia-italic,Hiragino,SimHei; }
 
 .scene {
   position: absolute;
@@ -98,7 +102,14 @@
   width: 1024px;
   height: 576px;
   border: 1px solid #F00;
-  overflow: hidden; }
+  overflow: hidden;
+  background: #8d6e63; }
+
+.shade {
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0; }
 
 /* scene1 */
 .places {
@@ -157,8 +168,16 @@
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
+.marco.shadow {
+  background: url("../resource/marco1_shadow.png");
+  background-size: 100% 100%; }
+
 .marco.tourist {
   background: url("../resource/marco2.png");
+  background-size: 100% 100%; }
+
+.marco.tourist.shadow {
+  background: url("../resource/marco2_shadow.png");
   background-size: 100% 100%; }
 
 .boat {
@@ -168,7 +187,11 @@
   background: url("../resource/boat.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  z-index: 500; }
+  z-index: 121; }
+
+.boat.shadow {
+  background: url("../resource/boat_shadow.png");
+  background-size: 100% 100%; }
 
 .oar {
   width: 60%;
@@ -198,6 +221,7 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
+  background: #795548;
   overflow: hidden; }
 
 .papermans:after {
@@ -242,35 +266,35 @@
 
 .subway-up {
   position: relative;
-  height: 345.6px;
+  height: 403.2px;
   width: 100%;
   background: white; }
 
 .subway-text-ctn {
   position: relative;
-  width: 1536px;
-  height: 230.4px;
+  width: 1740.8px;
+  height: 288px;
   margin: auto;
   color: #795548;
-  font-size: 70;
+  font-size: 80;
   text-align: center; }
 
 .subway-year {
   position: absolute;
   bottom: 57.6px;
-  font-size: 140; }
+  font-size: 160; }
 
 .subway-popu {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 28.8px; }
+  bottom: 57.6px; }
 
 .subway-title {
   position: absolute;
   left: 0;
   right: 0;
-  top: 28.8px; }
+  top: 5.76px; }
 
 .subway-head {
   position: absolute;
@@ -283,39 +307,39 @@
 
 .subway-down {
   position: relative;
-  height: 576px;
-  width: 2048px;
-  overflow: hidden; }
-
-.subway-paperman {
-  position: absolute;
-  left: 512px;
-  width: 1024px;
-  height: 576px;
-  background: #795548; }
+  height: 748.8px;
+  width: 2048px; }
 
 .subway-left {
   position: absolute;
   left: 0;
   width: 512px;
-  height: 576px;
+  height: 898.56px;
   background: url("../resource/subwayl.png");
-  background-size: 100% 100%; }
+  background-size: 100% 110%; }
 
 .subway-right {
   position: absolute;
   right: 0;
   width: 512px;
-  height: 576px;
+  height: 898.56px;
   background: url("../resource/subwayr.png");
-  background-size: 100% 100%; }
+  background-size: 100% 110%; }
+
+.subway-shadow {
+  width: 561.152px;
+  height: 1041.13152px;
+  margin: -26.35776px -24.576px;
+  background: url("../resource/subway_shadow.png");
+  background-size: 100% 100%;
+  background-position: center; }
 
 .subway-block {
   position: absolute;
   width: 512px;
-  height: 576px;
+  height: 748.8px;
   background: url("../resource/subway.png");
-  background-size: 100% 100%; }
+  background-size: 100% 132%; }
 
 .subway-block.left {
   left: 0; }
@@ -346,11 +370,17 @@
   left: -409.6px;
   width: 2560px;
   height: 1440px;
-  border: solid 1px #aaa;
-  background: #8d6e63; }
+  border: solid 1px #aaa; }
+
+.ctn-browser-in {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; }
 
 .topbar {
-  position: absolute;
+  position: relative;
   top: 0;
   margin: auto auto;
   width: 100%;
@@ -378,18 +408,36 @@
   background: url("../resource/youtubebar_r.png");
   background-size: 100% 100%; }
 
+.tag {
+  position: absolute;
+  top: -138.24px;
+  left: 460.8px;
+  height: 138.24px;
+  width: 311.04px;
+  background: url("../resource/tag.png");
+  background-size: 100% 100%; }
+
 .browser {
   position: absolute;
-  width: 1740.8px;
+  top: -57.6px;
+  width: 1856px;
   height: 100%;
-  margin: 115.2px 379.6px;
-  padding: 57.6px 30px;
+  margin: 0 379.6px;
+  border-radius: 57.6px;
   overflow: hidden;
   background: #e0e0e0; }
 
-.browser-left {
+.browser-content {
   position: absolute;
   left: 30px;
+  right: 30px;
+  top: 172.8px;
+  bottom: 0;
+  overflow: hidden; }
+
+.browser-left {
+  position: absolute;
+  left: 0;
   top: 57.6px;
   width: 1024px;
   height: 100%;
@@ -399,7 +447,8 @@
 .browser-right {
   position: absolute;
   left: 1084px;
-  right: 30px;
+  top: 57.6px;
+  right: 0;
   height: 100%;
   margin: auto auto; }
 
@@ -413,10 +462,28 @@
   overflow: hidden; }
 
 .like-bar {
+  position: relative;
   width: 100%;
   height: 172.8px;
   background: url("../resource/board_like.png");
   background-size: 100% 100%; }
+
+.like {
+  position: absolute;
+  right: 30%;
+  top: 40.32px;
+  width: 92.16px;
+  height: 92.16px;
+  opacity: 0;
+  background: url("../resource/like.png");
+  background-size: 100% 100%; }
+
+.like-text {
+  position: relative;
+  left: 86.4px;
+  height: 172.8px;
+  color: #26A69a;
+  font-size: 100px; }
 
 .dot {
   position: relative;
@@ -427,6 +494,10 @@
   margin: 77.76px 20.16px;
   border-radius: 50%;
   background: black; }
+
+.comment-ctn {
+  height: 28.8px;
+  overflow: hidden; }
 
 .comments {
   width: 1024px;
@@ -453,10 +524,11 @@
   top: 28.8px;
   width: 614.4px;
   height: 115.2px;
-  margin: 28.8px 28.8px 28.8px 230.4px;
-  padding: 28.8px;
+  margin: 17.28px 17.28px 17.28px 201.6px;
+  padding: 40.32px;
   border-radius: 17.28px;
-  background: #ccc; }
+  background: url("../resource/comment_bubble.png");
+  background-size: 100% 100%; }
 
 .comment .dash {
   height: 17.28px;
@@ -465,14 +537,14 @@
 
 .ctn-video {
   position: absolute;
-  height: 230.4px;
+  height: 259.2px;
   width: 90%;
   margin: 0px auto; }
 
 .video {
   position: absolute;
   width: 345.6px;
-  height: 230.4px;
+  height: 259.2px;
   background: url("../resource/board_video.png");
   background-size: 100% 100%; }
 
@@ -483,7 +555,7 @@
   left: 0;
   right: 0;
   width: 230.4px;
-  height: 115.2px;
+  height: 230.4px;
   margin: auto; }
 
 .video .v0 {
@@ -508,5 +580,45 @@
   background: #111;
   width: 0;
   margin: 28.8px 0; }
+
+.page-ctn {
+  position: absolute;
+  left: 316.8px;
+  top: 172.8px; }
+
+.small-page {
+  position: absolute;
+  width: 345.6px;
+  height: 230.4px;
+  opacity: 0; }
+
+.page0 {
+  background: url("../resource/s6_google.png");
+  background-size: 100% 100%; }
+
+.page1 {
+  background: url("../resource/s6_wheretogo.png");
+  background-size: 100% 100%; }
+
+.page2 {
+  background: url("../resource/s6_booking.png");
+  background-size: 100% 100%; }
+
+.page3 {
+  background: url("../resource/s6_findres.png");
+  background-size: 100% 100%; }
+
+.page4 {
+  width: 518.4px;
+  height: 345.6px;
+  background: url("../resource/s6_air.png");
+  background-size: 100% 100%; }
+
+.body {
+  position: relative;
+  left: 3px;
+  top: 3px;
+  width: 100%;
+  height: 100%; }
 
 /*# sourceMappingURL=scenes.css.map */

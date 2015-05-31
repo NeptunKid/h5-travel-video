@@ -8,20 +8,31 @@
 		var popu = $("<div></div>").addClass("subway-popu").appendTo(ctn);
 		return ctn;
 	}
+	var convert = function(s){
+		var l = s.length;
+		var head = (l+2) % 3 +1;
+		var res = s.substr(0,head);
+		for (;head<l;head+=3){
+			res += "," + s.substr(head,3);
+		}
+		return res;
+	}
 	var update_text = function(){
 		$(".subway-year").text(parseInt(data.year));
-		$(".subway-popu").text(parseInt(data.popu));
+		var popu = String(parseInt(parseInt(data.popu)));
+		popu = convert(popu);
+		$(".subway-popu").text(popu);
 	}
 	anole.addScene({
 		onInit: function (){
 			this.scene = anole.$$("#scene3",'<div id = "scene3" class = "scene"></div>',anole.canvas);
+			this.subway_paperman = anole.$$("#subway-paperman","<div id = 'subway-paperman' class='papermans'></div>",this.scene);
+			this.subway_paperman.html($("#papermans").html());
 			this.subway = anole.$$("#subway",'<div id = "subway" class = "subway"></div>',this.scene);
 			this.subup = anole.$$("#subway-up","<div id='subway-up' class='subway-up'>",this.subway);
 			this.subtext = anole.$$(".subway-text",subway_text_create,this.subup);
 			this.subhead = anole.$$("#subway-head","<div id='subway-head' class='subway-head'>",this.subup);
 			this.subdown = anole.$$("#subway-down","<div id='subway-down' class='subway-down'>",this.subway);
-			this.subway_paperman = anole.$$("#subway-paperman","<div id = 'subway-paperman' class='subway-paperman'></div>",this.subdown);
-			this.subway_paperman.html($("#papermans").html());
 			this.sublblock = anole.$$("#subway-left-block","<div id = 'subway-left-block' class='left subway-block'></div>",this.subdown);
 			this.subrblock = anole.$$("#subway-right-block","<div id = 'subway-right-block' class='right subway-block'></div>",this.subdown);
 			this.sublgate = anole.$$("#subway-left","<div id = 'subway-left' class='subway-left'></div>",this.subdown);
@@ -34,7 +45,7 @@
 			this.tl1.to($("#subway-left"), 0.5, {x:"100%", ease:Linear.easeNone})
 							.call(function(){$("#papermans").css("display","none");})
 							.to($("#subway-right"), 0.5, {x:"-100%", ease:Linear.easeNone},"-=0.5")
-							.to(this.subway,0.5,{delay:0.2,scaleX:"0.625",scaleY:"0.625",y:"18.75%"})
+							.to(this.subway,0.5,{delay:0.2,scaleX:"0.5",scaleY:"0.5",y:"5%"})
 							.to(data,2,{year:data_final.year,popu:data_final.popu,onUpdate:update_text,ease:Linear.easeNone});
 		},
 		onBack: function(finish){

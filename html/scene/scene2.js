@@ -25,7 +25,7 @@
 				{
 						var elm = $("<div class = 'paperman greyman hide'></div>");
 						if (i == parseInt(n/2)+1 && j==parseInt(m/2))
-							line.append("<div class = 'paperman marco tourist'></div>");
+							$("<div></div>").addClass("paperman marco tourist shadow").append("<div class = 'marco tourist body'></div>").appendTo(line);
 						line.append(elm);
 				}
 				ppdiv.append(line[0]);

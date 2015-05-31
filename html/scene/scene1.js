@@ -24,9 +24,10 @@
 				var year_1 = $('<img src="./resource/s1_1271.png"></img>').addClass('year').appendTo(up);
 				var bridge = $('<div class ="building"><img src="./resource/bridge.png"></div>').appendTo(up);
 				var down = $('<div></div>').addClass('down');
-				this.marco = $('<div class="marco center"></div>').appendTo(down);
-				this.boat = $('<div class="boat center"></div>').appendTo(down);
-				this.oar = $('<div class="oar"></div>').appendTo(this.boat);
+				this.marco = $('<div class="marco shadow center"></div>').appendTo(down);
+				this.marco_body = $('<div class="marco body"></div>').appendTo(this.marco);
+				this.boat = $('<div class="boat shadow center"></div>').appendTo(down);
+				this.marco_body = $('<div class="boat body"></div>').appendTo(this.boat);
 
 				up.appendTo(bridgeCtn);
 				down.appendTo(bridgeCtn);
