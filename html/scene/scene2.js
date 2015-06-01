@@ -40,13 +40,16 @@
 		setTimeout(callback,delta);
 	}
 	anole.addScene({
+		name: "scene2.js",
 		onInit: function (){
-			this.scene = anole.getOrCreate("#part2",'<div id = "part2" class = "scene"></div>',anole.canvas);
+			//console.log(">>> scene2.js onInit");
+			this.scene = anole.getOrCreate("#part2",'<div id="part2" class="scene"></div>',anole.canvas);
 			this.scene[0].className = "scene";
-			this.shade = anole.getOrCreate("#shade-part2",'<div id = "shade-part2" class = "shade-part2"></div>',this.scene,{opacity:0});
+			this.shade = anole.getOrCreate("#shade-part2",'<div id="shade-part2" class="shade-part2"></div>', this.scene, {opacity:0});
 			this.places = anole.getOrCreate('.places','<div class="places"></div>',this.scene);
 		},
 		onStart: function (finish){
+			//console.log(">>> scene2.js onStart");
 			this.tl1 = new TimelineLite();
 			this.tl1.add(TweenLite.to(this.shade, 0.5, {opacity:1, ease:Linear.easeNone, onComplete:function(){
 				$("#scene1")[0].className = "hidden";
@@ -54,14 +57,20 @@
 				paperman_init();
 				setTimeout(display_ppm,500);
 			}.bind(this)}));
+
+			if (finish) {
+				this.tl1.call(finish);
+			}
 		},
 		onBack: function(finish){
+			//console.log(">>> scene2.js onBack");
 			$("#scene1")[0].className = "scene";
 			$("#part2").remove();
 			$("#part2 #papermans").remove();
 			finish();
 		},
 		onEnd: function (){
+			//console.log(">>> scene2.js onEnd");
 			var hides = $("#part2 .paperman.hide");
 			hides.each(function(idx,elm){
 				elm.classList.toggle("hide");

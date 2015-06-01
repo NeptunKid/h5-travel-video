@@ -9,6 +9,7 @@
 			setTimeout(marco_run,move_delta);
 	}
 	anole.addScene({
+		name: "scene4.js",
 		onInit: function (){
 			this.scene = anole.getOrCreate("#part2",'<div id = "part2" class = "scene"></div>',anole.canvas);
 			this.marco = anole.getOrCreate("#marco-scene4","<div id='marco-scene4' class='marco center'></div>",this.scene,{top:"55%"});
@@ -27,6 +28,10 @@
 			this.tl1.to($("#subway-left"), 0.5, {x:"50%", ease:Linear.easeNone, onComplete:this.marco_go_out.bind(this)})
 							.to($("#subway-right"), 0.5, {x:"-50%", ease:Linear.easeNone},"-=0.5")
 							.to(this.marco,1,{delay:0.2,left:"18%",top:"58%",width:new_w,height:new_h,ease:Linear.easeNone,});
+
+			if (finish) {
+				this.tl1.call(finish);
+			}
 		},
 		onBack: function(finish){
 			this.marco.remove();

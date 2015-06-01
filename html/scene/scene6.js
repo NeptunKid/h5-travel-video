@@ -1,6 +1,7 @@
 ;require(['anole', 'zepto'], function (anole){
 	
 	anole.addScene({
+		name: "scene6.js",
 		onInit: function (){
 			this.scene = anole.getOrCreate("#part3",'<div id = "part3" class = "scene"></div>',anole.canvas);
 			this.ctn_browser = anole.getOrCreate("#ctn-browser",'<div id = "ctn-browser" class = "ctn-browser"></div>',this.scene);
@@ -25,13 +26,17 @@
 		onStart: function (finish){
 			this.tl1 = new TimelineLite();
 			this.tl1.to([this.br_left,this.br_right],1,{y:"-30%",ease:Linear.easeNone,delay: 0.5});
+
+			if (finish) {
+				this.tl1.call(finish);
+			}
 		},
 		onBack: function (finish){
 			$("#part3").remove();
 			finish();
 		},
 		onEnd: function (){
-			console.log("scene3 onEnd");
+			console.log("scene6 onEnd");
 			this.scene.css("display","none");
 		}
 	})

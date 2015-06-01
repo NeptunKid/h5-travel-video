@@ -24,7 +24,6 @@ $scene_h:576px;
 .container{
 	position: absolute;
 	left: 50%;
-	top: 100px;
 	width:$scene_w;
 	height:$scene_h;
 	margin: 0px;
@@ -348,4 +347,39 @@ $br_padding_top :$scene_h*0.1;
 	position: absolute;
 	left: 0.5*$scene_h;
 	border: solid 3px blue;
+}
+
+#scene-7 {
+	.browser-tag {
+	   background-image: url("../resource/tag.png");
+	   background-size: 100% 100%;
+	}
+	.youtube {
+		position: absolute;
+		background: #E0E0E0;
+		width: 45%;
+		height: 65%;
+        @include box-shadow(0, 0, 2, 2, black);
+		@include rounded(1em);
+     }
+	.youtube-nav {
+		position: absolute;
+		background: white;
+		width: 100%;
+		height: 7%;
+		border-bottom: 1px solid #9C9C9C;
+		@include box-shadow(0, 0, 1, 1, black);
+    }
+	.comments-ctn {
+		background: #EFEBE9;
+		@include box-shadow(1, 1, 3, 1, black);
+   }
+   .profile-photo {
+		background: url("../resource/profile.png");
+		background-size: 100% 100%;
+    }
+	.video {
+		background: #EFEBE9;
+        background-image: url("../resource/board_video.png")  
+    }
 }

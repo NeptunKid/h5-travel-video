@@ -14,7 +14,14 @@
     "sub-block": "subway.png",
     "sub-left-gate": "subwayl.png",
     "sub-right-gate": "subwayr.png",
-    "replay": "replay.png"
+    "replay": "replay.png",
+	"tag": "tag.png",
+	"youtube-logo": "youtube-logo.png",
+	"profile": "profile.png",
+	"board_video": "board_video.png",
+	"v0": "v0.png",
+	"v0": "v1.png",
+	"v0": "v2.png"
   }
   
   //if(!anole.isMobile()){
@@ -43,6 +50,10 @@
         fileName:'scene6.js',
         res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate","replay"]
       },
+      {
+        fileName:'scene7.js',
+        res: ["profile","youtube-logo","tag","board_video","v0","v1","v2"]
+      },
     ]
     baseUrl = './scene/';
     resoureUrl = "./resource/";
@@ -56,7 +67,7 @@
       maxQueueLength: 4,// load serval scenes at same time
       sceneQueue: sceneQueue,// anime scene queue
       autoPlay: false,// auto play with no event
-      flipType: 'click',// flip type eg:click, swipe
+      flipType: 'click',// flip type eg:click, swipe, wheel
       containerTemplate: '<div class="container main"></div>',// scene root container, it will be appended to body.
       prevBtnTemplate: '<div class="prev-btn btn J_PrevBtn">prev</div>',// prev button dom
       nextBtnTemplate: '<div class="next-btn btn J_NextBtn">next</div>',// next button dom
