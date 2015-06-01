@@ -7,10 +7,9 @@
 // 2. for each scene: expose its timeline to make it easy to manage.
 
 ;define(['zepto', 'hammer'], function (zepto, Hammer){
-  var anole = window.anole || {};
   var musicList = {};
   
-  anole= {
+  var anole = window.anole = {
       _currentScene: 0,
       _sceneNameIndexMap: {}, // mapping from scene js name to its index in the scene queue to play.
       _playedScene:0,
@@ -89,16 +88,25 @@
       },
 	  // Returns a jQuery object instead of a dom node.
       getOrCreate: function (query, tag, parent, style){
-        var target = $(query);
+        var target;
+
+        target = $(query);
         if(!target[0]){
-          target = $(tag);
+          if($.isFunction(tag)){
+            target = tag();
+            if(!$.isObject(target)){
+              target = $(target);
+            }
+          }else{
+            target = $(tag);
+          }
           if(parent){
             $(parent).append(target);
           }
         }
-		if (style) {
-			target.css(style);
-		}
+        if (style) {
+          target.css(style);
+        }
         return target;
       },
       start: function (){
@@ -123,6 +131,10 @@
               this.playScene(addedSceneIndex);
               return;
           }
+        this._scene[this._loadedScene-1] = scene;
+      },
+      startAnime: function (){
+        this.playScene(0);
       },
       _loadScene: function (sceneIndex){
 		console.log("loadScene, index: " + sceneIndex +
@@ -273,6 +285,8 @@
         //todo
       }
     };
+    
+    anole.$$ = anole.getOrCreate;
     
     return anole;
 });

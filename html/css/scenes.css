@@ -1,5 +1,6 @@
 /* mixins */
 /* Common settings */
+<<<<<<< HEAD
 #scene-1 {
   z-index: 10; }
 
@@ -90,6 +91,8 @@
 #scene-30 {
   z-index: 300; }
 
+=======
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 .hide {
   opacity: 0; }
 
@@ -171,6 +174,7 @@
 	 @include transform(translate3d($x, $y, $z));
 }
 */
+<<<<<<< HEAD
 .container {
   position: absolute;
   left: 50%;
@@ -178,6 +182,21 @@
   height: 576px;
   margin: 0px;
   border: 1px solid #000; }
+=======
+@font-face {
+  font-family: Hiragino;
+  src: url("../resource/HiraginoSansGBW3.otf") format("opentype"); }
+.container {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  width: 1024px;
+  height: 576px;
+  margin: 0px;
+  border: 1px solid #000;
+  overflow: hidden;
+  font-family: Georgia-italic,Hiragino,SimHei; }
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .scene {
   position: absolute;
@@ -186,7 +205,18 @@
   width: 1024px;
   height: 576px;
   border: 1px solid #F00;
+<<<<<<< HEAD
   overflow: hidden; }
+=======
+  overflow: hidden;
+  background: #8d6e63; }
+
+.shade {
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0; }
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 /* scene1 */
 .places {
@@ -218,11 +248,24 @@
   height: 345.6px;
   width: 1024px; }
 
+<<<<<<< HEAD
+=======
+.year {
+  position: absolute;
+  left: 34.56px;
+  top: 34.56px;
+  height: 69.12px; }
+
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 .building {
   position: absolute;
   bottom: 0px;
   left: 50%;
+<<<<<<< HEAD
   width: 40%;
+=======
+  width: 45%;
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   -moz-transform: translate3d(-50%, 0, 0);
   -o-transform: translate3d(-50%, 0, 0);
   -ms-transform: translate3d(-50%, 0, 0);
@@ -233,17 +276,30 @@
   max-width: 100%; }
 
 .marco {
+<<<<<<< HEAD
   width: 92.16px;
   height: 138.24px;
   background: url("../resource/marco1.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   z-index: 999; }
+=======
+  width: 103.68px;
+  height: 155.52px;
+  background: url("../resource/marco1.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat; }
+
+.marco.shadow {
+  background: url("../resource/marco1_shadow.png");
+  background-size: 100% 100%; }
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .marco.tourist {
   background: url("../resource/marco2.png");
   background-size: 100% 100%; }
 
+<<<<<<< HEAD
 .boat {
   position: absolute;
   width: 276.48px;
@@ -252,6 +308,31 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
   z-index: 500; }
+=======
+.marco.tourist.shadow {
+  background: url("../resource/marco2_shadow.png");
+  background-size: 100% 100%; }
+
+.boat {
+  position: absolute;
+  width: 311.04px;
+  height: 155.52px;
+  background: url("../resource/boat.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: 121; }
+
+.boat.shadow {
+  background: url("../resource/boat_shadow.png");
+  background-size: 100% 100%; }
+
+.oar {
+  width: 60%;
+  height: 90%;
+  margin: auto;
+  background: url("../resource/oar.png");
+  background-size: 100% 100%; }
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .marco.scene-top {
   position: absolute;
@@ -263,7 +344,11 @@
 /**
  * scene2 
  */
+<<<<<<< HEAD
 .shade-part2 {
+=======
+.shade-scene2 {
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   width: 100%;
   height: 100%;
   background: #795548; }
@@ -274,14 +359,23 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
+<<<<<<< HEAD
+=======
+  background: #795548;
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   overflow: hidden; }
 
 .papermans:after {
   clear: both; }
 
 .paperman {
+<<<<<<< HEAD
   width: 92.16px;
   height: 138.24px;
+=======
+  width: 103.68px;
+  height: 155.52px;
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   margin: 0px 0px;
   float: left;
   -webikit-transition: opacity 0.5s linear;
@@ -294,15 +388,27 @@
 
 .paperman-line {
   position: relative;
+<<<<<<< HEAD
   left: -69.12px;
   height: 138.24px;
   width: 120%;
   margin-top: -69.12px;
+=======
+  left: -25.92px;
+  top: 103.68px;
+  height: 155.52px;
+  width: 120%;
+  margin-top: -77.76px;
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   overflow: hidden; }
 
 .l1 {
   position: relative;
+<<<<<<< HEAD
   left: -23.04px; }
+=======
+  left: 25.92px; }
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .half {
   position: absolute;
@@ -317,10 +423,43 @@
 
 .subway-up {
   position: relative;
+<<<<<<< HEAD
   height: 345.6px;
   width: 100%;
   background: white; }
 
+=======
+  height: 403.2px;
+  width: 100%;
+  background: white; }
+
+.subway-text-ctn {
+  position: relative;
+  width: 1740.8px;
+  height: 288px;
+  margin: auto;
+  color: #795548;
+  font-size: 80;
+  text-align: center; }
+
+.subway-year {
+  position: absolute;
+  bottom: 57.6px;
+  font-size: 160; }
+
+.subway-popu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 57.6px; }
+
+.subway-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5.76px; }
+
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 .subway-head {
   position: absolute;
   bottom: 0px;
@@ -332,6 +471,7 @@
 
 .subway-down {
   position: relative;
+<<<<<<< HEAD
   height: 576px;
   width: 2048px;
   overflow: hidden; }
@@ -341,29 +481,59 @@
   left: 512px;
   width: 1024px;
   height: 576px; }
+=======
+  height: 748.8px;
+  width: 2048px; }
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .subway-left {
   position: absolute;
   left: 0;
   width: 512px;
+<<<<<<< HEAD
   height: 576px;
   background: url("../resource/subwayl.png");
   background-size: 100% 100%; }
+=======
+  height: 898.56px;
+  background: url("../resource/subwayl.png");
+  background-size: 100% 110%; }
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .subway-right {
   position: absolute;
   right: 0;
   width: 512px;
+<<<<<<< HEAD
   height: 576px;
   background: url("../resource/subwayr.png");
   background-size: 100% 100%; }
+=======
+  height: 898.56px;
+  background: url("../resource/subwayr.png");
+  background-size: 100% 110%; }
+
+.subway-shadow {
+  width: 561.152px;
+  height: 1041.13152px;
+  margin: -26.35776px -24.576px;
+  background: url("../resource/subway_shadow.png");
+  background-size: 100% 100%;
+  background-position: center; }
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .subway-block {
   position: absolute;
   width: 512px;
+<<<<<<< HEAD
   height: 576px;
   background: url("../resource/subway.png");
   background-size: 100% 100%; }
+=======
+  height: 748.8px;
+  background: url("../resource/subway.png");
+  background-size: 100% 132%; }
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .subway-block.left {
   left: 0; }
@@ -371,7 +541,11 @@
 .subway-block.right {
   right: 0; }
 
+<<<<<<< HEAD
 /* part3 */
+=======
+/* scene5 */
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 .shade-youtube img {
   position: absolute;
   left: 0px;
@@ -390,6 +564,7 @@
 
 .ctn-browser {
   position: absolute;
+<<<<<<< HEAD
   top: -57.6px;
   left: -409.6px;
   width: 2560px;
@@ -414,11 +589,95 @@
   width: 1084px;
   height: 100%;
   margin: auto auto; }
+=======
+  top: -172.8px;
+  left: -409.6px;
+  width: 2560px;
+  height: 1440px;
+  border: solid 1px #aaa; }
+
+.ctn-browser-in {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
+.topbar {
+  position: relative;
+  top: 0;
+  margin: auto auto;
+  width: 100%;
+  height: 115.2px; }
+
+.youtubebar_l {
+  position: absolute;
+  left: 0;
+  width: 164.57143px;
+  height: 115.2px;
+  background: url("../resource/youtubebar_l.png");
+  background-size: 100% 100%; }
+
+.youtubebar_m {
+  margin: 0 164.57143px;
+  height: 115.2px;
+  background: url("../resource/youtubebar_m.png");
+  background-size: 100% 100%; }
+
+.youtubebar_r {
+  position: absolute;
+  right: 0;
+  width: 164.57143px;
+  height: 115.2px;
+  background: url("../resource/youtubebar_r.png");
+  background-size: 100% 100%; }
+
+.tag {
+  position: absolute;
+  top: -138.24px;
+  left: 460.8px;
+  height: 138.24px;
+  width: 311.04px;
+  background: url("../resource/tag.png");
+  background-size: 100% 100%; }
+
+.browser {
+  position: absolute;
+  top: -57.6px;
+  width: 1856px;
+  height: 100%;
+  margin: 0 379.6px;
+  border-radius: 57.6px;
+  overflow: hidden;
+  background: #e0e0e0; }
+
+.browser-content {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 172.8px;
+  bottom: 0;
+  overflow: hidden; }
+
+.browser-left {
+  position: absolute;
+  left: 0;
+  top: 57.6px;
+  width: 1024px;
+  height: 100%;
+  margin: auto auto;
+  padding: 633.6px 0 0 0; }
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .browser-right {
   position: absolute;
   left: 1084px;
+<<<<<<< HEAD
   right: 30px;
+=======
+  top: 57.6px;
+  right: 0;
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   height: 100%;
   margin: auto auto; }
 
@@ -431,6 +690,7 @@
   margin: auto auto;
   overflow: hidden; }
 
+<<<<<<< HEAD
 .comments {
   position: absolute;
   top: 606px;
@@ -445,13 +705,98 @@
 .ctn-video {
   position: relative;
   height: 230.4px;
+=======
+.like-bar {
+  position: relative;
+  width: 100%;
+  height: 172.8px;
+  background: url("../resource/board_like.png");
+  background-size: 100% 100%; }
+
+.like {
+  position: absolute;
+  right: 30%;
+  top: 40.32px;
+  width: 92.16px;
+  height: 92.16px;
+  opacity: 0;
+  background: url("../resource/like.png");
+  background-size: 100% 100%; }
+
+.like-text {
+  position: relative;
+  left: 86.4px;
+  height: 172.8px;
+  color: #26A69a;
+  font-size: 100px; }
+
+.dot {
+  position: relative;
+  left: 57.6px;
+  float: left;
+  width: 17.28px;
+  height: 17.28px;
+  margin: 77.76px 20.16px;
+  border-radius: 50%;
+  background: black; }
+
+.comment-ctn {
+  height: 28.8px;
+  overflow: hidden; }
+
+.comments {
+  width: 1024px;
+  padding: 115.2px 0;
+  background: url("../resource/comment_list.png");
+  background-size: 100% 100%; }
+
+.comment {
+  position: relative;
+  height: 230.4px;
+  width: 90%;
+  margin: 10px auto; }
+
+.comment-head {
+  position: absolute;
+  width: 172.8px;
+  height: 172.8px;
+  margin: 28.8px;
+  background: url("../resource/comment_head.png");
+  background-size: 100% 100%; }
+
+.comment-content {
+  position: relative;
+  top: 28.8px;
+  width: 614.4px;
+  height: 115.2px;
+  margin: 17.28px 17.28px 17.28px 201.6px;
+  padding: 40.32px;
+  border-radius: 17.28px;
+  background: url("../resource/comment_bubble.png");
+  background-size: 100% 100%; }
+
+.comment .dash {
+  height: 17.28px;
+  width: 563.2px;
+  margin: 17.28px 0; }
+
+.ctn-video {
+  position: absolute;
+  height: 259.2px;
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   width: 90%;
   margin: 0px auto; }
 
 .video {
+<<<<<<< HEAD
   position: relative;
   width: 345.6px;
   height: 230.4px;
+=======
+  position: absolute;
+  width: 345.6px;
+  height: 259.2px;
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   background: url("../resource/board_video.png");
   background-size: 100% 100%; }
 
@@ -462,7 +807,11 @@
   left: 0;
   right: 0;
   width: 230.4px;
+<<<<<<< HEAD
   height: 115.2px;
+=======
+  height: 230.4px;
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   margin: auto; }
 
 .video .v0 {
@@ -478,6 +827,7 @@
   background-size: 100% 100%; }
 
 .dashes {
+<<<<<<< HEAD
   position: absolute;
   left: 288px;
   border: solid 3px blue; }
@@ -516,5 +866,56 @@
 #scene-7 .video {
   background: #EFEBE9;
   background-image: url("../resource/board_video.png"); }
+=======
+  height: 230.4px;
+  margin: 0 0 0 334.08px;
+  padding: 28.8px 0; }
+
+.dash {
+  height: 11.52px;
+  background: #111;
+  width: 0;
+  margin: 28.8px 0; }
+
+.page-ctn {
+  position: absolute;
+  left: 316.8px;
+  top: 172.8px; }
+
+.small-page {
+  position: absolute;
+  width: 345.6px;
+  height: 230.4px;
+  opacity: 0; }
+
+.page0 {
+  background: url("../resource/s6_google.png");
+  background-size: 100% 100%; }
+
+.page1 {
+  background: url("../resource/s6_wheretogo.png");
+  background-size: 100% 100%; }
+
+.page2 {
+  background: url("../resource/s6_booking.png");
+  background-size: 100% 100%; }
+
+.page3 {
+  background: url("../resource/s6_findres.png");
+  background-size: 100% 100%; }
+
+.page4 {
+  width: 518.4px;
+  height: 345.6px;
+  background: url("../resource/s6_air.png");
+  background-size: 100% 100%; }
+
+.body {
+  position: relative;
+  left: 3px;
+  top: 3px;
+  width: 100%;
+  height: 100%; }
+>>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 /*# sourceMappingURL=scenes.css.map */
