@@ -1,6 +1,5 @@
 /* mixins */
 /* Common settings */
-<<<<<<< HEAD
 #scene-1 {
   z-index: 10; }
 
@@ -91,8 +90,6 @@
 #scene-30 {
   z-index: 300; }
 
-=======
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 .hide {
   opacity: 0; }
 
@@ -174,29 +171,18 @@
 	 @include transform(translate3d($x, $y, $z));
 }
 */
-<<<<<<< HEAD
-.container {
-  position: absolute;
-  left: 50%;
-  width: 1024px;
-  height: 576px;
-  margin: 0px;
-  border: 1px solid #000; }
-=======
 @font-face {
   font-family: Hiragino;
   src: url("../resource/HiraginoSansGBW3.otf") format("opentype"); }
 .container {
   position: absolute;
   left: 50%;
-  top: 100px;
   width: 1024px;
   height: 576px;
   margin: 0px;
   border: 1px solid #000;
   overflow: hidden;
   font-family: Georgia-italic,Hiragino,SimHei; }
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .scene {
   position: absolute;
@@ -205,9 +191,6 @@
   width: 1024px;
   height: 576px;
   border: 1px solid #F00;
-<<<<<<< HEAD
-  overflow: hidden; }
-=======
   overflow: hidden;
   background: #8d6e63; }
 
@@ -216,7 +199,6 @@
   height: 100%;
   background: black;
   opacity: 0; }
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 /* scene1 */
 .places {
@@ -248,24 +230,17 @@
   height: 345.6px;
   width: 1024px; }
 
-<<<<<<< HEAD
-=======
 .year {
   position: absolute;
   left: 34.56px;
   top: 34.56px;
   height: 69.12px; }
 
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 .building {
   position: absolute;
   bottom: 0px;
   left: 50%;
-<<<<<<< HEAD
-  width: 40%;
-=======
   width: 45%;
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   -moz-transform: translate3d(-50%, 0, 0);
   -o-transform: translate3d(-50%, 0, 0);
   -ms-transform: translate3d(-50%, 0, 0);
@@ -276,14 +251,6 @@
   max-width: 100%; }
 
 .marco {
-<<<<<<< HEAD
-  width: 92.16px;
-  height: 138.24px;
-  background: url("../resource/marco1.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  z-index: 999; }
-=======
   width: 103.68px;
   height: 155.52px;
   background: url("../resource/marco1.png");
@@ -293,22 +260,11 @@
 .marco.shadow {
   background: url("../resource/marco1_shadow.png");
   background-size: 100% 100%; }
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .marco.tourist {
   background: url("../resource/marco2.png");
   background-size: 100% 100%; }
 
-<<<<<<< HEAD
-.boat {
-  position: absolute;
-  width: 276.48px;
-  height: 138.24px;
-  background: url("../resource/boat.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  z-index: 500; }
-=======
 .marco.tourist.shadow {
   background: url("../resource/marco2_shadow.png");
   background-size: 100% 100%; }
@@ -332,7 +288,6 @@
   margin: auto;
   background: url("../resource/oar.png");
   background-size: 100% 100%; }
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .marco.scene-top {
   position: absolute;
@@ -344,11 +299,7 @@
 /**
  * scene2 
  */
-<<<<<<< HEAD
-.shade-part2 {
-=======
 .shade-scene2 {
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   width: 100%;
   height: 100%;
   background: #795548; }
@@ -359,23 +310,15 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
-<<<<<<< HEAD
-=======
   background: #795548;
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   overflow: hidden; }
 
 .papermans:after {
   clear: both; }
 
 .paperman {
-<<<<<<< HEAD
-  width: 92.16px;
-  height: 138.24px;
-=======
   width: 103.68px;
   height: 155.52px;
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   margin: 0px 0px;
   float: left;
   -webikit-transition: opacity 0.5s linear;
@@ -388,27 +331,16 @@
 
 .paperman-line {
   position: relative;
-<<<<<<< HEAD
-  left: -69.12px;
-  height: 138.24px;
-  width: 120%;
-  margin-top: -69.12px;
-=======
   left: -25.92px;
   top: 103.68px;
   height: 155.52px;
   width: 120%;
   margin-top: -77.76px;
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   overflow: hidden; }
 
 .l1 {
   position: relative;
-<<<<<<< HEAD
-  left: -23.04px; }
-=======
   left: 25.92px; }
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .half {
   position: absolute;
@@ -423,12 +355,6 @@
 
 .subway-up {
   position: relative;
-<<<<<<< HEAD
-  height: 345.6px;
-  width: 100%;
-  background: white; }
-
-=======
   height: 403.2px;
   width: 100%;
   background: white; }
@@ -459,7 +385,6 @@
   right: 0;
   top: 5.76px; }
 
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 .subway-head {
   position: absolute;
   bottom: 0px;
@@ -471,44 +396,21 @@
 
 .subway-down {
   position: relative;
-<<<<<<< HEAD
-  height: 576px;
-  width: 2048px;
-  overflow: hidden; }
-
-.subway-paperman {
-  position: absolute;
-  left: 512px;
-  width: 1024px;
-  height: 576px; }
-=======
   height: 748.8px;
   width: 2048px; }
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .subway-left {
   position: absolute;
   left: 0;
   width: 512px;
-<<<<<<< HEAD
-  height: 576px;
-  background: url("../resource/subwayl.png");
-  background-size: 100% 100%; }
-=======
   height: 898.56px;
   background: url("../resource/subwayl.png");
   background-size: 100% 110%; }
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .subway-right {
   position: absolute;
   right: 0;
   width: 512px;
-<<<<<<< HEAD
-  height: 576px;
-  background: url("../resource/subwayr.png");
-  background-size: 100% 100%; }
-=======
   height: 898.56px;
   background: url("../resource/subwayr.png");
   background-size: 100% 110%; }
@@ -520,20 +422,13 @@
   background: url("../resource/subway_shadow.png");
   background-size: 100% 100%;
   background-position: center; }
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .subway-block {
   position: absolute;
   width: 512px;
-<<<<<<< HEAD
-  height: 576px;
-  background: url("../resource/subway.png");
-  background-size: 100% 100%; }
-=======
   height: 748.8px;
   background: url("../resource/subway.png");
   background-size: 100% 132%; }
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .subway-block.left {
   left: 0; }
@@ -541,11 +436,7 @@
 .subway-block.right {
   right: 0; }
 
-<<<<<<< HEAD
-/* part3 */
-=======
 /* scene5 */
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 .shade-youtube img {
   position: absolute;
   left: 0px;
@@ -564,32 +455,6 @@
 
 .ctn-browser {
   position: absolute;
-<<<<<<< HEAD
-  top: -57.6px;
-  left: -409.6px;
-  width: 2560px;
-  height: 1440px;
-  border: solid 1px #aaa;
-  background: #8d6e63;
-  -webkit-transition: -webkit-transform 0.5s linear; }
-
-.browser {
-  position: absolute;
-  width: 1740.8px;
-  height: 100%;
-  margin: 0 379.6px;
-  padding: 57.6px 30px;
-  overflow: hidden;
-  background: #e0e0e0; }
-
-.browser-left {
-  position: absolute;
-  left: 30px;
-  top: 57.6px;
-  width: 1084px;
-  height: 100%;
-  margin: auto auto; }
-=======
   top: -172.8px;
   left: -409.6px;
   width: 2560px;
@@ -667,17 +532,12 @@
   height: 100%;
   margin: auto auto;
   padding: 633.6px 0 0 0; }
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
 
 .browser-right {
   position: absolute;
   left: 1084px;
-<<<<<<< HEAD
-  right: 30px;
-=======
   top: 57.6px;
   right: 0;
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   height: 100%;
   margin: auto auto; }
 
@@ -690,22 +550,6 @@
   margin: auto auto;
   overflow: hidden; }
 
-<<<<<<< HEAD
-.comments {
-  position: absolute;
-  top: 606px;
-  width: 1024px; }
-
-.comment {
-  height: 100px;
-  width: 90%;
-  margin: 10px auto;
-  border: solid 3px red; }
-
-.ctn-video {
-  position: relative;
-  height: 230.4px;
-=======
 .like-bar {
   position: relative;
   width: 100%;
@@ -783,20 +627,13 @@
 .ctn-video {
   position: absolute;
   height: 259.2px;
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   width: 90%;
   margin: 0px auto; }
 
 .video {
-<<<<<<< HEAD
-  position: relative;
-  width: 345.6px;
-  height: 230.4px;
-=======
   position: absolute;
   width: 345.6px;
   height: 259.2px;
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   background: url("../resource/board_video.png");
   background-size: 100% 100%; }
 
@@ -807,11 +644,7 @@
   left: 0;
   right: 0;
   width: 230.4px;
-<<<<<<< HEAD
-  height: 115.2px;
-=======
   height: 230.4px;
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
   margin: auto; }
 
 .video .v0 {
@@ -827,46 +660,6 @@
   background-size: 100% 100%; }
 
 .dashes {
-<<<<<<< HEAD
-  position: absolute;
-  left: 288px;
-  border: solid 3px blue; }
-
-#scene-7 .browser-tag {
-  background-image: url("../resourse/tag.png");
-  background-size: 100% 100%; }
-#scene-7 .youtube {
-  position: absolute;
-  background: #E0E0E0;
-  width: 45%;
-  height: 65%;
-  -webkit-box-shadow: 0 0 2 2 black;
-  -moz-box-shadow: 0 0 2 2 black;
-  box-shadow: 0 0 2 2 black;
-  -webkit-border-radius: 1em;
-  -moz-border-radius: 1em;
-  border-radius: 1em; }
-#scene-7 .youtube-nav {
-  position: absolute;
-  background: white;
-  width: 100%;
-  height: 7%;
-  border-bottom: 1px solid #9C9C9C;
-  -webkit-box-shadow: 0 0 1 1 black;
-  -moz-box-shadow: 0 0 1 1 black;
-  box-shadow: 0 0 1 1 black; }
-#scene-7 .comments-ctn {
-  background: #EFEBE9;
-  -webkit-box-shadow: 1 1 3 1 black;
-  -moz-box-shadow: 1 1 3 1 black;
-  box-shadow: 1 1 3 1 black; }
-#scene-7 .profile-photo {
-  background: url("../resource/profile.png");
-  background-size: 100% 100%; }
-#scene-7 .video {
-  background: #EFEBE9;
-  background-image: url("../resource/board_video.png"); }
-=======
   height: 230.4px;
   margin: 0 0 0 334.08px;
   padding: 28.8px 0; }
@@ -916,6 +709,12 @@
   top: 3px;
   width: 100%;
   height: 100%; }
->>>>>>> ee264321f302d32b0192d3ba9da3c67fcc738980
+
+#scene7 .comments-new {
+  background: #EFEBE9;
+  position: absolute; }
+#scene7 .profile-photo {
+  background: url("../resource/profile.png");
+  background-size: 100% 100%; }
 
 /*# sourceMappingURL=scenes.css.map */
