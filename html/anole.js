@@ -168,7 +168,7 @@
         
         function loadNext(){
           this._loadOneResource(res.pop(), function (){
-            if(!res.length){
+			if(!res.length){
               callback && callback();
             }else{
               loadNext.bind(this)();
@@ -180,6 +180,8 @@
       },
       _loadOneResource: function (res, callback){
         
+		console.log('_loadOneResource: ' + res);
+        
         if(this._resourceLoaded[res]){
           callback && callback();
           return;
@@ -187,7 +189,7 @@
         var src = this._config.resoureUrl + this._config.resource[res];
 		//console.log("loadOneResource: src: " + src);
         var error = function (){
-          this.showError();
+          this.showError("Error loading "+src);
         }
         
         if(/\.mp3|\.wav|\.ogg$/.test(src)){
@@ -286,7 +288,85 @@
       }
     };
     
-    anole.$$ = anole.getOrCreate;
+	// Define base class Scene
+	function Scene(id, canvas, inherit) {
+		this.id = id;
+		this.name = 'scene'+id+'.js';
+		this.canvas = canvas;
+		this.inherit = inherit;
+		this.container = $("<div id='scene" + this.id + "' class='scene'></div>");
+		// List of dom elements that will be reused by other scenes afterwards.
+		// Note it's DOM not jQ Objects.
+		this.export = [];
+		// All animations are trained by this main timeline.
+		this.tl = new TimelineLite({paused:true});
+	}
+	// Methods list.
+	//
+	// Public:
+	Scene.prototype.onInit = function() {
+		// Empty current scene div.
+		var old = this.canvas.find('#scene' + this.id);
+		if (old) {
+			old.remove();
+			// TODO: Re-use already-rendered dom and timeline.
+			// Like this:
+			// this.tl = old.data('timeline');
+			// this.tl.replay();
+		}
+		// When inherit is set to true,
+		// Current scene is initialed based on last scene.
+		// Copy previous scene's dom to current scene if it's present.
+		if (this.inherit) {
+			var prev = this.canvas.find('#scene' + (this.id-1));
+			if (prev) {
+				this.container = prev.clone(); // Not cloning events (nor data, probably).
+				prev.hide();
+				this.container.attr('id', 'scene' + this.id);
+				this.container.show();
+			} else {
+			    console.log("Warning: scene" + (id-1) + "deleted unexpetedly."); 
+			}
+		}
+		if (this.canvas) { // If parent dom is provided, append content html to it.
+			var html = this.createDom();
+		    if (html) {
+		        this.canvas.append($(html));
+		    } else {
+			    this.canvas.append(this.container);
+		    }
+		}
+	};
+
+	Scene.prototype.onStart = function(callback) {
+		// Do animations here.
+		this.animation();
+		if (callback) {
+			this.tl.call(callback);
+		}
+		this.tl.play();
+	};
+	// When button NEXT clicked/swipe down/scroll down. 
+	Scene.prototype.onForward = function(callback) {
+		console.log(this.tl.progress());
+		this.tl.progress(1);
+		this.container.hide();
+		callback();
+	};
+	// When button PREV clicked/swipe up/scroll up. 
+	Scene.prototype.onBack = function(callback) {
+		console.log(this.tl.progress());
+		// this.tl.progress(0);
+		this.container.remove();
+		callback();
+	};
+	// When existing current scene.
+	Scene.prototype.onEnd = function() {
+		console.log(this.tl.progress());
+		this.container.remove();
+	};
     
+	anole.$$ = anole.getOrCreate;
+    anole.Scene = Scene;    
     return anole;
 });

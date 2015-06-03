@@ -20,8 +20,8 @@
 	"profile": "profile.png",
 	"board_video": "board_video.png",
 	"v0": "v0.png",
-	"v0": "v1.png",
-	"v0": "v2.png"
+	"v1": "v1.png",
+	"v2": "v2.png"
   }
   
   //if(!anole.isMobile()){
@@ -79,7 +79,7 @@
         $(".mask").hide();
         console.log("resource loaded, hide loading message.")
       },
-      showError: function (){ console.log("app error !!!! resource error!!!!") }
+      showError: function (msg){ console.log(msg); }
     })
     
     anole.start();
