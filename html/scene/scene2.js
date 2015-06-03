@@ -38,6 +38,7 @@
 		setTimeout(callback,delta);
 	}
 	anole.addScene({
+		name: "scene2.js",
 		onInit: function (){
 			this.scene = anole.$$("#scene2",'<div id = "scene2" class = "scene"></div>',anole.canvas);
 			this.scene[0].className = "scene";

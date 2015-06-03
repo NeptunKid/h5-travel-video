@@ -13,6 +13,7 @@
 				.append($('<div class="marco tourist body"></div>'));
 	}
 	anole.addScene({
+		name: "scene4.js",
 		onInit: function (){
 			this.scene = anole.$$("#scene4",'<div id = "scene4" class = "scene"></div>',anole.canvas);
 			this.scene.html($("#scene3").html());

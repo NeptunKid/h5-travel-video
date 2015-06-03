@@ -9,6 +9,7 @@
 	}
 
 	anole.addScene({
+		name: "scene6.js",
 		onInit: function (){
 			this.scene = anole.$$("#scene6",'<div id = "scene6" class = "scene"></div>',anole.canvas);
 			this.scene.html($("#scene5").html());
@@ -49,13 +50,19 @@
 					.to(this.comment_ctn,2.2,{height:new_h+"px",ease:Linear.easeNone},"+=0.2")
 					.to([this.br_left,this.br_right],2,{y:"-52%",ease:Linear.easeNone},"-=2")
 					.to(this.topbar,0.5,{width:"67%"})
-					.to(this.br_ctn_in,1,{scaleX:0.7,scaleY:0.7})
+					.to(this.br_ctn_in,1,{scaleX:0.5,scaleY:0.5})
 					.to(this.shade,1,{opacity:0.26})
 					.to(this.pages[0],2,{opacity:1,x:"-90%",y:"-60%"},"-=1")
+					.to(this.pages[2],2,{x:"-60%",y:"-40%"},"-=2")
+					.to(this.pages[4],2,{x:"-40%",y:"-40%"},"-=2")
 					.to(this.pages[1],2,{opacity:1,x:"110%",y:"-70%"},"-=0.6")
-					.to(this.pages[2],2,{opacity:1,x:"-80%",y:"120%"},"-=0.6")
-					.to(this.pages[3],2,{opacity:1,x:"80%",y:"20%"},"-=0.6")
-					.to(this.pages[4],2,{opacity:1,x:"20%",y:"80%"},"-=0.6")
+					.to(this.pages[3],2,{x:"180%",y:"-50%"},"-=2")
+					.to(this.pages[0],2,{x:"-80%",y:"100%"},"-=0.6")
+					.to(this.pages[2],2,{opacity:1,x:"-90%",y:"-60%"},"-=2")
+					.to(this.pages[1],2,{x:"80%",y:"80%"},"-=0.6")
+					.to(this.pages[3],2,{opacity:1,x:"110%",y:"-70%"},"-=2")
+					.to(this.pages[2],2,{x:"-80%",y:"100%"},"-=0.6")
+					.to(this.pages[4],2,{opacity:1,x:"-70%",y:"-60%"},"-=2")
 		},
 		onBack: function (finish){
 			$("#scene6").remove();

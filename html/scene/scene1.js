@@ -14,6 +14,7 @@
 		}
 	};
 	anole.addScene({
+		name: "scene1.js",
 		onInit: function (){
 			console.log(this.scene);
 			this.scene = anole.$$("#scene1",'<div id="scene1" class="scene"></div>', anole.canvas);
