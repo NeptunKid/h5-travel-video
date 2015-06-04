@@ -7,7 +7,8 @@
     'hammer': 'hammer',
     'TweenLite': 'js/TweenLite.min',
     'TimelineLite' : 'js/TimelineLite.min',
-    'CSSPlugin' : 'js/CSSPlugin.min',
+    'CSSPlugin': 'js/CSSPlugin.min',
+	'EasePack': 'js/EasePack.min'
   },
   shim: {
     zepto: {

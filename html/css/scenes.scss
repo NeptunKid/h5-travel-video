@@ -589,17 +589,58 @@ $br_padding_top :$scene_h*0.1;
 #scene7 {
 	.comments-new {
 		background: #EFEBE9;
-		// background: url("../resource/comment_list.png");
-		// background-size: 100% 100%;
 		position: absolute;
-		// width: 65%;
-		// height: 70%;:
-		// height: 0.05*$scene_h;
-		// @include box-shadow(1px, 1px, 3px, 1px, black);
-		// overflow: hidden;
     }
    .profile-photo {
 		background: url("../resource/profile.png");
 		background-size: 100% 100%;
     }
+	.worry-bubble {
+		position: absolute;
+		width: 0.4*$scene_h;
+		height: 0.4*$scene_h;
+		background-size: 100% 100%;
+    }
+	.worry1 {
+		background-image: url("../resource/worry1.png");
+    }
+	.worry2 {
+		background-image: url("../resource/worry2.png");
+    }
+	.worry3 {
+		background-image: url("../resource/worry3.png");
+    }
+    .worry4 {
+		 background-image: url("../resource/worry4.png");
+    }
+	.comment-ctn {
+     overflow: visible;
+    }
+	.comment-content {
+		font-size: 3.5em;
+		text-align: center;
+		
+		.worry-text {
+			padding-top: 10px;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+	    }
+    }
+	
+	// This is a failed attempt to use pscudo element to tween opacity of background image.
+	// .comments {
+	//	background: none;
+    //}
+	//.comments:after {
+	//	background: url("../resource/comment_list.png");
+	//	background-size: 100% 100%;
+	//	position: absolute;
+	//	top: -10px;
+	//	left: -10px;
+	//	width: 108%;
+	//	height: 108%;
+	//	content: " ";
+	//	z-index: -1;
+   // }
 }
