@@ -18,10 +18,10 @@
 		}
 		this.texts = this.comments.find('.comment-content');
         this.newTexts = [];
-		var words = ['饮食 61%',
-			'厕所 51%',
-		    '欺诈 35%',
-			'人多 33%'];
+		var words = ['饮食安全.. 61%',
+			'如厕不便.. 51%',
+		    '欺诈宰客... 35%',
+			'人多拥挤... 33%'];
 	    for (i=0; i<4 ;i++) {
 			var node = $('<div></div>').addClass('worry-text').text(words[i])
 			            .css('opacity', '0');
@@ -54,8 +54,11 @@
 		     .to(this.comments.find('.comment-head'), 1, {opacity:0})
 		     .to(this.comments.find('.comment-content'), 1, {left:120}, '-=1')
 			 .to(this.texts.find('.dash'), 0.2, {scale:0, opacity:0}, '-=1')
-		     .fromTo(this.bubbles, 1, {scale: 0, opacity: 0}, {scale:1, opacity:1, ease: Bounce.easeOut})
-			 .to(this.newTexts, 1, {opacity:1, ease: Bounce.easeOut}, '-=0.5');
+		     .staggerFromTo(this.bubbles, 1, {scale: 0, opacity: 0},
+							{scale:1, opacity:1, ease: Elastic.easeOut}, 0.35)
+			 .staggerFromTo(this.newTexts, 1, {opacity:0, scale:0},
+							{opacity:1, scale:1, ease: Elastic.easeOut}, 0.35, '-=2');
+			 //.call(floatThem);
 	}
 	anole.addScene(scene);
 })

@@ -243,7 +243,7 @@
         if(this._currentScene >= this._playedScene){ // Already played.
           this._playedScene = this._currentScene + 1;
         }
-        this.triggerEnd(this._currentScene);
+        this.triggerForward(this._currentScene);
           console.log("PlayNext => playScene" + (this._currentScene+1));
           ++this._currentScene;
         this.playScene(this._currentScene);
@@ -254,9 +254,10 @@
           this.playScene(--this._currentScene);
         }.bind(this));
       },
-      triggerEnd: function (index){
+      triggerForward: function (index){
         var scene = this._scene[index];
-        scene.onEnd && scene.onEnd();
+        scene.onEnd && scene.onEnd(); // TODO: change all onEnd to onForward
+        scene.onForward && scene.onForward();
       },
       playScene: function (index){
           this._currentScene = index;
@@ -323,11 +324,11 @@
 				this.container = prev.clone(); // Not cloning events (nor data, probably).
 				prev.hide();
 				this.container.attr('id', 'scene' + this.id);
-				this.container.show();
 			} else {
 			    console.log("Warning: scene" + (id-1) + "deleted unexpetedly."); 
 			}
 		}
+		this.container.show(); // container could be hidden if coming from next scene.
 		if (this.canvas) { // If parent dom is provided, append content html to it.
 			var html = this.createDom();
 		    if (html) {
@@ -362,8 +363,6 @@
 	};
 	// When existing current scene.
 	Scene.prototype.onEnd = function() {
-		console.log(this.tl.progress());
-		this.container.remove();
 	};
     
 	anole.$$ = anole.getOrCreate;
