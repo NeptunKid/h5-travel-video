@@ -21,8 +21,15 @@
 	"board_video": "board_video.png",
 	"v0": "v0.png",
 	"v1": "v1.png",
-	"v2": "v2.png"
-  }
+	"v2": "v2.png",
+	"worry1": "worry1.png",
+	"worry2": "worry2.png",
+	"worry3": "worry3.png",
+	"worry4": "worry4.png",
+	"bubble_disappear": "bubble_disappear.png",
+	"marco_nomouth": "marco_nomouth.png",
+	"mouth": "mouth.png"
+}
   
   //if(!anole.isMobile()){
     sceneQueue = [
@@ -52,7 +59,11 @@
       },
       {
         fileName:'scene7.js',
-        res: ["profile","youtube-logo","tag","board_video","v0","v1","v2"]
+        res: ["profile","youtube-logo","tag","board_video","v0","v1","v2","worry1", "worry2", "worry3", "worry4"]
+      },
+      {
+        fileName:'scene8.js',
+        res: ["bubble_disappear", "marco_nomouth", "mouth"]
       },
     ]
     baseUrl = './scene/';

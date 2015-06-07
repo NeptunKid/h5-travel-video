@@ -39,7 +39,7 @@ console.log("scene1.js required. add scene");
 			console.log(">>> scene1.js onStart");
 
 			this.tl1 = new TimelineLite();
-			this.tl1 = this.tl1.to(this.places, 0.5, {top:"-100%", ease:Linear.easeNone})
+			this.tl1 = this.tl1.to(this.places, 0.5, {top:"-100%", ease:Linear.easeNone}, 2.5)
 						.to(this.marco, 0, {"z-index":501})
 						.to(this.boat, 0.5, {top:"198%", ease:Linear.easeNone}, "+=2")
 						.to(this.marco, 0.5, {top:"195%", ease:Linear.easeNone}, "-=0.5");

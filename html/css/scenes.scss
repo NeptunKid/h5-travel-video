@@ -64,14 +64,18 @@ $scene_h:576px;
 	position: relative;
 	height: $scene_h;
 }
-.bridge-ctn .down, .gate-ctn .up{
-	background: #4db6ac;
+.bridge-ctn .down { 
+	background-color: #bdbdbd;
+}
+.gate-ctn .up{
+	background-color: #D7CCC8;
 }
 .gate-ctn .down{
-	background: #795548;
+	background: #D7CCC8;
 }
 .up{
 	position: absolute;
+	background-color: #bdbdbd;
 	top:0;
 	height: 0.4*$scene_h;
 	width: $scene_w;
@@ -586,7 +590,7 @@ $br_padding_top :$scene_h*0.1;
 	height: 100%;
 }
 
-#scene7 {
+#scene7, #scene8 {
 	.comments-new {
 		background: #EFEBE9;
 		position: absolute;
@@ -627,7 +631,61 @@ $br_padding_top :$scene_h*0.1;
 			height: 100%;
 	    }
     }
-	
+    .bubble-disappear {
+        position: absolute;
+		width: 0.4*$scene_h;
+		height: 0.4*$scene_h;
+		background-image: url("../resource/bubble_disappear.png");
+		background-size: 100% 100%;
+     }
+	.marco-shadow {
+		background: url("../resource/marco2_shadow.png");
+		background-size: 100% 100%;
+		width: 1.5*$man_w;
+		height: 1.5*$man_h;
+		position:absolute;
+		bottom: 100px;
+		right: 200px;
+		z-index: 250;
+     }
+	.marco-nomouth {
+		background: url("../resource/marco_nomouth.png");
+		background-size: 100% 100%;
+		position:absolute;
+		height: 100%;
+		width: 100%;
+    }
+	#mouth {
+		position: absolute;
+		left: 0px;
+		right: 0px;
+		margin: 0.56*$man_h auto;
+     }
+	 .chinese {
+		background: url("../resource/paperman.png");
+		background-size: 100% 100%;
+		position:absolute;
+		width: 1.5*$man_w;
+		height: 1.5*$man_h;
+		position:absolute;
+		z-index: 100;
+     }
+	 .chinese:nth-child(1) {
+		right: 80px;
+		bottom: 120px;
+		opacity: 0;
+     }
+	 .chinese:nth-child(2) {
+		right: 150px;
+		bottom: 150px;
+		opacity: 0;
+     }
+	 .chinese:nth-child(3) {
+		right: 250px;
+		bottom: 75px;
+		opacity: 0;
+     }
+
 	// This is a failed attempt to use pscudo element to tween opacity of background image.
 	// .comments {
 	//	background: none;

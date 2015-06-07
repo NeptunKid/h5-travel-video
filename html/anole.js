@@ -348,11 +348,13 @@
 		this.tl.play();
 	};
 	// When button NEXT clicked/swipe down/scroll down. 
-	Scene.prototype.onForward = function(callback) {
+	Scene.prototype.onForward = function() {
 		console.log(this.tl.progress());
 		this.tl.progress(1);
 		this.container.hide();
-		callback();
+		if (this.cleanup) {
+			this.cleanup();
+		}
 	};
 	// When button PREV clicked/swipe up/scroll up. 
 	Scene.prototype.onBack = function(callback) {

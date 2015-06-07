@@ -212,14 +212,18 @@
   position: relative;
   height: 576px; }
 
-.bridge-ctn .down, .gate-ctn .up {
-  background: #4db6ac; }
+.bridge-ctn .down {
+  background-color: #bdbdbd; }
+
+.gate-ctn .up {
+  background-color: #D7CCC8; }
 
 .gate-ctn .down {
-  background: #795548; }
+  background: #D7CCC8; }
 
 .up {
   position: absolute;
+  background-color: #bdbdbd;
   top: 0;
   height: 230.4px;
   width: 1024px; }
@@ -710,34 +714,80 @@
   width: 100%;
   height: 100%; }
 
-#scene7 .comments-new {
+#scene7 .comments-new, #scene8 .comments-new {
   background: #EFEBE9;
   position: absolute; }
-#scene7 .profile-photo {
+#scene7 .profile-photo, #scene8 .profile-photo {
   background: url("../resource/profile.png");
   background-size: 100% 100%; }
-#scene7 .worry-bubble {
+#scene7 .worry-bubble, #scene8 .worry-bubble {
   position: absolute;
   width: 230.4px;
   height: 230.4px;
   background-size: 100% 100%; }
-#scene7 .worry1 {
+#scene7 .worry1, #scene8 .worry1 {
   background-image: url("../resource/worry1.png"); }
-#scene7 .worry2 {
+#scene7 .worry2, #scene8 .worry2 {
   background-image: url("../resource/worry2.png"); }
-#scene7 .worry3 {
+#scene7 .worry3, #scene8 .worry3 {
   background-image: url("../resource/worry3.png"); }
-#scene7 .worry4 {
+#scene7 .worry4, #scene8 .worry4 {
   background-image: url("../resource/worry4.png"); }
-#scene7 .comment-ctn {
+#scene7 .comment-ctn, #scene8 .comment-ctn {
   overflow: visible; }
-#scene7 .comment-content {
+#scene7 .comment-content, #scene8 .comment-content {
   font-size: 3.5em;
   text-align: center; }
-  #scene7 .comment-content .worry-text {
+  #scene7 .comment-content .worry-text, #scene8 .comment-content .worry-text {
     padding-top: 10px;
     position: absolute;
     width: 100%;
     height: 100%; }
+#scene7 .bubble-disappear, #scene8 .bubble-disappear {
+  position: absolute;
+  width: 230.4px;
+  height: 230.4px;
+  background-image: url("../resource/bubble_disappear.png");
+  background-size: 100% 100%; }
+#scene7 .marco-shadow, #scene8 .marco-shadow {
+  background: url("../resource/marco2_shadow.png");
+  background-size: 100% 100%;
+  width: 155.52px;
+  height: 233.28px;
+  position: absolute;
+  bottom: 100px;
+  right: 200px;
+  z-index: 250; }
+#scene7 .marco-nomouth, #scene8 .marco-nomouth {
+  background: url("../resource/marco_nomouth.png");
+  background-size: 100% 100%;
+  position: absolute;
+  height: 100%;
+  width: 100%; }
+#scene7 #mouth, #scene8 #mouth {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin: 87.0912px auto; }
+#scene7 .chinese, #scene8 .chinese {
+  background: url("../resource/paperman.png");
+  background-size: 100% 100%;
+  position: absolute;
+  width: 155.52px;
+  height: 233.28px;
+  position: absolute;
+  z-index: 100; }
+#scene7 .chinese:nth-child(1), #scene8 .chinese:nth-child(1) {
+  right: 80px;
+  bottom: 120px;
+  opacity: 0; }
+#scene7 .chinese:nth-child(2), #scene8 .chinese:nth-child(2) {
+  right: 150px;
+  bottom: 150px;
+  opacity: 0; }
+#scene7 .chinese:nth-child(3), #scene8 .chinese:nth-child(3) {
+  right: 250px;
+  bottom: 75px;
+  opacity: 0; }
 
 /*# sourceMappingURL=scenes.css.map */
