@@ -1,3 +1,4 @@
+console.log("Scene3.js running...");
 ;require(['anole', 'zepto'], function (anole){
 	var data = {year:1271,popu:123456789}
 	var data_final = {year:2014,popu:128498301}
@@ -42,12 +43,16 @@
 			update_text();
 		},
 		onStart: function (finish){
+			//console.log(">>> scene3.js onStart");
 			this.tl1 = new TimelineLite();
 			this.tl1.to($("#subway-left"), 0.5, {x:"100%", ease:Linear.easeNone})
 							.call(function(){$("#papermans").css("display","none");})
 							.to($("#subway-right"), 0.5, {x:"-100%", ease:Linear.easeNone},"-=0.5")
 							.to(this.subway,0.5,{delay:0.2,scaleX:"0.5",scaleY:"0.5",y:"5%"})
 							.to(data,2,{year:data_final.year,popu:data_final.popu,onUpdate:update_text,ease:Linear.easeNone});
+			if (finish) {
+				this.tl1.call(finish);
+			}
 		},
 		onBack: function(finish){
 			$("#scene3").remove();
@@ -57,6 +62,7 @@
 		},
 		onEnd: function (){
 			this.tl1.progress(1);
+			$("#scene2").hide();
 		},
 	})
 });

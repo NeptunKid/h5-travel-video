@@ -14,7 +14,34 @@
     "sub-block": "subway.png",
     "sub-left-gate": "subwayl.png",
     "sub-right-gate": "subwayr.png",
-    "replay": "replay.png"
+    "replay": "replay.png",
+	"tag": "tag.png",
+	"youtube-logo": "youtube-logo.png",
+	"profile": "profile.png",
+	"board_video": "board_video.png",
+	"v0": "v0.png",
+	"v1": "v1.png",
+	"v2": "v2.png",
+  "canadian0":"canadian0.png",
+  "canadian1":"canadian1.png",
+  "canadian2":"canadian2.png",
+  "test":"test.ogg",
+  "map":"map.png",
+  "mark1":"mark1.png",
+  "mark2":"mark2.png",
+  "mark3":"mark3.png",
+  "mark4":"mark4.png",
+  "browsertab":"browstab.png",
+  "w1d":"wifi1_dark.png",
+  "w1l":"wifi1_light.png",
+  "w2d":"wifi2_dark.png",
+  "w2l":"wifi2_light.png",
+  "w3d":"wifi3_dark.png",
+  "w3l":"wifi3_light.png",
+  "glogo":"googlelogowithshadow.png",
+  "searchbar":"searchbarwithshadow.png",
+  "progbar":"progressbar.png",
+  "nexus":"nexuswithshadow.png",
   }
   
   //if(!anole.isMobile()){
@@ -43,6 +70,38 @@
         fileName:'scene6.js',
         res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate","replay"]
       },
+      {
+        fileName:'scene7.js',
+        res: ["profile","youtube-logo","tag","board_video","v0","v1","v2"]
+      },
+      {
+        fileName:'scene11.js',
+        res: ["canadian0","canadian1","canadian2"]
+      },
+      {
+        fileName: 'scene12.js',
+        res: ["test"]
+      },
+      {
+        fileName:'scene13.js',
+        res: ["gate","boat","marco2"]
+      },
+      {
+        fileName:'scene14.js',
+        res: ["map","mark1","mark2","mark3","mark4"]
+      },
+      {
+        fileName:'scene15.js',
+        res: ["map"]
+      },
+      {
+        fileName:'scene16.js',
+        res: ["browsertab","w1d","w1l","w2d","w2l","w3d","w3l","glogo","searchbar","progbar"]
+      },
+      {
+        fileName:'scene17.js',
+        res: ["browsertab","glogo","searchbar","progbar","nexus"]
+      },
     ]
     baseUrl = './scene/';
     resoureUrl = "./resource/";
@@ -56,7 +115,7 @@
       maxQueueLength: 4,// load serval scenes at same time
       sceneQueue: sceneQueue,// anime scene queue
       autoPlay: false,// auto play with no event
-      flipType: 'click',// flip type eg:click, swipe
+      flipType: 'click',// flip type eg:click, swipe, wheel
       containerTemplate: '<div class="container main"></div>',// scene root container, it will be appended to body.
       prevBtnTemplate: '<div class="prev-btn btn J_PrevBtn">prev</div>',// prev button dom
       nextBtnTemplate: '<div class="next-btn btn J_NextBtn">next</div>',// next button dom
@@ -68,7 +127,7 @@
         $(".mask").hide();
         console.log("resource loaded, hide loading message.")
       },
-      showError: function (){ console.log("app error !!!! resource error!!!!") }
+      showError: function (msg){ console.log(msg); }
     })
     
     anole.start();

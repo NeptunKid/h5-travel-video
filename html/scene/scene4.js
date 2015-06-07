@@ -36,6 +36,9 @@
 					.to(this.sublgate , 0.5, {x:"50%", ease:Linear.easeNone, onComplete:this.marco_go_out.bind(this)})
 					.to(this.subrgate, 0.5, {x:"-50%", ease:Linear.easeNone},"-=0.5")
 					.to(this.marco,1,{delay:0.2,left:"18%",top:"58%",width:new_w,height:new_h,ease:Linear.easeNone,});
+			if (finish) {
+				this.tl1.call(finish);
+			}
 		},
 		onBack: function(finish){
 			$("#scene4").remove();

@@ -49,26 +49,10 @@ html, body{
 	border:1px solid #F00;
   position:relative;
 }
-.scene1{
-
-}
-.scene2{
-
-}
-.scene3{
- 
-}
-.scene4{
- 
-}
-.scene5{
-
-}
 .next-btn{
-
+	margin-left: 100px;
 }
 .prev-btn{
-
 }
 
 .hidden{
@@ -87,6 +71,7 @@ html, body{
   font-size: 72px;
 }
 .btn{
+  position: absolute;
   width:50px;
   height:50px;
   border:1px solid #000;

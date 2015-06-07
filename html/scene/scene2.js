@@ -46,6 +46,7 @@
 			this.places = anole.$$('.places','<div class="places"></div>',this.scene);
 		},
 		onStart: function (finish){
+			//console.log(">>> scene2.js onStart");
 			this.tl1 = new TimelineLite();
 			this.tl1.add(TweenLite.to(this.shade, 0.5, {opacity:1, ease:Linear.easeNone, onComplete:function(){
 				$("#scene1").hide();
@@ -53,6 +54,10 @@
 				paperman_init();
 				setTimeout(display_ppm,500);
 			}.bind(this)}));
+
+			if (finish) {
+				this.tl1.call(finish);
+			}
 		},
 		onBack: function(finish){
 			$("#scene1").show();

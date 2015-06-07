@@ -27,7 +27,6 @@ $scene_h:576px;
 .container{
 	position: absolute;
 	left: 50%;
-	top: 100px;
 	width:$scene_w;
 	height:$scene_h;
 	margin: 0px;
@@ -300,12 +299,12 @@ $subdown_h:1.3*$scene_h;
 /* scene5 */
 .shade-youtube img{
 	position: absolute;
-	left:0px;
+	left:10px;
 	right: 0px;
 	top:0px;
 	bottom:0px;
 	margin: auto;
-	height: 20%;
+	height: 12%;
 }
 .shade-youtube{
 	position: absolute;
@@ -314,6 +313,17 @@ $subdown_h:1.3*$scene_h;
 	height: 100%;
 	background: black;
 }
+.loading {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	margin: auto;
+	width: 220px;
+	height: 220px;
+}
+
 $br_padding_left:30px;
 $br_padding_top :$scene_h*0.1;
 .ctn-browser{
@@ -585,4 +595,369 @@ $br_padding_top :$scene_h*0.1;
 	top: 3px;
 	width: 100%;
 	height: 100%;
+}
+
+#scene7 {
+	.comments-new {
+		background: #EFEBE9;
+		// background: url("../resource/comment_list.png");
+		// background-size: 100% 100%;
+		position: absolute;
+		// width: 65%;
+		// height: 70%;:
+		// height: 0.05*$scene_h;
+		// @include box-shadow(1px, 1px, 3px, 1px, black);
+		// overflow: hidden;
+    }
+   .profile-photo {
+		background: url("../resource/profile.png");
+		background-size: 100% 100%;
+    }
+}
+
+
+#scene11 {
+	.bg11{
+		position: relative;
+		width: 100%;
+		height: 100%;
+		background: #BBBBBB;
+	}
+	.canadian{
+		position: absolute;
+		top: 0.2*$scene_h;
+		width: 0.4*$scene_h;
+		height: 0.6*$scene_h;
+		background: url("../resource/canadian0.png");
+		background-size: 100% 100%;
+	}
+	.canadian.umbrella{
+		background: url("../resource/canadian1.png");
+		background-size: 100% 100%;		
+	}
+	.canadian.lovechina{
+		background: url("../resource/canadian2.png");
+		background-size: 100% 100%;		
+	}
+	#cana00,#cana01{
+		left: 15%;
+	}
+	#cana20,#cana21{
+		right: 15%;
+	}
+	#cana10,#cana11{
+		left: 40%;
+		right: 40%;
+		margin: auto;
+	}
+	#cana01,#cana11,#cana21{
+		@include transform(rotateY(90deg));
+	}
+}
+
+#scene12{
+	video{
+		width: 100%;
+		height: 100%;
+	}
+	.bg11{
+		z-index: 1203;
+	}
+}
+
+#scene13,#scene14{
+	.gate-ctn{
+		z-index: 1410;
+	}
+	.gate-ctn .up{
+		background: #896558;
+	}
+	.gate-ctn .building{
+		padding-bottom: 0.6*$scene_h;
+	}
+	.boat.shadow{
+		top: 20%;
+	}
+	.marco{
+		width: 0.3*$scene_h;
+		height: 0.45*$scene_h;
+	}
+	.marco.shadow{
+		position: absolute;
+		left: -0.3*$scene_h;
+		top: 0.65*$scene_h;
+		z-index: 1411;
+	}
+	.marco.body{
+		left: -3px;
+	}
+}
+#scene14,#scene15,#scene16{
+	.map-ctn{
+		z-index: 1400;
+	}
+	.map-ctn svg{
+		position: absolute;
+		z-index: 1405;
+	}
+	.map-ctn,.map{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.map-ctn{
+		background: #d7ccc8;
+	}
+	.map img{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		width: 62.7%;
+		height: 81.2%;
+	}
+	.point{
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background: #a0a8c6;
+		z-index: 1406;
+	}
+	.p0{
+		left: 20.3%;
+		top: 46.1%;
+	}
+	.p1{
+		left: 38.2%;
+		top: 43.44%;
+	}
+	.p2{
+		left: 61%;
+		top: 36.6%;
+	}
+	.p3{
+		left: 45.61%;
+		top: 75.11%;
+	}
+	.p4{
+		left: 64%;
+		top: 61.04%;
+	}
+	.p5{
+		left: 63.22%;
+		top: 74.93%;
+	}
+	.mark{
+		position: absolute;
+		background: #00a3b8;
+		width: 0.0519*$scene_h;
+		height: 0.0519*$scene_h;
+		border-radius: 50%;
+		z-index: 1406;
+		opacity: 0;
+	}
+	.mark img{
+		width: 100%;
+		height: 100%;
+	}
+	.m0{
+		left: 1.58%;
+		top: 29.26%;
+		width: 0.6*$scene_h;
+		height: 0.6*$scene_h;
+	}
+	.m1{
+		left: 39.7%;
+		top: 44.4%;
+	}
+	.m2{
+		left: 56.5%;
+		top: 50.25%;
+	}
+	.m3{
+		left: 50.15%;
+		top: 61.33%;
+	}
+}
+#scene15,#scene16{
+	.big-svg{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 0.9375*$scene_w;
+		height: 0.926*$scene_h;
+		overflow: visible;
+		z-index: 1500;
+	}
+	.point.p1{
+		z-index: 1501;
+	}
+	.count{
+		position: absolute;
+		left: 77%;
+		top: 2.5%;
+		font-size: 70;
+		opacity: 0;
+	}
+	.svg-bg{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #8d6e63;
+	}
+}
+#scene16,#scene17{
+	background: #D7CCC8;
+	.point{
+		overflow: visible;
+	}
+	.point svg{
+		position: absolute;
+		width: 200%;
+		height: 200%;
+		margin: -50%;
+	}
+	.wifi{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+	}
+	.wifi.w0{
+		background: url("../resource/wifi1_light.png");
+		background-size: 100% 100%;
+	}
+	.wifi.w1{
+		background: url("../resource/wifi2_light.png");
+		background-size: 100% 100%;
+	}
+	.wifi.w2{
+		background: url("../resource/wifi3_light.png");
+		background-size: 100% 100%;
+	}
+	.wifi.w3{
+		background: url("../resource/wifi1_dark.png");
+		background-size: 100% 100%;
+	}
+	.wifi.w4{
+		background: url("../resource/wifi2_dark.png");
+		background-size: 100% 100%;
+	}
+	.wifi.w5{
+		background: url("../resource/wifi3_dark.png");
+		background-size: 100% 100%;
+	}
+	.count.delta{
+		color: #FF9e80;
+		left: 67%;
+		top: 40%;
+		opacity: 0;
+	}
+	.g-browser{
+		position: absolute;
+		width: 70%;
+		height: 81.68%;
+		left: 15%;
+		top: 8%;
+		background: url("../resource/browstab.png");
+		background-size: 100% 100%;
+		opacity: 0;
+	}
+	.logo{
+		position: absolute;
+		width: 57.7%;
+		height: 35.16%;
+		left: 21%;
+		top: 30%;
+		background: url("../resource/googlelogowithshadow.png");
+		background-size: 100% 100%;
+	}
+	.searchbar{
+		position: absolute;
+		left: 10%;
+		top: 70%;
+		width: 80.77%;
+		height: 16.85%;
+		background: url("../resource/searchbarwithshadow.png");
+		background-size: 100% 100%;
+	}
+	.progress{
+		position: absolute;
+		top: 20%;
+		left: 2.7%;
+		width: 43%;
+		height: 60%;
+		background: url("../resource/progressbar.png");
+		background-size: auto 100%;
+	}
+	.searchbar .count.delta{
+		top: 14%;
+		left: 50%;
+		opacity: 1;
+		font-size: 41px;
+	}
+}
+#scene17{
+	.phone{
+		position: absolute;
+		left: 0;
+		right: 0;
+		width: 23.9%;
+		height: 81.7%;
+		margin: auto;
+		background: url("../resource/nexuswithshadow.png");
+		background-size: 100% 100%;
+		opacity: 0;
+	}
+	.home{
+		position: absolute;
+		left: 0;
+		right: 2%;
+		top: 84%;
+		width: 15%;
+		height: 7.79%;
+		margin: auto;
+		border: solid #a0a0d0 1px;
+		border-radius: 50%;
+		background: #e0e0e0;
+	}
+	.progress-ctn{
+		position: absolute;
+		left:0;
+		right: 2%;
+		top: 55%;
+		width: 70%;
+		height: 7%;
+		margin: auto;
+		background: #8b9498;
+	}
+	.progress.p16{
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 48%;
+	}
+	.progress-shade{
+		position: absolute;
+		right:0;
+		height: 100%;
+		width: 84%;
+		background: #8b9498;
+	}
+	.count.delta{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 35%;
+		text-align: center;
+		font-size: 50px;
+		opacity: 1;
+	}
 }
