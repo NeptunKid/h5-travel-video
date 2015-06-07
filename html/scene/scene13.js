@@ -3,6 +3,7 @@
 	var scene = new anole.Scene(13, anole.canvas, false);
     scene.name = 'scene13.js';
 	scene.createDom = function() {
+		this.container = $("<div id='scene13' class='scene'></div>")
 		var gateCtn = $('<div></div>').addClass('building-ctn gate-ctn');
 		var up2 = $('<div></div>').addClass('up');
 		var down2 = $('<div></div>').addClass('down');

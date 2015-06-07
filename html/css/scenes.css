@@ -726,6 +726,29 @@
 #scene7 .profile-photo {
   background: url("../resource/profile.png");
   background-size: 100% 100%; }
+#scene7 .worry-bubble {
+  position: absolute;
+  width: 230.4px;
+  height: 230.4px;
+  background-size: 100% 100%; }
+#scene7 .worry1 {
+  background-image: url("../resource/worry1.png"); }
+#scene7 .worry2 {
+  background-image: url("../resource/worry2.png"); }
+#scene7 .worry3 {
+  background-image: url("../resource/worry3.png"); }
+#scene7 .worry4 {
+  background-image: url("../resource/worry4.png"); }
+#scene7 .comment-ctn {
+  overflow: visible; }
+#scene7 .comment-content {
+  font-size: 3.5em;
+  text-align: center; }
+  #scene7 .comment-content .worry-text {
+    padding-top: 10px;
+    position: absolute;
+    width: 100%;
+    height: 100%; }
 
 #scene11 .bg11 {
   position: relative;

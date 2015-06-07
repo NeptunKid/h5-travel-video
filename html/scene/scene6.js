@@ -41,6 +41,7 @@
 
 			this.shade = anole.$$("#scene6 .shade","<div class=shade></div>",this.scene);
 			this.page_ctn = anole.$$("#scene6 .pages-ctn",pages_init.bind(this),this.scene);
+			this.scene.show();
 		},
 		onStart: function (finish){
 			this.scene.show();
