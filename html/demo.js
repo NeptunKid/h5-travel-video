@@ -4,32 +4,52 @@
   var resoureUrl;
   
   var resource = {
-    "bridge": "bridge.png",
-    "gate": "gate.png",
-    "boat": "boat.png",
-    "oar": "oar.png",
-    "marco1": "marco1.png",
-    "marco2": "marco2.png",
-    "paperman": "paperman.png",
-    "sub-block": "subway.png",
-    "sub-left-gate": "subwayl.png",
-    "sub-right-gate": "subwayr.png",
-    "replay": "replay.png",
-	"tag": "tag.png",
-	"youtube-logo": "youtube-logo.png",
-	"profile": "profile.png",
-	"board_video": "board_video.png",
-	"v0": "v0.png",
-	"v1": "v1.png",
-	"v2": "v2.png",
-	"worry1": "worry1.png",
-	"worry2": "worry2.png",
-	"worry3": "worry3.png",
-	"worry4": "worry4.png",
-	"bubble_disappear": "bubble_disappear.png",
-	"marco_nomouth": "marco_nomouth.png",
-	"mouth": "mouth.png"
-}
+	  "bridge": "bridge.png",
+	  "gate": "gate.png",
+	  "boat": "boat.png",
+	  "oar": "oar.png",
+	  "marco1": "marco1.png",
+	  "marco2": "marco2.png",
+	  "paperman": "paperman.png",
+	  "sub-block": "subway.png",
+	  "sub-left-gate": "subwayl.png",
+	  "sub-right-gate": "subwayr.png",
+	  "replay": "replay.png",
+	  "tag": "tag.png",
+	  "youtube-logo": "youtube-logo.png",
+	  "profile": "profile.png",
+	  "board_video": "board_video.png",
+	  "v0": "v0.png",
+	  "v1": "v1.png",
+	  "v2": "v2.png",
+	  "worry1": "worry1.png",
+	  "worry2": "worry2.png",
+	  "worry3": "worry3.png",
+	  "worry4": "worry4.png",
+	  "bubble_disappear": "bubble_disappear.png",
+	  "marco_nomouth": "marco_nomouth.png",
+	  "mouth": "mouth.png"
+	  "canadian0":"canadian0.png",
+	  "canadian1":"canadian1.png",
+	  "canadian2":"canadian2.png",
+	  "test":"test.ogg",
+	  "map":"map.png",
+	  "mark1":"mark1.png",
+	  "mark2":"mark2.png",
+	  "mark3":"mark3.png",
+	  "mark4":"mark4.png",
+	  "browsertab":"browstab.png",
+	  "w1d":"wifi1_dark.png",
+	  "w1l":"wifi1_light.png",
+	  "w2d":"wifi2_dark.png",
+	  "w2l":"wifi2_light.png",
+	  "w3d":"wifi3_dark.png",
+	  "w3l":"wifi3_light.png",
+	  "glogo":"googlelogowithshadow.png",
+	  "searchbar":"searchbarwithshadow.png",
+	  "progbar":"progressbar.png",
+	  "nexus":"nexuswithshadow.png",
+  }
   
   //if(!anole.isMobile()){
     sceneQueue = [
@@ -64,6 +84,34 @@
       {
         fileName:'scene8.js',
         res: ["bubble_disappear", "marco_nomouth", "mouth"]
+      },
+      {
+        fileName:'scene11.js',
+        res: ["canadian0","canadian1","canadian2"]
+      },
+      {
+        fileName: 'scene12.js',
+        res: ["test"]
+      },
+      {
+        fileName:'scene13.js',
+        res: ["gate","boat","marco2"]
+      },
+      {
+        fileName:'scene14.js',
+        res: ["map","mark1","mark2","mark3","mark4"]
+      },
+      {
+        fileName:'scene15.js',
+        res: ["map"]
+      },
+      {
+        fileName:'scene16.js',
+        res: ["browsertab","w1d","w1l","w2d","w2l","w3d","w3l","glogo","searchbar","progbar"]
+      },
+      {
+        fileName:'scene17.js',
+        res: ["browsertab","glogo","searchbar","progbar","nexus"]
       },
     ]
     baseUrl = './scene/';

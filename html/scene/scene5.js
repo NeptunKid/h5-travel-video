@@ -1,5 +1,16 @@
 ;require(['anole', 'zepto'], function (anole){
 	var v_count = 7;
+	var circle_init = function(){
+    var c = $('<div class="loading"></div>');
+    var svg = $('<svg viewBox="0 0 220 220"></svg>').appendTo(c);
+    $('<path fill="none" stroke="#D07474" stroke-width="30" d = "M 110 30,A75 75,0,0,1,110 180"  class="right-half"></path>').appendTo(svg);
+	$('<path fill="none" stroke="#03A0A0" stroke-width="30" d = "M 110 180,A75 75,0,0,1,110 30"  class="left-half"></path>').appendTo(svg);
+	var c = $('<div class="loading"><svg viewBox="0 0 220 220">' +
+		'<path fill="none" stroke="#D07474" stroke-width="30" d = "M 109 30,A75 75,0,0,1,109 180"  class="right-half half-circle"></path>'+
+		'<path fill="none" stroke="#03A0A0" stroke-width="30" d = "M 110 180,A75 75,0,0,1,110 30"  class="left-half" half-circle></path>' + 
+		'</svg></div>');
+	return c;
+	};
 	anole.addScene({
 		name: "scene5.js",
 		onInit: function (){
@@ -15,6 +26,14 @@
 			var items = $("#scene4").clone();
 			this.youtube.html(items[0].innerHTML);
 			this.shade = anole.$$("#shade-youtube",'<div id = "shade-youtube" class = "shade-youtube"><img src="./resource/replay.png"></div>',this.youtube,{opacity:0});
+			this.circle = anole.$$(".shade-circle",circle_init.bind(this),this.shade);
+			this.loading_len = 238;
+			this.loading_l = $(".left-half");
+			this.loading_r = $(".right-half");
+			this.loading_l.css("stroke-dashoffset",this.loading_len);
+			this.loading_l.css("stroke-dasharray",this.loading_len);
+			this.loading_r.css("stroke-dashoffset",this.loading_len);
+			this.loading_r.css("stroke-dasharray",this.loading_len);
 			if (this.topbar.find("youtube_l").length == 0)
 			{
 				var y_l = $("<div></div>").addClass("youtubebar_l").appendTo(this.topbar);
@@ -39,12 +58,12 @@
 				this.br_right.append(ctn);
 			}
 		},
-		dashAnime: function(i){
+		dashAnime: function(i,time){
 			return function(){
 				tl = new TimelineLite();
-				tl.to($(".c"+i+" .d0"),1.5,{width:"80%"})
-					.to($(".c"+i+" .d1"),1.5,{width:"80%"},"-=1.2")
-					.to($(".c"+i+" .d2"),1.5,{width:"65%"},"-=1.2");
+				tl.to($(".c"+i+" .d0"),time,{width:"80%"})
+					.to($(".c"+i+" .d1"),time,{width:"80%"},"-="+time*0.8)
+					.to($(".c"+i+" .d2"),time,{width:"65%"},"-="+time*0.8);
 				this["tl"+i] = tl;
 			}.bind(this);
 		},
@@ -54,9 +73,13 @@
 
 			this.tl1 = this.tl1.to(this.shade,0.5,{opacity:0.9, ease:Linear.easeNone})
 							.to(this.br_ctn_out,0.5,{delay:0.1,scaleX:0.4,scaleY:0.4,x:"-14%",y:"-18%",ease:Linear.easeNone});
+			var time_video = 3;
+			var per_video = time_video / v_count;
 			for (var i=0;i<v_count;i++){
-				this.tl1 = this.tl1.to($(".c"+i),0.9*(i+1),{y:(100*i)+"%",delay:-0.9*i,onComplete:this.dashAnime(i)});
+				this.tl1 = this.tl1.to($(".c"+i),per_video*(i+1),{y:(100*i)+"%",delay:-per_video*i,onComplete:this.dashAnime(i,per_video)});
 			}
+			this.tl1 = this.tl1.to(this.loading_r,time_video/2,{"stroke-dashoffset":0,delay: -time_video,ease:Linear.easeNone})
+							.to(this.loading_l,time_video/2*3/4,{"stroke-dashoffset":this.loading_len/4,delay: -time_video/2,ease:Linear.easeNone});
 			if (finish) {
 				this.tl1.call(finish);
 			}

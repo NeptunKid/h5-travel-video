@@ -23,21 +23,24 @@
         $('body').append($canvas);
         var _canvas = this.canvas = $canvas;
         
+        var playPrev = this.throttle(this.playPrev.bind(this), 1000);
+        var playNext = this.throttle(this.playNext.bind(this), 1000);
+        
         if(this._config.flipType == 'click'){
           var prevBtn = this._prevBtn = $(this._config.prevBtnTemplate);
           var nextBtn = this._nextBtn =  $(this._config.nextBtnTemplate);
           $('body').append(prevBtn).append(nextBtn);
-          prevBtn.on('click', this.playPrev.bind(this));
-          nextBtn.on('click', this.playNext.bind(this));
+          prevBtn.on('click', playPrev);
+          nextBtn.on('click', playNext);
         }else if(this._config.flipType == 'swipe'){
           var hammer = new Hammer(_canvas[0]);
           hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
           hammer.on('swipe', function(ev) {
               var d = ev.offsetDirection;
               if(d == 2 || d == 8){
-                this.playPrev();
+                playPrev();
               }else{
-                this.playNext();
+                playNext();
               }
           }.bind(this));
         }else if(this._config.flipType == 'wheel'){
@@ -286,6 +289,16 @@
       },
       playVideo: function (){
         //todo
+      },
+      throttle: function(action, delay){
+        var last = 0;
+        return function(){
+          var curr = +new Date();
+          if (curr - last > delay){
+            action.apply(this, arguments);
+            last = curr;
+          }
+        };
       }
     };
     
@@ -315,6 +328,7 @@
 			// this.tl = old.data('timeline');
 			// this.tl.replay();
 		}
+    console.log(this.id);
 		// When inherit is set to true,
 		// Current scene is initialed based on last scene.
 		// Copy previous scene's dom to current scene if it's present.
@@ -365,6 +379,7 @@
 	};
 	// When existing current scene.
 	Scene.prototype.onEnd = function() {
+		//this.container.remove();
 	};
     
 	anole.$$ = anole.getOrCreate;

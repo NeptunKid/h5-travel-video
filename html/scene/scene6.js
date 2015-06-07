@@ -44,6 +44,7 @@
 			this.scene.show();
 		},
 		onStart: function (finish){
+			this.scene.show();
 			this.tl1 = new TimelineLite();
 			var new_h = this.comment_ctn.height()*160;
 			this.tl1.to(this.like,0.2,{opacity:1})
@@ -51,13 +52,19 @@
 					.to(this.comment_ctn,2.2,{height:new_h+"px",ease:Linear.easeNone},"+=0.2")
 					.to([this.br_left,this.br_right],2,{y:"-52%",ease:Linear.easeNone},"-=2")
 					.to(this.topbar,0.5,{width:"67%"})
-					.to(this.br_ctn_in,1,{scaleX:0.7,scaleY:0.7})
+					.to(this.br_ctn_in,1,{scaleX:0.5,scaleY:0.5})
 					.to(this.shade,1,{opacity:0.26})
 					.to(this.pages[0],2,{opacity:1,x:"-90%",y:"-60%"},"-=1")
+					.to(this.pages[2],2,{x:"-160%",y:"-40%"},"-=2")
+					.to(this.pages[4],2,{x:"-140%",y:"-40%"},"-=2")
 					.to(this.pages[1],2,{opacity:1,x:"110%",y:"-70%"},"-=0.6")
-					.to(this.pages[2],2,{opacity:1,x:"-80%",y:"120%"},"-=0.6")
-					.to(this.pages[3],2,{opacity:1,x:"80%",y:"20%"},"-=0.6")
-					.to(this.pages[4],2,{opacity:1,x:"20%",y:"80%"},"-=0.6")
+					.to(this.pages[3],2,{x:"180%",y:"-50%"},"-=2")
+					.to(this.pages[0],2,{x:"-80%",y:"100%"},"-=0.6")
+					.to(this.pages[2],2,{opacity:1,x:"-90%",y:"-60%"},"-=2")
+					.to(this.pages[1],2,{x:"80%",y:"80%"},"-=0.6")
+					.to(this.pages[3],2,{opacity:1,x:"110%",y:"-70%"},"-=2")
+					.to(this.pages[2],2,{x:"-80%",y:"100%"},"-=0.6")
+					.to(this.pages[4],2,{opacity:1,x:"-70%",y:"-60%"},"-=2")
 			if (finish) {
 				this.tl1.call(finish);
 			}
@@ -66,6 +73,9 @@
 			$("#scene6").remove();
 			$("#scene5").remove();
 			finish();
+		},
+		onForward: function(){
+			this.tl1.progress(1);
 		},
 		onEnd: function (){
 			this.tl1.progress(1);
