@@ -21,8 +21,6 @@
 			disbubble.prependTo(this.commentList[i]);
 			this.disbubbles.push(disbubble);
 		}
-		this.shade = $('<div></div>').addClass('shade').appendTo(this.container);
-		// this.circle = $('<div></div>').addClass('circle').appendTo(this.marco);
 	}	
 	scene.animation = function() {
 	    this.tl.addLabel('float')
@@ -37,10 +35,7 @@
 			   .staggerTo(this.bubbles, 0.1, {opacity:0, ease: Power4.eastIn}, 0.35, 'dissolve')
 			   .staggerFromTo(this.disbubbles, 0.1, {opacity:0}, {opacity:1, ease: Power4.easeOut}, 0.35, 'dissolve')
 			   .staggerTo(this.disbubbles, 0.5, {scale:2, ease: Back.easeIn, opacity:0}, 0.35, 'dissolve+=0.1')
-			   .to(this.marco.find('#mouth'), 2, {rotation: 180, ease: Elastic.easeInOut}, 'dissolve-=0.5')
-			   .to(this.shade, 1, {opacity: 0.8})
-			   // .call((function() {this.marco.addClass('circle');}).bind(this) )
-			   // .from(this.marco, 3, {scale: 10});
+			   .to(this.marco.find('#mouth'), 2, {rotation: 180, ease: Elastic.easeInOut}, 'dissolve-=0.5');
 	}
 	scene.cleanup = function() { // Called before entering next scene.
 	}

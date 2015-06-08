@@ -702,7 +702,26 @@ $br_padding_top :$scene_h*0.1;
 		bottom: 35px;
 		opacity: 0;
      }
-
+     .shade {
+		background-color: #D7CCC8;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		position: absolute;
+		z-index: 300;
+     }
+	 .circle {
+		background-color: #8D6E63; 
+		@include rounded(50%);
+		overflow: hidden;
+		width: 150px;
+		height: 150px;
+		// top: 0;
+		// left: 0;
+		// right: 0;
+		// width: 1.5*$man_w;
+		// height: 1.5*$man_w;
+    }
 	// This is a failed attempt to use pscudo element to tween opacity of background image.
 	// .comments {
 	//	background: none;

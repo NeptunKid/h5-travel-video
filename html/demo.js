@@ -29,10 +29,17 @@
 	  "bubble_disappear": "bubble_disappear.png",
 	  "marco_nomouth": "marco_nomouth.png",
 	  "mouth": "mouth.png",
+      "dollar": "dollar.png",
+	  "dollar_big": "dollar_big.png",
+	  "dollar_top": "dollar_top.png",
+	  "dollar_mid": "dollar_mid.png",
+	  "dollar_bottom": "dollar_bottom.png",
+	  "dollar_outer": "dollar_outer.png",
+	  "dollar_outer_big": "dollar_outer_big.png",
 	  "canadian0":"canadian0.png",
 	  "canadian1":"canadian1.png",
 	  "canadian2":"canadian2.png",
-	  "test":"test.ogg",
+	  "french":"french.mp4",
 	  "map":"map.png",
 	  "mark1":"mark1.png",
 	  "mark2":"mark2.png",
@@ -86,12 +93,16 @@
         res: ["bubble_disappear", "marco_nomouth", "mouth"]
       },
       {
+        fileName:'scene9.js',
+        res: ["dollar", "dollar_big", "dollar_top", "dollar_mid", "dollar_bottom", "dollar_outer", "dollar_outer_big"]
+      },
+      {
         fileName:'scene11.js',
         res: ["canadian0","canadian1","canadian2"]
       },
       {
         fileName: 'scene12.js',
-        res: ["test"]
+        res: ["french"]
       },
       {
         fileName:'scene13.js',
@@ -130,7 +141,8 @@
       containerTemplate: '<div class="container main"></div>',// scene root container, it will be appended to body.
       prevBtnTemplate: '<div class="prev-btn btn J_PrevBtn">prev</div>',// prev button dom
       nextBtnTemplate: '<div class="next-btn btn J_NextBtn">next</div>',// next button dom
-      showLoading: function (){ 
+      startBtnTemplate: '<div class="start-btn btn J_StartBtn">start</div>', //start button dom
+	  showLoading: function (){ 
         $(".mask").show();
         console.log("loading resource, show loading message.");
       }, 
