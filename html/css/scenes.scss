@@ -606,6 +606,12 @@ $br_padding_top :$scene_h*0.1;
 		background: #EFEBE9;
 		position: absolute;
     }
+	#browser {
+		overflow: visible;
+    }
+	.browser-content {
+		overflow: visible;
+    }
    .profile-photo {
 		background: url("../resource/profile.png");
 		background-size: 100% 100%;
@@ -655,8 +661,8 @@ $br_padding_top :$scene_h*0.1;
 		width: 1.5*$man_w;
 		height: 1.5*$man_h;
 		position:absolute;
-		bottom: 100px;
-		right: 200px;
+		bottom: 50px;
+		right: 170px;
 		z-index: 250;
      }
 	.marco-nomouth {
@@ -683,17 +689,17 @@ $br_padding_top :$scene_h*0.1;
      }
 	 .chinese:nth-child(1) {
 		right: 80px;
-		bottom: 120px;
+		bottom: 70px;
 		opacity: 0;
      }
 	 .chinese:nth-child(2) {
-		right: 150px;
-		bottom: 150px;
+		right: 140px;
+		bottom: 100px;
 		opacity: 0;
      }
 	 .chinese:nth-child(3) {
-		right: 250px;
-		bottom: 75px;
+		right: 220px;
+		bottom: 35px;
 		opacity: 0;
      }
 
@@ -854,8 +860,8 @@ $br_padding_top :$scene_h*0.1;
 	.mark{
 		position: absolute;
 		background: #00a3b8;
-		width: 0.0519*$scene_h;
-		height: 0.0519*$scene_h;
+		width: 0.12*$scene_h;
+		height: 0.12*$scene_h;
 		border-radius: 50%;
 		z-index: 1406;
 		opacity: 0;

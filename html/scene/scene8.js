@@ -23,11 +23,19 @@
 		}
 	}	
 	scene.animation = function() {
-	    this.tl.staggerFrom([this.marco, this.pplCtn], 1.5, {right: -10}, 0)
-			   .staggerTo(this.bubbles, 0.1, {opacity:0, ease: Power4.eastIn}, 0.35)
-			   .staggerFromTo(this.disbubbles, 0.25, {opacity:1, scale:0.6},
-							  {opacity:0, scale:2, ease: Back.easeIn}, 0.35, '-=1.05')
-			   .to(this.marco.find('#mouth'), 0.8, {rotation: 180}, '-=1.5');
+	    this.tl.addLabel('float')
+		       .to(this.commentList[0], 1, {left: "-=220", top:'-=30', scale:1.2}, 'float')
+		       .to(this.commentList[1], 1, {left: "+=170", top:'-=12', scale:1.2}, 'float')
+		       .to(this.commentList[2], 1, {left: "-=170", top:'+=12', scale:1.2}, 'float')
+		       .to(this.commentList[3], 1, {left: "+=200", top:'+=30', scale:1.2}, 'float')
+	           .from(this.marco, 1.5, {right:-10, ease:Power3.easeIn}, 'float+=0.5')
+		       .staggerTo(this.container.find('.chinese'), 1, {opacity:1}, 0.35)
+			   .addLabel('dissolve', '-=0.5')
+			   .staggerTo(this.commentList.find('.comment-content'), 0.5, {scale:0}, 0.35, 'dissolve')
+			   .staggerTo(this.bubbles, 0.1, {opacity:0, ease: Power4.eastIn}, 0.35, 'dissolve')
+			   .staggerFromTo(this.disbubbles, 0.1, {opacity:0}, {opacity:1, ease: Power4.easeOut}, 0.35, 'dissolve')
+			   .staggerFromTo(this.disbubbles, 0.5, {scale:1, opacity:1}, {scale:2, ease: Back.easeIn, opacity:0}, 0.35, 'dissolve+=0.1')
+			   .to(this.marco.find('#mouth'), 1, {rotation: 180, ease: Elastic.easeIn}, 'dissolve+=0.1');
 	}
 	scene.cleanup = function() { // Called before entering next scene.
 	}

@@ -727,6 +727,10 @@
 #scene7 .comments-new, #scene8 .comments-new {
   background: #EFEBE9;
   position: absolute; }
+#scene7 #browser, #scene8 #browser {
+  overflow: visible; }
+#scene7 .browser-content, #scene8 .browser-content {
+  overflow: visible; }
 #scene7 .profile-photo, #scene8 .profile-photo {
   background: url("../resource/profile.png");
   background-size: 100% 100%; }
@@ -765,7 +769,7 @@
   width: 155.52px;
   height: 233.28px;
   position: absolute;
-  bottom: 100px;
+  bottom: 50px;
   right: 200px;
   z-index: 250; }
 #scene7 .marco-nomouth, #scene8 .marco-nomouth {
@@ -789,15 +793,15 @@
   z-index: 100; }
 #scene7 .chinese:nth-child(1), #scene8 .chinese:nth-child(1) {
   right: 80px;
-  bottom: 120px;
+  bottom: 70px;
   opacity: 0; }
 #scene7 .chinese:nth-child(2), #scene8 .chinese:nth-child(2) {
   right: 150px;
-  bottom: 150px;
+  bottom: 100px;
   opacity: 0; }
 #scene7 .chinese:nth-child(3), #scene8 .chinese:nth-child(3) {
   right: 250px;
-  bottom: 75px;
+  bottom: 35px;
   opacity: 0; }
 
 #scene11 .bg11 {
@@ -908,8 +912,8 @@
 #scene14 .mark, #scene15 .mark, #scene16 .mark {
   position: absolute;
   background: #00a3b8;
-  width: 29.8944px;
-  height: 29.8944px;
+  width: 69.12px;
+  height: 69.12px;
   border-radius: 50%;
   z-index: 1406;
   opacity: 0; }

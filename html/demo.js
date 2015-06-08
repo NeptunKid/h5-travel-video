@@ -28,7 +28,7 @@
 	  "worry4": "worry4.png",
 	  "bubble_disappear": "bubble_disappear.png",
 	  "marco_nomouth": "marco_nomouth.png",
-	  "mouth": "mouth.png"
+	  "mouth": "mouth.png",
 	  "canadian0":"canadian0.png",
 	  "canadian1":"canadian1.png",
 	  "canadian2":"canadian2.png",
