@@ -25,13 +25,15 @@
         
         var playPrev = this.throttle(this.playPrev.bind(this), 1000);
         var playNext = this.throttle(this.playNext.bind(this), 1000);
-        
+        var startAnime = this.throttle(this.startAnime.bind(this), 1000);
         if(this._config.flipType == 'click'){
           var prevBtn = this._prevBtn = $(this._config.prevBtnTemplate);
           var nextBtn = this._nextBtn =  $(this._config.nextBtnTemplate);
-          $('body').append(prevBtn).append(nextBtn);
+          var startBtn = this._startBtn =  $(this._config.startBtnTemplate);
+          $('body').append(prevBtn).append(nextBtn).append(startBtn);
           prevBtn.on('click', playPrev);
           nextBtn.on('click', playNext);
+		  startBtn.on('click', startAnime);
         }else if(this._config.flipType == 'swipe'){
           var hammer = new Hammer(_canvas[0]);
           hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
@@ -122,7 +124,7 @@
           this._scene[addedSceneIndex] = scene;
           if(addedSceneIndex==0){
               console.log("addScene => playScene0");
-              this.playScene(0);
+          //    this.playScene(0);
               return;
           }
 
@@ -190,12 +192,11 @@
           return;
         }
         var src = this._config.resoureUrl + this._config.resource[res];
-		//console.log("loadOneResource: src: " + src);
         var error = function (){
           this.showError("Error loading "+src);
         }
         
-        if(/\.mp3|\.wav|\.ogg$/.test(src)){
+        if(/\.mp3|\.wav|\.ogg|\.mp4|\.webm$/.test(src)){
           var media = new Audio(src);  
           media.src = src;
           this._resourceLoaded[res] = true;

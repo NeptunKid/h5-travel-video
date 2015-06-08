@@ -770,7 +770,7 @@
   height: 233.28px;
   position: absolute;
   bottom: 50px;
-  right: 200px;
+  right: 170px;
   z-index: 250; }
 #scene7 .marco-nomouth, #scene8 .marco-nomouth {
   background: url("../resource/marco_nomouth.png");
@@ -796,11 +796,11 @@
   bottom: 70px;
   opacity: 0; }
 #scene7 .chinese:nth-child(2), #scene8 .chinese:nth-child(2) {
-  right: 150px;
+  right: 140px;
   bottom: 100px;
   opacity: 0; }
 #scene7 .chinese:nth-child(3), #scene8 .chinese:nth-child(3) {
-  right: 250px;
+  right: 220px;
   bottom: 35px;
   opacity: 0; }
 
@@ -812,8 +812,8 @@
 #scene11 .canadian {
   position: absolute;
   top: 115.2px;
-  width: 230.4px;
-  height: 345.6px;
+  width: 207.36px;
+  height: 311.04px;
   background: url("../resource/canadian0.png");
   background-size: 100% 100%; }
 #scene11 .canadian.umbrella {
