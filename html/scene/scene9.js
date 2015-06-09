@@ -1,7 +1,7 @@
 ;require(['anole', 'zepto', 'TweenLite', 'TimelineLite', 'CSSPlugin', 'EasePack'], function(anole, Scene){
     
-	var scene = new anole.Scene(8, anole.canvas, true);
-    scene.name = 'scene8.js';
+	var scene = new anole.Scene(9, anole.canvas, true);
+    scene.name = 'scene9.js';
 
 	scene.createDom = function() {
 		this.marco = $('<div></div>').addClass('marco-shadow')

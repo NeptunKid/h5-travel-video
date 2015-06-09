@@ -1100,4 +1100,95 @@
   font-size: 50px;
   opacity: 1; }
 
+#scene19, #scene20 {
+  background: #bbb; }
+
+#scene19 {
+  z-index: 1900; }
+  #scene19 .west-food {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 409.6px;
+    height: 409.6px;
+    background: url("../resource/west_food.png");
+    background-size: 100% 100%;
+    -moz-transform: translate3d(-50%, -50%, 0);
+    -o-transform: translate3d(-50%, -50%, 0);
+    -ms-transform: translate3d(-50%, -50%, 0);
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0); }
+  #scene19 .chn-food {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 655.36px;
+    height: 368.64px;
+    background: url("../resource/chn_food.png");
+    background-size: 100% 100%;
+    overflow: visible;
+    -moz-transform: translate3d(150%, -50%, 0);
+    -o-transform: translate3d(150%, -50%, 0);
+    -ms-transform: translate3d(150%, -50%, 0);
+    -webkit-transform: translate3d(150%, -50%, 0);
+    transform: translate3d(150%, -50%, 0); }
+  #scene19 .mid-line {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    width: 11.52px;
+    height: 518.4px;
+    border-left: solid black 11.52px;
+    -moz-transform: translate3d(-50%, -50%, 0) rotate(5deg);
+    -o-transform: translate3d(-50%, -50%, 0) rotate(5deg);
+    -ms-transform: translate3d(-50%, -50%, 0) rotate(5deg);
+    -webkit-transform: translate3d(-50%, -50%, 0) rotate(5deg);
+    transform: translate3d(-50%, -50%, 0) rotate(5deg); }
+
+#scene20 .lung-tab {
+  margin: 10% auto auto auto;
+  width: 230.4px;
+  height: 115.2px;
+  overflow: visible;
+  background: url("../resource/lung_tab.png");
+  background-size: 100% 100%;
+  opacity: 0;
+  -moz-transform: translate3d(0, -200%, 0);
+  -o-transform: translate3d(0, -200%, 0);
+  -ms-transform: translate3d(0, -200%, 0);
+  -webkit-transform: translate3d(0, -200%, 0);
+  transform: translate3d(0, -200%, 0); }
+#scene20 .lung-plate {
+  position: absolute;
+  width: 170%;
+  height: 340%;
+  margin: 15% -35% auto -35%;
+  background: url("../resource/plate.png");
+  background-size: 100% 100%; }
+#scene20 .lung-f {
+  position: absolute;
+  top: 30%;
+  width: 50%;
+  height: 50%;
+  background: url("../resource/lung_f.png");
+  background-size: 100% 100%;
+  -moz-transform: translate3d(0, -300%, 0);
+  -o-transform: translate3d(0, -300%, 0);
+  -ms-transform: translate3d(0, -300%, 0);
+  -webkit-transform: translate3d(0, -300%, 0);
+  transform: translate3d(0, -300%, 0); }
+#scene20 .lung-m {
+  position: absolute;
+  top: 20%;
+  right: 7%;
+  width: 50%;
+  height: 50%;
+  background: url("../resource/lung_m.png");
+  background-size: 100% 100%;
+  -moz-transform: translate3d(0, -300%, 0);
+  -o-transform: translate3d(0, -300%, 0);
+  -ms-transform: translate3d(0, -300%, 0);
+  -webkit-transform: translate3d(0, -300%, 0);
+  transform: translate3d(0, -300%, 0); }
+
 /*# sourceMappingURL=scenes.css.map */

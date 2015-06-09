@@ -56,6 +56,12 @@
 	  "searchbar":"searchbarwithshadow.png",
 	  "progbar":"progressbar.png",
 	  "nexus":"nexuswithshadow.png",
+    "chn_food":"chn_food.png",
+    "west_food":"west_food.png",
+    "lung_tab":"lung_tab.png",
+    "plate":"plate.png",
+    "lung_m":"lung_m.png",
+    "lung_f":"lung_f.png",
   }
   
   //if(!anole.isMobile()){
@@ -124,6 +130,14 @@
         fileName:'scene17.js',
         res: ["browsertab","glogo","searchbar","progbar","nexus"]
       },
+      {
+        fileName:'scene19.js',
+        res: ["chn_food","west_food"]
+      },
+      {
+        fileName:'scene20.js',
+        res: ["lung_f","lung_m","lung_tab","plate"]
+      }
     ]
     baseUrl = './scene/';
     resoureUrl = "./resource/";
