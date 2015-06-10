@@ -648,6 +648,8 @@ $br_padding_top :$scene_h*0.1;
 			height: 100%;
 	    }
     }
+}
+#scene8, #scene9 {
     .bubble-disappear {
         position: absolute;
 		width: 0.4*$scene_h;
@@ -733,8 +735,24 @@ $br_padding_top :$scene_h*0.1;
 		top: 0px;
 		bottom: 0px;
 		margin: auto;
-		width: 400px;
-		height: 400px;
+		width: 430px; // needs adjustment
+		height: 430px; // needs adjustment
+		z-index: 600;
+    }
+	.money {
+		background: url("../resource/dollar_big.png") no-repeat;
+		position: absolute;
+		background-size: 520px 220px;
+		background-position: 38% 50%;
+		@include rounded(50%);
+		opacity: 0;
+		margin: auto;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 155px;
+		height: 155px;
 		z-index: 600;
     }
 	// This is a failed attempt to use pscudo element to tween opacity of background image.

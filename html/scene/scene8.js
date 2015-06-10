@@ -26,7 +26,8 @@
 		this.circleCtn = $('<div class="circle-ctn"></div>');
 		// A rx ry x-axis-rotation large-arc-flag sweep-flag x y
 		// a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy
-		var svg = $('<svg width="400" height="400"><path class="circle-path" fill="none" stroke="#D07474" stroke-width="60" d="M 156 30,A156 156,0,1,1,120 320"></path></svg>').appendTo(this.circleCtn);
+		// needs adjustment
+		var svg = $('<svg width="430" height="430"><path class="circle-path" fill="none" stroke="#D07474" stroke-width="60" d="M 155 60,A155 155,0,1,1,123.9 340.4"></path></svg>').appendTo(this.circleCtn);
 		this.circleCtn.appendTo(this.container);
 		this.loading_len = 2000;
 		this.path = this.container.find('.circle-path')
@@ -48,18 +49,17 @@
 			   .staggerTo(this.disbubbles, 0.5, {scale:2, ease: Back.easeIn, opacity:0}, 0.35, 'dissolve+=0.1')
 			   .to(this.marco.find('#mouth'), 2, {rotation: 180, ease: Elastic.easeInOut}, 'dissolve-=0.5')
 			   .addLabel('stupify')
-			   .set(this.marco.find('.marco-nomouth'), {/*border: '2px solid #8D6E63',*/  height: '155px', width: '155px'})
+			   .set(this.marco.find('.marco-nomouth'), {height: '155px', width: '155px'})
                .set(this.marco, {height: '155px'})
 			   .to(this.shade, 1, {opacity: 0.8}, 'stupify')
-			   .to(this.marco, 2, {left: '-=280px', top: '-=150px'}, 'stupify')
-			   .to(this.marco, 1, {background: '#8D6E63'}, 'stupify')
+			   .to(this.marco, 2, {left: '0', top: '0', right: '0', bottom: '0', margin: 'auto'}, 'stupify') // Absolute center.
 			   .to(this.marco, 1, {scale: 1.5})
 			   .to(this.path, 2, {"stroke-dashoffset":0,ease:Power4.easeIn})
 	}
 	scene.cleanup = function() { // Called before entering next scene.
 		this.container.find('.ctn-browser').remove();
         this.container.find('.ppl-ctn').remove();
-		this.container.find('.shade').remove();
+		//this.container.find('.shade').remove();
 	}
 	anole.addScene(scene);
 })

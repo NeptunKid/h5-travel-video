@@ -757,13 +757,14 @@
     position: absolute;
     width: 100%;
     height: 100%; }
-#scene7 .bubble-disappear, #scene8 .bubble-disappear {
+
+#scene8 .bubble-disappear, #scene9 .bubble-disappear {
   position: absolute;
   width: 230.4px;
   height: 230.4px;
   background-image: url("../resource/bubble_disappear.png");
   background-size: 100% 100%; }
-#scene7 .marco-shadow, #scene8 .marco-shadow {
+#scene8 .marco-shadow, #scene9 .marco-shadow {
   background: url("../resource/marco2_shadow.png");
   background-size: 100% 100%;
   background-size: 155.52px 233.28px;
@@ -776,7 +777,7 @@
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%; }
-#scene7 .marco-nomouth, #scene8 .marco-nomouth {
+#scene8 .marco-nomouth, #scene9 .marco-nomouth {
   background: url("../resource/marco_nomouth.png") no-repeat;
   position: absolute;
   background-size: 155.52px 233.28px;
@@ -786,12 +787,12 @@
   border-radius: 50%;
   height: 100%;
   width: 100%; }
-#scene7 #mouth, #scene8 #mouth {
+#scene8 #mouth, #scene9 #mouth {
   position: absolute;
   left: 0px;
   right: 0px;
   margin: 87.0912px auto; }
-#scene7 .chinese, #scene8 .chinese {
+#scene8 .chinese, #scene9 .chinese {
   background: url("../resource/paperman.png");
   background-size: 100% 100%;
   position: absolute;
@@ -799,26 +800,26 @@
   height: 233.28px;
   position: absolute;
   z-index: 100; }
-#scene7 .chinese:nth-child(1), #scene8 .chinese:nth-child(1) {
+#scene8 .chinese:nth-child(1), #scene9 .chinese:nth-child(1) {
   right: 80px;
   bottom: 70px;
   opacity: 0; }
-#scene7 .chinese:nth-child(2), #scene8 .chinese:nth-child(2) {
+#scene8 .chinese:nth-child(2), #scene9 .chinese:nth-child(2) {
   right: 140px;
   bottom: 100px;
   opacity: 0; }
-#scene7 .chinese:nth-child(3), #scene8 .chinese:nth-child(3) {
+#scene8 .chinese:nth-child(3), #scene9 .chinese:nth-child(3) {
   right: 220px;
   bottom: 35px;
   opacity: 0; }
-#scene7 .shade, #scene8 .shade {
+#scene8 .shade, #scene9 .shade {
   background-color: #D7CCC8;
   width: 100%;
   height: 100%;
   opacity: 0;
   position: absolute;
   z-index: 300; }
-#scene7 .circle, #scene8 .circle {
+#scene8 .circle, #scene9 .circle {
   background-color: #8D6E63;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -826,15 +827,32 @@
   overflow: hidden;
   width: 150px;
   height: 150px; }
-#scene7 .circle-ctn, #scene8 .circle-ctn {
+#scene8 .circle-ctn, #scene9 .circle-ctn {
   position: absolute;
   left: 0px;
   right: 0px;
   top: 0px;
   bottom: 0px;
   margin: auto;
-  width: 400px;
-  height: 400px;
+  width: 430px;
+  height: 430px;
+  z-index: 600; }
+#scene8 .money, #scene9 .money {
+  background: url("../resource/dollar_big.png") no-repeat;
+  position: absolute;
+  background-size: 520px 220px;
+  background-position: 38% 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  opacity: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 155px;
+  height: 155px;
   z-index: 600; }
 
 #scene11 .bg11 {
