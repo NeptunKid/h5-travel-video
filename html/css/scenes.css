@@ -838,7 +838,7 @@
   height: 430px;
   z-index: 600; }
 #scene8 .money, #scene9 .money {
-  background: url("../resource/dollar_big.png") no-repeat;
+  background: url("../resource/dollar.png") no-repeat;
   position: absolute;
   background-size: 520px 220px;
   background-position: 38% 50%;
@@ -854,6 +854,10 @@
   width: 155px;
   height: 155px;
   z-index: 600; }
+#scene8 .flat-money, #scene9 .flat-money {
+  background: url("../resource/dollar_top.png") no-repeat;
+  background-size: 338px 123px;
+  background-position: 50%; }
 
 #scene11 .bg11 {
   position: relative;

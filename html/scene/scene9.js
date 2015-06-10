@@ -9,14 +9,19 @@
 		this.money.appendTo(this.container);
 	}	
 	scene.animation = function() {
-		var circle= this.container.find('.circle-ctn');
+		var circle = this.container.find('.circle-ctn');
+		var money = this.money;
 		this.tl.addLabel('begin')
 			   .set(this.money, {scale:1.5})  //TODO: remove this and resize money svg.
 			   .set(this.container.find('.marco-shadow'), {background:'transparent'})
 			   .to([this.marco, circle], 2, {opacity:0, ease:Power2.easeOut}, 'begin')
 			   .call(function() {circle.remove()})
 			   .to(this.money, 2, {opacity:1, ease:Power2.easeIn}, 'begin-=1')
-			   .to(this.money, 1.5, {height: '+=100', width: '+=100'});
+			   .to(this.money, 1.5, {height: '+=180', width: '+=180'})
+			   .to(this.money, 1.5, {backgroundSize: '234px 99px'}, '-=0.5')
+			   .to(this.money, 1, {skewX:-55, delay:1})
+			   .addLabel('pileup')
+			   .call(function() {money.addClass('flat-money');});
 	}
 	scene.cleanup = function() { // Called before entering next scene.
 	}

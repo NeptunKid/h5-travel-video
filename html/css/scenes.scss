@@ -740,7 +740,7 @@ $br_padding_top :$scene_h*0.1;
 		z-index: 600;
     }
 	.money {
-		background: url("../resource/dollar_big.png") no-repeat;
+		background: url("../resource/dollar.png") no-repeat;
 		position: absolute;
 		background-size: 520px 220px;
 		background-position: 38% 50%;
@@ -755,6 +755,11 @@ $br_padding_top :$scene_h*0.1;
 		height: 155px;
 		z-index: 600;
     }
+	.flat-money {
+       background: url("../resource/dollar_top.png") no-repeat;
+	   background-size: 338px 123px;
+	   background-position: 50%
+}
 	// This is a failed attempt to use pscudo element to tween opacity of background image.
 	// .comments {
 	//	background: none;
