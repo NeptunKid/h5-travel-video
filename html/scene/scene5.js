@@ -1,10 +1,6 @@
 ;require(['anole', 'zepto'], function (anole){
 	var v_count = 7;
 	var circle_init = function(){
-    var c = $('<div class="loading"></div>');
-    var svg = $('<svg viewBox="0 0 220 220"></svg>').appendTo(c);
-    $('<path fill="none" stroke="#D07474" stroke-width="30" d = "M 110 30,A75 75,0,0,1,110 180"  class="right-half"></path>').appendTo(svg);
-	$('<path fill="none" stroke="#03A0A0" stroke-width="30" d = "M 110 180,A75 75,0,0,1,110 30"  class="left-half"></path>').appendTo(svg);
 	var c = $('<div class="loading"><svg viewBox="0 0 220 220">' +
 		'<path fill="none" stroke="#D07474" stroke-width="30" d = "M 109 30,A75 75,0,0,1,109 180"  class="right-half half-circle"></path>'+
 		'<path fill="none" stroke="#03A0A0" stroke-width="30" d = "M 110 180,A75 75,0,0,1,110 30"  class="left-half" half-circle></path>' + 

@@ -658,17 +658,21 @@ $br_padding_top :$scene_h*0.1;
 	.marco-shadow {
 		background: url("../resource/marco2_shadow.png");
 		background-size: 100% 100%;
+		background-size: 1.5*$man_w 1.5*$man_h;
 		width: 1.5*$man_w;
 		height: 1.5*$man_h;
 		position:absolute;
-		bottom: 50px;
+		top: 310px;
 		right: 170px;
-		z-index: 250;
+		z-index: 400;
+		@include rounded(50%);
      }
 	.marco-nomouth {
-		background: url("../resource/marco_nomouth.png");
-		background-size: 100% 100%;
-		position:absolute;
+		background: url("../resource/marco_nomouth.png") no-repeat;
+		position: absolute;
+		background-size: 1.5*$man_w 1.5*$man_h;
+		background-position: 0 0;
+		@include rounded(50%);
 		height: 100%;
 		width: 100%;
     }
@@ -721,6 +725,17 @@ $br_padding_top :$scene_h*0.1;
 		// right: 0;
 		// width: 1.5*$man_w;
 		// height: 1.5*$man_w;
+    }
+	.circle-ctn {
+		position: absolute;
+		left: 0px;
+		right: 0px;
+		top: 0px;
+		bottom: 0px;
+		margin: auto;
+		width: 400px;
+		height: 400px;
+		z-index: 600;
     }
 	// This is a failed attempt to use pscudo element to tween opacity of background image.
 	// .comments {

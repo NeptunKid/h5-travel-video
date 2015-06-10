@@ -766,16 +766,24 @@
 #scene7 .marco-shadow, #scene8 .marco-shadow {
   background: url("../resource/marco2_shadow.png");
   background-size: 100% 100%;
+  background-size: 155.52px 233.28px;
   width: 155.52px;
   height: 233.28px;
   position: absolute;
-  bottom: 50px;
+  top: 310px;
   right: 170px;
-  z-index: 250; }
+  z-index: 400;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%; }
 #scene7 .marco-nomouth, #scene8 .marco-nomouth {
-  background: url("../resource/marco_nomouth.png");
-  background-size: 100% 100%;
+  background: url("../resource/marco_nomouth.png") no-repeat;
   position: absolute;
+  background-size: 155.52px 233.28px;
+  background-position: 0 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
   height: 100%;
   width: 100%; }
 #scene7 #mouth, #scene8 #mouth {
@@ -818,6 +826,16 @@
   overflow: hidden;
   width: 150px;
   height: 150px; }
+#scene7 .circle-ctn, #scene8 .circle-ctn {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  width: 400px;
+  height: 400px;
+  z-index: 600; }
 
 #scene11 .bg11 {
   position: relative;
