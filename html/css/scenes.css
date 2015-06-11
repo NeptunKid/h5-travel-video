@@ -182,7 +182,7 @@
   margin: 0px;
   border: 1px solid #000;
   overflow: hidden;
-  font-family: Georgia-italic,Hiragino,SimHei; }
+  font-family: Georgia-Italic,Georgia,Hiragino,SimHei; }
 
 .scene {
   position: absolute;
@@ -355,7 +355,8 @@
 .subway {
   position: absolute;
   left: -512px;
-  top: -345.6px; }
+  top: -345.6px;
+  font-style: italic; }
 
 .subway-up {
   position: relative;
@@ -1005,6 +1006,7 @@
   left: 77%;
   top: 2.5%;
   font-size: 70;
+  font-style: italic;
   opacity: 0; }
 #scene15 .svg-bg, #scene16 .svg-bg {
   position: absolute;
@@ -1138,6 +1140,7 @@
   top: 35%;
   text-align: center;
   font-size: 50px;
+  font-style: italic;
   opacity: 1; }
 
 #scene19, #scene20 {
