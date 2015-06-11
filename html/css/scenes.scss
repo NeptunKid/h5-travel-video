@@ -22,7 +22,7 @@ $scene_h:576px;
 */
 @font-face {
 	font-family: Hiragino;
-	src: url('../resource/HiraginoSansGBW3.otf') format("opentype");
+	src: url('../resource/SansGBW3_min.ttf') format("truetype");
 }
 .container{
 	position: absolute;
@@ -1158,7 +1158,7 @@ $br_padding_top :$scene_h*0.1;
 		left: 15%;
 		width: 0.02*$scene_h;
 		height: 0.9*$scene_h;
-		border-left: solid black 0.02*$scene_h;
+		border-left: solid #37474f 0.02*$scene_h;
 		@include transform(translate3d(-50%,-50%,0) rotate(5deg));
 	}
 }

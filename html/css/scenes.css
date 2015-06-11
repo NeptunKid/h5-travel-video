@@ -173,7 +173,7 @@
 */
 @font-face {
   font-family: Hiragino;
-  src: url("../resource/HiraginoSansGBW3.otf") format("opentype"); }
+  src: url("../resource/SansGBW3_min.ttf") format("truetype"); }
 .container {
   position: absolute;
   left: 50%;
@@ -1181,7 +1181,7 @@
     left: 15%;
     width: 11.52px;
     height: 518.4px;
-    border-left: solid black 11.52px;
+    border-left: solid #37474f 11.52px;
     -moz-transform: translate3d(-50%, -50%, 0) rotate(5deg);
     -o-transform: translate3d(-50%, -50%, 0) rotate(5deg);
     -ms-transform: translate3d(-50%, -50%, 0) rotate(5deg);

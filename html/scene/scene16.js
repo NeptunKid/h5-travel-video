@@ -71,7 +71,7 @@
 		}
 		this.tl.to(this.path,dt*3,{"stroke-dashoffset":this.path_len * 0.18,ease:Linear.easeNone,delay:-dt*5})
 				.to(this.count,dt*3,{num:82,onUpdate:this.update_count.bind(this),ease:Linear.easeNone,delay:-dt*5})
-				.to(this.count_delta,dt,{"opacity":1,y:"-100%",delay:-dt})
+				.to(this.count_delta,dt,{"opacity":1,y:"-100%",delay:-2*dt})
 				.to(this.point,2*dt,{"opacity":0,y:"-100%"})
 				.call(init_progress)
 				.to(this.browser,2*dt,{"opacity":1,y:"0%",delay:-2*dt})

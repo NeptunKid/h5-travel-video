@@ -11,6 +11,7 @@
 	  "marco1": "marco1.png",
 	  "marco2": "marco2.png",
 	  "paperman": "paperman.png",
+    "font":"SansGBW3_min.ttf",
 	  "sub-block": "subway.png",
 	  "sub-left-gate": "subwayl.png",
 	  "sub-right-gate": "subwayr.png",
@@ -22,6 +23,7 @@
 	  "v0": "v0.png",
 	  "v1": "v1.png",
 	  "v2": "v2.png",
+    'like':"like.png",
 	  "worry1": "worry1.png",
 	  "worry2": "worry2.png",
 	  "worry3": "worry3.png",
@@ -72,11 +74,11 @@
       },
       {
         fileName:'scene2.js',
-        res: ["gate","boat","oar","marco1","paperman"]
+        res: ["gate","boat","oar","marco1","paperman",'marco2']
       },
       {
         fileName:'scene3.js',
-        res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate"]
+        res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate","font"]
       },
       {
         fileName:'scene4.js',
@@ -88,7 +90,7 @@
       },
       {
         fileName:'scene6.js',
-        res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate","replay"]
+        res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate","replay","like"]
       },
       {
         fileName:'scene7.js',
