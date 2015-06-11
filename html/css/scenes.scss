@@ -24,6 +24,10 @@ $scene_h:576px;
 	font-family: Hiragino;
 	src: url('../resource/HiraginoSansGBW3.otf') format("opentype");
 }
+@font-face {
+	font-family: Georgia-italic;
+	src: url('../resource/GeorgiaItalic.ttf') format("truetype");
+}
 .container{
 	position: absolute;
 	left: 50%;
