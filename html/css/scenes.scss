@@ -24,10 +24,6 @@ $scene_h:576px;
 	font-family: Hiragino;
 	src: url('../resource/HiraginoSansGBW3.otf') format("opentype");
 }
-@font-face {
-	font-family: Georgia-italic;
-	src: url('../resource/GeorgiaItalic.ttf') format("truetype");
-}
 .container{
 	position: absolute;
 	left: 50%;
@@ -36,7 +32,7 @@ $scene_h:576px;
 	margin: 0px;
 	border:1px solid #000;
 	overflow: hidden;
-	font-family: Georgia-italic,Hiragino,SimHei;
+	font-family: Georgia-Italic,Georgia,Hiragino,SimHei;
 }
 
 .scene{
@@ -217,6 +213,7 @@ $man_w: 0.18*$scene_h;
 	position: absolute;
 	left: -$scene_w * 0.5;
 	top: -$scene_h * 0.6;
+	font-style: italic;
 }
 .subway-up{
 	position: relative;
@@ -963,6 +960,7 @@ $br_padding_top :$scene_h*0.1;
 		left: 77%;
 		top: 2.5%;
 		font-size: 70;
+		font-style: italic;
 		opacity: 0;
 	}
 	.svg-bg{
@@ -1119,6 +1117,7 @@ $br_padding_top :$scene_h*0.1;
 		top: 35%;
 		text-align: center;
 		font-size: 50px;
+		font-style: italic;
 		opacity: 1;
 	}
 }
