@@ -166,7 +166,7 @@
       baseUrl:baseUrl,// root url 
       resoureUrl: resoureUrl,// resoure url like jpg/mp3
       resource: resource,//resource
-      maxQueueLength: 10,//TODO load serval scenes at first
+      maxQueueLength: 4,//TODO load serval scenes at first
       sceneQueue: sceneQueue,//anime scene queue
       autoPlay: false,//auto play with no event
       flipType: 'click',//flip type eg:click, swipe, wheel
