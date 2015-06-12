@@ -184,6 +184,9 @@
   overflow: hidden;
   font-family: Georgia-Italic,Georgia,Hiragino,SimHei; }
 
+audio {
+  display: none; }
+
 .scene {
   position: absolute;
   left: 0;

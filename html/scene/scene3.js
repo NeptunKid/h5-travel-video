@@ -26,6 +26,7 @@ console.log("Scene3.js running...");
 	}
 	anole.addScene({
 		name: "scene3.js",
+		id:3,
 		onInit: function (){
 			this.scene = anole.$$("#scene3",'<div id = "scene3" class = "scene"></div>',anole.canvas);
 			this.subway_paperman = anole.$$("#subway-paperman","<div id = 'subway-paperman' class='papermans'></div>",this.scene);

@@ -3,6 +3,7 @@ console.log("scene1.js running");
 console.log("scene1.js required. add scene");
 	anole.addScene({
 		name: "scene1.js",
+		id:1,
 		onInit: function (){
 			console.log(">>> scene1.js onInit");
 			this.scene = anole.getOrCreate("#scene1",'<div id="scene1" class="scene"></div>', anole.canvas);
