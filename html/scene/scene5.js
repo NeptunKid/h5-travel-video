@@ -9,6 +9,7 @@
 	};
 	anole.addScene({
 		name: "scene5.js",
+		id: 5,
 		onInit: function (){
 			this.scene = anole.$$("#scene5",'<div id = "scene5" class = "scene"></div>',anole.canvas);
 			this.br_ctn_out = anole.$$("#ctn-browser",'<div id = "ctn-browser" class = "ctn-browser"></div>',this.scene);

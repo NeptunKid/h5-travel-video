@@ -6,7 +6,7 @@
 		this.container = $("<div id='scene19' class='scene'></div>")
 		this.west = $("<div></div>").addClass("west-food").appendTo(this.container);
 		this.chn = $("<div></div>").addClass("chn-food").appendTo(this.container);
-		this.line = $("<div></div>").addClass("mid-line").appendTo(this.chn);
+		//this.line = $("<div></div>").addClass("mid-line").appendTo(this.chn);
 		return this.container;
 	}
 	

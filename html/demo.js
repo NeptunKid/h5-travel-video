@@ -11,6 +11,7 @@
 	  "marco1": "marco1.png",
 	  "marco2": "marco2.png",
 	  "paperman": "paperman.png",
+	  "font":"SansGBW3_min.ttf",
 	  "sub-block": "subway.png",
 	  "sub-left-gate": "subwayl.png",
 	  "sub-right-gate": "subwayr.png",
@@ -22,6 +23,7 @@
 	  "v0": "v0.png",
 	  "v1": "v1.png",
 	  "v2": "v2.png",
+	  'like':"like.png",
 	  "worry1": "worry1.png",
 	  "worry2": "worry2.png",
 	  "worry3": "worry3.png",
@@ -39,12 +41,6 @@
 	  "canadian0":"canadian0.png",
 	  "canadian1":"canadian1.png",
 	  "canadian2":"canadian2.png",
-	  "french":"french.mp4",
-	  "french_webm": "french.webm",
-	  "food1":"food1.mp4",
-	  "food1_webm":"food1.webm",
-	  "food2":"food2.webm",
-	  "food2_webm":"food2.webm",
 	  "map":"map.png",
 	  "mark1":"mark1.png",
 	  "mark2":"mark2.png",
@@ -67,6 +63,15 @@
 	  "plate":"plate.png",
 	  "lung_m":"lung_m.png",
 	  "lung_f":"lung_f.png",
+	  /* Videos */
+	  "french":"french.mp4",
+	  "french_webm": "french.webm",
+	  "food1":"food1.mp4",
+	  "food1_webm":"food1.webm",
+	  "food2":"food2.mp4",
+	  "food2_webm":"food2.webm",
+	  "toilet":"toilet.mp4",
+	  "toilet_webm":"food2.webm",
   }
   
   //if(!anole.isMobile()){
@@ -77,11 +82,11 @@
       },
       {
         fileName:'scene2.js',
-        res: ["gate","boat","oar","marco1","paperman"]
+        res: ["gate","boat","oar","marco1","paperman",'marco2']
       },
       {
         fileName:'scene3.js',
-        res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate"]
+        res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate","font"]
       },
       {
         fileName:'scene4.js',
@@ -93,7 +98,7 @@
       },
       {
         fileName:'scene6.js',
-        res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate","replay"]
+        res: ["marco1","paperman","sub-block","sub-left-gate","sub-right-gate","replay","like"]
       },
       {
         fileName:'scene7.js',
@@ -146,7 +151,11 @@
       {
         fileName:'scene20.js',
         res: ["lung_f","lung_m","lung_tab","plate"]
-      }
+      },
+      {
+        fileName: 'scene21.js',
+        res: ["toilet","toilet_webm"]
+      },
     ]
     baseUrl = './scene/';
     resoureUrl = "./resource/";
