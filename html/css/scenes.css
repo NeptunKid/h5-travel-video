@@ -858,7 +858,10 @@
 #scene8 .flat-money, #scene9 .flat-money {
   background: url("../resource/dollar_top.png") no-repeat;
   background-size: 338px 123px;
-  background-position: 50%; }
+  background-position: 50%;
+  opacity: 1;
+  width: 1024px;
+  height: 576px; }
 
 #scene11 .bg11 {
   position: relative;
@@ -1142,6 +1145,10 @@
   font-size: 50px;
   font-style: italic;
   opacity: 1; }
+
+#scene18 video {
+  width: 80%;
+  height: 80%; }
 
 #scene19, #scene20 {
   background: #bbb; }

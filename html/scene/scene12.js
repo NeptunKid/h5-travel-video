@@ -3,7 +3,11 @@
 	var scene = new anole.Scene(12, anole.canvas, true);
     scene.name = 'scene12.js';
 	scene.createDom = function() {
-		this.video = $('<video src = "./resource/french.mp4" controls="controls" autoplay="autoplay">Your browser does not support the video tag.</video>').appendTo(this.container);
+		this.video = $('<video controls="controls" autoplay="autoplay">' +
+					   '<source src="./resource/french.webm" type="video/webm">' +
+		               '<source src="./resource/french.mp4" type="video/mp4">' +
+					   'Your browser does not support the video tag.</video>')
+					.appendTo(this.container);
 		return this.container;
 	}
 	

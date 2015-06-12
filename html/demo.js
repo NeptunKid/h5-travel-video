@@ -40,6 +40,11 @@
 	  "canadian1":"canadian1.png",
 	  "canadian2":"canadian2.png",
 	  "french":"french.mp4",
+	  "french_webm": "french.webm",
+	  "food1":"food1.mp4",
+	  "food1_webm":"food1.webm",
+	  "food2":"food2.webm",
+	  "food2_webm":"food2.webm",
 	  "map":"map.png",
 	  "mark1":"mark1.png",
 	  "mark2":"mark2.png",
@@ -108,7 +113,7 @@
       },
       {
         fileName: 'scene12.js',
-        res: ["french"]
+        res: ["french","french_webm"]
       },
       {
         fileName:'scene13.js',
@@ -129,6 +134,10 @@
       {
         fileName:'scene17.js',
         res: ["browsertab","glogo","searchbar","progbar","nexus"]
+      },
+      {
+        fileName: 'scene18.js',
+        res: ["food1","food1_webm","food2","food2_webm"]
       },
       {
         fileName:'scene19.js',

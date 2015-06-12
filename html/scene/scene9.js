@@ -19,9 +19,10 @@
 			   .to(this.money, 2, {opacity:1, ease:Power2.easeIn}, 'begin-=1')
 			   .to(this.money, 1.5, {height: '+=180', width: '+=180'})
 			   .to(this.money, 1.5, {backgroundSize: '234px 99px'}, '-=0.5')
-			   .to(this.money, 1, {skewX:-55, delay:1})
+			   .to(this.money, 1, {skewX:-35, scale:0.85, delay:1})
 			   .addLabel('pileup')
-			   .call(function() {money.addClass('flat-money');});
+			   .call(function() {money.addClass('flat-money');})
+			   .set(this.money, {clearProps:'all'});
 	}
 	scene.cleanup = function() { // Called before entering next scene.
 	}
