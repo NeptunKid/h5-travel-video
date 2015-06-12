@@ -215,9 +215,10 @@
         var src = this._config.resoureUrl + this._config.resource[res];
         var error = function (){
           this.showError("Error loading "+src);
-        }
-        
-        if(/\.mp3|\.wav|\.ogg|\.mp4|\.webm|\.m4v|\.mov$/.test(src)){
+		  callback && callback(); // Load the next, WHATAVER!
+		}
+        // TODO: add loading handler for font files.
+        if(/\.mp3|\.wav|\.ogg|\.mp4|\.webm|\.mov$/.test(src)){
           var media = new Audio(src);  
           media.src = src;
           this._resourceLoaded[res] = true;
