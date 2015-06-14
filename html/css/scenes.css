@@ -264,6 +264,9 @@ audio {
   background-size: 100% 100%;
   background-repeat: no-repeat; }
 
+.down .marco.shadow {
+  top: -5%; }
+
 .marco.shadow {
   background: url("../resource/marco1_shadow.png");
   background-size: 100% 100%; }
@@ -306,6 +309,9 @@ audio {
 /**
  * scene2 
  */
+#scene2 {
+  background: #795548; }
+
 .shade-scene2 {
   width: 100%;
   height: 100%;
@@ -328,6 +334,9 @@ audio {
   height: 155.52px;
   margin: 0px 0px;
   float: left;
+  -moz-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+  -ms-transition: opacity 0.5s linear;
   -webikit-transition: opacity 0.5s linear;
   transition: opacity 0.5s linear; }
 
@@ -444,6 +453,15 @@ audio {
 .subway-block.right {
   right: 0; }
 
+#scene4 .marco, #scene5 .marco, #scene6 .marco {
+  width: 207.36px;
+  height: 311.04px; }
+#scene4 .marco-ctn, #scene5 .marco-ctn, #scene6 .marco-ctn {
+  position: relative;
+  top: 40%; }
+#scene4 .paperman, #scene5 .paperman, #scene6 .paperman {
+  margin-left: -25.92px; }
+
 /* scene5 */
 .shade-youtube img {
   position: absolute;
@@ -557,7 +575,13 @@ audio {
   top: 57.6px;
   right: 0;
   height: 100%;
-  margin: auto auto; }
+  margin: auto auto;
+  opacity: 0;
+  -moz-transform: translate3d(0, -20%, 0);
+  -o-transform: translate3d(0, -20%, 0);
+  -ms-transform: translate3d(0, -20%, 0);
+  -webkit-transform: translate3d(0, -20%, 0);
+  transform: translate3d(0, -20%, 0); }
 
 .youtube {
   position: absolute;
@@ -648,12 +672,17 @@ audio {
   width: 90%;
   margin: 0px auto; }
 
-.video {
+.ctn-video .video {
   position: absolute;
   width: 345.6px;
   height: 259.2px;
   background: url("../resource/board_video.png");
-  background-size: 100% 100%; }
+  background-size: 100% 100%;
+  -moz-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  -webkit-transform: rotate(-20deg);
+  transform: rotate(-20deg); }
 
 .video .img {
   position: absolute;

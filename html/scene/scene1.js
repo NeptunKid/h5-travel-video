@@ -40,18 +40,9 @@ console.log("scene1.js required. add scene");
 			console.log(">>> scene1.js onStart");
 
 			this.tl1 = new TimelineLite();
-			this.tl1 = this.tl1.to(this.places, 0.5, {top:"-100%", ease:Linear.easeNone}, 2.5)
+			this.tl1 = this.tl1.to(this.places, 0.5, {top:"-100%", ease:Linear.easeNone,delay:5.5})
 						.to(this.marco, 0, {"z-index":501})
-						.to(this.boat, 0.5, {top:"198%", ease:Linear.easeNone}, "+=2")
-						.to(this.marco, 0.5, {top:"195%", ease:Linear.easeNone}, "-=0.5");
-			var deg = -10;
-			for (var i=0;i<5;i++){
-				this.tl1 = this.tl1.to(this.boat,0.1,{rotation:deg,ease:Linear.easeNone})
-				                   .to(this.marco,0.1,{rotation:deg,ease:Linear.easeNone},"-=0.1")	
-				deg = -deg;
-			}
-			this.tl1 = this.tl1.to(this.marco,0.3,{rotation:0,ease:Linear.easeNone,delay:0.2})
-								.to(this.marco, 1, {top:"212%", ease:Linear.easeNone, delay:0.8});
+
 			if (finish) {
 				this.tl1.call(finish);
 			}

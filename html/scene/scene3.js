@@ -1,5 +1,15 @@
 console.log("Scene3.js running...");
 ;require(['anole', 'zepto'], function (anole){
+	var display_delta = 5;
+	var display_ppm = function(){
+	 var hides = $("#scene3 .paperman.hide");
+	 if (hides.length<1)
+		return;
+	 var idx = parseInt(hides.length * Math.random());
+	 hides[idx].classList.toggle("hide",false);
+	 hides[idx].classList.toggle("open",true);
+	 setTimeout(display_ppm,display_delta);
+	}
 	var data = {year:1271,popu:123456789}
 	var data_final = {year:2014,popu:128498301}
 	var subway_text_create = function(){
@@ -46,11 +56,12 @@ console.log("Scene3.js running...");
 		onStart: function (finish){
 			//console.log(">>> scene3.js onStart");
 			this.tl1 = new TimelineLite();
-			this.tl1.to($("#subway-left"), 0.5, {x:"100%", ease:Linear.easeNone})
+			this.tl1.call(display_ppm)
+					.to($("#subway-left"), 0.5, {x:"100%", ease:Linear.easeNone,delay:1})
 							.call(function(){$("#papermans").css("display","none");})
 							.to($("#subway-right"), 0.5, {x:"-100%", ease:Linear.easeNone},"-=0.5")
 							.to(this.subway,0.5,{delay:0.2,scaleX:"0.5",scaleY:"0.5",y:"5%"})
-							.to(data,2,{year:data_final.year,popu:data_final.popu,onUpdate:update_text,ease:Linear.easeNone});
+							.to(data,4,{year:data_final.year,popu:data_final.popu,onUpdate:update_text,ease:Linear.easeNone});
 			if (finish) {
 				this.tl1.call(finish);
 			}
@@ -62,6 +73,11 @@ console.log("Scene3.js running...");
 			finish();
 		},
 		onEnd: function (){
+			var hides = $("#scene3 .paperman.hide");
+			hides.each(function(idx,elm){
+				elm.classList.toggle("hide");
+				elm.classList.toggle("open");
+			});
 			this.tl1.progress(1);
 			$("#scene2").hide();
 		},

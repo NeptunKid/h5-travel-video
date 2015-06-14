@@ -24,7 +24,9 @@
 	scene.animation = function() {
 		var timedelta = 0.5;
 		this.tl.set(this.marco,{rotationY:180})
+			.to(this.marco,2,{x: "100%",rotation:30},"+=0.5")
 			.to(this.marco,1,{x: "100%",rotation:15},"+=0.5");
+
 	}
 	anole.addScene(scene);
 })

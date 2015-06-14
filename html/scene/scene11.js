@@ -15,8 +15,8 @@
 	}
 	
 	scene.animation = function() {
-		var timedelta = 0.5;
-		this.tl.to($("#cana00"),timedelta,{rotationY:90})
+		var timedelta = 0.5*2;
+		this.tl.to($("#cana00"),timedelta,{rotationY:90,delay:2.5})
 				.to($("#cana01"),timedelta,{rotationY:0})
 				.to($("#cana10"),timedelta,{rotationY:90})
 				.to($("#cana11"),timedelta,{rotationY:0})

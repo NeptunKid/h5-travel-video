@@ -67,13 +67,14 @@
 		onStart: function (finish){
 			$("#scene4").hide();
 			this.tl1 = new TimelineLite();
-
 			this.tl1 = this.tl1.to(this.shade,0.5,{opacity:0.9, ease:Linear.easeNone})
 							.to(this.br_ctn_out,0.5,{delay:0.1,scaleX:0.4,scaleY:0.4,x:"-14%",y:"-18%",ease:Linear.easeNone});
 			var time_video = 3;
 			var per_video = time_video / v_count;
+			this.tl1.to(this.br_right,per_video,{"opacity":1,y:"0%",delay:0,ease:Linear.easeNone});
 			for (var i=0;i<v_count;i++){
-				this.tl1 = this.tl1.to($(".c"+i),per_video*(i+1),{y:(100*i)+"%",delay:-per_video*i,onComplete:this.dashAnime(i,per_video)});
+				this.tl1 = this.tl1.to($(".c"+i),per_video*(i+1),{y:(100*i)+"%",ease:Linear.easeNone,delay:-per_video*i,onComplete:this.dashAnime(i,per_video)})
+									.to($(".c"+i).find(".video"),per_video*(i+1),{rotation:0,ease:Linear.easeNone,delay:-per_video*(i+1)});
 			}
 			this.tl1 = this.tl1.to(this.loading_r,time_video/2,{"stroke-dashoffset":0,delay: -time_video,ease:Linear.easeNone})
 							.to(this.loading_l,time_video/2*3/4,{"stroke-dashoffset":this.loading_len/4,delay: -time_video/2,ease:Linear.easeNone});

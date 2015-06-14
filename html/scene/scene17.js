@@ -19,8 +19,8 @@
 		var dt = 2.5;
 		this.tl.to(this.browser,dt,{"opacity":0,x:"100%"})
 				.to(this.phone,dt,{"opacity":1,x:"0%",delay:-dt})
-				.to(this.pshade,dt,{"width":"52%",ease:Linear.easeNone})
-				.to(this.count,dt,{num:48,onUpdate:this.update_count.bind(this),ease:Linear.easeNone,delay:-dt})
+				.to(this.pshade,dt*3,{"width":"52%",ease:Linear.easeNone})
+				.to(this.count,dt*2,{num:48,onUpdate:this.update_count.bind(this),ease:Linear.easeNone,delay:-dt*3})
 				;
 	}
 	scene.update_count = function(){
