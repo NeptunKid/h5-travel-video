@@ -1270,6 +1270,32 @@ audio {
 #scene18 video {
   width: 100%;
   height: 100%; }
+#scene18 .shade-s18 {
+  position: absolute;
+  border-radius: 50%;
+  border-color: rgba(0, 0, 0, 0.5);
+  border-style: solid;
+  border-width: 500px; }
+#scene18 .shade-ctn {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden; }
+#scene18 .shade-ctn.s1 {
+  left: 0; }
+#scene18 .shade-ctn.s2 {
+  right: 0; }
+#scene18 .shade-ctn.s1 .shade-s18 {
+  top: -183.2px;
+  left: -327.2px;
+  width: 288px;
+  height: 288px; }
+#scene18 .shade-ctn.s2 .shade-s18 {
+  top: -500px;
+  left: -442.4px;
+  width: 230.4px;
+  height: 230.4px; }
 
 #scene19, #scene20 {
   background: #bbb; }
