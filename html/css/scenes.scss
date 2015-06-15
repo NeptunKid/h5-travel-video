@@ -168,6 +168,17 @@ $man_w: 0.18*$scene_h;
 	height: 100%;
 	background: #795548;
 }
+.ditch{
+	position: absolute;
+	top: 75%;
+	left: 37%;
+	width: $man_w*1.5;
+	height: $man_w*3/8;
+	background: url("../resource/ditch.png");
+	background-size: 100% 100%;
+	opacity: 0;
+	z-index: 122;
+}
 .papermans{
 	position: absolute;
 	top: 0px;
@@ -225,6 +236,7 @@ $man_w: 0.18*$scene_h;
 	left: -$scene_w * 0.5;
 	top: -$scene_h * 0.6;
 	font-style: italic;
+	z-index: 140;
 }
 .subway-up{
 	position: relative;
@@ -342,6 +354,7 @@ $subdown_h:1.3*$scene_h;
 	width: 100%;
 	height: 100%;
 	background: black;
+	z-index: 150;
 }
 .loading {
 	position: absolute;

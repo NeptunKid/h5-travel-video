@@ -25,7 +25,7 @@
 				{
 						var elm = $("<div class = 'paperman greyman hide'></div>");
 						if (i == parseInt(n/2)+1 && j==parseInt(m/2))
-							$("<div></div>").addClass("paperman marco tourist shadow").append("<div class = 'marco tourist body'></div>").appendTo(line);
+							$("<div></div>").addClass("paperman marco shadow").append("<div class = 'marco body'></div>").appendTo(line);
 						line.append(elm);
 				}
 				ppdiv.append(line[0]);
@@ -46,6 +46,7 @@
 			$("#scene1").hide();
 			this.shade = anole.$$("#shade-scene2",'<div id = "shade-scene2" class = "shade-scene2"></div>',this.scene,{opacity:0});
 			this.places = anole.$$('#scene2 .places','<div class="places"></div>',this.scene);
+			this.ditch = anole.$$('#scene2 .ditch','<div class="ditch"></div>',this.scene);
 			this.marco = this.scene.find(".marco.shadow");
 			this.boat = this.scene.find(".boat.shadow");
 			this.paperman = anole.$$("#scene2 #papermans","<div id='papermans' class='papermans'></div>",this.scene);
@@ -58,7 +59,8 @@
 			this.tl1 = new TimelineLite();
 			this.tl1.to(this.boat, 0.5, {top:"188%", ease:Linear.easeNone})
 						.to(this.marco, 0.5, {top:"185%", ease:Linear.easeNone}, "-=0.5");
-			var deg = -10;
+			var deg = -20;
+			this.tl1 = this.tl1.set(this.ditch,{"opacity":1});
 			for (var i=0;i<5;i++){
 				this.tl1 = this.tl1.to(this.boat,0.1,{rotation:deg,ease:Linear.easeNone})
 				                   .to(this.marco,0.1,{rotation:deg,ease:Linear.easeNone},"-=0.1")	
@@ -68,7 +70,7 @@
 								.to(this.marco, 0.3, {top:"198%",left:"6%", ease:Linear.easeNone, delay:0.2});
 
 			this.tl1.add(TweenLite.to(this.shade, 0.5, {opacity:1, ease:Linear.easeNone}))
-				.to(this.boat,0.5,{opacity:0,delay:-0.5})
+				.to([this.boat,this.ditch],0.5,{opacity:0,delay:-0.5})
 				.call(function(){this.paperman.show();this.places.hide();}.bind(this))
 
 			if (finish) {

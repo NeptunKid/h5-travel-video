@@ -50,6 +50,7 @@ console.log("Scene3.js running...");
 			this.subrblock = anole.$$("#subway-right-block","<div id = 'subway-right-block' class='right subway-block'></div>",this.subdown);
 			this.sublgate = anole.$$("#subway-left","<div id = 'subway-left' class='subway-left'></div>",this.subdown);
 			this.subrgate = anole.$$("#subway-right","<div id = 'subway-right' class='subway-right'></div>",this.subdown);
+			this.subway_paperman.find(".marco").toggleClass("tourist");
 			data = {year:1271,popu:123456789};
 			update_text();
 		},
