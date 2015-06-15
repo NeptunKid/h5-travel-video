@@ -13,7 +13,7 @@
 	scene.animation = function() {
 		var dt = 0.6;
 		console.log(this.chn);
-		this.tl.to(this.chn,dt,{x:"-15%", ease: Elastic.easeIn})
+		this.tl.to(this.chn,dt,{x:"-15%", ease: Elastic.easeIn,delay:4})
 				.to(this.west,dt/3,{x:"-110%", ease: Elastic.easeOut,delay: -dt/30})
 	}
 	anole.addScene(scene);

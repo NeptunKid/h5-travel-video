@@ -113,6 +113,9 @@ $man_w: 0.18*$scene_h;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
+.down .marco.shadow{
+	top: -5%;
+}
 .marco.shadow{
 	background: url("../resource/marco1_shadow.png");
 	background-size: 100% 100%;	
@@ -157,6 +160,9 @@ $man_w: 0.18*$scene_h;
 /**
  * scene2 
  */
+#scene2{
+	background: #795548;	
+}
 .shade-scene2{
 	width: 100%;
 	height: 100%;
@@ -180,6 +186,9 @@ $man_w: 0.18*$scene_h;
 	margin: 0px 0px;
 	float:left;
 
+	-moz-transition: opacity 0.5s linear;
+	-o-transition: opacity 0.5s linear;
+	-ms-transition: opacity 0.5s linear;
 	-webikit-transition: opacity 0.5s linear;
 	transition: opacity 0.5s linear;
 }
@@ -303,6 +312,20 @@ $subdown_h:1.3*$scene_h;
 	right: 0;
 }
 
+#scene4,#scene5,#scene6 {
+	.marco{
+		width: 2*$man_w;
+		height: 2*$man_h;
+	}
+	.marco-ctn{
+		position: relative;
+		top: 40%;
+	}
+	.paperman{
+		margin-left: -$man_w/4;
+	}
+}
+
 /* scene5 */
 .shade-youtube img{
 	position: absolute;
@@ -421,6 +444,8 @@ $br_padding_top :$scene_h*0.1;
 	right: 0;
 	height: 100%;
 	margin: auto auto;
+	opacity: 0;
+	@include transform(translate3d(0,-20%,0));
 }
 
 .youtube{
@@ -518,12 +543,13 @@ $br_padding_top :$scene_h*0.1;
 	margin: 0px auto;
 }
 
-.video{
+.ctn-video .video{
 	position: absolute;
 	width: 0.6*$scene_h;
 	height: 0.45*$scene_h;
 	background: url("../resource/board_video.png");
 	background-size: 100% 100%;
+	@include transform(rotate(-20deg));
 }
 .board{
 }

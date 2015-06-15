@@ -15,7 +15,7 @@
 		var dt = 1.6;
 		this.tl.to(this.tab,dt,{y:"0%",opacity:1})
 				.to(this.lungm,dt/2,{y:"0%", ease: Elastic.easeInOut})
-				.to(this.lungf,dt/2,{y:"0%", ease: Elastic.easeInOut})
+				.to(this.lungf,dt/2,{y:"0%", ease: Elastic.easeInOut,delay:dt})
 	}
 	anole.addScene(scene);
 })

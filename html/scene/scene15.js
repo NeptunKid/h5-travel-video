@@ -24,13 +24,13 @@
 	
 	scene.animation = function() {
 		var dt = 0.8;
-		this.tl.to(this.map_ctn,dt*2,{scaleX:6.4,scaleY:6.4,x:"90%",},"+="+dt)
-				.to(this.svg,dt*2,{scaleX:1.28,scaleY:1.28,x:"27.5%",y:"-25%","stroke-width":90},"-="+dt*2)
-				.to(this.key_point,dt*2,{left:"73.5%",top:"2.44%",scaleX:1.67,scaleY:1.67},"-="+dt*2)
-				.to([this.path_content,this.count_ctn],dt*2,{opacity:1},"-="+dt)
+		this.tl.to(this.map_ctn,dt,{scaleX:6.4,scaleY:6.4,x:"90%",},"+="+dt)
+				.to(this.svg,dt,{scaleX:1.28,scaleY:1.28,x:"27.5%",y:"-25%","stroke-width":90},"-="+dt)
+				.to(this.key_point,dt,{left:"73.5%",top:"2.44%",scaleX:1.67,scaleY:1.67},"-="+dt)
+				.to([this.path_content,this.count_ctn],dt,{opacity:1},"-="+dt)
 				.call(function(){this.map_ctn.remove()}.bind(this))
-				.to(this.svg,dt*2,{scaleX:2.5,scaleY:2,x:"-41.5%",y:"-10%"})
-				.to(this.key_point,dt*2,{left:"10.5%",top:"6.44%",scaleX:1.67,scaleY:1.67},"-="+dt*2)
+				.to(this.svg,dt,{scaleX:2.5,scaleY:2,x:"-41.5%",y:"-10%"})
+				.to(this.key_point,dt,{left:"10.5%",top:"6.44%",scaleX:1.67,scaleY:1.67},"-="+dt)
 				.to(this.key_point,dt,{top:"41.72%",left:"27.5%",ease:Linear.easeNone})
 				.to(this.key_point,dt,{top:"74.44%",left:"47.5%",ease:Linear.easeNone})
 				.to(this.key_point,dt,{left:"60.5%",top:"80.44%"})
