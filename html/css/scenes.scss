@@ -766,6 +766,22 @@ $br_padding_top :$scene_h*0.1;
        width: $scene_w;
        height: $scene_h;
    }
+   .bottom {
+		background: url("../resource/dollar_bottom.png") no-repeat;
+		position: absolute;
+		background-size: 520px 220px;
+		background-position: 38% 50%;
+		@include rounded(50%);
+		opacity: 0;
+		margin: auto;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 155px;
+		height: 155px;
+		z-index: 600;
+   }
 	// This is a failed attempt to use pscudo element to tween opacity of background image.
 	// .comments {
 	//	background: none;
@@ -782,8 +798,77 @@ $br_padding_top :$scene_h*0.1;
 	//	z-index: -1;
    // }
 }
+$bag_w: 0.34*$scene_h;
+$bag_h: 0.35*$scene_h;
 
+#scene10 {
 
+	background: rgba(140,110,99,0.8);
+	.left-ctn {
+		position: absolute;
+		width: 1.2*$bag_w;
+		height: 1.2*$bag_h;
+		top: 200px;
+		left: 100px;
+		margin: auto;
+    }
+	.right-ctn {
+		position: absolute;
+		width: 1.2*$bag_w;
+		height: 1.2*$bag_h;
+		top: 200px;
+		left: 600px;
+		margin: auto;
+    }
+	.bag {
+		position: absolute;
+		background: url("../resource/shoppingbag.png");
+		width: $bag_w;
+		height: $bag_h;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		margin: auto;
+		background-size: 100% 100%;
+    }
+	.bag-left-sm {
+		width: 0.5*$bag_w;
+		height: 0.5*$bag_h;
+		left: 0.6*$bag_w;
+		top: 0.6*$bag_h;
+    }
+	.bag-left-bg {
+		width: $bag_w;
+		height: $bag_h;
+    }
+	.bag-right {
+		width: 0.7*$bag_w;
+		height: 0.7*$bag_h;
+    }
+	.happy {
+		position: absolute;
+		top: 0.2*$scene_w;
+		width: 0.36*$scene_h;
+		height: 0.54*$scene_h;
+		background: url("../resource/happy.png");
+		background-size: 100% 100%;
+    }
+	.banner {
+		font-size: 3em;
+	    color: rgba(140,110,99,0.8);
+		background: rgba(255,255,255,0.9);
+		top:100px;
+		left: auto;
+		right: auto;
+		bottom: auto;
+		width: 0.8*$scene_w;
+		height: 0.3*$scene_h;
+		margin: auto;
+		text-align: center;
+		line-height: 3em;
+}
+}
 #scene11 {
 	.bg11{
 		position: relative;

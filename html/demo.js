@@ -38,6 +38,8 @@
 	  "dollar_bottom": "dollar_bottom.png",
 	  "dollar_outer": "dollar_outer.png",
 	  "dollar_outer_big": "dollar_outer_big.png",
+	  "happy": "happy.png",
+	  "shoppingbag": "shoppingbag.png",
 	  "canadian0":"canadian0.png",
 	  "canadian1":"canadian1.png",
 	  "canadian2":"canadian2.png",
@@ -111,6 +113,10 @@
       {
         fileName:'scene9.js',
         res: ["dollar", "dollar_big", "dollar_top", "dollar_mid", "dollar_bottom", "dollar_outer", "dollar_outer_big"]
+      },
+      {
+        fileName:'scene10.js',
+        res: ["shoppingbag"]
       },
       {
         fileName:'scene11.js',

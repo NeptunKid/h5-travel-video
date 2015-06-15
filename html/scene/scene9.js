@@ -7,6 +7,7 @@
 		this.marco = this.container.find('.marco-nomouth');
 		this.money = $('<div></div>').addClass('money');
 		this.money.appendTo(this.container);
+		var bottom = $('<div></div>').appendTo(this.money);
 	}	
 	scene.animation = function() {
 		var circle = this.container.find('.circle-ctn');

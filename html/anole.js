@@ -330,7 +330,7 @@
       this.name = 'scene'+id+'.js';
       this.canvas = canvas;
       this.inherit = inherit;
-      this.container = $("<div id='scene" + this.id + "' class='scene'></div>");
+      this.container;
       // List of dom elements that will be reused by other scenes afterwards.
       // Note it's DOM not jQ Objects.
       this.export = [];
@@ -341,6 +341,9 @@
     //
     // Public:
     Scene.prototype.onInit = function() {
+      // Must initialize the container everytime when entering the scene.
+	  // TODO: reuse scene content. 
+	  this.container = $("<div id='scene" + this.id + "' class='scene'></div>");
       // Empty current scene div.
       var old = this.canvas.find('#scene' + this.id);
       if (old) {

@@ -865,6 +865,82 @@ audio {
   opacity: 1;
   width: 1024px;
   height: 576px; }
+#scene8 .bottom, #scene9 .bottom {
+  background: url("../resource/dollar_bottom.png") no-repeat;
+  position: absolute;
+  background-size: 520px 220px;
+  background-position: 38% 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  opacity: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 155px;
+  height: 155px;
+  z-index: 600; }
+
+#scene10 {
+  background: rgba(140, 110, 99, 0.8); }
+  #scene10 .left-ctn {
+    position: absolute;
+    width: 235.008px;
+    height: 241.92px;
+    top: 200px;
+    left: 100px;
+    margin: auto; }
+  #scene10 .right-ctn {
+    position: absolute;
+    width: 235.008px;
+    height: 241.92px;
+    top: 200px;
+    left: 600px;
+    margin: auto; }
+  #scene10 .bag {
+    position: absolute;
+    background: url("../resource/shoppingbag.png");
+    width: 195.84px;
+    height: 201.6px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    background-size: 100% 100%; }
+  #scene10 .bag-left-sm {
+    width: 97.92px;
+    height: 100.8px;
+    left: 117.504px;
+    top: 120.96px; }
+  #scene10 .bag-left-bg {
+    width: 195.84px;
+    height: 201.6px; }
+  #scene10 .bag-right {
+    width: 137.088px;
+    height: 141.12px; }
+  #scene10 .happy {
+    position: absolute;
+    top: 204.8px;
+    width: 207.36px;
+    height: 311.04px;
+    background: url("../resource/happy.png");
+    background-size: 100% 100%; }
+  #scene10 .banner {
+    font-size: 3em;
+    color: rgba(140, 110, 99, 0.8);
+    background: rgba(255, 255, 255, 0.9);
+    top: 100px;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 819.2px;
+    height: 172.8px;
+    margin: auto;
+    text-align: center;
+    line-height: 3em; }
 
 #scene11 .bg11 {
   position: relative;
