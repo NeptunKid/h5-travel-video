@@ -154,31 +154,84 @@
   top: 0px;
   bottom: 0px; }
 
-/*
-@mixin transform($transforms) {
-	-moz-transform: $transforms;
-	-o-transform: $transforms;
-	-ms-transform: $transforms;
-	-webkit-transform: $transforms;
-	transform: $transforms;
-}
-// translate
-@mixin translate ($x, $y) {
-	@include transform(translate($x, $y));
-}
- // translate3d
-@mixin translate3d ($x, $y, $z) {
-	 @include transform(translate3d($x, $y, $z));
-}
-*/
+.hidden {
+  display: none; }
+
+/* Copied from demo.css */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre,
+form, fieldset, input, textarea, p, blockquote, th, td {
+  padding: 0;
+  margin: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+fieldset, img {
+  border: 0; }
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-weight: normal;
+  font-style: normal; }
+
+ol, ul {
+  list-style: none; }
+
+caption, th {
+  text-align: left; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-size: 100%; }
+
+q:before, q:after {
+  content: ''; }
+
+abbr, acronym {
+  border: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%; }
+
 @font-face {
   font-family: Hiragino;
   src: url("../resource/SansGBW3_min.ttf") format("truetype"); }
+.mask {
+  width: 1024px;
+  height: 546px;
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  color: #FFF;
+  font-size: 72px;
+  text-align: center; }
+
+.btn {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000;
+  display: inline-block; }
+
+.next-btn {
+  margin-left: 100px; }
+
+.start-btn {
+  position: absolute;
+  left: 150px;
+  border: 1px solid #F00;
+  width: 50px;
+  height: 50px; }
+
 .container {
   position: absolute;
   left: 50%;
   width: 1024px;
-  height: 576px;
+  height: 546px;
   margin: 0px;
   border: 1px solid #000;
   overflow: hidden;
@@ -192,10 +245,11 @@ audio {
   left: 0;
   right: 0;
   width: 1024px;
-  height: 576px;
+  height: 546px;
   border: 1px solid #F00;
   overflow: hidden;
-  background: #8d6e63; }
+  background: #8d6e63;
+  border: 1px solid #F00; }
 
 .shade {
   width: 100%;
@@ -209,11 +263,11 @@ audio {
   top: 0;
   left: 0;
   width: 1024px;
-  height: 1152px; }
+  height: 1092px; }
 
 .building-ctn {
   position: relative;
-  height: 576px; }
+  height: 546px; }
 
 .bridge-ctn .down {
   background-color: #bdbdbd; }
@@ -228,20 +282,20 @@ audio {
   position: absolute;
   background-color: #bdbdbd;
   top: 0;
-  height: 230.4px;
+  height: 218.4px;
   width: 1024px; }
 
 .down {
   position: absolute;
   bottom: 0;
-  height: 345.6px;
+  height: 327.6px;
   width: 1024px; }
 
 .year {
   position: absolute;
-  left: 34.56px;
-  top: 34.56px;
-  height: 69.12px; }
+  left: 32.76px;
+  top: 32.76px;
+  height: 65.52px; }
 
 .building {
   position: absolute;
@@ -258,8 +312,8 @@ audio {
   max-width: 100%; }
 
 .marco {
-  width: 103.68px;
-  height: 155.52px;
+  width: 98.28px;
+  height: 147.42px;
   background: url("../resource/marco1.png");
   background-size: 100% 100%;
   background-repeat: no-repeat; }
@@ -281,8 +335,8 @@ audio {
 
 .boat {
   position: absolute;
-  width: 311.04px;
-  height: 155.52px;
+  width: 294.84px;
+  height: 147.42px;
   background: url("../resource/boat.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -330,8 +384,8 @@ audio {
   clear: both; }
 
 .paperman {
-  width: 103.68px;
-  height: 155.52px;
+  width: 98.28px;
+  height: 147.42px;
   margin: 0px 0px;
   float: left;
   -moz-transition: opacity 0.5s linear;
@@ -347,16 +401,16 @@ audio {
 
 .paperman-line {
   position: relative;
-  left: -25.92px;
-  top: 103.68px;
-  height: 155.52px;
+  left: -24.57px;
+  top: 98.28px;
+  height: 147.42px;
   width: 120%;
-  margin-top: -77.76px;
+  margin-top: -73.71px;
   overflow: hidden; }
 
 .l1 {
   position: relative;
-  left: 25.92px; }
+  left: 24.57px; }
 
 .half {
   position: absolute;
@@ -367,19 +421,19 @@ audio {
 .subway {
   position: absolute;
   left: -512px;
-  top: -345.6px;
+  top: -327.6px;
   font-style: italic; }
 
 .subway-up {
   position: relative;
-  height: 403.2px;
+  height: 382.2px;
   width: 100%;
   background: white; }
 
 .subway-text-ctn {
   position: relative;
   width: 1740.8px;
-  height: 288px;
+  height: 273px;
   margin: auto;
   color: #795548;
   font-size: 80;
@@ -387,40 +441,40 @@ audio {
 
 .subway-year {
   position: absolute;
-  bottom: 57.6px;
+  bottom: 54.6px;
   font-size: 160; }
 
 .subway-popu {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 57.6px; }
+  bottom: 54.6px; }
 
 .subway-title {
   position: absolute;
   left: 0;
   right: 0;
-  top: 5.76px; }
+  top: 5.46px; }
 
 .subway-head {
   position: absolute;
   bottom: 0px;
   width: 100%;
-  height: 115.2px;
+  height: 109.2px;
   background: #eee;
   border-top: solid 10px #aaa;
   border-bottom: solid 10px #aaa; }
 
 .subway-down {
   position: relative;
-  height: 748.8px;
+  height: 709.8px;
   width: 2048px; }
 
 .subway-left {
   position: absolute;
   left: 0;
   width: 512px;
-  height: 898.56px;
+  height: 851.76px;
   background: url("../resource/subwayl.png");
   background-size: 100% 110%; }
 
@@ -428,14 +482,14 @@ audio {
   position: absolute;
   right: 0;
   width: 512px;
-  height: 898.56px;
+  height: 851.76px;
   background: url("../resource/subwayr.png");
   background-size: 100% 110%; }
 
 .subway-shadow {
   width: 561.152px;
-  height: 1041.13152px;
-  margin: -26.35776px -24.576px;
+  height: 986.90592px;
+  margin: -24.98496px -24.576px;
   background: url("../resource/subway_shadow.png");
   background-size: 100% 100%;
   background-position: center; }
@@ -443,7 +497,7 @@ audio {
 .subway-block {
   position: absolute;
   width: 512px;
-  height: 748.8px;
+  height: 709.8px;
   background: url("../resource/subway.png");
   background-size: 100% 132%; }
 
@@ -454,13 +508,13 @@ audio {
   right: 0; }
 
 #scene4 .marco, #scene5 .marco, #scene6 .marco {
-  width: 207.36px;
-  height: 311.04px; }
+  width: 196.56px;
+  height: 294.84px; }
 #scene4 .marco-ctn, #scene5 .marco-ctn, #scene6 .marco-ctn {
   position: relative;
   top: 40%; }
 #scene4 .paperman, #scene5 .paperman, #scene6 .paperman {
-  margin-left: -25.92px; }
+  margin-left: -24.57px; }
 
 /* scene5 */
 .shade-youtube img {
@@ -491,10 +545,10 @@ audio {
 
 .ctn-browser {
   position: absolute;
-  top: -172.8px;
+  top: -163.8px;
   left: -409.6px;
   width: 2560px;
-  height: 1440px;
+  height: 1365px;
   border: solid 1px #aaa; }
 
 .ctn-browser-in {
@@ -509,46 +563,46 @@ audio {
   top: 0;
   margin: auto auto;
   width: 100%;
-  height: 115.2px; }
+  height: 109.2px; }
 
 .youtubebar_l {
   position: absolute;
   left: 0;
-  width: 164.57143px;
-  height: 115.2px;
+  width: 156px;
+  height: 109.2px;
   background: url("../resource/youtubebar_l.png");
   background-size: 100% 100%; }
 
 .youtubebar_m {
-  margin: 0 164.57143px;
-  height: 115.2px;
+  margin: 0 156px;
+  height: 109.2px;
   background: url("../resource/youtubebar_m.png");
   background-size: 100% 100%; }
 
 .youtubebar_r {
   position: absolute;
   right: 0;
-  width: 164.57143px;
-  height: 115.2px;
+  width: 156px;
+  height: 109.2px;
   background: url("../resource/youtubebar_r.png");
   background-size: 100% 100%; }
 
 .tag {
   position: absolute;
-  top: -138.24px;
+  top: -131.04px;
   left: 460.8px;
-  height: 138.24px;
-  width: 311.04px;
+  height: 131.04px;
+  width: 294.84px;
   background: url("../resource/tag.png");
   background-size: 100% 100%; }
 
 .browser {
   position: absolute;
-  top: -57.6px;
-  width: 1856px;
+  top: -54.6px;
+  width: 1850px;
   height: 100%;
   margin: 0 379.6px;
-  border-radius: 57.6px;
+  border-radius: 54.6px;
   overflow: hidden;
   background: #e0e0e0; }
 
@@ -556,23 +610,23 @@ audio {
   position: absolute;
   left: 30px;
   right: 30px;
-  top: 172.8px;
+  top: 163.8px;
   bottom: 0;
   overflow: hidden; }
 
 .browser-left {
   position: absolute;
   left: 0;
-  top: 57.6px;
+  top: 54.6px;
   width: 1024px;
   height: 100%;
   margin: auto auto;
-  padding: 633.6px 0 0 0; }
+  padding: 600.6px 0 0 0; }
 
 .browser-right {
   position: absolute;
   left: 1084px;
-  top: 57.6px;
+  top: 54.6px;
   right: 0;
   height: 100%;
   margin: auto auto;
@@ -588,94 +642,94 @@ audio {
   left: 0px;
   top: 0px;
   width: 1024px;
-  height: 576px;
+  height: 546px;
   margin: auto auto;
   overflow: hidden; }
 
 .like-bar {
   position: relative;
   width: 100%;
-  height: 172.8px;
+  height: 163.8px;
   background: url("../resource/board_like.png");
   background-size: 100% 100%; }
 
 .like {
   position: absolute;
   right: 30%;
-  top: 40.32px;
-  width: 92.16px;
-  height: 92.16px;
+  top: 38.22px;
+  width: 87.36px;
+  height: 87.36px;
   opacity: 0;
   background: url("../resource/like.png");
   background-size: 100% 100%; }
 
 .like-text {
   position: relative;
-  left: 86.4px;
-  height: 172.8px;
+  left: 81.9px;
+  height: 163.8px;
   color: #26A69a;
   font-size: 100px; }
 
 .dot {
   position: relative;
-  left: 57.6px;
+  left: 54.6px;
   float: left;
-  width: 17.28px;
-  height: 17.28px;
-  margin: 77.76px 20.16px;
+  width: 16.38px;
+  height: 16.38px;
+  margin: 73.71px 19.11px;
   border-radius: 50%;
   background: black; }
 
 .comment-ctn {
-  height: 28.8px;
+  height: 27.3px;
   overflow: hidden; }
 
 .comments {
   width: 1024px;
-  padding: 115.2px 0;
+  padding: 109.2px 0;
   background: url("../resource/comment_list.png");
   background-size: 100% 100%; }
 
 .comment {
   position: relative;
-  height: 230.4px;
+  height: 218.4px;
   width: 90%;
   margin: 10px auto; }
 
 .comment-head {
   position: absolute;
-  width: 172.8px;
-  height: 172.8px;
-  margin: 28.8px;
+  width: 163.8px;
+  height: 163.8px;
+  margin: 27.3px;
   background: url("../resource/comment_head.png");
   background-size: 100% 100%; }
 
 .comment-content {
   position: relative;
-  top: 28.8px;
+  top: 27.3px;
   width: 614.4px;
-  height: 115.2px;
-  margin: 17.28px 17.28px 17.28px 201.6px;
-  padding: 40.32px;
-  border-radius: 17.28px;
+  height: 109.2px;
+  margin: 16.38px 16.38px 16.38px 191.1px;
+  padding: 38.22px;
+  border-radius: 16.38px;
   background: url("../resource/comment_bubble.png");
   background-size: 100% 100%; }
 
 .comment .dash {
-  height: 17.28px;
+  height: 16.38px;
   width: 563.2px;
-  margin: 17.28px 0; }
+  margin: 16.38px 0; }
 
 .ctn-video {
   position: absolute;
-  height: 259.2px;
+  height: 245.7px;
   width: 90%;
   margin: 0px auto; }
 
 .ctn-video .video {
   position: absolute;
-  width: 345.6px;
-  height: 259.2px;
+  width: 327.6px;
+  height: 245.7px;
   background: url("../resource/board_video.png");
   background-size: 100% 100%;
   -moz-transform: rotate(-20deg);
@@ -690,8 +744,8 @@ audio {
   bottom: 0;
   left: 0;
   right: 0;
-  width: 230.4px;
-  height: 230.4px;
+  width: 218.4px;
+  height: 218.4px;
   margin: auto; }
 
 .video .v0 {
@@ -707,25 +761,25 @@ audio {
   background-size: 100% 100%; }
 
 .dashes {
-  height: 230.4px;
-  margin: 0 0 0 334.08px;
-  padding: 28.8px 0; }
+  height: 218.4px;
+  margin: 0 0 0 316.68px;
+  padding: 27.3px 0; }
 
 .dash {
-  height: 11.52px;
+  height: 10.92px;
   background: #111;
   width: 0;
-  margin: 28.8px 0; }
+  margin: 27.3px 0; }
 
 .page-ctn {
   position: absolute;
-  left: 316.8px;
-  top: 172.8px; }
+  left: 300.3px;
+  top: 163.8px; }
 
 .small-page {
   position: absolute;
-  width: 345.6px;
-  height: 230.4px;
+  width: 327.6px;
+  height: 218.4px;
   opacity: 0; }
 
 .page0 {
@@ -745,8 +799,8 @@ audio {
   background-size: 100% 100%; }
 
 .page4 {
-  width: 518.4px;
-  height: 345.6px;
+  width: 491.4px;
+  height: 327.6px;
   background: url("../resource/s6_air.png");
   background-size: 100% 100%; }
 
@@ -769,8 +823,8 @@ audio {
   background-size: 100% 100%; }
 #scene7 .worry-bubble, #scene8 .worry-bubble {
   position: absolute;
-  width: 230.4px;
-  height: 230.4px;
+  width: 218.4px;
+  height: 218.4px;
   background-size: 100% 100%; }
 #scene7 .worry1, #scene8 .worry1 {
   background-image: url("../resource/worry1.png"); }
@@ -793,16 +847,16 @@ audio {
 
 #scene8 .bubble-disappear, #scene9 .bubble-disappear {
   position: absolute;
-  width: 230.4px;
-  height: 230.4px;
+  width: 218.4px;
+  height: 218.4px;
   background-image: url("../resource/bubble_disappear.png");
   background-size: 100% 100%; }
 #scene8 .marco-shadow, #scene9 .marco-shadow {
   background: url("../resource/marco2_shadow.png");
   background-size: 100% 100%;
-  background-size: 155.52px 233.28px;
-  width: 155.52px;
-  height: 233.28px;
+  background-size: 147.42px 221.13px;
+  width: 147.42px;
+  height: 221.13px;
   position: absolute;
   top: 310px;
   right: 170px;
@@ -813,7 +867,7 @@ audio {
 #scene8 .marco-nomouth, #scene9 .marco-nomouth {
   background: url("../resource/marco_nomouth.png") no-repeat;
   position: absolute;
-  background-size: 155.52px 233.28px;
+  background-size: 147.42px 221.13px;
   background-position: 0 0;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -824,26 +878,28 @@ audio {
   position: absolute;
   left: 0px;
   right: 0px;
-  margin: 87.0912px auto; }
+  margin: 82.5552px auto; }
 #scene8 .chinese, #scene9 .chinese {
-  background: url("../resource/paperman.png");
+  background: url("../resource/chinese.png");
   background-size: 100% 100%;
   position: absolute;
-  width: 155.52px;
-  height: 233.28px;
+  width: 147.42px;
+  height: 221.13px;
   position: absolute;
   z-index: 100; }
+#scene8 .chinese-smile, #scene9 .chinese-smile {
+  background-image: url("../resource/chinese_smile.png"); }
 #scene8 .chinese:nth-child(1), #scene9 .chinese:nth-child(1) {
-  right: 80px;
-  bottom: 70px;
+  right: 58px;
+  bottom: 68px;
   opacity: 0; }
 #scene8 .chinese:nth-child(2), #scene9 .chinese:nth-child(2) {
-  right: 140px;
-  bottom: 100px;
+  right: 108px;
+  bottom: 85px;
   opacity: 0; }
 #scene8 .chinese:nth-child(3), #scene9 .chinese:nth-child(3) {
-  right: 220px;
-  bottom: 35px;
+  right: 230px;
+  bottom: 38px;
   opacity: 0; }
 #scene8 .shade, #scene9 .shade {
   background-color: #D7CCC8;
@@ -893,7 +949,7 @@ audio {
   background-position: 50%;
   opacity: 1;
   width: 1024px;
-  height: 576px; }
+  height: 546px; }
 #scene8 .bottom, #scene9 .bottom {
   background: url("../resource/dollar_bottom.png") no-repeat;
   position: absolute;
@@ -916,23 +972,23 @@ audio {
   background: rgba(140, 110, 99, 0.8); }
   #scene10 .left-ctn {
     position: absolute;
-    width: 235.008px;
-    height: 241.92px;
+    width: 222.768px;
+    height: 229.32px;
     top: 200px;
     left: 100px;
     margin: auto; }
   #scene10 .right-ctn {
     position: absolute;
-    width: 235.008px;
-    height: 241.92px;
+    width: 222.768px;
+    height: 229.32px;
     top: 200px;
     left: 600px;
     margin: auto; }
   #scene10 .bag {
     position: absolute;
     background: url("../resource/shoppingbag.png");
-    width: 195.84px;
-    height: 201.6px;
+    width: 185.64px;
+    height: 191.1px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -940,21 +996,21 @@ audio {
     margin: auto;
     background-size: 100% 100%; }
   #scene10 .bag-left-sm {
-    width: 97.92px;
-    height: 100.8px;
-    left: 117.504px;
-    top: 120.96px; }
+    width: 92.82px;
+    height: 95.55px;
+    left: 111.384px;
+    top: 114.66px; }
   #scene10 .bag-left-bg {
-    width: 195.84px;
-    height: 201.6px; }
+    width: 185.64px;
+    height: 191.1px; }
   #scene10 .bag-right {
-    width: 137.088px;
-    height: 141.12px; }
+    width: 129.948px;
+    height: 133.77px; }
   #scene10 .happy {
     position: absolute;
     top: 204.8px;
-    width: 207.36px;
-    height: 311.04px;
+    width: 196.56px;
+    height: 294.84px;
     background: url("../resource/happy.png");
     background-size: 100% 100%; }
   #scene10 .banner {
@@ -966,10 +1022,11 @@ audio {
     right: auto;
     bottom: auto;
     width: 819.2px;
-    height: 172.8px;
+    height: 109.2px;
     margin: auto;
     text-align: center;
-    line-height: 3em; }
+    line-height: 3em;
+    opacity: 0; }
 
 #scene11 .bg11 {
   position: relative;
@@ -978,9 +1035,9 @@ audio {
   background: #BBBBBB; }
 #scene11 .canadian {
   position: absolute;
-  top: 115.2px;
-  width: 207.36px;
-  height: 311.04px;
+  top: 109.2px;
+  width: 196.56px;
+  height: 294.84px;
   background: url("../resource/canadian0.png");
   background-size: 100% 100%; }
 #scene11 .canadian.umbrella {
@@ -1015,16 +1072,16 @@ audio {
 #scene13 .gate-ctn .up, #scene14 .gate-ctn .up {
   background: #896558; }
 #scene13 .gate-ctn .building, #scene14 .gate-ctn .building {
-  padding-bottom: 345.6px; }
+  padding-bottom: 327.6px; }
 #scene13 .boat.shadow, #scene14 .boat.shadow {
   top: 20%; }
 #scene13 .marco, #scene14 .marco {
-  width: 172.8px;
-  height: 259.2px; }
+  width: 163.8px;
+  height: 245.7px; }
 #scene13 .marco.shadow, #scene14 .marco.shadow {
   position: absolute;
-  left: -172.8px;
-  top: 374.4px;
+  left: -163.8px;
+  top: 354.9px;
   z-index: 1411; }
 #scene13 .marco.body, #scene14 .marco.body {
   left: -3px; }
@@ -1079,8 +1136,8 @@ audio {
 #scene14 .mark, #scene15 .mark, #scene16 .mark {
   position: absolute;
   background: #00a3b8;
-  width: 69.12px;
-  height: 69.12px;
+  width: 65.52px;
+  height: 65.52px;
   border-radius: 50%;
   z-index: 1406;
   opacity: 0; }
@@ -1090,8 +1147,8 @@ audio {
 #scene14 .m0, #scene15 .m0, #scene16 .m0 {
   left: 1.58%;
   top: 29.26%;
-  width: 345.6px;
-  height: 345.6px; }
+  width: 327.6px;
+  height: 327.6px; }
 #scene14 .m1, #scene15 .m1, #scene16 .m1 {
   left: 39.7%;
   top: 44.4%; }
@@ -1107,7 +1164,7 @@ audio {
   left: 0;
   top: 0;
   width: 960px;
-  height: 533.376px;
+  height: 505.596px;
   overflow: visible;
   z-index: 1500; }
 #scene15 .point.p1, #scene16 .point.p1 {
@@ -1294,9 +1351,9 @@ audio {
     position: absolute;
     top: 50%;
     left: 15%;
-    width: 11.52px;
-    height: 518.4px;
-    border-left: solid #37474f 11.52px;
+    width: 10.92px;
+    height: 491.4px;
+    border-left: solid #37474f 10.92px;
     -moz-transform: translate3d(-50%, -50%, 0) rotate(5deg);
     -o-transform: translate3d(-50%, -50%, 0) rotate(5deg);
     -ms-transform: translate3d(-50%, -50%, 0) rotate(5deg);
@@ -1305,8 +1362,8 @@ audio {
 
 #scene20 .lung-tab {
   margin: 10% auto auto auto;
-  width: 230.4px;
-  height: 115.2px;
+  width: 218.4px;
+  height: 109.2px;
   overflow: visible;
   background: url("../resource/lung_tab.png");
   background-size: 100% 100%;

@@ -3,26 +3,41 @@
 $scene_w:1024px;
 $scene_h:576px;
 
-/*
-@mixin transform($transforms) {
-	-moz-transform: $transforms;
-	-o-transform: $transforms;
-	-ms-transform: $transforms;
-	-webkit-transform: $transforms;
-	transform: $transforms;
-}
-// translate
-@mixin translate ($x, $y) {
-	@include transform(translate($x, $y));
-}
- // translate3d
-@mixin translate3d ($x, $y, $z) {
-	 @include transform(translate3d($x, $y, $z));
-}
-*/
 @font-face {
 	font-family: Hiragino;
 	src: url('../resource/SansGBW3_min.ttf') format("truetype");
+}
+.mask{
+  width:$scene_w;
+  height:$scene_h;
+  background-color:#000;
+  opacity:0.5;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index: 1000;
+  color: #FFF;
+  font-size: 72px;
+  text-align: center;
+}
+.btn{
+  position: absolute;
+  width:50px;
+  height:50px;
+  border:1px solid #000;
+  display:inline-block;
+}
+.next-btn{
+	margin-left: 100px;
+}
+.prev-btn{
+}
+.start-btn {
+	position:absolute;
+	left:150px;
+	border:1px solid #F00;
+	width:50px;
+	height:50px
 }
 .container{
 	position: absolute;
@@ -46,8 +61,8 @@ audio{
 	border: 1px solid #F00;
 	overflow: hidden;
 	background: #8d6e63;
+	border:1px solid #F00;
 }
-
 .shade{
 	width: 100%;
 	height: 100%;
@@ -714,7 +729,7 @@ $br_padding_top :$scene_h*0.1;
 		margin: 0.56*$man_h auto;
      }
 	 .chinese {
-		background: url("../resource/paperman.png");
+		background: url("../resource/chinese.png");
 		background-size: 100% 100%;
 		position:absolute;
 		width: 1.5*$man_w;
@@ -722,19 +737,22 @@ $br_padding_top :$scene_h*0.1;
 		position:absolute;
 		z-index: 100;
      }
+	 .chinese-smile {
+		background-image: url("../resource/chinese_smile.png");
+     }
 	 .chinese:nth-child(1) {
-		right: 80px;
-		bottom: 70px;
+		right: 58px;
+		bottom: 68px;
 		opacity: 0;
      }
 	 .chinese:nth-child(2) {
-		right: 140px;
-		bottom: 100px;
+		right: 108px;
+		bottom: 85px;
 		opacity: 0;
      }
 	 .chinese:nth-child(3) {
-		right: 220px;
-		bottom: 35px;
+		right: 230px;
+		bottom: 38px;
 		opacity: 0;
      }
      .shade {
@@ -828,7 +846,6 @@ $bag_w: 0.34*$scene_h;
 $bag_h: 0.35*$scene_h;
 
 #scene10 {
-
 	background: rgba(140,110,99,0.8);
 	.left-ctn {
 		position: absolute;
@@ -889,11 +906,12 @@ $bag_h: 0.35*$scene_h;
 		right: auto;
 		bottom: auto;
 		width: 0.8*$scene_w;
-		height: 0.3*$scene_h;
+		height: 0.2*$scene_h;
 		margin: auto;
 		text-align: center;
 		line-height: 3em;
-}
+		opacity: 0;
+    }
 }
 #scene11 {
 	.bg11{

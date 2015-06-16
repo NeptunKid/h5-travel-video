@@ -14,7 +14,8 @@
 	}	
 	scene.animation = function() {
 		this.tl.from(this.leftCtn, 1, {delay:0.5, top:-500, ease:Elastic.easeInOut})
-		       .from(this.rightCtn, 1, {delay:0.5, top:-500, ease:Elastic.easeInOut});
+		       .from(this.rightCtn, 1, {delay:0.5, top:-500, ease:Elastic.easeInOut})
+			   .to(this.banner, 1, {opacity: 1});
 	}
 	scene.cleanup = function() { // Called before entering next scene.
 	}

@@ -1,4 +1,4 @@
-;require(['anole','js/TweenLite.min'], function (anole){
+;require(['anole'], function (anole){
   var sceneQueue;
   var baseUrl;
   var resoureUrl;
@@ -28,6 +28,8 @@
 	  "worry2": "worry2.png",
 	  "worry3": "worry3.png",
 	  "worry4": "worry4.png",
+	  "chinese": "chinese.png",
+	  "chinese_smile": "chinese_smile.png",
 	  "bubble_disappear": "bubble_disappear.png",
 	  "marco_nomouth": "marco_nomouth.png",
 	  "mouth": "mouth.png",
@@ -108,7 +110,7 @@
       },
       {
         fileName:'scene8.js',
-        res: ["bubble_disappear", "marco_nomouth", "mouth"]
+        res: ["bubble_disappear", "marco_nomouth", "mouth", "chinese", "chinese_smile"]
       },
       {
         fileName:'scene9.js',
