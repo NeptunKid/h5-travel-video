@@ -7,7 +7,7 @@
 // 2. for each scene: expose its timeline to make it easy to manage.
 
 ;define(['zepto', 'hammer'], function (zepto, Hammer){
-  var musicList = {};
+  var mediaList = {};
   
   var anole = window.anole = {
       _currentScene: 0,
@@ -28,12 +28,17 @@
         var playPrev = this.throttle(this.playPrev.bind(this), 1000);
         var playNext = this.throttle(this.playNext.bind(this), 1000);
         var startAnime = this.throttle(this.startAnime.bind(this), 1000);
+	    var muteBtn =  this._config.muteBtnTemplate || 
+		    '<div class="mute-btn btn J_MuteBtn" value="MuteMusic">mute</div>';
+		this.muteBtn = $(muteBtn);
+		this.muteBtn.on('click', this.muteAll.bind(this));
+		this.muteBtn.appendTo('body');
+
         if(this._config.flipType == 'click'){
           var prevBtn = this._prevBtn = $(this._config.prevBtnTemplate);
           var nextBtn = this._nextBtn =  $(this._config.nextBtnTemplate);
           var startBtn = this._startBtn =  $(this._config.startBtnTemplate);
           $('body').append(prevBtn).append(nextBtn).append(startBtn);
-          $('body').append($('<audio src="" controls="controls" autoplay="autoplay">Audio not suppoted</audio>'));
           prevBtn.on('click', playPrev);
           nextBtn.on('click', playNext);
           startBtn.on('click', startAnime);
@@ -221,9 +226,10 @@
         if(/\.mp3|\.wav|\.ogg|\.mp4|\.webm|\.mov$/.test(src)){
           var media = new Audio(src);  
           media.src = src;
+		  media.controls = false;
           this._resourceLoaded[res] = true;
           $(media).on("canplay",function (e){
-            musicList[res] = media;
+            mediaList[res] = media;
             callback && callback();
           })
         }else{
@@ -286,16 +292,11 @@
         scene.onForward && scene.onForward();
       },
       playScene: function (index){
-		  this._currentScene = index;
-
+		this._currentScene = index;
         console.log("---- PlayScene: " + index);
         var scene = this._scene[index];
        
         scene.onInit && scene.onInit();//init scene
-        if(typeof scene.id != 'undefined'){
-          $("audio")[0].src = "./sound/"+scene.id+".mp3";
-        }
-        
         if(this._config.autoPlay){     //autoplay
           scene.onStart && scene.onStart(function (){
             // auto play next scene if config.autoPlay is true
@@ -312,17 +313,49 @@
           this._loadScene(index + 1);//load next scene when playing current scene
         }
       },
-      getMusic: function (res){
-        var music = musicList[res];
-        if(music){
-          return music
+      getMedia: function (res){
+        var media = mediaList[res];
+        if(media){
+          return media
         }
       },
-      toggleAudioMusic: function (audio){
-        if(audio.muted){
-          audio.muted = false;
+	  // mute all audio that has been loaded.
+	  muteAll: function(){
+		for (var piece in mediaList) {
+			mediaList[piece].muted = true;
+		}
+		this.isMuted = true;
+	  }, // TODO: Mute music that hasen't loaded.
+	  // Toggle all audio that has been loaded.
+	  toggleMuteAll: function(){
+		for (i=0; i<mediaList.length; i++) {
+			toggleAudioMusic(mediaList[i]);
+		}
+		if (this.isMuted) {
+			this.isMuted = false;
+		} else {
+			this.isMuted = true;
+		}
+	  },
+      isMuted: false,
+      playMedia: function (media){
+        if(this.isMuted){
+          media.muted = true;
+        }
+        media.play();
+      },
+      replayMedia: function (media){
+        if(this.isMuted){
+          media.muted = true;
+        }
+		media.currentTime = 0;
+        media.play();
+      },
+      toggleAudioMusic: function (media){
+        if(media.muted){
+          media.muted = this.isMuted = false;
         }else{
-          audio.muted = true;
+          media.muted = this.isMuted =  true;
         }
       },
       throttle: function(action, delay){
@@ -340,16 +373,20 @@
     // Define base class Scene
     function Scene(id, canvas, inherit) {
       this.id = id;
-      this.name = 'scene'+id+'.js';
-      this.canvas = canvas;
+      this.name = 'scene' + id + '.js';
+      this.musicName = 'vo' + id; // default voiceover file name.
+	  this.canvas = canvas;
       this.inherit = inherit;
       this.container;
       // List of dom elements that will be reused by other scenes afterwards.
       // Note it's DOM not jQ Objects.
-      this.export = [];
-      // All animations are trained by this main timeline.
+      // this.export = [];
+      
+	  // All animations are trained by this main timeline.
       this.tl = new TimelineLite({paused:true});
-    }
+      // Music file is registered as a resource.
+	  this.music = anole.getMedia(this.musicName);
+	}
     // Methods list.
     //
     // Public:
@@ -393,6 +430,7 @@
 
     Scene.prototype.onStart = function(callback) {
       // Do animations here.
+	  anole.playMedia(this.music);
       this.animation();
       if (callback) {
         this.tl.call(callback);
@@ -401,19 +439,23 @@
     };
     // When button NEXT clicked/swipe down/scroll down. 
     Scene.prototype.onForward = function() {
-      console.log(this.tl.progress());
-      this.tl.progress(1);
-      this.container.hide();
-      if (this.cleanup) {
-        this.cleanup();
-      }
+      this.tl && this.tl.progress(1);
+	  if (this.music) {
+		this.music.pause();
+        this.music.currentTime = 0;
+	  }
+      this.container && this.container.hide();
+      this.cleanup && this.cleanup();
     };
     // When button PREV clicked/swipe up/scroll up. 
     Scene.prototype.onBack = function(callback) {
-      console.log(this.tl.progress());
+	  if (this.music) {
+		this.music.pause();
+        this.music.currentTime = 0;
+	  }
       // this.tl.progress(0);
-      this.container.remove();
-      callback();
+      this.container && this.container.remove();
+      callback && callback();
     };
     // When existing current scene.
     Scene.prototype.onEnd = function() {

@@ -7,6 +7,7 @@ console.log("scene1.js required. add scene");
 		onInit: function (){
 			console.log(">>> scene1.js onInit");
 			this.scene = anole.getOrCreate("#scene1",'<div id="scene1" class="scene"></div>', anole.canvas);
+			this.tl1 = new TimelineLite();
 			if (!this.places){
 				this.places = anole.$$('.places','<div class="places"></div>', this.scene);
 				var bridgeCtn = $('<div></div>').addClass('building-ctn bridge-ctn');
@@ -39,7 +40,6 @@ console.log("scene1.js required. add scene");
 		onStart: function (finish){
 			console.log(">>> scene1.js onStart");
 
-			this.tl1 = new TimelineLite();
 			this.tl1 = this.tl1.to(this.places, 0.5, {top:"-100%", ease:Linear.easeNone,delay:5.5})
 						.to(this.marco, 0, {"z-index":501})
 

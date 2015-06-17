@@ -170,7 +170,12 @@
   //}
   
   $(function (){
-    anole.config({
+	// Push voiceover files to sceneQueue.
+    for (i=1; i<=sceneQueue.length; i++) {
+		resource['vo'+i] = 'Sound/' + i + '.mp3';
+		(sceneQueue[i-1].res).push('vo'+i);
+	}
+	anole.config({
       baseUrl:baseUrl,// root url 
       resoureUrl: resoureUrl,// resoure url like jpg/mp3
       resource: resource,//resource

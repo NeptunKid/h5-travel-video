@@ -65,7 +65,6 @@
 							{opacity:1, scale:1, ease: Elastic.easeOut}, 0.35, '-=2');
 	}
 	scene.cleanup = function() { // Called before entering next scene.
-		// this.container.html(this.comments);
 		this.comments.find('.comment-head').remove();
 		this.comments.find('.dash').remove();
 		var list = this.comments.children();
