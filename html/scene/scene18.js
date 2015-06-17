@@ -8,6 +8,10 @@
 		               '<source src="resource/food1.mp4" type="video/mp4">' +
 					   'Your browser does not support the video tag.</video>')
 		              .appendTo(this.container);
+		this.s1_ctn = $('<div class="shade-ctn s1"></div>').appendTo(this.container);
+		this.s2_ctn = $('<div class="shade-ctn s2"></div>').appendTo(this.container);
+		this.shade1 = $('<div class="shade-s18"></div>').appendTo(this.s1_ctn);
+		this.shade2 = $('<div class="shade-s18"></div>').appendTo(this.s2_ctn);
 		return this.container;
 	}
 	
