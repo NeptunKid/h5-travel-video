@@ -3,7 +3,7 @@
 	var scene = new anole.Scene(18, anole.canvas, false);
     scene.name = 'scene18.js';
 	scene.createDom = function() {
-		this.video = $('<video controls="controls" autoplay="autoplay">' +
+		this.video = $('<video>' +
 					   '<source src="resource/food1.webm" type="video/webm">' +
 		               '<source src="resource/food1.mp4" type="video/mp4">' +
 					   'Your browser does not support the video tag.</video>')
@@ -16,7 +16,7 @@
 	}
 	
 	scene.animation = function() {
-		this.tl.call(function(){ this.video[0].autoplay = "autoplay";}.bind(this));
+		this.tl.call(function(){ anole.playMedia(this.video[0]); }.bind(this));
 	}
 	scene.cleanup = function() {
 		this.video[0].pause();
