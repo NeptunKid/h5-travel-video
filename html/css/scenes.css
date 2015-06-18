@@ -1030,18 +1030,22 @@ audio {
     background: url("../resource/happy.png");
     background-size: 100% 100%; }
   #scene10 .banner {
+    position: absolute;
     font-size: 3em;
-    color: rgba(140, 110, 99, 0.8);
-    background: rgba(255, 255, 255, 0.9);
-    top: 100px;
-    left: auto;
-    right: auto;
+    color: rgba(255, 255, 255, 0.9);
+    border: 3px dotted;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    border-radius: 0.5em;
+    top: 50px;
+    left: 0;
+    right: 0;
     bottom: auto;
     width: 819.2px;
     height: 115.2px;
     margin: auto;
     text-align: center;
-    line-height: 3em;
+    line-height: 2.5em;
     opacity: 0; }
 
 #scene11 .bg11 {
