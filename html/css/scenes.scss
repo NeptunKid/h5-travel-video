@@ -1297,6 +1297,48 @@ $bag_h: 0.35*$scene_h;
 		width: 0.4*$scene_h;
 		height: 0.4*$scene_h;
 	}
+	.tag-s18{
+		position: absolute;
+		width: 0.25*$scene_h;
+		height: 0.3*$scene_h;
+		padding: 10px 10px 10px 10px;
+		color: white;
+		opacity: 0;
+	}
+	$tag_padding:0.05*$scene_h;
+	.tag-s18.blue{
+		top: 100%;
+		left: 15%;
+		background: url("../resource/tag_blue.png");
+		background-size: 100% 100%;
+		padding-top: $tag_padding;
+	}
+	.tag-s18.red{
+		top: 62%;
+		left: 69%;
+		padding: 10px 10px 10px 10px;
+		background: url("../resource/tag_red.png");
+		background-size: 100% 100%;
+		padding-top: $tag_padding;
+	}
+	.tag-s18.yellow{
+		left: 74%;
+		top: -3.5%;
+		width: 0.3*$scene_h;
+		height: 0.25*$scene_h;
+		padding: 10px 10px 10px 10px;
+		background: url("../resource/tag_yellow.png");
+		background-size: 100% 100%;
+		padding-left: $tag_padding;
+	}
+	.tag-s18 > .ingredients{
+		border-bottom: 1px white solid;
+		margin: 20px;
+		text-align: center;
+	}
+	.tag-s18 > p{
+		margin: 0px 20px;
+	}
 	.svg0{
 		position: absolute;
 		left: 35.5%;
