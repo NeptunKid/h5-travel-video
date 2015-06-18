@@ -1339,27 +1339,99 @@ audio {
   border-radius: 50%;
   border-color: rgba(0, 0, 0, 0.5);
   border-style: solid;
-  border-width: 500px; }
+  border-width: 768px;
+  opacity: 0; }
+#scene18 .shade-s18.s0 {
+  position: absolute;
+  left: -371.2px;
+  top: -595.2px;
+  width: 230.4px;
+  height: 230.4px; }
+#scene18 .tag-s18 {
+  position: absolute;
+  width: 144px;
+  height: 172.8px;
+  padding: 10px 10px 10px 10px;
+  color: white;
+  opacity: 0; }
+#scene18 .tag-s18.blue {
+  top: 100%;
+  left: 15%;
+  background: url("../resource/tag_blue.png");
+  background-size: 100% 100%;
+  padding-top: 28.8px; }
+#scene18 .tag-s18.red {
+  top: 62%;
+  left: 69%;
+  padding: 10px 10px 10px 10px;
+  background: url("../resource/tag_red.png");
+  background-size: 100% 100%;
+  padding-top: 28.8px; }
+#scene18 .tag-s18.yellow {
+  left: 74%;
+  top: -3.5%;
+  width: 172.8px;
+  height: 144px;
+  padding: 10px 10px 10px 10px;
+  background: url("../resource/tag_yellow.png");
+  background-size: 100% 100%;
+  padding-left: 28.8px; }
+#scene18 .tag-s18 > .ingredients {
+  border-bottom: 1px white solid;
+  margin: 20px;
+  text-align: center; }
+#scene18 .tag-s18 > p {
+  margin: 0px 20px; }
+#scene18 .svg0 {
+  position: absolute;
+  left: 35.5%;
+  top: 11.5%;
+  width: 374.4px;
+  height: 374.4px; }
+#scene18 .shade-s18.s1 {
+  position: absolute;
+  left: -371.2px;
+  top: -710.4px;
+  width: 230.4px;
+  height: 230.4px; }
+#scene18 .svg1 {
+  position: absolute;
+  left: 35%;
+  top: -10%;
+  width: 460.8px;
+  height: 460.8px; }
 #scene18 .shade-ctn {
   position: absolute;
   top: 0;
   width: 50%;
   height: 100%;
   overflow: hidden; }
-#scene18 .shade-ctn.s1 {
-  left: 0; }
 #scene18 .shade-ctn.s2 {
+  left: 0; }
+#scene18 .shade-ctn.s3 {
   right: 0; }
-#scene18 .shade-ctn.s1 .shade-s18 {
-  top: -183.2px;
-  left: -327.2px;
-  width: 288px;
-  height: 288px; }
 #scene18 .shade-ctn.s2 .shade-s18 {
-  top: -500px;
-  left: -442.4px;
+  top: -480px;
+  left: -595.2px;
+  width: 259.2px;
+  height: 259.2px; }
+#scene18 .svg2 {
+  position: absolute;
+  left: 13%;
+  top: 43.3%;
+  width: 345.6px;
+  height: 345.6px; }
+#scene18 .shade-ctn.s3 .shade-s18 {
+  top: -768px;
+  left: -710.4px;
   width: 230.4px;
   height: 230.4px; }
+#scene18 .svg3 {
+  position: absolute;
+  left: 55%;
+  top: -5%;
+  width: 288px;
+  height: 288px; }
 
 #scene19, #scene20 {
   background: #bbb; }
