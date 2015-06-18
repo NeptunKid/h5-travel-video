@@ -11,7 +11,7 @@
     	return svg;
     }
 	scene.createDom = function() {
-		this.video = $('<video controls="controls" autoplay="autoplay">' +
+		this.video = $('<video>' +
 					   '<source src="resource/food1.webm" type="video/webm">' +
 		               '<source src="resource/food1.mp4" type="video/mp4">' +
 					   'Your browser does not support the video tag.</video>')
@@ -22,7 +22,7 @@
 		this.s3_ctn = $('<div class="shade-ctn s3"></div>').appendTo(this.container);
 		this.shade2 = $('<div class="shade-s18"></div>').appendTo(this.s2_ctn);
 		this.shade3 = $('<div class="shade-s18"></div>').appendTo(this.s3_ctn);
-		this.svg0 = this.createHint("#aa5",500,500,["M 200 140,A155 155,0,0,1,200 450,A155 155,0,0,1,201 140,L300 40,L370 40"]).addClass("svg0").appendTo(this.container);
+		this.svg0 = this.createHint("#aa5",500,500,["M 200 140,A155 155,0,0,1,200 450,A155 155,0,0,1,201 140,L250 90,L370 90"]).addClass("svg0").appendTo(this.container);
 		this.svg1 = this.createHint("#a77",600,600,["M 350 300,A150 150,0,0,1,50 300,A150 150,0,0,1,350 301,L450 301,L520 370"]).addClass("svg1").appendTo(this.container);
 		this.svg2 = this.createHint("#8de",500,500,["M 240 50,A190 190,0,0,1,240 430,A190 190,0,0,1,241 50"]).addClass("svg2").appendTo(this.container);
 		this.svg3 = this.createHint("#8de",500,500,["M 210 450,A200 200,0,0,1,210 50,A150 150,0,0,1,209 450",
@@ -34,8 +34,8 @@
 	}
 	
 	scene.animation = function() {
-		var delta = 0.2;
-		this.tl.call(function(){ this.video[0].autoplay = "autoplay";}.bind(this))
+		var delta = 0.3;
+		this.tl.call(function(){ anole.playMedia(this.video[0]); }.bind(this))
 				.to(this.svg0.find("path"),delta*3,{"stroke-dashoffset":0,ease:Linear.easeNone})
 				.to(this.shade0,delta,{opacity:1,delay:-delta,ease:Linear.easeNone})
 				.to([this.svg0,this.shade0],0.2,{opacity:0,delay:delta*6,ease:Linear.easeNone})
