@@ -40,7 +40,9 @@
 	anole.addScene({
 		name: "scene2.js",
 		id: 2,
+		musicName: 'vo2',
 		onInit: function (){
+			this.music = anole.getMedia(this.musicName);
 			this.scene = $("#scene1").clone().appendTo(anole.canvas);
 			this.scene.attr("id","scene2");
 			$("#scene1").hide();
@@ -55,7 +57,7 @@
 			//this.paperman.css("opacity","0");
 		},
 		onStart: function (finish){
-			//console.log(">>> scene2.js onStart");
+			anole.playMedia(this.music);
 			this.tl1 = new TimelineLite();
 			this.tl1.to(this.boat, 0.5, {top:"188%", ease:Linear.easeNone})
 						.to(this.marco, 0.5, {top:"185%", ease:Linear.easeNone}, "-=0.5");

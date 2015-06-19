@@ -178,7 +178,7 @@
       },
       startAnime: function (){
         this.canvas.empty();
-        this.startBtn && this.startBtn.hide();
+        this._startBtn && this._startBtn.hide();
 	    this.playScene(0);
       },
       _loadScene: function (sceneIndex){
@@ -304,14 +304,26 @@
           ++this._currentScene;
         this.playScene(this._currentScene);
       },
+	  // This shouldn't be done on anole level but
+	  // We need to save time and
+	  // will refactor the first 6 scene's code later on.
+	  hackBackForward: function(scene) {
+		if (scene.music || scene.musicName) {
+			scene.music = this.getMedia(scene.musicName);
+			scene.music.pause();
+			scene.music.currentTime = 0;
+		}
+	  },
       triggerBack:function (index){
         var scene = this._scene[index];
+		this.hackBackForward(scene);
         scene.onBack && scene.onBack(function (){
           this.playScene(--this._currentScene);
         }.bind(this));
       },
       triggerForward: function (index){
         var scene = this._scene[index];
+		this.hackBackForward(scene);
         scene.onEnd && scene.onEnd(); // TODO: change all onEnd to onForward
         scene.onForward && scene.onForward();
       },

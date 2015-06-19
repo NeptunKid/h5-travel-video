@@ -1,8 +1,6 @@
 ;require(['anole', 'zepto', 'TweenLite', 'TimelineLite', 'CSSPlugin', 'EasePack'], function(anole, Scene){
     
 	var scene = new anole.Scene(9, anole.canvas, true);
-    scene.name = 'scene9.js';
-
 	scene.createDom = function() {
 		this.marco = this.container.find('.marco-nomouth');
 		this.money = $('<div></div>').addClass('money');

@@ -4,8 +4,10 @@ console.log("scene1.js required. add scene");
 	anole.addScene({
 		name: "scene1.js",
 		id:1,
+		musicName: 'vo1',
 		onInit: function (){
 			console.log(">>> scene1.js onInit");
+			this.music = anole.getMedia(this.musicName);
 			this.scene = anole.getOrCreate("#scene1",'<div id="scene1" class="scene"></div>', anole.canvas);
 			this.tl1 = new TimelineLite();
 			if (!this.places){
@@ -39,6 +41,7 @@ console.log("scene1.js required. add scene");
 		},
 		onStart: function (finish){
 			console.log(">>> scene1.js onStart");
+			anole.playMedia(this.music);
 
 			this.tl1 = this.tl1.to(this.places, 0.5, {top:"-100%", ease:Linear.easeNone,delay:5.5})
 						.to(this.marco, 0, {"z-index":501})

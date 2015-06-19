@@ -1,7 +1,6 @@
 ;require(['anole', 'zepto', 'TweenLite', 'TimelineLite', 'CSSPlugin', 'EasePack'], function(anole, Scene){
     
 	var scene = new anole.Scene(7, anole.canvas, true);
-    scene.name = 'scene7.js';
 	scene.createDom = function() {
 	    this.container.find('.topbar').remove();
 	    this.container.find('.tag').remove();

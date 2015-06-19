@@ -10,6 +10,7 @@
 	anole.addScene({
 		name: "scene5.js",
 		id: 5,
+		musicName: 'vo5',
 		onInit: function (){
 			this.scene = anole.$$("#scene5",'<div id = "scene5" class = "scene"></div>',anole.canvas);
 			this.br_ctn_out = anole.$$("#ctn-browser",'<div id = "ctn-browser" class = "ctn-browser"></div>',this.scene);
@@ -66,6 +67,7 @@
 		},
 		onStart: function (finish){
 			$("#scene4").hide();
+			anole.playMedia(anole.getMedia(this.musicName));
 			this.tl1 = new TimelineLite();
 			this.tl1 = this.tl1.to(this.shade,0.5,{opacity:0.9, ease:Linear.easeNone})
 							.to(this.br_ctn_out,0.5,{delay:0.1,scaleX:0.4,scaleY:0.4,x:"-14%",y:"-18%",ease:Linear.easeNone});

@@ -37,7 +37,9 @@ console.log("Scene3.js running...");
 	anole.addScene({
 		name: "scene3.js",
 		id:3,
+		musicName: 'vo3',
 		onInit: function (){
+			this.music = anole.getMedia(this.musicName);
 			this.scene = anole.$$("#scene3",'<div id = "scene3" class = "scene"></div>',anole.canvas);
 			this.subway_paperman = anole.$$("#subway-paperman","<div id = 'subway-paperman' class='papermans'></div>",this.scene);
 			this.subway_paperman.html($("#papermans").html());
@@ -55,7 +57,7 @@ console.log("Scene3.js running...");
 			update_text();
 		},
 		onStart: function (finish){
-			//console.log(">>> scene3.js onStart");
+			anole.playMedia(this.music);
 			this.tl1 = new TimelineLite();
 			this.tl1.call(display_ppm)
 					.to($("#subway-left"), 0.5, {x:"100%", ease:Linear.easeNone,delay:1})

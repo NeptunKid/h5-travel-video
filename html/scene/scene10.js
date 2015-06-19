@@ -1,7 +1,6 @@
 ;require(['anole', 'zepto', 'TweenLite', 'TimelineLite', 'CSSPlugin', 'EasePack'], function(anole, Scene){
     
 	var scene = new anole.Scene(10, anole.canvas, false);
-    scene.name = 'scene10.js';
     scene.id = 10;
 	scene.createDom = function() {
 		this.leftCtn = $('<div></div>').addClass('left-ctn').appendTo(this.container);
@@ -14,8 +13,8 @@
 	}	
 	scene.animation = function() {
 		this.tl.from(this.leftCtn, 1, {delay:0.5, top:-500, ease:Elastic.easeInOut})
-		       .from(this.rightCtn, 1, {delay:0.5, top:-500, ease:Elastic.easeInOut})
-			   .to(this.banner, 1, {opacity: 1});
+		       .from(this.rightCtn, 1, {delay:0.5, top:-500, ease:Elastic.easeInOut}, '-=0.5')
+			   .fromTo(this.banner, 1, {opacity:0, skewX:90}, {opacity: 1, skewX:0, ease:Bounce.easeOut});
 	}
 	scene.cleanup = function() { // Called before entering next scene.
 	}

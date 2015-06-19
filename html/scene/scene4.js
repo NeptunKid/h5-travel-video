@@ -14,7 +14,9 @@
 	anole.addScene({
 		name: "scene4.js",
 		id: 4,
+		musicName: 'vo4',
 		onInit: function (){
+			this.music = anole.getMedia(this.musicName);
 			this.scene = anole.$$("#scene4",'<div id = "scene4" class = "scene"></div>',anole.canvas);
 			this.scene.html($("#scene3").html());
 			$("#scene3").hide();
@@ -28,6 +30,7 @@
 			$("#scene4 .paperman.marco").hide();
 		},
 		onStart: function (finish){
+			anole.playMedia(anole.getMedia(this.musicName));
 			this.tl1 = new TimelineLite();
 			this.tl1.to(this.sublgate, 0.1, {y:"-5%", ease:Linear.easeNone, onComplete:function(){this.marco.show()}.bind(this)})
 					.to(this.subrgate, 0.1 , {y:"-5%", ease:Linear.easeNone},"-=0.2")
@@ -47,7 +50,8 @@
 			finish();
 		},
 		onEnd: function (){
-			this.tl1.progress(1);
+			this.tl && this.tl1.progress(1);
+			this.music && this.music.pause();
 		},
 		marco_go_out:function(){
 			var duration = 1.8;
