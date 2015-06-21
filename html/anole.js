@@ -39,7 +39,8 @@
       canvas: null,
       _resourceLoaded: {},
       _init: function (){
-        var $canvas = $(this._config.containerTemplate);
+        this.removeCanvas();
+		var $canvas = $(this._config.containerTemplate);
         $('body').append($canvas);
         var _canvas = this.canvas = $canvas;
         
@@ -51,15 +52,17 @@
 		this.muteBtn = $(muteBtn);
 		this.muteBtn.on('click', this.toggleMuteAll.bind(this));
 		this.muteBtn.appendTo('body');
+        var startBtn = this._startBtn =  $(this._config.startBtnTemplate);
+        $('body').append(startBtn);
+        
+		startBtn.on('click', startAnime);
 
         if(this._config.flipType == 'click'){
           var prevBtn = this._prevBtn = $(this._config.prevBtnTemplate);
           var nextBtn = this._nextBtn =  $(this._config.nextBtnTemplate);
-          var startBtn = this._startBtn =  $(this._config.startBtnTemplate);
-          $('body').append(prevBtn).append(nextBtn).append(startBtn);
+          $('body').append(prevBtn).append(nextBtn);
           prevBtn.on('click', playPrev);
           nextBtn.on('click', playNext);
-          startBtn.on('click', startAnime);
         }else if(this._config.flipType == 'swipe'){
           var hammer = new Hammer(_canvas[0]);
           hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
@@ -90,6 +93,12 @@
         
         this._loadScene(0);
       },
+	  removeCanvas: function() {
+		  this.canvas && this.canvas.remove();
+	  },
+	  clearCanvas: function() {
+		  this.canvas && this.canvas.empty();
+	  },
       showLoading: function (){/* abstract */}, // it will be triggered when loading the resource of current scene 
       hideLoading: function (){/* abstract */},// it will be triggered when resource loaded finished
       showError: function (){/* abstract */}, // it will be triggered when resource error
@@ -468,39 +477,44 @@
       }
     };
 
-    Scene.prototype.onStart = function(callback) {
-      // Do animations here.
-	  anole.playMedia(this.music);
-      this.animation();
-      if (callback) {
-        this.tl.call(callback);
-      }
-      this.tl.play();
-    };
-    // When button NEXT clicked/swipe down/scroll down. 
-    Scene.prototype.onForward = function() {
-      this.tl && this.tl.progress(1);
-	  if (this.music) {
-		this.music.pause();
-        this.music.currentTime = 0;
-	  }
-      this.container && this.container.hide();
-      this.cleanup && this.cleanup();
-    };
-    // When button PREV clicked/swipe up/scroll up. 
-    Scene.prototype.onBack = function(callback) {
-	  if (this.music) {
-		this.music.pause();
-        this.music.currentTime = 0;
-	  }
-      // this.tl.progress(0);
-      this.container && this.container.remove();
-      callback && callback();
-    };
-    // When existing current scene.
-    Scene.prototype.onEnd = function() {
-      //this.container.remove();
-    };
+	// There must be a callback to indicate the finishing of the scene.
+	Scene.prototype.onStart = function(callback) {
+		// Do animations here.
+		anole.playMedia(this.music);
+		this.animation(); // Add animations to this.tl;
+		this.tl.call(function() {
+			if (this.music && (!this.music.ended)) {
+				$(this.music).on('ended', callback);
+			} else {
+				callback();
+			}
+		}.bind(this));
+		this.tl.play();
+	};
+	// When button NEXT clicked/swipe down/scroll down. 
+	Scene.prototype.onForward = function() {
+		this.tl && this.tl.progress(1);
+		if (this.music) {
+			this.music.pause();
+			this.music.currentTime = 0;
+		}
+		this.container && this.container.hide();
+		this.cleanup && this.cleanup();
+	};
+	// When button PREV clicked/swipe up/scroll up. 
+	Scene.prototype.onBack = function(callback) {
+		if (this.music) {
+			this.music.pause();
+			this.music.currentTime = 0;
+		}
+		// this.tl.progress(0);
+		this.container && this.container.remove();
+		callback && callback();
+	};
+	// When existing current scene.
+	Scene.prototype.onEnd = function() {
+		//this.container.remove();
+	};
       
     anole.$$ = anole.getOrCreate;
     anole.Scene = Scene;    

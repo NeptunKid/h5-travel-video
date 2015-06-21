@@ -64,10 +64,14 @@ console.log("Scene3.js running...");
 							.call(function(){$("#papermans").css("display","none");})
 							.to($("#subway-right"), 0.5, {x:"-100%", ease:Linear.easeNone},"-=0.5")
 							.to(this.subway,0.5,{delay:0.2,scaleX:"0.5",scaleY:"0.5",y:"5%"})
-							.to(data,4,{year:data_final.year,popu:data_final.popu,onUpdate:update_text,ease:Linear.easeNone});
-			if (finish) {
-				this.tl1.call(finish);
-			}
+							.to(data,4,{year:data_final.year,popu:data_final.popu,onUpdate:update_text,ease:Linear.easeNone})
+							.call(function() {
+								if (!this.music.ended) {
+									$(this.music).on('ended', finish);
+								} else {
+									finish();
+								}
+							}.bind(this));
 		},
 		onBack: function(finish){
 			$("#scene3").remove();

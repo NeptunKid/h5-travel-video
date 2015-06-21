@@ -3,7 +3,7 @@
   paths: {
     'anole': 'anole',
 	'demo': 'demo',
-    'hammer': 'hammer',
+    'hammer': 'hammer.min',
     'TweenLite': 'js/TweenLite.min',
     'TimelineLite' : 'js/TimelineLite.min',
     'CSSPlugin': 'js/CSSPlugin.min',

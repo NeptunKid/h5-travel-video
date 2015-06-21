@@ -67,7 +67,8 @@
 		},
 		onStart: function (finish){
 			$("#scene4").hide();
-			anole.playMedia(anole.getMedia(this.musicName));
+			this.music = anole.getMedia(this.musicName);
+			anole.playMedia(this.music);
 			this.tl1 = new TimelineLite();
 			this.tl1 = this.tl1.to(this.shade,0.5,{opacity:0.9, ease:Linear.easeNone})
 							.to(this.br_ctn_out,0.5,{delay:0.1,scaleX:0.4,scaleY:0.4,x:"-14%",y:"-18%",ease:Linear.easeNone});
@@ -79,10 +80,14 @@
 									.to($(".c"+i).find(".video"),per_video*(i+1),{rotation:0,ease:Linear.easeNone,delay:-per_video*(i+1)});
 			}
 			this.tl1 = this.tl1.to(this.loading_r,time_video/2,{"stroke-dashoffset":0,delay: -time_video,ease:Linear.easeNone})
-							.to(this.loading_l,time_video/2*3/4,{"stroke-dashoffset":this.loading_len/4,delay: -time_video/2,ease:Linear.easeNone});
-			if (finish) {
-				this.tl1.call(finish);
-			}
+							.to(this.loading_l,time_video/2*3/4,{"stroke-dashoffset":this.loading_len/4,delay: -time_video/2,ease:Linear.easeNone})
+							.call(function() {
+								if (!this.music.ended) {
+									$(this.music).on('ended', finish);
+								} else {
+									finish();
+								}
+							}.bind(this));
 		},
 		onBack: function (finish){
 			$("#scene5").remove();

@@ -43,12 +43,16 @@ console.log("scene1.js required. add scene");
 			console.log(">>> scene1.js onStart");
 			anole.playMedia(this.music);
 
-			this.tl1 = this.tl1.to(this.places, 0.5, {top:"-100%", ease:Linear.easeNone,delay:5.5})
-						.to(this.marco, 0, {"z-index":501})
-
-			if (finish) {
-				this.tl1.call(finish);
-			}
+			this.tl1.to(this.places, 0.5, {top:"-100%", ease:Linear.easeNone,delay:5.5})
+			        .to(this.marco, 0, {"z-index":501})
+			        .call(function() {
+						if (!this.music.ended) {
+							$(this.music).on('ended', finish);
+						} else {
+							finish();
+						}
+					}.bind(this));
+			
 		},
 		onEnd: function (){
 			this.tl1.progress(1);

@@ -46,7 +46,8 @@
 			this.scene.show();
 		},
 		onStart: function (finish){
-			anole.playMedia(anole.getMedia(this.musicName));
+			this.music = anole.getMedia(this.musicName);
+			anole.playMedia(this.music);
 			this.scene.show();
 			this.tl1 = new TimelineLite();
 			var new_h = this.comment_ctn.height()*160;
@@ -68,9 +69,13 @@
 					.to(this.pages[3],2,{opacity:1,x:"110%",y:"-70%"},"-=2")
 					.to(this.pages[2],2,{x:"-80%",y:"100%"},"-=0.6")
 					.to(this.pages[4],2,{opacity:1,x:"-70%",y:"-60%"},"-=2")
-			if (finish) {
-				this.tl1.call(finish);
-			}
+			        .call(function() {
+						if (!this.music.ended) {
+							$(this.music).on('ended', finish);
+						} else {
+							finish();
+						}
+					}.bind(this));
 		},
 		onBack: function (finish){
 			$("#scene6").remove();

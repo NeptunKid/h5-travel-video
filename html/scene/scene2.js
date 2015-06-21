@@ -73,11 +73,15 @@
 
 			this.tl1.add(TweenLite.to(this.shade, 0.5, {opacity:1, ease:Linear.easeNone}))
 				.to([this.boat,this.ditch],0.5,{opacity:0,delay:-0.5})
-				.call(function(){this.paperman.show();this.places.hide();}.bind(this))
-
-			if (finish) {
-				this.tl1.call(finish);
-			}
+				.call(function(){
+					this.paperman.show();
+					this.places.hide();
+					if (!this.music.ended) {
+						$(this.music).on('ended', finish);
+					} else {
+						finish();
+					}
+				}.bind(this));
 		},
 		onBack: function(finish){
 			$("#scene1").show();

@@ -175,14 +175,15 @@
 		resource['vo'+i] = 'Sound/' + i + '.mp3';
 		(sceneQueue[i-1].res).push('vo'+i);
 	}
-	anole.config({
+	var autoBtn = $('<div class="btn auto-btn">Auto Play</div>').appendTo('body');
+	var config = {
       baseUrl:baseUrl,// root url 
       resoureUrl: resoureUrl,// resoure url like jpg/mp3
       resource: resource,//resource
       maxQueueLength: 4,//TODO load serval scenes at first
       sceneQueue: sceneQueue,//anime scene queue
-      autoPlay: false,//auto play with no event
-      flipType: 'click',//flip type eg:click, swipe, wheel
+      autoPlay: true,//auto play with no event
+      flipType: 'auto',//flip type eg:click, swipe, wheel
       containerTemplate: '<div class="container"></div>',//scene root container, it will be appended to body.
       prevBtnTemplate: '<div class="prev-btn btn J_PrevBtn">prev</div>',//prev button dom
       nextBtnTemplate: '<div class="next-btn btn J_NextBtn">next</div>',//next button dom
@@ -196,8 +197,21 @@
         console.log("resource loaded, hide loading message.")
       },
       showError: function (msg){ console.log(msg); }
-    })
-    
+    };
+
+    if(anole.isMobile()) {
+		config.flipType = 'swipe';
+		config.autoPlay = false;
+	}
+	
+	/*autoBtn.on('click', function(){
+		config.flipType = 'auto';
+		config.autoPlay = true;
+		anole.config(config);
+		anole.start();
+	});*/
+
+	anole.config(config);
     anole.start();
     var window_w = document.body.clientWidth;
     var scene_w = $(".container").width();

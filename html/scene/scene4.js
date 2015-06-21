@@ -39,10 +39,14 @@
 					.to(this.sublgate , 0.5, {x:"50%", ease:Linear.easeNone, onComplete:this.marco_go_out.bind(this)})
 					.to(this.subrgate, 0.5, {x:"-50%", ease:Linear.easeNone},"-=0.5")
 					.set(this.marco_ctn,{"z-index":141})
-					.to(this.marco,1.8,{delay:0.8,scaleX:1.5,scaleY:1.5,x:"100%",y:"20%",ease:Linear.easeNone,});
-			if (finish) {
-				this.tl1.call(finish);
-			}
+					.to(this.marco,1.8,{delay:0.8,scaleX:1.5,scaleY:1.5,x:"100%",y:"20%",ease:Linear.easeNone,})
+			        .call(function() {
+						if (!this.music.ended) {
+							$(this.music).on('ended', finish);
+						} else {
+							finish();
+						}
+					}.bind(this));
 		},
 		onBack: function(finish){
 			$("#scene4").remove();

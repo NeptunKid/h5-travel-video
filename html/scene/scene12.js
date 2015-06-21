@@ -13,7 +13,14 @@
 	
 	scene.animation = function() {
 		this.tl.to(this.container.find(".bg11"),1,{"opacity":0})
-				.call(function(){ anole.playMedia(this.video[0]); }.bind(this));
+				.call(function(){ 
+					    this.tl.pause(); // You can only do this when no other animation are being played.
+						anole.playMedia(this.video[0]); 
+						this.video.on('ended', function() {
+							this.tl.resume();
+						}.bind(this))
+				     }.bind(this)
+			    );
 	}
 	scene.cleanup = function() {
 		this.video[0].pause();
