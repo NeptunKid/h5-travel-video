@@ -61,6 +61,9 @@
 	  "searchbar":"searchbarwithshadow.png",
 	  "progbar":"progressbar.png",
 	  "nexus":"nexuswithshadow.png",
+	  "tag_blue": "tag_blue.png",
+	  "tag_red": "tag_red.png",
+	  "tag_yellow": "tag_yellow.png",
 	  "chn_food":"chn_food.png",
 	  "west_food":"west_food.png",
 	  "lung_tab":"lung_tab.png",
@@ -150,7 +153,7 @@
       },
       {
         fileName: 'scene18.js',
-        res: ["food1","food1_webm","food2","food2_webm"]
+        res: ["food1","food1_webm","food2","food2_webm","tag_blue","tag_yellow","tag_red"]
       },
       {
         fileName:'scene19.js',
@@ -175,15 +178,14 @@
 		resource['vo'+i] = 'Sound/' + i + '.mp3';
 		(sceneQueue[i-1].res).push('vo'+i);
 	}
-	var autoBtn = $('<div class="btn auto-btn">Auto Play</div>').appendTo('body');
 	var config = {
       baseUrl:baseUrl,// root url 
       resoureUrl: resoureUrl,// resoure url like jpg/mp3
       resource: resource,//resource
-      maxQueueLength: 4,//TODO load serval scenes at first
+      maxQueueLength: 6,//TODO load serval scenes at first
       sceneQueue: sceneQueue,//anime scene queue
-      autoPlay: true,//auto play with no event
-      flipType: 'auto',//flip type eg:click, swipe, wheel
+      autoPlay: false,//auto play with no event
+      flipType: 'click',//flip type eg:click, swipe, wheel
       containerTemplate: '<div class="container"></div>',//scene root container, it will be appended to body.
       prevBtnTemplate: '<div class="prev-btn btn J_PrevBtn">prev</div>',//prev button dom
       nextBtnTemplate: '<div class="next-btn btn J_NextBtn">next</div>',//next button dom
@@ -203,14 +205,15 @@
 		config.flipType = 'swipe';
 		config.autoPlay = false;
 	}
-	
-	/*autoBtn.on('click', function(){
+	/*
+	autoBtn.on('click', function(){
 		config.flipType = 'auto';
 		config.autoPlay = true;
 		anole.config(config);
 		anole.start();
-	});*/
-
+		autoBtn.hide();
+	});
+   */
 	anole.config(config);
     anole.start();
     var window_w = document.body.clientWidth;

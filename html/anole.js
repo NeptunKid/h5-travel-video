@@ -56,7 +56,20 @@
         $('body').append(startBtn);
         
 		startBtn.on('click', startAnime);
-
+	    
+		var autoBtn = this._autoBtn = $('<div class="btn auto-btn">Auto Play</div>').appendTo('body');
+		autoBtn.on('click', function(){
+			this._config.flipType = 'auto';
+			this._config.autoPlay = true;
+			this.startAnime();
+			if (this._prevBtn) {
+				this._prevBtn.hide();
+			}
+			if (this._nextBtn) {
+				this._nextBtn.hide();
+			}
+		}.bind(this));
+       
         if(this._config.flipType == 'click'){
           var prevBtn = this._prevBtn = $(this._config.prevBtnTemplate);
           var nextBtn = this._nextBtn =  $(this._config.nextBtnTemplate);
@@ -188,7 +201,8 @@
       startAnime: function (){
         this.canvas.empty();
         this._startBtn && this._startBtn.hide();
-	    this.playScene(0);
+	    this._autoBtn && this._autoBtn.hide();
+		this.playScene(0);
       },
       _loadScene: function (sceneIndex){
         console.log("loadScene, index: " + sceneIndex +
