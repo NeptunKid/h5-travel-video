@@ -3,29 +3,30 @@ Google Inbound Travel Study 2015
 
 CDN Services:
 
-zepto 1.0: 
 
-http://lib.sinaapp.com/js/zepto/1.0rc/zepto.min.js
+测速结果：
+zepto: bootcss>useso>cncdn
+hammer: bootcss>cncdn >staticfile>gbtags
+require.js : useso>bootcss>cncdn>
+TweenLite: bootcss>useso>sinaapp>cncdn
 
+zepto 1.0rc1
 http://libs.useso.com/js/zepto/1.0rc1/zepto.min.js
-
+  or http://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js
 
 requirejs 2.1.17:
-hammer.js
-
+http://cdn.bootcss.com/require.js/2.1.18/require.min.js
+hammer.js  2.0.4
+http://cdn.bootcss.com/hammer.js/2.0.4/hammer.min.js
 
 GSAP:
-http://libs.useso.com/js/gsap/latest/TimelineLite.min.js
-http://libs.useso.com/js/gsap/latest/TweenLite.min.js
+
+http://cdn.bootcss.com/gsap/latest/easing/EasePack.min.js
+http://cdn.bootcss.com/gsap/latest/plugins/CSSPlugin.min.js
+http://cdn.bootcss.com/gsap/latest/TimelineLite.min.js
+http://cdn.bootcss.com/gsap/latest/TweenLite.min.js
 
 
-or cndjs:
-//cdnjscn.b0.upaiyun.com/libs/zepto/1.1.4/zepto.min.js
-//cdnjscn.b0.upaiyun.com/libs/zepto/1.1.4/zepto.js
-
-
-hammer.js	
-//cdn.gbtags.com/hammer.js/1.1.3/hammer.min.js
 
 
 Google API:
