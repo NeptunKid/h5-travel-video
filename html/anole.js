@@ -94,9 +94,9 @@
             var type = event.type;
             delta = (event.wheelDelta) ? event.wheelDelta / 120 : -(event.detail || 0) / 3;
             if(delta < 0){
-              this.playNext();
+              playNext();
             }else{
-              this.playPrev();
+              playPrev();
             }
           }.bind(this))
         }
