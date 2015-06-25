@@ -95,7 +95,7 @@
 			finish();
 		},
 		onEnd: function (){
-			this.tl1.progress(1);
+			this.tl1 && this.tl1.progress(1);
 			$(".d0").css("width","80%");
 			$(".d1").css("width","80%");
 			$(".d2").css("width","65%");

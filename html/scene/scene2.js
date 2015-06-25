@@ -89,7 +89,7 @@
 			finish();
 		},
 		onEnd: function (){
-			this.tl1.progress(1);
+			this.tl && this.tl1.progress(1);
 		},
 		show_paperman: function(){
 

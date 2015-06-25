@@ -55,7 +55,7 @@ console.log("scene1.js required. add scene");
 			
 		},
 		onEnd: function (){
-			this.tl1.progress(1);
+			this.tl1 && this.tl1.progress(1);
 		}
 	})
 });

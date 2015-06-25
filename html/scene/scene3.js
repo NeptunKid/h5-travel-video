@@ -85,7 +85,7 @@ console.log("Scene3.js running...");
 				elm.classList.toggle("hide");
 				elm.classList.toggle("open");
 			});
-			this.tl1.progress(1);
+			this.tl1 && this.tl1.progress(1);
 			$("#scene2").hide();
 		},
 	})

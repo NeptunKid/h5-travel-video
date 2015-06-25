@@ -80,13 +80,13 @@
 		onBack: function (finish){
 			$("#scene6").remove();
 			$("#scene5").remove();
-			finish();
+			finish();``
 		},
 		onForward: function(){
-			this.tl1.progress(1);
+			this.tl1 && this.tl1.progress(1);
 		},
 		onEnd: function (){
-			this.tl1.progress(1);
+			this.tl1 && this.tl1.progress(1);
 		}
 	})
 });
