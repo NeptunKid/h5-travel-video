@@ -168,8 +168,8 @@
         res: ["toilet","toilet_webm"]
       },
     ]
-    baseUrl = './scene/';
-    resoureUrl = "./resource/";
+    baseUrl = 'http://gtravel.b0.upaiyun.com/scene/';
+    resoureUrl = "http://gtravel.b0.upaiyun.com/resource/";
   //}
   
   $(function (){
