@@ -7,21 +7,34 @@
 		var bg = $("<div></div>").addClass("bg11").appendTo(this.container);
 		this.c00 = $("<div id='cana00'></div>").addClass("canadian").appendTo(bg);
 		this.c10 = $("<div id='cana10'></div>").addClass("canadian").appendTo(bg);
-		this.c22 = $("<div id='cana20'></div>").addClass("canadian").appendTo(bg);
+		this.c20 = $("<div id='cana20'></div>").addClass("canadian").appendTo(bg);
 		this.c01 = $("<div id='cana01'></div>").addClass("canadian umbrella").appendTo(bg);
 		this.c11 = $("<div id='cana11'></div>").addClass("canadian umbrella").appendTo(bg);
 		this.c21 = $("<div id='cana21'></div>").addClass("canadian lovechina").appendTo(bg);
+		this.k0 = $("<div id='k0'></div>").addClass("canadian k0").appendTo(bg);
+		this.k1 = $("<div id='k1'></div>").addClass("canadian k1").appendTo(bg);
+		this.k2 = $("<div id='k2'></div>").addClass("canadian k2").appendTo(bg);
+		this.q0 = $("<div id='q0'><p>?</p></div>").addClass("question q0").appendTo(bg);
+		this.q1 = $("<div id='q1'><p>?</p></div>").addClass("question q1").appendTo(bg);
+		this.q2 = $("<div id='q2'><p>?</p></div>").addClass("question q2").appendTo(bg);
 		return this.container;
 	}
 	
 	scene.animation = function() {
-		var timedelta = 0.5*2;
-		this.tl.to($("#cana00"),timedelta,{rotationY:90,delay:2.5})
-				.to($("#cana01"),timedelta,{rotationY:0})
-				.to($("#cana10"),timedelta,{rotationY:90})
-				.to($("#cana11"),timedelta,{rotationY:0})
-				.to($("#cana20"),timedelta,{rotationY:90})
-				.to($("#cana21"),timedelta,{rotationY:0})
+		var timedelta = 0.5;
+		this.tl.to(this.c00,timedelta*2,{rotationY:90,delay:timedelta*5})
+				.to(this.c01,timedelta*2,{rotationY:0})
+				.to(this.c10,timedelta*2,{rotationY:90})
+				.to(this.c11,timedelta*2,{rotationY:0})
+				.to(this.c20,timedelta*2,{rotationY:90})
+				.to(this.c21,timedelta*2,{rotationY:0})
+				.to(this.c01,timedelta,{rotationY:90,delay:timedelta*2})
+				.to(this.k0,timedelta,{rotationY:0})
+				.to(this.c11,timedelta,{rotationY:90})
+				.to(this.k1,timedelta,{rotationY:0})
+				.to(this.c21,timedelta,{rotationY:90})
+				.to(this.k2,timedelta,{rotationY:0})
+				.staggerTo($(".question"),timedelta,{opacity:1})
 	}
 	anole.addScene(scene);
 })

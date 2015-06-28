@@ -45,6 +45,9 @@
 	  "canadian0":"canadian0.png",
 	  "canadian1":"canadian1.png",
 	  "canadian2":"canadian2.png",
+    "KoreanG":"KoreanG.png",
+    "KoreanB":"KoreanB.png",
+    "KoreanR":"KoreanR.png",
 	  "map":"map.png",
 	  "mark1":"mark1.png",
 	  "mark2":"mark2.png",
@@ -125,7 +128,7 @@
       },
       {
         fileName:'scene11.js',
-        res: ["canadian0","canadian1","canadian2"]
+        res: ["canadian0","canadian1","canadian2","KoreanR","KoreanG","KoreanB"]
       },
       {
         fileName: 'scene12.js',
@@ -167,8 +170,13 @@
         fileName: 'scene21.js',
         res: ["toilet","toilet_webm"]
       },
+      {
+        fileName: 'scene22.js',
+        res: [],
+      },
     ]
     baseUrl = 'http://gtravel.b0.upaiyun.com/scene/';
+    baseUrl = '/scene/';
     resoureUrl = "http://gtravel.b0.upaiyun.com/resource/";
   //}
   
