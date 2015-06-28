@@ -82,6 +82,7 @@
 	  "food2_webm":"food2.webm",
 	  "toilet":"toilet.mp4",
 	  "toilet_webm":"food2.webm",
+    "gsvg":"g.svg",
   }
   
   //if(!anole.isMobile()){
@@ -172,7 +173,7 @@
       },
       {
         fileName: 'scene22.js',
-        res: [],
+        res: ["gsvg"]
       },
     ]
     baseUrl = 'http://gtravel.b0.upaiyun.com/scene/';

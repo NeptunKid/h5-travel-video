@@ -38,6 +38,7 @@ console.log("scene1.js required. add scene");
 			this.places.removeAttr("style");
 			this.places.find(".boat").removeAttr("style");
 			this.places.find(".marco").removeAttr("style");
+			this.scene.append("<img src='./resource/g.svg'></img>");
 		},
 		onStart: function (finish){
 			console.log(">>> scene1.js onStart");
