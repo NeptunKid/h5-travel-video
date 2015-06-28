@@ -1571,12 +1571,32 @@ audio {
   -webkit-transform: translate3d(0, -300%, 0);
   transform: translate3d(0, -300%, 0); }
 
-#scene22 .person-ctn {
+#scene22 .page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1024px;
+  height: 576px;
+  -moz-transform: translate3d(-40%, -55%, 0) scale(1.5, 1.5);
+  -o-transform: translate3d(-40%, -55%, 0) scale(1.5, 1.5);
+  -ms-transform: translate3d(-40%, -55%, 0) scale(1.5, 1.5);
+  -webkit-transform: translate3d(-40%, -55%, 0) scale(1.5, 1.5);
+  transform: translate3d(-40%, -55%, 0) scale(1.5, 1.5); }
+#scene22 .person-ctn-old {
   position: relative;
   float: left;
   width: 15%;
   padding-top: 15%;
   margin: 1% 2.5%;
+  border-radius: 50%;
+  opacity: 0;
+  background: #21a397;
+  box-shadow: -6px -6px 6px #222;
+  overflow: hidden; }
+#scene22 .person-ctn {
+  position: absolute;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   opacity: 0;
   background: #21a397;
@@ -1646,16 +1666,29 @@ audio {
   background: url("../resource/KoreanR.png");
   background-size: 120% 180%;
   background-position: center 0%; }
+#scene22 .g-svg-ctn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: auto;
+  opacity: 0;
+  -moz-transform: translate3d(-59.3%, -46.95%, 0);
+  -o-transform: translate3d(-59.3%, -46.95%, 0);
+  -ms-transform: translate3d(-59.3%, -46.95%, 0);
+  -webkit-transform: translate3d(-59.3%, -46.95%, 0);
+  transform: translate3d(-59.3%, -46.95%, 0); }
 #scene22 .g-ctn {
   position: absolute;
   left: 40%;
-  top: 20%;
+  top: 32%;
   width: 20%;
   padding-top: 20%;
   border-radius: 50%;
   background: #00bcd4;
   box-shadow: -6px -6px 6px #222;
-  overflow: hidden; }
+  overflow: hidden;
+  opacity: 0; }
 #scene22 .g-half {
   position: absolute;
   right: 0;
@@ -1663,7 +1696,7 @@ audio {
   height: 100%;
   width: 50%;
   background: #bdbdbd; }
-#scene22 .g-ctn > p {
+#scene22 .g-ctn > p, #scene22 .g-bg > p {
   position: absolute;
   left: 50%;
   top: 40%;
@@ -1692,5 +1725,15 @@ audio {
   -ms-transform: rotateY(90deg);
   -webkit-transform: rotateY(90deg);
   transform: rotateY(90deg); }
+#scene22 .g-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: #64a7F7;
+  opacity: 0; }
+#scene22 .g-bg > p {
+  left: 50%;
+  top: 45%; }
 
 /*# sourceMappingURL=scenes.css.map */
