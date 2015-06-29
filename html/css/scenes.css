@@ -197,25 +197,50 @@ html, body {
 @font-face {
   font-family: Hiragino;
   src: url("../resource/SansGBW3_min.ttf") format("truetype"); }
+.opening {
+  width: 100%;
+  height: 100%;
+  bottom: 0px;
+  left: 0px;
+  background-color: #000;
+  opacity: 1;
+  position: absolute;
+  z-index: 3000;
+  color: #FFF;
+  font-size: 4em;
+  text-align: center;
+  overflow: hidden;
+  line-height: 576px; }
+
 .mask {
-  width: 1024px;
-  height: 576px;
+  width: 100%;
+  height: 10%;
+  bottom: 0px;
+  left: 0px;
   background-color: #000;
   opacity: 0.5;
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+  z-index: 3000;
   color: #FFF;
-  font-size: 72px;
-  text-align: center; }
+  font-size: 1em;
+  line-height: 200%;
+  text-align: center;
+  overflow: hidden; }
+
+.disabled {
+  disabled: true;
+  opacity: 0.27; }
 
 .btn {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  border: 1px solid #000;
-  display: inline-block; }
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 90px;
+  height: 90px;
+  border: 2px solid grey;
+  display: inline-block;
+  font-size: 1.5em;
+  text-align: center;
+  z-index: 2800; }
 
 .mute-btn {
   right: 10px; }
@@ -227,17 +252,18 @@ html, body {
   z-index: 1000; }
 
 .next-btn {
-  margin-left: 100px; }
+  margin-left: 92px; }
 
 .start-btn {
   position: absolute;
   margin: auto;
   left: 0;
   right: 0;
-  top: 288px;
+  top: 0;
+  bottom: 0;
   border: 1px solid #F00;
-  width: 50px;
-  height: 50px; }
+  width: 150px;
+  height: 55px; }
 
 .container {
   position: absolute;
@@ -1130,7 +1156,10 @@ audio {
 
 #scene12 video {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; }
 #scene12 .bg11 {
   z-index: 1203; }
 

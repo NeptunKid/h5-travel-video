@@ -28,13 +28,13 @@
     }
   }
   var anole = window.anole = {
-      _currentScene: 0,
+      _currentScene: -1,
       _loadFirstFinish: false,
       _sceneNameIndexMap: {}, // mapping from scene js name to its index in the scene queue to play.
       _playedScene:0,
       _nextSceneIndexToPlay:-1, // the scene should play once loaded (added onto anole scene)
       _config:{},
-      _loadedScene: 0,
+      _loadedSceneScript: 0,
       _scene:{}, // mapping from scene index to scene. If none, then the scene is not added onto the stage.
       canvas: null,
       _resourceLoaded: {},
@@ -51,13 +51,13 @@
 		    '<div class="mute-btn btn J_MuteBtn" value="MuteMusic">mute</div>';
 		this.muteBtn = $(muteBtn);
 		this.muteBtn.on('click', this.toggleMuteAll.bind(this));
-		this.muteBtn.appendTo('body');
+		this.muteBtn.appendTo(_canvas);
         var startBtn = this._startBtn =  $(this._config.startBtnTemplate);
-        $('body').append(startBtn);
+        _canvas.append(startBtn);
         
 		startBtn.on('click', startAnime);
 	    
-		var autoBtn = this._autoBtn = $('<div class="btn auto-btn">Auto Play</div>').appendTo('body');
+		var autoBtn = this._autoBtn = $('<div class="btn auto-btn">Auto Play</div>').appendTo(_canvas);
 		autoBtn.on('click', function(){
 			this._config.flipType = 'auto';
 			this._config.autoPlay = true;
@@ -73,7 +73,7 @@
         if(this._config.flipType == 'click'){
           var prevBtn = this._prevBtn = $(this._config.prevBtnTemplate);
           var nextBtn = this._nextBtn =  $(this._config.nextBtnTemplate);
-          $('body').append(prevBtn).append(nextBtn);
+          _canvas.append(prevBtn).append(nextBtn);
           prevBtn.on('click', playPrev);
           nextBtn.on('click', playNext);
         }else if(this._config.flipType == 'swipe'){
@@ -100,11 +100,15 @@
             }
           }.bind(this))
         }
+		// if maxQueueLength = i, we will have scene[1...i] at one time
+		// 
         if(this._config.maxQueueLength > this._config.sceneQueue.length){
           this._config.maxQueueLength = this._config.sceneQueue.length
         }
         
-        this._loadScene(0);
+        // Call showLoading at the beginning of loading.
+		this.showFirstLoading();
+		this._loadScene(0);
       },
 	  removeCanvas: function() {
 		  this.canvas && this.canvas.remove();
@@ -112,6 +116,11 @@
 	  clearCanvas: function() {
 		  this.canvas && this.canvas.empty();
 	  },
+	  removeSceneDoms: function() {
+		  $('.scene').remove();
+	  },
+      showFirstLoading: function (){/* abstract */}, // Triggered when waiting for the first several scenes to be ready. 
+      hideFirstLoading: function (){/* abstract */},// Triggered when the animation is ready to play.
       showLoading: function (){/* abstract */}, // it will be triggered when loading the resource of current scene 
       hideLoading: function (){/* abstract */},// it will be triggered when resource loaded finished
       showError: function (){/* abstract */}, // it will be triggered when resource error
@@ -125,22 +134,24 @@
           }
         }.bind(this));
       },
-      getScript: function(src, sceneIndex) {
+	  // Script is load when all resources on this scene is being loaded. (async)
+      // TODO : Don't load the same script twice.
+	  getScript: function(src, sceneIndex) {
         var script = document.createElement('script');
         script.async = "async";
         script.src = src;
         script.onload = function() {
           var thisSrc = src;
           console.log("GetScript onload. sceneIndex: " + sceneIndex + ". src: " + thisSrc);
-          this._loadedScene++;
+          this._loadedSceneScript++;
           if(typeof this._config.maxQueueLength == 'undefined' || this._config.maxQueueLength == 0){
-            this.hideLoading();
+            this.hideFirstLoading();
           }else{
-            if(this._loadedScene < this._config.maxQueueLength){
-              this._loadScene(this._loadedScene);
+            if(this._loadedSceneScript <= this._currentScene + this._config.maxQueueLength){
+              this._loadScene(this._loadedSceneScript);
             }else{
               this._loadFirstFinish = true;
-              this.hideLoading();
+              this.hideFirstLoading();
             }
           }
           
@@ -184,25 +195,29 @@
         var addedSceneIndex = this._sceneNameIndexMap[scene.name];
         console.log("addScene: name: " + scene.name + " index: " + addedSceneIndex +
                     " Next scene to play: " + this._nextSceneIndexToPlay);
-        this._scene[addedSceneIndex] = scene;
-        if(addedSceneIndex==0){
-            return;
-        }
+		this._scene[addedSceneIndex] = scene;
 
         if (this._nextSceneIndexToPlay == addedSceneIndex) {
           console.log("addScene: play nextSceneToPlay: " + addedSceneIndex);
           // be sure to put this before playscene, as playscene might playnext inside
           this._nextSceneIndexToPlay = -1;
-          console.log("addScene => playScene todo" + (this._currentScene+1));
-          this.playScene(addedSceneIndex);
-          return;
+		  this.hideLoading();
+		  console.log("addScene => playScene todo" + (this._currentScene+1));
+          // do {
+		  //  this.triggerForward(this._currentScene++);
+		  //  } while (this._currentScene!=addedSceneIndex);
+		  // this.playScene(addedSceneIndex);
+          this.playNext();
+		  return;
         }
       },
       startAnime: function (){
-        this.canvas.empty();
-        this._startBtn && this._startBtn.hide();
+		this._startBtn && this._startBtn.hide();
 	    this._autoBtn && this._autoBtn.hide();
-		this.playScene(0);
+		// Never call playScene directly.
+		// Because that scene may not be added yet!
+		// this.playScene(0);
+		this.playNext();
       },
       _loadScene: function (sceneIndex){
         console.log("loadScene, index: " + sceneIndex +
@@ -222,7 +237,8 @@
         this._sceneNameIndexMap[fileName] = sceneIndex;
 
         if(this._currentScene == sceneIndex){
-          this.showLoading();
+          // Call showLoading at the beginning of loading.
+		  this.showLoading();
         }
         
         //TODO load resource and scene at the same time;
@@ -303,18 +319,19 @@
       },
       playPrev: function (){
           console.log("playPrev: " + this._currentScene);
-        if(!this._currentScene){
-          return;
-        }
-        this.triggerBack(this._currentScene)
-      },
+		  if(!this._currentScene){
+			  return;
+		  }
+		  this.triggerBack(this._currentScene)
+	  },
       playNext: function () {
-          console.log("---- PLAY NEXT, index: " + this._currentScene + ". Now play next");
+		  console.log("---- PLAY NEXT, index: " + this._currentScene + ". Now play next");
           if(!this._scene[this._currentScene + 1]) { // If next scene is not ready yet.
               this._nextSceneIndexToPlay = this._currentScene+1;
               console.log("playNext failed: scene is not added yet: " + (this._currentScene+1) +
                           ". nextSceneIndexToPlay: " + this._nextSceneIndexToPlay);
-              return;
+              this.showLoading();
+			  return;
           } else {
               console.log("playNext: scene is ready: " + (this._currentScene+1));
           }
@@ -323,8 +340,8 @@
           this._playedScene = this._currentScene + 1;
         }
         this.triggerForward(this._currentScene);
-          console.log("PlayNext => playScene" + (this._currentScene+1));
-          ++this._currentScene;
+		console.log("PlayNext => playScene" + (this._currentScene+1));
+		++this._currentScene;
         this.playScene(this._currentScene);
       },
 	  // This shouldn't be done on anole level but
@@ -338,15 +355,21 @@
 		}
 	  },
       triggerBack:function (index){
+		if (index == 0) return;
         var scene = this._scene[index];
-		this.hackBackForward(scene);
+		if (!this.animation) {
+			this.hackBackForward(scene);
+		}
         scene.onBack && scene.onBack(function (){
-          this.playScene(--this._currentScene);
-        }.bind(this));
+			this.playScene(--this._currentScene);
+		}.bind(this));
       },
       triggerForward: function (index){
-        var scene = this._scene[index];
-		this.hackBackForward(scene);
+        if ( index < 0 || index >= this._config.sceneQueue.length) return;
+		var scene = this._scene[index];
+		if (!this.animation) {
+			this.hackBackForward(scene);
+		}
         scene.onEnd && scene.onEnd(); // TODO: change all onEnd to onForward
         scene.onForward && scene.onForward();
       },
@@ -354,8 +377,20 @@
 		this._currentScene = index;
         console.log("---- PlayScene: " + index);
         var scene = this._scene[index];
-       
-        scene.onInit && scene.onInit();//init scene
+        if (!scene) return;
+
+        if (index == 0) {// the last scene.
+			this._prevBtn.addClass('disabled');
+		} else {
+			this._prevBtn.removeClass('disabled');
+		}
+
+        if (index == this._config.sceneQueue.length - 1) {// the last scene.
+			this._nextBtn.addClass('disabled');
+		} else {
+			this._nextBtn.removeClass('disabled');
+		}
+		scene.onInit && scene.onInit();//init scene
         if(this._config.autoPlay){     //autoplay
           scene.onStart && scene.onStart(function (){
             // auto play next scene if config.autoPlay is true
@@ -449,6 +484,7 @@
       this.tl = new TimelineLite({paused:true});
       // Music file is registered as a resource.
 	  this.music = anole.getMedia(this.musicName);
+      this.animation = function (){/* abstract */}; // must be implemented by instances. 
 	}
     // Methods list.
     //

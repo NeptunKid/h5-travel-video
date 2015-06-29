@@ -54,7 +54,7 @@
 				.to([this.svg3,this.shade3,this.svg2,this.shade2],0.2,{opacity:0,delay:delta*10,ease:Linear.easeNone})
 	}
 	scene.cleanup = function() {
-		this.video[0].pause();
+		this.video && this.video[0].pause();
 	}
 	anole.addScene(scene);
 })

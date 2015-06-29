@@ -191,10 +191,10 @@
       baseUrl:baseUrl,// root url 
       resoureUrl: resoureUrl,// resoure url like jpg/mp3
       resource: resource,//resource
-      maxQueueLength: 6,//TODO load serval scenes at first
+      maxQueueLength: 3,//TODO load serval scenes at first
       sceneQueue: sceneQueue,//anime scene queue
       autoPlay: false,//auto play with no event
-      flipType: 'wheel',//flip type eg:click, swipe, wheel
+      flipType: 'click',//flip type eg:click, swipe, wheel
       containerTemplate: '<div class="container"></div>',//scene root container, it will be appended to body.
       prevBtnTemplate: '<div class="prev-btn btn J_PrevBtn">prev</div>',//prev button dom
       nextBtnTemplate: '<div class="next-btn btn J_NextBtn">next</div>',//next button dom
@@ -206,6 +206,14 @@
       hideLoading: function (){
         $(".mask").hide();
         console.log("resource loaded, hide loading message.")
+      },
+	  showFirstLoading: function() {
+        $(".opening").show();
+        console.log("loading first several scenes, show opening animation.");
+	  },
+      hideFirstLoading: function (){
+        $(".opening").hide();
+        console.log("First batch of scencs loaded, hide opening animations.")
       },
       showError: function (msg){ console.log(msg); }
     };
@@ -226,8 +234,13 @@
 	anole.config(config);
     anole.start();
     var window_w = document.body.clientWidth;
-    var scene_w = $(".container").width();
-    var scene_h = $(".container").height();
+	var canvas = anole.canvas;
+    var scene_w = canvas.width();
+    var scene_h = canvas.height();
+	var loading = $('.mask');
+	var opening = $('.opening');
+	loading.appendTo(canvas);
+	opening.appendTo(canvas);
     var scale = window_w / scene_w + "";
     function getSupportedPropertyName() {
       var properties = ["transform", "msTransform", "webkitTransform", "mozTransform", "oTransform"];
@@ -239,6 +252,6 @@
       return null;
     }
     var transformProperty = getSupportedPropertyName();
-    $(".container").css(transformProperty,"translate3d(-50%,"+((scale-1)*scene_h/2)+"px,0) scale("+scale+","+scale+")");
+    canvas.css(transformProperty,"translate3d(-50%,"+((scale-1)*scene_h/2)+"px,0) scale("+scale+","+scale+")");
   })
 });
