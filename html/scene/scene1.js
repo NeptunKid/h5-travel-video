@@ -11,6 +11,7 @@ console.log("scene1.js required. add scene");
 			this.scene = anole.getOrCreate("#scene1",'<div id="scene1" class="scene"></div>', anole.canvas);
 			this.tl1 = new TimelineLite();
 			if (!this.places){
+				this.scene.find(".places").remove();
 				this.places = anole.$$('.places','<div class="places"></div>', this.scene);
 				var bridgeCtn = $('<div></div>').addClass('building-ctn bridge-ctn');
 				var up = $('<div></div>').addClass('up');
