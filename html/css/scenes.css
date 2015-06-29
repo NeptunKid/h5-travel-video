@@ -227,14 +227,20 @@ html, body {
   text-align: center;
   overflow: hidden; }
 
+.disabled {
+  disabled: true;
+  opacity: 0.27; }
+
 .btn {
   position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
   width: 90px;
   height: 90px;
-  border: 1px solid #000;
+  border: 2px solid grey;
   display: inline-block;
   font-size: 1.5em;
-  text-align: center; }
+  text-align: center;
+  z-index: 2800; }
 
 .mute-btn {
   right: 10px; }
@@ -257,7 +263,7 @@ html, body {
   bottom: 0;
   border: 1px solid #F00;
   width: 150px;
-  height: 80px; }
+  height: 55px; }
 
 .container {
   position: absolute;

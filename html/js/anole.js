@@ -116,6 +116,9 @@
 	  clearCanvas: function() {
 		  this.canvas && this.canvas.empty();
 	  },
+	  removeSceneDoms: function() {
+		  $('.scene').remove();
+	  },
       showFirstLoading: function (){/* abstract */}, // Triggered when waiting for the first several scenes to be ready. 
       hideFirstLoading: function (){/* abstract */},// Triggered when the animation is ready to play.
       showLoading: function (){/* abstract */}, // it will be triggered when loading the resource of current scene 
@@ -209,8 +212,7 @@
         }
       },
       startAnime: function (){
-        this.canvas.empty();
-        this._startBtn && this._startBtn.hide();
+		this._startBtn && this._startBtn.hide();
 	    this._autoBtn && this._autoBtn.hide();
 		// Never call playScene directly.
 		// Because that scene may not be added yet!
@@ -323,7 +325,7 @@
 		  this.triggerBack(this._currentScene)
 	  },
       playNext: function () {
-          console.log("---- PLAY NEXT, index: " + this._currentScene + ". Now play next");
+		  console.log("---- PLAY NEXT, index: " + this._currentScene + ". Now play next");
           if(!this._scene[this._currentScene + 1]) { // If next scene is not ready yet.
               this._nextSceneIndexToPlay = this._currentScene+1;
               console.log("playNext failed: scene is not added yet: " + (this._currentScene+1) +
@@ -376,7 +378,19 @@
         console.log("---- PlayScene: " + index);
         var scene = this._scene[index];
         if (!scene) return;
-        scene.onInit && scene.onInit();//init scene
+
+        if (index == 0) {// the last scene.
+			this._prevBtn.addClass('disabled');
+		} else {
+			this._prevBtn.removeClass('disabled');
+		}
+
+        if (index == this._config.sceneQueue.length - 1) {// the last scene.
+			this._nextBtn.addClass('disabled');
+		} else {
+			this._nextBtn.removeClass('disabled');
+		}
+		scene.onInit && scene.onInit();//init scene
         if(this._config.autoPlay){     //autoplay
           scene.onStart && scene.onStart(function (){
             // auto play next scene if config.autoPlay is true
