@@ -12,7 +12,7 @@
 	}
 	
 	scene.animation = function() {
-		this.tl.to(this.container.find(".bg11"),1,{"opacity":0})
+		this.tl.to(this.container.find(".bg11"),0.3,{"opacity":0})
 				.call(function(){ 
 					    this.tl.pause(); // You can only do this when no other animation are being played.
 						anole.playMedia(this.video[0]); 

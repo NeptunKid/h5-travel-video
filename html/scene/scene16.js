@@ -47,7 +47,7 @@
 	}
 	
 	scene.animation = function() {
-		var dt = 0.8;
+		var dt = 0.3;
 		this.tl.set(this.browser,{y:"100%"});
 		this.tl.to(this.count_ctn,dt,{opacity:0})
 				.call(this.set_count.bind(this))
@@ -73,8 +73,8 @@
 				.to(this.count,dt*5,{num:82,onUpdate:this.update_count.bind(this),ease:Linear.easeNone,delay:-dt*7})
 				.to(this.count_delta,dt,{"opacity":1,y:"-100%",delay:dt})
 				.to(this.point,2*dt,{"opacity":0,y:"-100%"})
-				.call(init_progress)
-				.to(this.browser,2*dt,{"opacity":1,y:"0%",delay:-2*dt})
+				.call(init_progress, "+=1")
+				.to(this.browser,2*dt,{"opacity":1,y:"0%"})
 				.call(this.remove_elms.bind(this));
 	}
 	scene.set_count = function(){

@@ -22,10 +22,10 @@
 	}
 	
 	scene.animation = function() {
-		var timedelta = 0.5;
+		var timedelta = 0.3;
 		this.tl.set(this.marco,{rotationY:180})
-			.to(this.marco,2,{x: "100%",rotation:30},"+=0.5")
-			.to(this.marco,1,{x: "100%",rotation:15},"+=0.5");
+			.to(this.marco,timedelta*2,{x: "100%",rotation:30},"+=0.1")
+			.to(this.marco,timedelta,{x: "100%",rotation:15},"+=0.2");
 
 	}
 	anole.addScene(scene);

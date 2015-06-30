@@ -185,7 +185,7 @@
   $(function (){
 	// Push voiceover files to sceneQueue.
     for (i=1; i<=sceneQueue.length; i++) {
-		resource['vo'+i] = 'Sound/' + i + '.mp3';
+		resource['vo'+i] = 'Sound3/' + i + '.mp3';
 		(sceneQueue[i-1].res).push('vo'+i);
 	}
 	var config = {

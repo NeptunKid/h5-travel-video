@@ -16,7 +16,7 @@
 	}
 	
 	scene.animation = function() {
-		var dt = 2.5;
+		var dt = 0.6;
 		this.tl.to(this.browser,dt,{"opacity":0,x:"100%"})
 				.to(this.phone,dt,{"opacity":1,x:"0%",delay:-dt})
 				.to(this.pshade,dt*3,{"width":"52%",ease:Linear.easeNone})

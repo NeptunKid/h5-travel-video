@@ -52,16 +52,20 @@
 	  }
 	  
 	  this.tl.set(pgroup, {backgroundSize: '0'})  // Cannot tween background-size :(.
-		     .to(group, 1.5, {opacity: 0})
-			 .to(pgroup, 1.5, {backgroundColor:'transparent'}, '-=1.5')
-			 .to(this.container.find('.ctn-browser'), 1, {scale:0.68, top:'+=25'}, '-=1')
-		     .to(this.comments.find('.comment-head'), 1, {opacity:0})
-		     .to(this.comments.find('.comment-content'), 1, {left:120}, '-=1')
-			 .to(this.texts.find('.dash'), 0.2, {scale:0, opacity:0}, '-=1')
-		     .staggerFromTo(this.bubbles, 1, {scale: 0, opacity: 0},
-							{scale:1, opacity:1, ease: Elastic.easeOut}, 0.35)
-			 .staggerFromTo(this.newTexts, 1, {opacity:0, scale:0},
-							{opacity:1, scale:1, ease: Elastic.easeOut}, 0.35, '-=2');
+             .addLabel('fade')
+		     .to(group, 0.5, {opacity: 0})
+			 .to(pgroup, 0.5, {backgroundColor:'transparent'}, 'fade')
+			 .addLabel('bigger')
+			 .to(this.container.find('.ctn-browser'), 0.3, {scale:0.68, top:'+=25'}, 'bigger')
+             .addLabel('change')
+			 .to(this.comments.find('.comment-head'), 0.3, {opacity:0})
+		     .to(this.comments.find('.comment-content'), 0.3, {left:120}, 'change')
+			 .to(this.texts.find('.dash'), 0.1, {scale:0, opacity:0}, 'change')
+			 .addLabel('bubbles')
+		     .staggerFromTo(this.bubbles, 0.6, {scale: 0, opacity: 0},
+							{scale:1, opacity:1, ease: Elastic.easeOut}, 0.3)
+			 .staggerFromTo(this.newTexts, 0.6, {opacity:0, scale:0},
+							{opacity:1, scale:1, ease: Elastic.easeOut}, 0.3, 'bubbles');
 	}
 	scene.cleanup = function() { // Called before entering next scene.
 		this.comments.find('.comment-head').remove();

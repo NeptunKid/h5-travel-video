@@ -380,15 +380,15 @@
         if (!scene) return;
 
         if (index == 0) {// the last scene.
-			this._prevBtn.addClass('disabled');
+			this._prevBtn && this._prevBtn.addClass('disabled');
 		} else {
-			this._prevBtn.removeClass('disabled');
+			this._prevBtn && this._prevBtn.removeClass('disabled');
 		}
 
         if (index == this._config.sceneQueue.length - 1) {// the last scene.
-			this._nextBtn.addClass('disabled');
+			this._nextBtn && this._nextBtn.addClass('disabled');
 		} else {
-			this._nextBtn.removeClass('disabled');
+			this._nextBtn && this._nextBtn.removeClass('disabled');
 		}
 		scene.onInit && scene.onInit();//init scene
         if(this._config.autoPlay){     //autoplay

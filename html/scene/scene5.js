@@ -60,8 +60,8 @@
 			return function(){
 				tl = new TimelineLite();
 				tl.to($(".c"+i+" .d0"),time,{width:"80%"})
-					.to($(".c"+i+" .d1"),time,{width:"80%"},"-="+time*0.8)
-					.to($(".c"+i+" .d2"),time,{width:"65%"},"-="+time*0.8);
+					.to($(".c"+i+" .d1"),time,{width:"80%"},"-="+time*0.5)
+					.to($(".c"+i+" .d2"),time,{width:"65%"},"-="+time*0.5);
 				this["tl"+i] = tl;
 			}.bind(this);
 		},
@@ -70,9 +70,9 @@
 			this.music = anole.getMedia(this.musicName);
 			anole.playMedia(this.music);
 			this.tl1 = new TimelineLite();
-			this.tl1 = this.tl1.to(this.shade,0.5,{opacity:0.9, ease:Linear.easeNone})
-							.to(this.br_ctn_out,0.5,{delay:0.1,scaleX:0.4,scaleY:0.4,x:"-14%",y:"-18%",ease:Linear.easeNone});
-			var time_video = 3;
+			this.tl1 = this.tl1.to(this.shade,0.2,{opacity:0.9, ease:Linear.easeNone})
+							.to(this.br_ctn_out,0.2,{delay:0.05,scaleX:0.4,scaleY:0.4,x:"-14%",y:"-18%",ease:Linear.easeNone});
+			var time_video = 1;
 			var per_video = time_video / v_count;
 			this.tl1.to(this.br_right,per_video,{"opacity":1,y:"0%",delay:0,ease:Linear.easeNone});
 			for (var i=0;i<v_count;i++){

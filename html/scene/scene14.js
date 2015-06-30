@@ -29,14 +29,16 @@
 	}
 	
 	scene.animation = function() {
-		var time_delta = 1.5;
+		var time_delta = 0.5;
 		this.tl.set(this.map_ctn,{scaleX:5,scaleY:5})
-			.to($("#scene14 .marco"),0.5,{opacity:0})
-			.to([$("#scene14 .gate-ctn .up"),$("#scene14 .gate-ctn .down"),],0.5,{opacity: 0,ease:Linear.easeNone},"-=0.5")
-			.to($("#scene14 .building"),1.5,{opacity:0,scaleX:0.1,scaleY:0.1,ease:Linear.easeNone},"-=0.5")
-			.to(this.map_ctn,1.5,{scaleX:1,scaleY:1,ease:Linear.easeNone},"-=1.5")
-			.to($("#scene14 .gate-ctn"),1,{opacity:0,ease:Linear.easeNone})
-			.to(this.path[0],5*time_delta,{"stroke-dashoffset":0,ease:Linear.easeNone},"-=0.5")
+		    .addLabel('begin')
+			.to($("#scene14 .marco"),0.3*time_delta,{opacity:0})
+			.to([$("#scene14 .gate-ctn .up"),$("#scene14 .gate-ctn .down"),],0.3*time_delta,{opacity: 0,ease:Linear.easeNone},"begin")
+			.to($("#scene14 .building"), time_delta,{opacity:0,scaleX:0.1,scaleY:0.1,ease:Linear.easeNone},"begin")
+			.to(this.map_ctn,2*time_delta,{scaleX:1,scaleY:1,ease:Linear.easeNone},'begin')
+			.addLabel('draw')
+			.to($("#scene14 .gate-ctn"),0.6*time_delta,{opacity:0,ease:Linear.easeNone})
+			.to(this.path[0],5*time_delta,{"stroke-dashoffset":0,ease:Linear.easeNone},"draw")
 			.to(this.path[1],time_delta/2,{"stroke-dashoffset":0,ease:Linear.easeNone,delay:time_delta/8})
 			.call(function(){$("#scene14 .gate-ctn").remove();})
 			.set(this.mark[0],{x:"-100%"})

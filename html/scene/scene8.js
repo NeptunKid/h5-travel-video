@@ -35,27 +35,27 @@
 	}	
 	scene.animation = function() {
 	    this.tl.addLabel('float')
-		       .to(this.commentList[0], 1, {left: "-=220", top:'-=30', scale:1.2}, 'float')
-		       .to(this.commentList[1], 1, {left: "+=170", top:'-=12', scale:1.2}, 'float')
-		       .to(this.commentList[2], 1, {left: "-=170", top:'+=12', scale:1.2}, 'float')
-		       .to(this.commentList[3], 1, {left: "+=200", top:'+=30', scale:1.2}, 'float')
-	           .from(this.marco, 1.5, {right:-200, ease:Power3.easeIn}, 'float+=0.5')
-		       .staggerTo(this.container.find('.chinese'), 1, {opacity:1}, 0.35)
-			   .addLabel('dissolve', '-=0.5')
+		       .to(this.commentList[0], 0.4, {left: "-=220", top:'-=30', scale:1.2}, 'float')
+		       .to(this.commentList[1], 0.4, {left: "+=170", top:'-=12', scale:1.2}, 'float')
+		       .to(this.commentList[2], 0.4, {left: "-=170", top:'+=12', scale:1.2}, 'float')
+		       .to(this.commentList[3], 0.4, {left: "+=200", top:'+=30', scale:1.2}, 'float')
+	           .from(this.marco, 0.75, {right:-200, ease:Power3.easeIn}, 'float+=0.5')
+		       .staggerTo(this.container.find('.chinese'), 0.4, {opacity:1}, 0.2)
+			   .addLabel('dissolve', '-=0.2')
 			   .call( (function() { this.container.find('.chinese').addClass('chinese-smile')} ).bind(this))
-			   .staggerTo(this.commentList.find('.comment-content'), 0.5, {scale:0}, 0.35, 'dissolve')
-			   .staggerTo(this.bubbles, 0.1, {opacity:0, ease: Power4.eastIn}, 0.35, 'dissolve')
-			   .staggerFromTo(this.disbubbles, 0.1, {opacity:0}, {opacity:1, ease: Power4.easeOut}, 0.35, 'dissolve')
-			   .staggerTo(this.disbubbles, 0.5, {scale:2, ease: Back.easeIn, opacity:0}, 0.35, 'dissolve+=0.1')
+			   .staggerTo(this.commentList.find('.comment-content'), 0.1, {scale:0}, 0.35, 'dissolve')
+			   .staggerTo(this.bubbles, 0.1, {opacity:0, ease: Power4.eastIn}, 0.15, 'dissolve')
+			   .staggerFromTo(this.disbubbles, 0.1, {opacity:0}, {opacity:1, ease: Power4.easeOut}, 0.15, 'dissolve')
+			   .staggerTo(this.disbubbles, 0.25, {scale:2, ease: Back.easeIn, opacity:0}, 0.15, 'dissolve+=0.1')
 			   //.to(this.container.find('.chinese'), 0.1, { className: 'chinese-smile' }, 'dissolve')
-			   .to(this.marco.find('#mouth'), 2, {rotation: 180, ease: Elastic.easeInOut}, 'dissolve-=0.5')
+			   .to(this.marco.find('#mouth'), 1, {rotation: 180, ease: Elastic.easeInOut}, 'dissolve-=0.5')
 			   .addLabel('stupify')
 			   .set(this.marco.find('.marco-nomouth'), {height: '155px', width: '155px'})
                .set(this.marco, {height: '155px'})
-			   .to(this.shade, 1, {opacity: 0.8}, 'stupify')
-			   .to(this.marco, 2, {left: '0', top: '0', right: '0', bottom: '0', margin: 'auto'}, 'stupify') // Absolute center.
-			   .to(this.marco, 1, {scale: 1.5})
-			   .to(this.path, 2, {"stroke-dashoffset":0,ease:Power4.easeIn})
+			   .to(this.shade, 0.4, {opacity: 0.8}, 'stupify')
+			   .to(this.marco, 0.5, {left: '0', top: '0', right: '0', bottom: '0', margin: 'auto', ease:Linear.easeIn}, 'stupify') // Absolute center.
+			   .to(this.marco, 0.5, {scale: 1.5, ease:Linear.easeIn}, 'stupify')
+			   .to(this.path, 0.35, {"stroke-dashoffset":0,ease:Power4.easeIn})
 	}
 	scene.cleanup = function() { // Called before entering next scene.
 		this.container.find('.ctn-browser').remove();

@@ -35,8 +35,7 @@
 				.to(this.key_point,dt,{top:"74.44%",left:"47.5%",ease:Linear.easeNone})
 				.to(this.key_point,dt,{left:"60.5%",top:"80.44%"})
 				.to(this.count,dt*3,{num:20,ease:Linear.easeNone,onUpdate:this.update_count.bind(this)},"-="+dt*3)
-				.to(this.count_ctn,dt*3,{top: "65%",left:"62%"},"-="+dt*3)
-				;
+				.to(this.count_ctn,dt*3,{top: "65%",left:"62%"},"-="+dt*3);
 	}
 
 	scene.update_count = function(){

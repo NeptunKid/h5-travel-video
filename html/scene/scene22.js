@@ -33,25 +33,22 @@
 		console.log(people);
 		console.log(this.page);
 		this.tl.delay(delta);
-		this.tl.to($(".person-ctn"),delta,{opacity:1});
-		this.tl.to($(".person"),delta,{top:"0%"});
-		//for (var i=0;i<15;i++)
-		//	this.tl.to(".person.p"+(14-i),delta,{top:"0%"});
-		/*$(".person-ctn").each(function(idx,elm){
-			this.tl.to(elm,delta,{opacity:1,delay:-delta/2});
-			this.tl.to(people[idx],delta,{top:"0%"});
-		}.bind(this));*/
-		this.tl.to(this.page,delta*2,{scaleX:1,scaleY:1,x:"-50%",y:"-50%",delay:delta,ease:Linear.easeNone})
-				.to(this.page,delta,{opacity:0});
-		this.tl.to(this.g_svg,delta,{opacity:1,delay:-delta})
-				.to(this.g_svg,delta*10,{scaleY:0.02,scaleX:0.02,x:"-50%",y:"-50%",ease:Linear.easeNone});
+		this.tl.addLabel('begin')
+		       .to($(".person-ctn"), delta, {opacity:1})
+		       .to($(".person"), delta, {top:"0%"}, 'begin')
+			   .addLabel('zoomout')
+		       .to(this.page, delta*3, {scale:0.3,x:"-50%",y:"-50%",delay:delta,opacity:0, ease:Linear.easeNone}, 'zoomout')
+			   // .to(this.page, delta, {opacity:0}, 'transition')
+			   .to(this.g_svg,delta*2,{opacity:1}, 'zoomout')
+			   .to(this.g_svg,delta*5,{scale:0.1,x:"-50%",y:"-50%",ease:Linear.easeNone});
 
 		this.tl.to(this.g_ctn,delta*2,{opacity:1})
-			.to(this.g0,delta*3,{rotationY:90,ease:Linear.easeNone})
+/*			.to(this.g0,delta*3,{rotationY:90,ease:Linear.easeNone})
 			.to(this.g1,delta*3,{rotationY:180,ease:Linear.easeNone});
 
 		this.tl.to(this.g_bg,delta*3,{opacity:1,delay:delta});
-	}
+*/
+		}
 	scene.cleanup = function() {
 	}
 	anole.addScene(scene);

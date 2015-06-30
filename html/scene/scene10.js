@@ -12,8 +12,8 @@
 			         .appendTo(this.container);
 	}	
 	scene.animation = function() {
-		this.tl.from(this.leftCtn, 1, {delay:0.5, top:-500, ease:Elastic.easeInOut})
-		       .from(this.rightCtn, 1, {delay:0.5, top:-500, ease:Elastic.easeInOut}, '-=0.5')
+		this.tl.from(this.leftCtn, 0.5, {delay:0.5, top:-500, ease:Elastic.easeInOut})
+		       .from(this.rightCtn, 0.5, {delay:0.5, top:-500, ease:Elastic.easeInOut}, '-=0.2')
 			   .fromTo(this.banner, 1, {opacity:0, skewX:90}, {opacity: 1, skewX:0, ease:Bounce.easeOut});
 	}
 	scene.cleanup = function() { // Called before entering next scene.
