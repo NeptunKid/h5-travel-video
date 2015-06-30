@@ -235,17 +235,19 @@ html, body {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.9);
   width: 90px;
-  height: 90px;
+  height: 40px;
   border: 2px solid grey;
   display: inline-block;
   font-size: 1.5em;
   text-align: center;
-  z-index: 2800; }
+  z-index: 2800;
+  bottom: 15px; }
 
 .mute-btn {
   right: 10px; }
 
 .auto-btn {
+  width: 150px;
   margin: auto;
   left: 0;
   right: 0;
@@ -1511,6 +1513,16 @@ audio {
 
 #scene19, #scene20, #scene22 {
   background: #bbb; }
+  #scene19 .g-bg img, #scene20 .g-bg img, #scene22 .g-bg img {
+    border: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+    width: 50%;
+    height: auto; }
 
 #scene19 {
   z-index: 1900; }

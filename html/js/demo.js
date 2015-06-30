@@ -82,7 +82,8 @@
 	  "food2_webm":"food2.webm",
 	  "toilet":"toilet.mp4",
 	  "toilet_webm":"food2.webm",
-    "gsvg":"g.svg",
+	  "gsvg":"g.svg",
+	  "googlelogo": "googlelogo.png",
   }
   
   //if(!anole.isMobile()){
@@ -173,7 +174,7 @@
       },
       {
         fileName: 'scene22.js',
-        res: ["gsvg"]
+        res: ["gsvg", "googlelogo"]
       },
     ]
     baseUrl = 'http://gtravel.b0.upaiyun.com/scene/';
