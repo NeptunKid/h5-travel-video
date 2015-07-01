@@ -60,8 +60,7 @@
 				.to(this.wifi[0],dt/3,{"opacity":1,delay:-dt})
 				.to([this.wifi[1],this.wifi[3]],dt/3,{"opacity":1,delay:-dt})
 				.to([this.wifi[2],this.wifi[4]],dt/3,{"opacity":1,delay:-dt+dt/3})
-				.to(this.wifi[5],dt/3,{"opacity":1,delay: -dt/3})
-				;
+				.to(this.wifi[5],dt/3,{"opacity":1,delay: -dt/3});
 		var cur_delay = -dt*7/3;
 		for (var i=0;i<6;i++)
 		{
@@ -74,7 +73,7 @@
 				.to(this.count_delta,dt,{"opacity":1,y:"-100%",delay:dt})
 				.to(this.point,2*dt,{"opacity":0,y:"-100%"})
 				.call(init_progress, "+=1")
-				.to(this.browser,2*dt,{"opacity":1,y:"0%"})
+				.to(this.browser,2*dt,{"opacity":1,y:"0%", delay:dt*5})
 				.call(this.remove_elms.bind(this));
 	}
 	scene.set_count = function(){

@@ -46,6 +46,7 @@
 			this.scene.show();
 		},
 		onStart: function (finish){
+			var dt = 0.5;
 			this.music = anole.getMedia(this.musicName);
 			anole.playMedia(this.music);
 			this.scene.show();
@@ -57,18 +58,19 @@
 					.to([this.br_left,this.br_right],0.8,{y:"-52%",ease:Linear.easeNone},"-=1")
 					.to(this.topbar,0.2,{width:"67%"})
 					.to(this.br_ctn_in,0.4,{scaleX:0.5,scaleY:0.5})
+					.addLabel('pages')
 					.to(this.shade,0.3,{opacity:0.26})
-					.to(this.pages[0],1.5,{opacity:1,x:"-90%",y:"-60%"},"-=0.2")
-					.to(this.pages[2],0.8,{x:"-160%",y:"-40%"},"-=0.2")
-					.to(this.pages[4],0.8,{x:"-140%",y:"-40%"},"-=0.8")
-					.to(this.pages[1],0.8,{opacity:1,x:"110%",y:"-70%"},"-=0.8")
-					.to(this.pages[3],0.8,{x:"180%",y:"-50%"},"-=0.8")
-					.to(this.pages[0],0.8,{x:"-80%",y:"100%"},"-=0.2")
-					.to(this.pages[2],0.8,{opacity:1,x:"-90%",y:"-60%"},"-=0.8")
-					.to(this.pages[1],0.8,{x:"80%",y:"80%"},"-=0.2")
-					.to(this.pages[3],0.8,{opacity:1,x:"110%",y:"-70%"},"-=0.8")
-					.to(this.pages[2],0.8,{x:"-80%",y:"100%"},"-=0.2")
-					.to(this.pages[4],0.8,{opacity:1,x:"-70%",y:"-60%"},"-=0.8")
+					.to(this.pages[0],2*dt,{opacity:1,x:"-90%",y:"-60%", ease:Power4.easeIn},"pages+=0.1")
+					.to(this.pages[2],dt,{x:"-160%",y:"-40%"},"poges+=0.5")
+					.to(this.pages[4],dt,{x:"-140%",y:"-40%"},"-=0.8")
+					.to(this.pages[1],dt,{opacity:1,x:"110%",y:"-70%"},"-=0.8")
+					.to(this.pages[3],dt,{x:"180%",y:"-50%"},"-=0.8")
+					.to(this.pages[0],dt,{x:"-80%",y:"100%"},"-=0.2")
+					.to(this.pages[2],dt,{opacity:1,x:"-90%",y:"-60%"},"-=0.8")
+					.to(this.pages[1],dt,{x:"80%",y:"80%"},"-=0.2")
+					.to(this.pages[3],dt,{opacity:1,x:"110%",y:"-70%"},"-=0.8")
+					.to(this.pages[2],dt,{x:"-80%",y:"100%"},"-=0.2")
+					.to(this.pages[4],dt,{opacity:1,x:"-70%",y:"-60%"},"-=0.8")
 			        .call(function() {
 						if (!this.music.ended) {
 							$(this.music).on('ended', finish);

@@ -22,7 +22,7 @@
 	
 	scene.animation = function() {
 		var timedelta = 0.25;
-		this.tl.to(this.c00,timedelta*2,{rotationY:450,delay:timedelta*5})
+		this.tl.to(this.c00,timedelta*2,{rotationY:450,delay:timedelta})
 				.to(this.c01,timedelta*2,{rotationY:0})
 				.to(this.c10,timedelta*2,{rotationY:450})
 				.to(this.c11,timedelta*2,{rotationY:0})
@@ -34,7 +34,8 @@
 				.to(this.k1,timedelta,{rotationY:0})
 				.to(this.c21,timedelta,{rotationY:450})
 				.to(this.k2,timedelta,{rotationY:0})
-				.staggerTo($(".question"),timedelta,{opacity:1})
+				.staggerTo($(".question"),timedelta,{opacity:1}, '-=0.5')
+				.delay(2*timedelta);
 	}
 	anole.addScene(scene);
 })

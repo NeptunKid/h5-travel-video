@@ -40,9 +40,9 @@
 		       .to(this.page, delta*3, {scale:0.3,x:"-50%",y:"-50%",delay:delta,opacity:0, ease:Linear.easeNone}, 'zoomout')
 			   // .to(this.page, delta, {opacity:0}, 'transition')
 			   .to(this.g_svg,delta*2,{opacity:1}, 'zoomout')
-			   .to(this.g_svg,delta*5,{scale:0.1,x:"-50%",y:"-50%",ease:Linear.easeNone});
+			   .to(this.g_svg,delta*5,{scale:0.15,x:"-50%",y:"-50%",ease:Linear.easeNone});
 
-		this.tl.to(this.g_ctn,delta*2,{opacity:1})
+		this.tl.to(this.g_ctn,delta*2,{opacity:1, delay:delta})
 /*			.to(this.g0,delta*3,{rotationY:90,ease:Linear.easeNone})
 			.to(this.g1,delta*3,{rotationY:180,ease:Linear.easeNone});
 

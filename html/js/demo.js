@@ -192,10 +192,10 @@
       baseUrl:baseUrl,// root url 
       resoureUrl: resoureUrl,// resoure url like jpg/mp3
       resource: resource,//resource
-      maxQueueLength: 3,//TODO load serval scenes at first
+      maxQueueLength: 11,//TODO load serval scenes at first
       sceneQueue: sceneQueue,//anime scene queue
       autoPlay: false,//auto play with no event
-      flipType: 'click',//flip type eg:click, swipe, wheel
+      flipType: 'wheel',//flip type eg:click, swipe, wheel
       containerTemplate: '<div class="container"></div>',//scene root container, it will be appended to body.
       prevBtnTemplate: '<div class="prev-btn btn J_PrevBtn">prev</div>',//prev button dom
       nextBtnTemplate: '<div class="next-btn btn J_NextBtn">next</div>',//next button dom
