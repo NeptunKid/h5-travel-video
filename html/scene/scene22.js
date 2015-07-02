@@ -22,7 +22,7 @@
 		this.g0 = $("<div></div>").addClass("g-layer l0").appendTo(this.g_ctn);
 		this.g1 = $("<div></div>").addClass("g-layer l1").appendTo(this.g_ctn);
 		this.gtext = $("<p>g</p>").appendTo(this.g_ctn);
-		this.g_bg = $("<div></div>").addClass("g-bg").appendTo(this.container).append("<img src='./resource/googlelogo.png'></img>");
+		this.g_bg = $("<div></div>").addClass("g-bg").appendTo(this.container).append("<img src='./resource/thinkwithgoogle.png'></img>");
 		return this.container;
 	}
 	

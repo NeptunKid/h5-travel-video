@@ -15,7 +15,7 @@ console.log("Scene3.js running...");
 	var subway_text_create = function(){
 		var ctn = $("<div></div>").addClass("subway-text-ctn");
 		var year = $("<div></div>").addClass("subway-year").appendTo(ctn);
-		var title = $("<div></div>").addClass("subway-title").text("中国入境旅游统计").appendTo(ctn);
+		var title = $("<div></div>").addClass("subway-title").text("中国入境旅游人数").appendTo(ctn);
 		var popu = $("<div></div>").addClass("subway-popu").appendTo(ctn);
 		return ctn;
 	}
