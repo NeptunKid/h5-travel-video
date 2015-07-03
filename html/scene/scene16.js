@@ -20,7 +20,6 @@
 		setTimeout(run_progress,50);
 	}
 	var scene = new anole.Scene(16, anole.canvas, true);
-    scene.name = 'scene16.js';
 	scene.createDom = function() {
 		console.log(this.container);
 		this.svg = this.container.find(".big-svg");
@@ -60,8 +59,8 @@
 				.to(this.wifi[0],dt/3,{"opacity":1,delay:-dt})
 				.to([this.wifi[1],this.wifi[3]],dt/3,{"opacity":1,delay:-dt})
 				.to([this.wifi[2],this.wifi[4]],dt/3,{"opacity":1,delay:-dt+dt/3})
-				.to(this.wifi[5],dt/3,{"opacity":1,delay: -dt/3})
-				;
+				.to(this.wifi[5],dt/3,{"opacity":1,delay: -dt/3});
+
 		var cur_delay = -dt*7/3;
 		for (var i=0;i<6;i++)
 		{

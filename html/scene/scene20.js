@@ -1,9 +1,8 @@
 ;require(['anole', 'zepto','TweenLite','TimelineLite','EasePack','CSSPlugin'], function(anole, Scene){
     
-	var scene = new anole.Scene(19, anole.canvas, false);
-    scene.name = 'scene19.js';
+	var scene = new anole.Scene(20, anole.canvas, false);
 	scene.createDom = function() {
-		this.container = $("<div id='scene19' class='scene'></div>")
+		this.container = $("<div id='scene20' class='scene'></div>")
 		this.west = $("<div></div>").addClass("west-food").appendTo(this.container);
 		this.chn = $("<div></div>").addClass("chn-food").appendTo(this.container);
 		//this.line = $("<div></div>").addClass("mid-line").appendTo(this.chn);

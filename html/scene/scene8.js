@@ -34,7 +34,7 @@
 		this.path.css("stroke-dasharray",this.loading_len);
 	}	
 	scene.animation = function() {
-	    this.tl.addLabel('float')
+		this.tl.addLabel('float')
 		       .to(this.commentList[0], 0.4, {left: "-=220", top:'-=30', scale:1.2}, 'float')
 		       .to(this.commentList[1], 0.4, {left: "+=170", top:'-=12', scale:1.2}, 'float')
 		       .to(this.commentList[2], 0.4, {left: "-=170", top:'+=12', scale:1.2}, 'float')

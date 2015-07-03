@@ -1,7 +1,6 @@
 ;require(['anole', 'zepto'], function(anole, Scene){
     
-	var scene = new anole.Scene(21, anole.canvas, false);
-    scene.name = 'scene21.js';
+	var scene = new anole.Scene(22, anole.canvas, false);
 	scene.createDom = function() {
 		this.video = $('<video>' +
 					   '<source src="resource/toilet.webm" type="video/webm">' +

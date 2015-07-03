@@ -1,7 +1,6 @@
 ;require(['anole', 'zepto'], function(anole, Scene){
     
 	var scene = new anole.Scene(17, anole.canvas, true);
-    scene.name = 'scene17.js';
 	scene.createDom = function() {
 		this.browser = this.container.find(".g-browser");
 		this.phone = $("<div></div>").addClass("phone").appendTo(this.container);

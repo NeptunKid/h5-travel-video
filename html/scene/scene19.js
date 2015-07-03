@@ -1,7 +1,6 @@
 ;require(['anole', 'zepto'], function(anole, Scene){
     
-	var scene = new anole.Scene(18, anole.canvas, false);
-    scene.name = 'scene18.js';
+	var scene = new anole.Scene(19, anole.canvas, false);
     scene.createHint = function(color,w,h,paths){
     	var p = "";
     	for (var i in paths){

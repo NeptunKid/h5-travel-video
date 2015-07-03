@@ -157,23 +157,27 @@
         res: ["browsertab","glogo","searchbar","progbar","nexus"]
       },
       {
-        fileName: 'scene18.js',
+        fileName:'scene18.js',
+        res: [""]
+      },
+      {
+        fileName: 'scene19.js',
         res: ["food1","food1_webm","food2","food2_webm","tag_blue","tag_yellow","tag_red"]
       },
       {
-        fileName:'scene19.js',
+        fileName:'scene20.js',
         res: ["chn_food","west_food"]
       },
       {
-        fileName:'scene20.js',
+        fileName:'scene21.js',
         res: ["lung_f","lung_m","lung_tab","plate"]
       },
       {
-        fileName: 'scene21.js',
+        fileName: 'scene22.js',
         res: ["toilet","toilet_webm"]
       },
       {
-        fileName: 'scene22.js',
+        fileName: 'scene23.js',
         res: ["gsvg", "googlelogo"]
       },
     ]

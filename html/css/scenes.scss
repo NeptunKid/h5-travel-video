@@ -5,8 +5,8 @@
 $canvas_w:1024px;
 $canvas_h:768px;
 
-$scene_w:768px;
-$scene_h:512px;
+$scene_w:1024px;
+$scene_h:576px;
 
 $man_h: 0.27*$scene_h;
 $man_w: 0.18*$scene_h;
@@ -1021,7 +1021,6 @@ $bag_h: 0.35*$scene_h;
 		position: relative;
 		width: 100%;
 		height: 100%;
-		background: #BBBBBB;
 	}
 	.canadian{
 		position: absolute;
@@ -1131,6 +1130,7 @@ $bag_h: 0.35*$scene_h;
 #scene14,#scene15,#scene16{
 	.map-ctn{
 		z-index: 1400;
+		//background: #d7ccc8;
 	}
 	.map-ctn svg{
 		position: absolute;
@@ -1142,9 +1142,6 @@ $bag_h: 0.35*$scene_h;
 		left: 0;
 		width: 100%;
 		height: 100%;
-	}
-	.map-ctn{
-		background: #d7ccc8;
 	}
 	.map img{
 		position: absolute;
@@ -1399,7 +1396,7 @@ $bag_h: 0.35*$scene_h;
 		opacity: 1;
 	}
 }
-#scene18{
+#scene19{
 	video{
 		width: 100%;
 		height: 100%;
@@ -1523,7 +1520,7 @@ $bag_h: 0.35*$scene_h;
 		height: 0.5*$scene_h;
 	}
 }
-#scene19,#scene20,#scene22{
+#scene20,#scene21,#scene22{
 //	background: #bbb;
 	.g-bg img {
 		border: 0;
@@ -1537,7 +1534,7 @@ $bag_h: 0.35*$scene_h;
 		height: auto;
    }
 }
-#scene19{
+#scene20{
 	z-index: 1900;
 	.west-food{
 		position: absolute;
@@ -1570,7 +1567,7 @@ $bag_h: 0.35*$scene_h;
 		@include transform(translate3d(-50%,-50%,0) rotate(5deg));
 	}
 }
-#scene20{
+#scene21{
 	.lung-tab{
 		margin: 10% auto auto auto;
 		width: 0.4*$scene_h;
@@ -1609,7 +1606,7 @@ $bag_h: 0.35*$scene_h;
 		@include transform(translate3d(0,-300%,0));
 	}
 }
-#scene22{
+#scene23{
 	.page{
 		position: absolute;
 		top: 50%;
