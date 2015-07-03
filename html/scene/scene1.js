@@ -32,7 +32,6 @@ console.log("scene1.js running");
 		this.places.removeAttr("style");
 		this.places.find(".boat").removeAttr("style");
 		this.places.find(".marco").removeAttr("style");
-		this.container.append("<img src='./resource/g.svg'></img>");
 	}
 	scene.animation = function() {
 		this.tl.to(this.places, 0.3, {top:"-100%", ease:Linear.easeNone,delay:4})

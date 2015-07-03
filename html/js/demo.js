@@ -1,7 +1,7 @@
 ;require(['anole'], function (anole){
   var sceneQueue;
   var baseUrl;
-  var resoureUrl;
+  var resourceUrl;
   
   var resource = {
 	  "bridge": "bridge.png",
@@ -177,9 +177,10 @@
         res: ["gsvg", "googlelogo"]
       },
     ]
-    baseUrl = 'http://gtravel.b0.upaiyun.com/scene/';
+    // baseUrl = 'http://gtravel.b0.upaiyun.com/scene/';
     baseUrl = '/scene/';
-    resoureUrl = "http://gtravel.b0.upaiyun.com/resource/";
+    // resourceUrl = "http://gtravel.b0.upaiyun.com/resource/";
+    resourceUrl = "/resource/";
   //}
   
   $(function (){
@@ -190,7 +191,7 @@
 	}
 	var config = {
       baseUrl:baseUrl,// root url 
-      resoureUrl: resoureUrl,// resoure url like jpg/mp3
+      resourceUrl: resourceUrl,// resource url like jpg/mp3
       resource: resource,//resource
       maxQueueLength: 3,//TODO load serval scenes at first
       sceneQueue: sceneQueue,//anime scene queue

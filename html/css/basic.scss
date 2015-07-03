@@ -61,7 +61,13 @@
 	background-image: repeating-linear-gradient($vars);
 } 
 
+$resource_url: '../resource/';
+$sound_url: '../resource/Sound/';
+$video_url: '../resource/video/';
 
+@function image($name) {
+	@return url(#{$resource_url}#{$name});
+}
 /* Common settings */
 $max_scene_num: 30;
 // Set initial style for each scene layer.

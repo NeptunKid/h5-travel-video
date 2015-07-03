@@ -2,12 +2,17 @@
 @media screen and (max-width: 1024px) {
 }
 
-$scene_w:1024px;
-$scene_h:768px;
+$canvas_w:1024px;
+$canvas_h:768px;
 
+$scene_w:768px;
+$scene_h:512px;
+
+$man_h: 0.27*$scene_h;
+$man_w: 0.18*$scene_h;
 @font-face {
 	font-family: Hiragino;
-	src: url('../resource/SansGBW3_min.ttf') format("truetype");
+	src: image('SansGBW3_min.ttf') format("truetype");
 }
 .opening {
   width:100%;
@@ -86,11 +91,12 @@ $scene_h:768px;
 .container{
 	position: absolute;
 	left: 50%;
-	width:$scene_w;
-	height:$scene_h;
+	width:$canvas_w;
+	height:$canvas_h;
 	margin: 0px;
 	overflow: hidden;
 	font-family: Georgia-Italic,Georgia,Hiragino,SimHei;
+	border: 1px dotted rgba(255,255,255,0.5);
 }
 .strips, body {
 	background-color: #D7CCC8;
@@ -114,7 +120,36 @@ audio{
 	width: $scene_w;
 	height: $scene_h;
 	overflow: hidden;
+	border: 1px dotted rgba(255,255,255,0.5);
 	// background: #8d6e63;
+}
+.scene:before {
+	position: absolute;
+	content:' ';
+	top: 0;
+	left:0;
+	right:0;
+	margin:auto;
+	width: 30%;
+	height: 5%;
+	// @include resource('ribbon_04.png');
+	background-image: image('ribbon_04.png');
+	background-size: 100% 100%;
+	z-index: 3500;
+}
+.scene:after {
+	position: absolute;
+	content:' ';
+	bottom: 0;
+	left:0;
+	right:0;
+	margin:auto;
+	width: 30%;
+	height: 5%;
+	//background-image: @include resource('ribbon_04.png');
+	background-image: image('ribbon_04.png');
+	background-size: 100% 100%;
+	z-index:3500;
 }
 .shade{
 	width: 100%;
@@ -123,97 +158,96 @@ audio{
 	opacity: 0;	
 }
 /* scene1 */
-.places{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: $scene_w;
-	height: 2*$scene_h;
-}
-.building-ctn{
-	position: relative;
-	height: $scene_h;
-}
-.bridge-ctn .down { 
-	background-color: #bdbdbd;
-}
-.gate-ctn .up{
-	background-color: #D7CCC8;
-}
-.gate-ctn .down{
-	background: #D7CCC8;
-}
-.up{
-	position: absolute;
-	background-color: #bdbdbd;
-	top:0;
-	height: 0.4*$scene_h;
-	width: $scene_w;
-}
-.down{
-	position: absolute;
-	bottom: 0;
-	height: 0.6*$scene_h;	
-	width: $scene_w;
-}
-.year{
-	position: absolute;
-	left: 0.06*$scene_h;
-	top: 0.06*$scene_h;
-	height: 0.12*$scene_h;
-}
-.building{
-	position: absolute;
-	bottom: 0px;
-	left: 50%;
-	width: 45%;
-	@include translate3d(-50%,0,0);
-}
-.building img{
-	max-width: 100%;
-}
-$man_h: 0.27*$scene_h;
-$man_w: 0.18*$scene_h;
-.marco{
-	width: $man_w;
-	height: $man_h;
-	background: url("../resource/marco1.png");
-	background-size: 100% 100%;
+#scene1, #scene2, #scene3, #scene4 { 
+	.places{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: $scene_w;
+		height: 2*$scene_h;
+     }
+	 .building-ctn{
+		 position: relative;
+		 height: $scene_h;
+     }
+	 .bridge-ctn .down { 
+//		 background-color: #bdbdbd;
+     }
+	 .gate-ctn .up{
+//		 background-color: #D7CCC8;
+     }
+	 .gate-ctn .down{
+//		 background: #D7CCC8;
+     }
+	 .up{
+		 position: absolute;
+//  	 background-color: #bdbdbd;
+		 top:0;
+		 height: 0.4*$scene_h;
+		 width: $scene_w;
+    }
+	.down{
+		position: absolute;
+		bottom: 0;
+		height: 0.6*$scene_h;	
+		width: $scene_w;
+     }
+	 .year{
+		 position: absolute;
+		 left: 0.06*$scene_h;
+		 top: 0.06*$scene_h;
+		 height: 0.12*$scene_h;
+      }
+	  .building{
+		  position: absolute;
+		  bottom: 0px;
+		  left: 50%;
+		  width: 45%;
+		  @include translate3d(-50%,0,0);
+      }
+	  .building img{
+		  max-width: 100%;
+      }
+	  .marco{
+		  width: $man_w;
+		  height: $man_h;
+		  background: image("marco1.png");
+		  background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
 .down .marco.shadow{
 	top: -5%;
 }
 .marco.shadow{
-	background: url("../resource/marco1_shadow.png");
+	background: image("marco1_shadow.png");
 	background-size: 100% 100%;	
 }
 .marco.tourist{
-	background: url("../resource/marco2.png");
+	background: image("marco2.png");
 	background-size: 100% 100%;
 }
 .marco.tourist.shadow{
-	background: url("../resource/marco2_shadow.png");
+	background: image("marco2_shadow.png");
 	background-size: 100% 100%;		
 }
 .boat{
 	position: absolute;
 	width: 2*$man_h;
 	height: $man_h;
-	background: url("../resource/boat.png");
+	background: image("boat.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	z-index: 121;
 }
 .boat.shadow{
-	background: url("../resource/boat_shadow.png");
+	background: image("boat_shadow.png");
 	background-size: 100% 100%;	
 }
 .oar{
 	width:60%;
 	height:90%;
 	margin:auto;
-	background: url("../resource/oar.png");
+	background: image("oar.png");
 	background-size: 100% 100%;
 }
 .marco.scene-top{
@@ -224,12 +258,11 @@ $man_w: 0.18*$scene_h;
 	top: -15%;
 }
 
-
 /**
  * scene2 
  */
 #scene2{
-	background: #795548;	
+//	background: #795548;	
 }
 .shade-scene2{
 	width: 100%;
@@ -242,7 +275,7 @@ $man_w: 0.18*$scene_h;
 	left: 37%;
 	width: $man_w*1.5;
 	height: $man_w*3/8;
-	background: url("../resource/ditch.png");
+	background: image("ditch.png");
 	background-size: 100% 100%;
 	opacity: 0;
 	z-index: 122;
@@ -273,7 +306,7 @@ $man_w: 0.18*$scene_h;
 }
 
 .greyman{
-	background: url("../resource/paperman.png");
+	background: image("paperman.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
@@ -359,7 +392,7 @@ $subdown_h:1.3*$scene_h;
 	left: 0;
 	width: $scene_w*0.5;
 	height: 1.2*$subdown_h;
-	background: url("../resource/subwayl.png");
+	background: image("subwayl.png");
 	background-size: 100% 110%;
 }
 .subway-right{
@@ -367,14 +400,14 @@ $subdown_h:1.3*$scene_h;
 	right: 0;
 	width: $scene_w*0.5;
 	height: 1.2*$subdown_h;
-	background: url("../resource/subwayr.png");
+	background: image("subwayr.png");
 	background-size: 100% 110%;
 }
 .subway-shadow{
 	width: $scene_w*0.548;
 	height: 1.2*1.1*9.48/9*$subdown_h;
 	margin: (1.32-1.2*1.1*9.48/9)/2*$subdown_h -0.024*$scene_w;
-	background:url("../resource/subway_shadow.png");
+	background:image("subway_shadow.png");
 	background-size: 100% 100%;
 	background-position: center;
 }
@@ -382,7 +415,7 @@ $subdown_h:1.3*$scene_h;
 	position: absolute;
 	width: $scene_w*0.5;
 	height: $subdown_h;
-	background: url("../resource/subway.png");
+	background: image("subway.png");
 	background-size: 100% 132%;
 }
 .subway-block.left{
@@ -390,6 +423,7 @@ $subdown_h:1.3*$scene_h;
 }
 .subway-block.right{
 	right: 0;
+}
 }
 
 #scene4,#scene5,#scene6 {
@@ -465,13 +499,13 @@ $br_padding_top :$scene_h*0.1;
 	left: 0;
 	width: 20*$br_padding_top/7;
 	height: 2*$br_padding_top;
-	background: url("../resource/youtubebar_l.png");
+	background: image("youtubebar_l.png");
 	background-size: 100% 100%;
 }
 .youtubebar_m{
 	margin: 0 20*$br_padding_top/7;
 	height: 2*$br_padding_top;
-	background: url("../resource/youtubebar_m.png");
+	background: image("youtubebar_m.png");
 	background-size: 100% 100%;
 }
 .youtubebar_r{
@@ -479,7 +513,7 @@ $br_padding_top :$scene_h*0.1;
 	right: 0;
 	width: 20*$br_padding_top/7;
 	height: 2*$br_padding_top;
-	background: url("../resource/youtubebar_r.png");
+	background: image("youtubebar_r.png");
 	background-size: 100% 100%;
 }
 .tag{
@@ -488,7 +522,7 @@ $br_padding_top :$scene_h*0.1;
 	left: 0.45*$scene_w;
 	height: 2.4*$br_padding_top;
 	width: 5.4*$br_padding_top;
-	background: url("../resource/tag.png");
+	background: image("tag.png");
 	background-size: 100% 100%;
 }
 .browser{
@@ -544,7 +578,7 @@ $br_padding_top :$scene_h*0.1;
 	width: 100%;
 	height: 0.3*$scene_h;
 
-	background: url("../resource/board_like.png");
+	background: image("board_like.png");
 	background-size: 100% 100%;
 }
 
@@ -555,7 +589,7 @@ $br_padding_top :$scene_h*0.1;
 	width: 0.16*$scene_h;
 	height: 0.16*$scene_h;
 	opacity: 0;
-	background: url("../resource/like.png");
+	background: image("like.png");
 	background-size: 100% 100%;
 }
 .like-text{
@@ -584,7 +618,7 @@ $br_padding_top :$scene_h*0.1;
 .comments{
 	width: $scene_w;
 	padding: 0.2*$scene_h 0;
-	background: url("../resource/comment_list.png");
+	background: image("comment_list.png");
 	background-size: 100% 100%;
 }
 .comment{
@@ -598,7 +632,7 @@ $br_padding_top :$scene_h*0.1;
 	width: 0.3*$scene_h;
 	height: 0.3*$scene_h;
 	margin: 0.05*$scene_h;
-	background: url("../resource/comment_head.png");
+	background: image("comment_head.png");
 	background-size: 100% 100%;
 }
 .comment-content{
@@ -609,7 +643,7 @@ $br_padding_top :$scene_h*0.1;
 	margin: 0.03*$scene_h 0.03*$scene_h 0.03*$scene_h 0.35*$scene_h;
 	padding: 0.07*$scene_h;
 	border-radius: 0.03*$scene_h;
-	background: url("../resource/comment_bubble.png");
+	background: image("comment_bubble.png");
 	background-size: 100% 100%;
 }
 .comment .dash{
@@ -628,7 +662,7 @@ $br_padding_top :$scene_h*0.1;
 	position: absolute;
 	width: 0.6*$scene_h;
 	height: 0.45*$scene_h;
-	background: url("../resource/board_video.png");
+	background: image("board_video.png");
 	background-size: 100% 100%;
 	@include transform(rotate(-20deg));
 }
@@ -645,15 +679,15 @@ $br_padding_top :$scene_h*0.1;
 	margin: auto;
 }
 .video .v0{
-	background: url('../resource/v0.png');
+	background: image('v0.png');
 	background-size: 100% 100%;
 }
 .video .v1{
-	background: url('../resource/v1.png');
+	background: image('v1.png');
 	background-size: 100% 100%; 
 }
 .video .v2{
-	background: url('../resource/v2.png');
+	background: image('v2.png');
 	background-size: 100% 100%;
 }
 
@@ -682,25 +716,25 @@ $br_padding_top :$scene_h*0.1;
 	opacity: 0;
 }
 .page0{
-	background: url("../resource/s6_google.png");
+	background: image("s6_google.png");
 	background-size: 100% 100%;
 }
 .page1{
-	background: url("../resource/s6_wheretogo.png");
+	background: image("s6_wheretogo.png");
 	background-size: 100% 100%;
 }
 .page2{
-	background: url("../resource/s6_booking.png");
+	background: image("s6_booking.png");
 	background-size: 100% 100%;
 }
 .page3{
-	background: url("../resource/s6_findres.png");
+	background: image("s6_findres.png");
 	background-size: 100% 100%;
 }
 .page4{
 	width: 0.9*$scene_h;
 	height: 0.6*$scene_h;
-	background: url("../resource/s6_air.png");
+	background: image("s6_air.png");
 	background-size: 100% 100%;
 }
 
@@ -724,7 +758,7 @@ $br_padding_top :$scene_h*0.1;
 		overflow: visible;
     }
    .profile-photo {
-		background: url("../resource/profile.png");
+		background: image("profile.png");
 		background-size: 100% 100%;
     }
 	.worry-bubble {
@@ -734,16 +768,16 @@ $br_padding_top :$scene_h*0.1;
 		background-size: 100% 100%;
     }
 	.worry1 {
-		background-image: url("../resource/worry1.png");
+		background-image: image("worry1.png");
     }
 	.worry2 {
-		background-image: url("../resource/worry2.png");
+		background-image: image("worry2.png");
     }
 	.worry3 {
-		background-image: url("../resource/worry3.png");
+		background-image: image("worry3.png");
     }
     .worry4 {
-		 background-image: url("../resource/worry4.png");
+		 background-image: image("worry4.png");
     }
 	.comment-ctn {
      overflow: visible;
@@ -765,11 +799,11 @@ $br_padding_top :$scene_h*0.1;
         position: absolute;
 		width: 0.4*$scene_h;
 		height: 0.4*$scene_h;
-		background-image: url("../resource/bubble_disappear.png");
+		background-image: image("bubble_disappear.png");
 		background-size: 100% 100%;
      }
 	.marco-shadow {
-		background: url("../resource/marco2_shadow.png");
+		background: image("marco2_shadow.png");
 		background-size: 100% 100%;
 		background-size: 1.5*$man_w 1.5*$man_h;
 		width: 1.5*$man_w;
@@ -781,7 +815,7 @@ $br_padding_top :$scene_h*0.1;
 		@include rounded(50%);
      }
 	.marco-nomouth {
-		background: url("../resource/marco_nomouth.png") no-repeat;
+		background: image("marco_nomouth.png") no-repeat;
 		position: absolute;
 		background-size: 1.5*$man_w 1.5*$man_h;
 		background-position: 0 0;
@@ -796,7 +830,7 @@ $br_padding_top :$scene_h*0.1;
 		margin: 0.56*$man_h auto;
      }
 	 .chinese {
-		background: url("../resource/chinese.png");
+		background: image("chinese.png");
 		background-size: 100% 100%;
 		position:absolute;
 		width: 1.5*$man_w;
@@ -805,7 +839,7 @@ $br_padding_top :$scene_h*0.1;
 		z-index: 100;
      }
 	 .chinese-smile {
-		background-image: url("../resource/chinese_smile.png");
+		background-image: image("chinese_smile.png");
      }
 	 .chinese:nth-child(1) {
 		right: 58px;
@@ -854,7 +888,7 @@ $br_padding_top :$scene_h*0.1;
 		z-index: 600;
     }
 	.money {
-		background: url("../resource/dollar.png") no-repeat;
+		background: image("dollar.png") no-repeat;
 		position: absolute;
 		background-size: 520px 220px;
 		background-position: 38% 50%;
@@ -870,7 +904,7 @@ $br_padding_top :$scene_h*0.1;
 		z-index: 600;
     }
 	.flat-money {
-       background: url("../resource/dollar_top.png") no-repeat;
+       background: image("dollar_top.png") no-repeat;
 	   background-size: 338px 123px;
 	   background-position: 50%;
 	   opacity:1;
@@ -878,7 +912,7 @@ $br_padding_top :$scene_h*0.1;
        height: $scene_h;
    }
    .bottom {
-		background: url("../resource/dollar_bottom.png") no-repeat;
+		background: image("dollar_bottom.png") no-repeat;
 		position: absolute;
 		background-size: 520px 220px;
 		background-position: 38% 50%;
@@ -898,7 +932,7 @@ $br_padding_top :$scene_h*0.1;
 	//	background: none;
     //}
 	//.comments:after {
-	//	background: url("../resource/comment_list.png");
+	//	background: image("comment_list.png");
 	//	background-size: 100% 100%;
 	//	position: absolute;
 	//	top: -10px;
@@ -913,7 +947,7 @@ $bag_w: 0.34*$scene_h;
 $bag_h: 0.35*$scene_h;
 
 #scene10 {
-	background: rgba(140,110,99,0.8);
+//	background: rgba(140,110,99,0.8);
 	.left-ctn {
 		position: absolute;
 		width: 1.2*$bag_w;
@@ -932,7 +966,7 @@ $bag_h: 0.35*$scene_h;
     }
 	.bag {
 		position: absolute;
-		background: url("../resource/shoppingbag.png");
+		background: image("shoppingbag.png");
 		width: $bag_w;
 		height: $bag_h;
 		left: 0;
@@ -961,7 +995,7 @@ $bag_h: 0.35*$scene_h;
 		top: 0.2*$scene_w;
 		width: 0.36*$scene_h;
 		height: 0.54*$scene_h;
-		background: url("../resource/happy.png");
+		background: image("happy.png");
 		background-size: 100% 100%;
     }
 	.banner {
@@ -994,27 +1028,27 @@ $bag_h: 0.35*$scene_h;
 		top: 0.2*$scene_h;
 		width: 0.36*$scene_h;
 		height: 0.54*$scene_h;
-		background: url("../resource/canadian0.png");
+		background: image("canadian0.png");
 		background-size: 100% 100%;
 	}
 	.canadian.umbrella{
-		background: url("../resource/canadian1.png");
+		background: image("canadian1.png");
 		background-size: 100% 100%;		
 	}
 	.canadian.lovechina{
-		background: url("../resource/canadian2.png");
+		background: image("canadian2.png");
 		background-size: 100% 100%;		
 	}
 	.canadian.k0{
-		background: url("../resource/KoreanG.png");
+		background: image("KoreanG.png");
 		background-size: 100% 100%;
 	}
 	.canadian.k1{
-		background: url("../resource/KoreanB.png");
+		background: image("KoreanB.png");
 		background-size: 100% 100%;
 	}
 	.canadian.k2{
-		background: url("../resource/KoreanR.png");
+		background: image("KoreanR.png");
 		background-size: 100% 100%;
 	}
 	.question{
@@ -1217,7 +1251,7 @@ $bag_h: 0.35*$scene_h;
 	}
 }
 #scene16,#scene17{
-	background: #D7CCC8;
+//	background: #D7CCC8;
 	.point{
 		overflow: visible;
 	}
@@ -1234,27 +1268,27 @@ $bag_h: 0.35*$scene_h;
 		opacity: 0;
 	}
 	.wifi.w0{
-		background: url("../resource/wifi1_light.png");
+		background: image("wifi1_light.png");
 		background-size: 100% 100%;
 	}
 	.wifi.w1{
-		background: url("../resource/wifi2_light.png");
+		background: image("wifi2_light.png");
 		background-size: 100% 100%;
 	}
 	.wifi.w2{
-		background: url("../resource/wifi3_light.png");
+		background: image("wifi3_light.png");
 		background-size: 100% 100%;
 	}
 	.wifi.w3{
-		background: url("../resource/wifi1_dark.png");
+		background: image("wifi1_dark.png");
 		background-size: 100% 100%;
 	}
 	.wifi.w4{
-		background: url("../resource/wifi2_dark.png");
+		background: image("wifi2_dark.png");
 		background-size: 100% 100%;
 	}
 	.wifi.w5{
-		background: url("../resource/wifi3_dark.png");
+		background: image("wifi3_dark.png");
 		background-size: 100% 100%;
 	}
 	.count.delta{
@@ -1269,7 +1303,7 @@ $bag_h: 0.35*$scene_h;
 		height: 81.68%;
 		left: 15%;
 		top: 8%;
-		background: url("../resource/browstab.png");
+		background: image("browstab.png");
 		background-size: 100% 100%;
 		opacity: 0;
 	}
@@ -1279,7 +1313,7 @@ $bag_h: 0.35*$scene_h;
 		height: 35.16%;
 		left: 21%;
 		top: 30%;
-		background: url("../resource/googlelogowithshadow.png");
+		background: image("googlelogowithshadow.png");
 		background-size: 100% 100%;
 	}
 	.searchbar{
@@ -1288,7 +1322,7 @@ $bag_h: 0.35*$scene_h;
 		top: 70%;
 		width: 80.77%;
 		height: 16.85%;
-		background: url("../resource/searchbarwithshadow.png");
+		background: image("searchbarwithshadow.png");
 		background-size: 100% 100%;
 	}
 	.progress{
@@ -1297,7 +1331,7 @@ $bag_h: 0.35*$scene_h;
 		left: 2.7%;
 		width: 43%;
 		height: 60%;
-		background: url("../resource/progressbar.png");
+		background: image("progressbar.png");
 		background-size: auto 100%;
 	}
 	.searchbar .count.delta{
@@ -1315,7 +1349,7 @@ $bag_h: 0.35*$scene_h;
 		width: 23.9%;
 		height: 81.7%;
 		margin: auto;
-		background: url("../resource/nexuswithshadow.png");
+		background: image("nexuswithshadow.png");
 		background-size: 100% 100%;
 		opacity: 0;
 	}
@@ -1398,7 +1432,7 @@ $bag_h: 0.35*$scene_h;
 	.tag-s18.blue{
 		top: 100%;
 		left: 15%;
-		background: url("../resource/tag_blue.png");
+		background: image("tag_blue.png");
 		background-size: 100% 100%;
 		padding-top: $tag_padding;
 	}
@@ -1406,7 +1440,7 @@ $bag_h: 0.35*$scene_h;
 		top: 62%;
 		left: 69%;
 		padding: 10px 10px 10px 10px;
-		background: url("../resource/tag_red.png");
+		background: image("tag_red.png");
 		background-size: 100% 100%;
 		padding-top: $tag_padding;
 	}
@@ -1416,7 +1450,7 @@ $bag_h: 0.35*$scene_h;
 		width: 0.3*$scene_h;
 		height: 0.25*$scene_h;
 		padding: 10px 10px 10px 10px;
-		background: url("../resource/tag_yellow.png");
+		background: image("tag_yellow.png");
 		background-size: 100% 100%;
 		padding-left: $tag_padding;
 	}
@@ -1490,7 +1524,7 @@ $bag_h: 0.35*$scene_h;
 	}
 }
 #scene19,#scene20,#scene22{
-	background: #bbb;
+//	background: #bbb;
 	.g-bg img {
 		border: 0;
 		margin: auto;
@@ -1511,7 +1545,7 @@ $bag_h: 0.35*$scene_h;
 		left: 50%;
 		width: 0.4*$scene_w;
 		height: 0.4*$scene_w;
-		background: url("../resource/west_food.png");
+		background: image("west_food.png");
 		background-size: 100% 100%;
 		@include transform(translate3d(-50%,-50%,0));
 	}
@@ -1521,7 +1555,7 @@ $bag_h: 0.35*$scene_h;
 		left: 50%;
 		width: 0.64*$scene_w;
 		height: 0.36*$scene_w;
-		background: url("../resource/chn_food.png");
+		background: image("chn_food.png");
 		background-size: 100% 100%;
 		overflow: visible;
 		@include transform(translate3d(150%,-50%,0));
@@ -1542,7 +1576,7 @@ $bag_h: 0.35*$scene_h;
 		width: 0.4*$scene_h;
 		height: 0.2*$scene_h;
 		overflow: visible;
-		background: url("../resource/lung_tab.png");
+		background: image("lung_tab.png");
 		background-size: 100% 100%;
 		opacity: 0;
 		@include transform(translate3d(0,-200%,0));
@@ -1552,7 +1586,7 @@ $bag_h: 0.35*$scene_h;
 		width: 170%;
 		height: 340%;
 		margin: 15% -35% auto -35%;
-		background: url("../resource/plate.png");
+		background: image("plate.png");
 		background-size: 100% 100%;
 	}
 	.lung-f{
@@ -1560,7 +1594,7 @@ $bag_h: 0.35*$scene_h;
 		top: 30%;
 		width: 50%;
 		height: 50%;
-		background: url("../resource/lung_f.png");
+		background: image("lung_f.png");
 		background-size: 100% 100%;
 		@include transform(translate3d(0,-300%,0));
 	}
@@ -1570,7 +1604,7 @@ $bag_h: 0.35*$scene_h;
 		right: 7%;
 		width: 50%;
 		height: 50%;
-		background: url("../resource/lung_m.png");
+		background: image("lung_m.png");
 		background-size: 100% 100%;
 		@include transform(translate3d(0,-300%,0));
 	}
@@ -1611,77 +1645,77 @@ $bag_h: 0.35*$scene_h;
 		top: 100%;
 		width: 100%;
 		height: 100%;
-		background: url("../resource/marco2.png");
+		background: image("marco2.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p1{
-		background: url("../resource/marco1.png");
+		background: image("marco1.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p2{
-		background: url("../resource/chinese.png");
+		background: image("chinese.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p3{
-		background: url("../resource/canadian2.png");
+		background: image("canadian2.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p4{
-		background: url("../resource/KoreanB.png");
+		background: image("KoreanB.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p9{
-		background: url("../resource/paperman.png");
+		background: image("paperman.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p8{
-		background: url("../resource/marco1.png");
+		background: image("marco1.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p7{
-		background: url("../resource/marco2.png");
+		background: image("marco2.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p6{
-		background: url("../resource/canadian1.png");
+		background: image("canadian1.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p5{
-		background: url("../resource/KoreanG.png");
+		background: image("KoreanG.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p10{
-		background: url("../resource/marco2.png");
+		background: image("marco2.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p11{
-		background: url("../resource/marco1.png");
+		background: image("marco1.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p12{
-		background: url("../resource/chinese_smile.png");
+		background: image("chinese_smile.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p13{
-		background: url("../resource/canadian2.png");
+		background: image("canadian2.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}
 	.p14{
-		background: url("../resource/KoreanR.png");
+		background: image("KoreanR.png");
 		background-size: 120% 180%;
 		background-position: center 0%;
 	}

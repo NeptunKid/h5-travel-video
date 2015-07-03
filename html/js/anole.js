@@ -274,7 +274,7 @@
           callback && callback();
           return;
         }
-          var src = this._config.resoureUrl + this._config.resource[res];
+          var src = this._config.resourceUrl + this._config.resource[res];
           var error = function (){
           this.showError("Error loading "+src);
           callback && callback(); // Load the next, WHATAVER!
