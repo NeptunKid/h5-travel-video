@@ -235,6 +235,7 @@
 	anole.config(config);
     anole.start();
     var window_w = document.body.clientWidth;
+    var window_h = document.body.clientHeight;
 	var canvas = anole.canvas;
     var scene_w = canvas.width();
     var scene_h = canvas.height();
@@ -242,7 +243,19 @@
 	var opening = $('.opening');
 	loading.appendTo(canvas);
 	opening.appendTo(canvas);
-    var scale = window_w / scene_w + "";
+    var canvas_w;
+	var canvas_h;
+	var ratio = 0.75;
+	var scale = 1;
+	if (window_h / window_w < ratio) {
+	   canvas_h = window_h;
+	   canvas_w = ratio * window_h;
+	   scale = window_h / scene_h + "";
+	} else {
+		canvas_w = window_w;
+		canvas_h = window_w / ratio;
+		scale = window_w / scene_w + "";
+	}
     function getSupportedPropertyName() {
       var properties = ["transform", "msTransform", "webkitTransform", "mozTransform", "oTransform"];
       for (var i = 0; i < properties.length; i++) {
@@ -254,5 +267,6 @@
     }
     var transformProperty = getSupportedPropertyName();
     canvas.css(transformProperty,"translate3d(-50%,"+((scale-1)*scene_h/2)+"px,0) scale("+scale+","+scale+")");
+    // canvas.css(transformProperty,"translate3d(-50%,"+((scale-1)*scene_h/2)+"px,0)");
   })
 });

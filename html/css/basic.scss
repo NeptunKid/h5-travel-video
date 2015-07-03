@@ -55,6 +55,12 @@
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
 }
 
+@mixin repeating-linear-gradient($vars) {
+	background-image: -webkit-repeating-linear-gradient($vars);
+	background-image: -moz-repeating-linear-gradient($vars);
+	background-image: repeating-linear-gradient($vars);
+} 
+
 
 /* Common settings */
 $max_scene_num: 30;
