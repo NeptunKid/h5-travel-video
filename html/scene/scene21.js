@@ -1,21 +1,21 @@
-;require(['anole', 'zepto'], function(anole, Scene){
+;require(['anole', 'zepto','TweenLite','TimelineLite'], function(anole, Scene){
     
-	var scene = new anole.Scene(21, anole.canvas, false);
-    scene.name = 'scene21.js';
+	var scene = new anole.Scene(20, anole.canvas, false);
+    scene.name = 'scene20.js';
 	scene.createDom = function() {
-		this.video = $('<video>' +
-					   '<source src="resource/toilet.webm" type="video/webm">' +
-		               '<source src="resource/toilet.mp4" type="video/mp4">' +
-					   'Your browser does not support the video tag.</video>')
-		              .appendTo(this.container);
+		this.container = $("<div id='scene20' class='scene'></div>")
+		this.tab = $("<div></div>").addClass("lung-tab").appendTo(this.container);
+		this.plate = $("<div></div>").addClass("lung-plate").appendTo(this.tab);
+		this.lungm = $("<div></div>").addClass("lung-m").appendTo(this.plate);
+		this.lungf = $("<div></div>").addClass("lung-f").appendTo(this.plate);
 		return this.container;
 	}
 	
 	scene.animation = function() {
-		this.tl.call(function(){ anole.playMedia(this.video[0]);}.bind(this));
-	}
-	scene.cleanup = function() {
-		this.video[0].pause();
+		var dt = 0.6;
+		this.tl.to(this.tab,dt,{y:"0%",opacity:1})
+				.to(this.lungm,dt/2,{y:"0%", ease: Elastic.easeInOut})
+				.to(this.lungf,dt/2,{y:"0%", ease: Elastic.easeInOut,delay:dt})
 	}
 	anole.addScene(scene);
 })
